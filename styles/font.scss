@@ -1,0 +1,9 @@
+@font-face {
+  src: url("../public/static/font/NicoMoji-Regular.ttf");
+  font-family: "nico-moji-regular";
+}
+
+@mixin nico-moji {
+  font-family: "nico-moji-regular", sans-serif;
+  font-style: normal;
+}

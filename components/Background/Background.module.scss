@@ -1,0 +1,58 @@
+@use "./styles/font";
+@use "./styles/color";
+@use "./styles/position";
+
+.container {
+  @include position.flex-center();
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100vw;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.cover {
+  @include font.nico-moji();
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  color: color.$cover-background-font;
+
+  /* 배경글씨 */
+  font-weight: 400;
+  font-size: 400px;
+  line-height: 62%;
+
+  text-align: center;
+  letter-spacing: 0.1em;
+
+  .fromLeft {
+    animation: 1.5s ease fromLeft;
+  }
+  .fromRight {
+    animation: 1.5s ease fromRight;
+  }
+}
+
+@keyframes fromLeft {
+  0% {
+    transform: translateX(-40%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes fromRight {
+  0% {
+    transform: translateX(40%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

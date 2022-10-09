@@ -15,8 +15,11 @@ a {
   box-sizing: border-box;
 }
 
-ul, ol{
+ul,
+ol {
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -27,4 +30,12 @@ ul, ol{
     color: white;
     background: black;
   }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
 }
