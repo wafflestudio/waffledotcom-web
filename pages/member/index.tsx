@@ -1,11 +1,7 @@
-import {NextPage} from "next";
+import { NextPage } from "next";
 
 const Member: NextPage = () => {
-    return (
-        <div className="">
-            Member
-        </div>
-    )
-}
+  return <div className="">Member</div>;
+};
 
-export default Member
+export default Member;
