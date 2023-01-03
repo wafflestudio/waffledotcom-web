@@ -1,0 +1,51 @@
+@use "./styles/font";
+@use "./styles/color";
+@use "./styles/position";
+
+.container {
+  @include position.flex-center();
+  background-color: #9D8476;
+  top: 0;
+  left: 0;
+  min-width: 100vw;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.header {
+  @include position.flex-center("row");
+  align-items: end;
+  color: #342D29;
+  width: 100%;
+  p {
+    // 선을 작은 텍스트 중앙에 정렬하기 위해 line-height: 1em 으로 조정
+    line-height: 1em;
+    // 텍스트를 1줄로 표현하기 위해
+    min-width: max-content;
+    flex: none;
+    margin: 2em 1em;
+  }
+  strong {
+    font-size: 2em;
+    margin-left: 0.3em;
+    margin-right: 0.1em;
+  }
+  hr {
+    display: block;
+    height: 0%;
+    flex-grow: 1;
+    border: 0;
+    border-top: 1px solid;
+    // 선을 작은 텍스트 중앙에 정렬하기 위해 <p> margin + 0.5em 으로 설정
+    margin: 2.5em 0;
+    padding: 0;
+  }
+}
+
+.board {
+  background-color: #FFFCF3;
+  border: 3px solid #644F4F;
+  min-width: 80vw;
+  min-height: 50vh;
+  overflow: hidden;
+}

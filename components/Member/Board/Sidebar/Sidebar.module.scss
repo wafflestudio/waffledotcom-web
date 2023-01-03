@@ -1,0 +1,55 @@
+@use "./styles/font";
+@use "./styles/color";
+@use "./styles/position";
+
+.container {
+  @include position.flex-center();
+  align-items: start;
+  justify-content: start;
+  background-color: #644F4F;
+  height: 80vh;
+  min-width: 300px;
+  width: 20vw;
+  color: #FFF1CF;
+  padding: 20px;
+  >div {
+    padding: 0.5em;
+  }
+  h2 {
+    font-size: 1em;
+    font-weight: bold;
+    margin-bottom: 1em;
+  }
+}
+
+.hr {
+  border: solid 1px #FFF1CF;
+  width: 100%;
+}
+
+.filter {
+  @include position.flex-center("row");
+  justify-content: start;
+  align-items: start;
+  margin-bottom: 1em;
+}
+
+.filterName {
+  margin-right: 1em;
+  flex: none;
+}
+
+.role {
+  @include position.flex-center("row");
+  justify-content: start;
+  flex-wrap: wrap-reverse;
+  flex-grow: 1;
+  div {
+    flex: 1 0 44%;
+  }
+}
+
+.status {
+  @include position.flex-center();
+  align-items: start;
+}
