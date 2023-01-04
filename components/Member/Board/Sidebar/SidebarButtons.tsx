@@ -63,7 +63,7 @@ export const Switch = ({ label1, label2, checked, setter }: switchProps) => {
   };
 
   return (
-    <div className={styles.switch} onClick={checkHandler}>
+    <div className={styles.toggle} onClick={checkHandler}>
       <input type={"checkbox"} checked={checked} />
       <div className={styles.label1Container}>
         <span className={styles.label1}>{label1}</span>
@@ -71,6 +71,20 @@ export const Switch = ({ label1, label2, checked, setter }: switchProps) => {
       <div className={styles.label2Container}>
         <span className={styles.label2}>{label2}</span>
       </div>
+    </div>
+  );
+};
+
+type dropdownProps = {
+  arr: any[];
+  current: any;
+  setCurrent: (arg: any) => void;
+};
+
+export const Dropdown = ({ arr, current, setCurrent }: dropdownProps) => {
+  return (
+    <div>
+      <div></div>
     </div>
   );
 };

@@ -9,13 +9,16 @@
   justify-content: start;
   background-color: #644F4F;
   height: 80vh;
-  min-width: 300px;
-  width: 20vw;
+  width: 26rem;
   color: #FFF1CF;
-  padding: 20px;
+  padding: 2em;
+  //font-weight: 400;
   >div {
-    padding: 0.5em;
+    padding: 0.4em;
     width: 100%;
+  }
+  h1 {
+    font-size: 2.5rem;
   }
   h2 {
     font-size: 1em;
@@ -25,7 +28,8 @@
 }
 
 .hr {
-  border: solid 1px #FFF1CF;
+  border: 0;
+  border-top: solid 3px #FFF1CF;
   width: 100%;
 }
 
@@ -49,8 +53,9 @@
   justify-content: start;
   flex-wrap: wrap-reverse;
   flex-grow: 1;
-  div {
-    flex: 1 0 44%;
+
+  >div:nth-child(even) {
+    padding-left: 0.6em;
   }
 }
 
