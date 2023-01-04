@@ -15,6 +15,7 @@
   padding: 20px;
   >div {
     padding: 0.5em;
+    width: 100%;
   }
   h2 {
     font-size: 1em;
@@ -61,4 +62,14 @@
 }
 
 .align {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  width: 100%;
+  padding-bottom: 0.5em;
+}
+
+.alignName {
+  margin-right: auto;
 }

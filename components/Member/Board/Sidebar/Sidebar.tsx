@@ -4,7 +4,7 @@ import { useState } from "react";
 
 const Sidebar = () => {
   const [roles, setRoles] = useState<Set<string>>(new Set());
-  const [status, setStatus] = useState<string>("active");
+  const [isActive, setIsActive] = useState<boolean>(true);
   const [alignGiveHeyWaffle, setAlignGiveHeyWaffle] = useState<boolean>(true);
   const [generationAscending, setGenerationAscending] = useState<boolean>(true);
 
@@ -58,16 +58,16 @@ const Sidebar = () => {
           <div className={styles.filterName}>활동</div>
           <div className={styles.status}>
             <Radio
-              value={"active"}
+              value={true}
               label={"활동회원"}
-              current={status}
-              setCurrent={setStatus}
+              current={isActive}
+              setCurrent={setIsActive}
             />
             <Radio
-              value={"inactive"}
+              value={false}
               label={"비활동회원"}
-              current={status}
-              setCurrent={setStatus}
+              current={isActive}
+              setCurrent={setIsActive}
             />
           </div>
         </div>
