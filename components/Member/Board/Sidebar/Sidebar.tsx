@@ -75,8 +75,8 @@ const Sidebar = () => {
       <hr className={styles.hr}></hr>
       <div>
         <h2>정렬</h2>
-        <div className={styles.filter}>
-          <div className={styles.filterName}>heywaffle</div>
+        <div className={styles.align}>
+          <div className={styles.alignName}>heywaffle</div>
           <Switch
             label1={"to"}
             label2={"from"}
@@ -84,8 +84,8 @@ const Sidebar = () => {
             setter={setAlignGiveHeyWaffle}
           />
         </div>
-        <div className={styles.filter}>
-          <div className={styles.filterName}>기수</div>
+        <div className={styles.align}>
+          <div className={styles.alignName}>기수</div>
           <Switch
             label1={"오름차순"}
             label2={"내림차순"}

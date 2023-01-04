@@ -3,7 +3,8 @@
 @use "./styles/position";
 
 .container {
-  @include position.flex-center();
+  display: flex;
+  flex-direction: column;
   align-items: start;
   justify-content: start;
   background-color: #644F4F;
@@ -28,9 +29,10 @@
 }
 
 .filter {
-  @include position.flex-center("row");
-  justify-content: start;
+  display: flex;
+  flex-direction: row;
   align-items: start;
+  justify-content: start;
   margin-bottom: 1em;
 }
 
@@ -40,7 +42,9 @@
 }
 
 .role {
-  @include position.flex-center("row");
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   justify-content: start;
   flex-wrap: wrap-reverse;
   flex-grow: 1;
@@ -50,6 +54,11 @@
 }
 
 .status {
-  @include position.flex-center();
+  display: flex;
+  flex-direction: column;
   align-items: start;
+  justify-content: center;
+}
+
+.align {
 }
