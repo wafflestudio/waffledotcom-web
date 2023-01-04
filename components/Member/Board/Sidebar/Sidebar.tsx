@@ -1,16 +1,12 @@
 import styles from "./Sidebar.module.scss";
-import { Radio, Switch } from "./Button";
+import { Checkbox, Radio, Switch } from "./SidebarButtons";
 import { useState } from "react";
 
 const Sidebar = () => {
-  const [role, setRole] = useState<string>("designer");
+  const [roles, setRoles] = useState<Set<string>>(new Set());
   const [status, setStatus] = useState<string>("active");
-  // const initialRole = useRef<HTMLInputElement>(null);
-  // const initialState = useRef<HTMLInputElement>(null);
-  // initialRole?.current?.focus();
-  // initialState?.current?.focus();
-  // console.log(initialState);
-  // console.log(initialRole);
+  const [alignGiveHeyWaffle, setAlignGiveHeyWaffle] = useState<boolean>(true);
+  const [generationAscending, setGenerationAscending] = useState<boolean>(true);
 
   return (
     <div className={styles.container}>
@@ -23,35 +19,35 @@ const Sidebar = () => {
         <div className={styles.filter}>
           <div className={styles.filterName}>역할</div>
           <div className={styles.role}>
-            <Radio
+            <Checkbox
               value={"frontend"}
               label={"프론트엔드"}
-              current={role}
-              setter={setRole}
+              set={roles}
+              setSet={setRoles}
             />
-            <Radio
+            <Checkbox
               value={"backend"}
               label={"백엔드"}
-              current={role}
-              setter={setRole}
+              set={roles}
+              setSet={setRoles}
             />
-            <Radio
+            <Checkbox
               value={"android"}
               label={"안드로이드"}
-              current={role}
-              setter={setRole}
+              set={roles}
+              setSet={setRoles}
             />
-            <Radio
+            <Checkbox
               value={"ios"}
               label={"iOS"}
-              current={role}
-              setter={setRole}
+              set={roles}
+              setSet={setRoles}
             />
-            <Radio
+            <Checkbox
               value={"designer"}
               label={"디자이너"}
-              current={role}
-              setter={setRole}
+              set={roles}
+              setSet={setRoles}
             />
           </div>
         </div>
@@ -65,13 +61,13 @@ const Sidebar = () => {
               value={"active"}
               label={"활동회원"}
               current={status}
-              setter={setStatus}
+              setCurrent={setStatus}
             />
             <Radio
               value={"inactive"}
               label={"비활동회원"}
               current={status}
-              setter={setStatus}
+              setCurrent={setStatus}
             />
           </div>
         </div>
@@ -79,6 +75,24 @@ const Sidebar = () => {
       <hr className={styles.hr}></hr>
       <div>
         <h2>정렬</h2>
+        <div className={styles.filter}>
+          <div className={styles.filterName}>heywaffle</div>
+          <Switch
+            label1={"to"}
+            label2={"from"}
+            checked={alignGiveHeyWaffle}
+            setter={setAlignGiveHeyWaffle}
+          />
+        </div>
+        <div className={styles.filter}>
+          <div className={styles.filterName}>기수</div>
+          <Switch
+            label1={"오름차순"}
+            label2={"내림차순"}
+            checked={generationAscending}
+            setter={setGenerationAscending}
+          />
+        </div>
       </div>
     </div>
   );
