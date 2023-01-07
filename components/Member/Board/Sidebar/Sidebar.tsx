@@ -1,5 +1,5 @@
 import styles from "./Sidebar.module.scss";
-import { Checkbox, Radio, Switch } from "./SidebarButtons";
+import { Checkbox, Radio, Toggle } from "./SidebarButtons";
 import { useState } from "react";
 
 const Sidebar = () => {
@@ -77,7 +77,7 @@ const Sidebar = () => {
         <h2>정렬</h2>
         <div className={styles.align}>
           <div className={styles.alignName}>heywaffle</div>
-          <Switch
+          <Toggle
             label1={"to"}
             label2={"from"}
             checked={alignGiveHeyWaffle}
@@ -86,7 +86,7 @@ const Sidebar = () => {
         </div>
         <div className={styles.align}>
           <div className={styles.alignName}>기수</div>
-          <Switch
+          <Toggle
             label1={"오름차순"}
             label2={"내림차순"}
             checked={generationAscending}

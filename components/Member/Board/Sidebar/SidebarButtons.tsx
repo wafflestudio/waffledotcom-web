@@ -1,5 +1,5 @@
 import styles from "./SidebarButtons.module.scss";
-import { Dispatch, SetStateAction, useState } from "react";
+import { useState } from "react";
 
 type radioProps = {
   value: any;
@@ -9,7 +9,6 @@ type radioProps = {
 };
 
 export const Radio = ({ value, label, current, setCurrent }: radioProps) => {
-  const [checked, setChecked] = useState<boolean>(false);
   const checkHandler = () => {
     setCurrent(value);
   };
@@ -54,10 +53,10 @@ type switchProps = {
   label1: string;
   label2: string;
   checked: boolean;
-  setter: Dispatch<SetStateAction<boolean>>;
+  setter: (arg: boolean) => void;
 };
 
-export const Switch = ({ label1, label2, checked, setter }: switchProps) => {
+export const Toggle = ({ label1, label2, checked, setter }: switchProps) => {
   const checkHandler = () => {
     setter(!checked);
   };

@@ -3,10 +3,7 @@
 @use "./styles/position";
 
 .container {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  justify-content: start;
+  display: inline-block;
   background-color: #644F4F;
   height: 80vh;
   width: 26rem;
