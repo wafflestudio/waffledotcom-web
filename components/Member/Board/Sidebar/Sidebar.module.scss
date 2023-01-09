@@ -2,25 +2,43 @@
 @use "./styles/color";
 @use "./styles/position";
 
+// 태블릿 사이즈
+@media all and (max-width: 1561px) {
+  .container {
+    width: 305px;
+    padding: 35px;
+  }
+}
+
+// 데스크탑 사이즈
+@media all and (min-width: 1561px) {
+  .container {
+    width: 415px;
+    padding: 40px;
+    //padding: 47px 36px 47px 47px;
+  }
+
+  .role>div:nth-child(even) {
+    padding-left: 13px;
+  }
+}
+
 .container {
   display: inline-block;
   background-color: #644F4F;
-  height: 80vh;
-  width: 26rem;
+  height: 100%;
   color: #FFF1CF;
-  padding: 2em;
-  //font-weight: 400;
   >div {
-    padding: 0.4em;
+    padding: 8px;
     width: 100%;
   }
   h1 {
-    font-size: 2.5rem;
+    font-size: 40px;
   }
   h2 {
-    font-size: 1em;
+    font-size: 22px;
     font-weight: bold;
-    margin-bottom: 1em;
+    margin-bottom: 23px;
   }
 }
 
@@ -28,6 +46,7 @@
   border: 0;
   border-top: solid 3px #FFF1CF;
   width: 100%;
+  //margin-left: 0;
 }
 
 .filter {
@@ -35,11 +54,11 @@
   flex-direction: row;
   align-items: start;
   justify-content: start;
-  margin-bottom: 1em;
+  margin-bottom: 23px;
 }
 
 .filterName {
-  margin-right: 1em;
+  margin-right: 23px;
   flex: none;
 }
 
@@ -51,9 +70,6 @@
   flex-wrap: wrap-reverse;
   flex-grow: 1;
 
-  >div:nth-child(even) {
-    padding-left: 0.6em;
-  }
 }
 
 .status {

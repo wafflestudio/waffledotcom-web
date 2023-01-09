@@ -2,6 +2,46 @@
 @use "./styles/color";
 @use "./styles/position";
 
+@font-face {
+  font-family: "Gmarket Sans TTF";
+  src: local("/font/GmarketSansTTFLight.ttf");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Gmarket Sans TTF";
+  src: local("/font/GmarketSansTTFMedium.ttf");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Gmarket Sans TTF";
+  src: local("/font/GmarketSansTTFBold.ttf");
+  font-weight: 700;
+}
+
+// 태블릿 사이즈
+@media all and (max-width: 1561px) {
+  .board {
+    width: 1200px;
+  }
+
+  .cardArea {
+    width: calc(100% - 305px);
+  }
+}
+
+// 데스크탑 사이즈
+@media all and (min-width: 1561px) {
+  .board {
+    width: 1561px;
+  }
+
+  .cardArea {
+    width: calc(100% - 415px);
+  }
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -10,10 +50,11 @@
   background-color: #9D8476;
   top: 0;
   left: 0;
-  min-width: 100vw;
-  min-height: 100vh;
-  overflow: hidden;
-  font-family: "Gmarket Sans TTF";
+  width: 100vw;
+  height: 100vh;
+  min-height: 50vw;
+  overflow: scroll;
+  font-family: "Gmarket Sans TTF", sans-serif;
   font-size: 1.375rem;
   user-select: none;
 }
@@ -26,17 +67,18 @@
   color: #342D29;
   width: 100%;
   p {
-    // 선을 작은 텍스트 중앙에 정렬하기 위해 line-height: 1em 으로 조정
-    line-height: 1em;
+    // 선을 작은 텍스트 중앙에 정렬하기 위해 line-height: 1rem 으로 조정
+    line-height: 1rem;
     // 텍스트를 1줄로 표현하기 위해
     min-width: max-content;
+    font-size: 1.5rem;
     flex: none;
-    margin: 2em 1em;
+    margin: 2rem 1rem;
   }
   strong {
-    font-size: 2em;
-    margin-left: 0.3em;
-    margin-right: 0.1em;
+    font-size: 3.125rem;
+    margin-left: 0.3rem;
+    margin-right: 0.1rem;
   }
   hr {
     display: block;
@@ -44,8 +86,8 @@
     flex-grow: 1;
     border: 0;
     border-top: 1px solid;
-    // 선을 작은 텍스트 중앙에 정렬하기 위해 <p> margin + 0.5em 으로 설정
-    margin: 2.5em 0;
+    // 선을 작은 텍스트 중앙에 정렬하기 위해 <p> margin + 0.5rem 으로 설정
+    margin: 2.5rem 0;
     padding: 0;
   }
 }
@@ -53,7 +95,24 @@
 .board {
   background-color: #FFFCF3;
   border: 3px solid #644F4F;
-  min-width: 80vw;
-  min-height: 50vh;
+  height: 80%;
   overflow: hidden;
+  display: flex;
+  flex-direction: row;
+}
+
+.cardArea {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: start;
+  align-content: start;
+  justify-content: start;
+  >:nth-child(2n+1) {
+    margin: 1rem 0 0 1rem;
+  }
+  >:nth-child(2n) {
+    margin: 1rem 0 0 0.5rem;
+  }
 }

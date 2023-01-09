@@ -6,17 +6,17 @@
   align-items: center;
   justify-content: start;
   &:hover input {
-    box-shadow: 0 0 0 0.1em #FFF1CF;
+    box-shadow: 0 0 0 2px #FFF1CF;
   }
   input {
     appearance: none;
     font-size: inherit;
     position: relative;
     border: 2px solid #FFF1CF;
-    border-radius: 50%;
-    width: 0.7em;
-    height: 0.7em;
-    margin-right: 0.45em;
+    border-radius: 7.5px;
+    width: 15px;
+    height: 15px;
+    margin-right: 10px;
     display: grid;
     align-items: center;
     justify-items: center;
@@ -46,16 +46,16 @@
   align-items: center;
   justify-content: start;
   &:hover input {
-    box-shadow: 0 0 0 0.1em #FFF1CF;
+    box-shadow: 0 0 0 2px #FFF1CF;
   }
   input {
     appearance: none;
     position: relative;
     font-size: inherit;
     border: 2px solid #FFF1CF;
-    width: 0.7em;
-    height: 0.7em;
-    margin-right: 0.45em;
+    width: 15px;
+    height: 15px;
+    margin-right: 10px;
     display: grid;
     align-items: center;
     justify-items: center;
@@ -80,37 +80,43 @@
 
 .toggle {
   position: relative;
-  border: 0.1em solid #FFF1CF;
-  border-radius: 0.5em;
+  border: 2px solid #FFF1CF;
+  border-radius: 12.5px;
   box-shadow: 0 0 0 0 #FFF1CF;
   transition: box-shadow 0.2s linear;
-  width: 4em;
-  height: 1em;
+  width: 90px;
+  height: 25px;
   &:hover {
-    box-shadow: 0 0 0 0.1em #FFF1CF;
+    input {
+      width: 25px;
+    }
+    input:checked {
+      width: 25px;
+      left: calc(90px - 4px - 1px - 25px);
+    }
   }
   input {
     appearance: none;
     font-size: inherit;
     position: absolute;
-    top: calc((1em - 0.1em * 2 - 0.75em) / 2);
-    left: calc((1em - 0.1em * 2 - 0.75em) / 2);
+    top: 1px;
+    left: 1px;
     margin: 0;
-    border-radius: 0.5em;
-    width: 0.75em;
-    height: 0.75em;
+    border-radius: 9.5px;
+    width: 19px;
+    height: 19px;
     transition: all 0.2s ease-in-out;
     background-color: #FFF1CF;
     &:checked {
-      left: calc(4em - 0.1em * 2 - 0.025em * 2 - 0.75em);
+      left: calc(90px - 4px - 1px - 19px);
     }
   }
 
   span {
     position: absolute;
-    font-size: 0.63em;
+    font-size: 14px;
     white-space: nowrap;
-    margin-top: 0.1em;
+    margin-top: 3px;
   }
   .label1Container {
     position: absolute;
@@ -121,24 +127,24 @@
     height: 100%;
   }
   input:checked ~ .label1Container {
-    width: 3em;
+    width: 60px;
+  }
+  .label1 {
+    left: 5px;
   }
 
-  .label1 {
-    left: 0.3em;
-  }
   .label2Container {
     position: absolute;
     right: 0;
     transition: all 0.2s ease-in-out;
     overflow: hidden;
-    width: 3em;
+    width: 60px;
     height: 100%;
   }
   input:checked ~ .label2Container {
     width: 0;
   }
   .label2 {
-    right: 0.3em;
+    right: 5px;
   }
 }
