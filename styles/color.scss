@@ -1,1 +1,18 @@
-$cover-background-font: #FDF2DC;
+/*** waffle color system ***/
+//basics
+$waffle-white: #ffffff;
+$waffle-orange: #f0975e;
+$waffle-pink: #ed8573;
+$waffle-dark-green: #0b4c4f;
+$waffle-gray: #6e6363;
+$waffle-brown: #9d8476;
+$waffle-light-yellow: #fff1cf;
+$waffle-yellow: #fedb96;
+$waffle-dark-brown: #342d29;
+
+//extended
+$waffle-dark-magenta: #791930;
+$waffle-gray-brown: #5b5247;
+
+//special font colors
+$cover-background-font: rgba(253, 242, 220, 0.29);
