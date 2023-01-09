@@ -1,0 +1,117 @@
+@use "./styles/position";
+@use "./styles/color";
+@use "./styles/font";
+@use "./styles/clear";
+
+.container {
+  @include position.home-container;
+  height: 400vh;
+  transition: 1s;
+}
+.area {
+  height: 20%;
+}
+.background {
+  @include position.fixed-background;
+  visibility: hidden;
+  opacity: 0;
+  background-color: color.$waffle-gray-brown;
+  transition: 1s;
+}
+.foreground {
+  @include position.fixed-foreground;
+  @include position.flex-center;
+  visibility: hidden;
+  opacity: 0;
+  background: transparent;
+
+  .bannerContainer {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 864px;
+    height: 539px;
+    .bannerNavigator {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      height: 2.25rem;
+      margin-bottom: 19px;
+      border-bottom: 3px solid color.$waffle-inky-brown;
+
+      .bannerTitle {
+        @include clear.button;
+        @include position.flex-center;
+        @include font.gmarket-sans("Light");
+        position: relative;
+        bottom: -3px;
+        font-size: 1.125rem;
+        width: 20%;
+        height: 100%;
+        border-bottom: 3px solid color.$waffle-inky-brown;
+        &.selected {
+          @include font.gmarket-sans("Medium");
+          color: color.$waffle-yellow;
+          border-bottom-color: color.$waffle-yellow;
+          font-weight: 500;
+          animation: 1s steps(10) blinkOn;
+        }
+      }
+    }
+    .bannerWrapper {
+      width: 100%;
+      height: 486px;
+      background: red;
+    }
+  }
+}
+
+.available {
+  .foreground {
+    visibility: visible;
+    opacity: 1;
+  }
+  .background {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+@keyframes blinkOn {
+  0% {
+    color: color.$waffle-yellow;
+    border-bottom-color: color.$waffle-yellow;
+    font-weight: 500;
+  }
+  10% {
+    @include font.gmarket-sans("Light");
+    color: color.$waffle-inky-brown;
+    border-bottom-color: color.$waffle-inky-brown;
+    font-weight: 300;
+  }
+  20% {
+    @include font.gmarket-sans("Medium");
+    color: color.$waffle-yellow;
+    border-bottom-color: color.$waffle-yellow;
+    font-weight: 500;
+  }
+  30% {
+    @include font.gmarket-sans("Light");
+    color: color.$waffle-inky-brown;
+    border-bottom-color: color.$waffle-inky-brown;
+    font-weight: 300;
+  }
+  70% {
+    @include font.gmarket-sans("Light");
+    color: color.$waffle-inky-brown;
+    border-bottom-color: color.$waffle-inky-brown;
+    font-weight: 300;
+  }
+  80% {
+    @include font.gmarket-sans("Medium");
+    color: color.$waffle-yellow;
+    border-bottom-color: color.$waffle-yellow;
+    font-weight: 500;
+  }
+}

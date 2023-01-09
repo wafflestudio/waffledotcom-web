@@ -1,0 +1,43 @@
+@use "./styles/color";
+@use "./styles/position";
+@use "./styles/font";
+
+.container {
+  @include position.home-container;
+  @include position.flex-center;
+  opacity: 0;
+  transition: 0.5s ease;
+  padding: 0;
+
+  .background {
+    @include position.fixed-background;
+    background: color.$waffle-dark-brown;
+    transition: 0.5s ease;
+    visibility: hidden;
+    opacity: 0;
+  }
+  .description {
+    width: 900px;
+    text-align: center;
+    color: color.$waffle-light-yellow;
+    letter-spacing: -0.05em;
+    h3 {
+      @include font.gmarket-sans("Bold");
+      margin-bottom: 40px;
+    }
+    p {
+      @include font.gmarket-sans("Light");
+      width: 100%;
+      margin-top: 2rem;
+      line-height: 2rem;
+    }
+  }
+}
+
+.available {
+  opacity: 1;
+  .background {
+    opacity: 1;
+    visibility: visible;
+  }
+}

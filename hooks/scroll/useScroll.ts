@@ -24,26 +24,7 @@ const checkScrollState = (
 ): IScrollState => {
   const { offsetTop: targetTop, offsetHeight: targetHeight } = target;
   const { offsetTop: viewportTop, offsetHeight: viewportHeight } = viewport;
-  // const diff = targetTop - viewportTop;
-  // if (viewportHeight < targetHeight) {
-  //   if (diff > viewportHeight) {
-  //     return { isAvailable: false, progress: 0 };
-  //   } else if (viewportHeight >= diff && diff > 0) {
-  //     return { isAvailable: true, progress: 1 - diff / viewportHeight };
-  //   } else if (0 >= diff && diff >= viewportHeight - targetHeight) {
-  //     return {
-  //       isAvailable: true,
-  //       progress: 1 + diff / (viewportHeight - targetHeight),
-  //     };
-  //   } else if (viewportHeight - targetHeight >= diff && diff > -targetHeight) {
-  //     return {
-  //       isAvailable: false,
-  //       progress: 2 + (diff - viewportHeight + targetHeight) / -viewportHeight,
-  //     };
-  //   } else return { isAvailable: false, progress: 3 };
-  // } else {
-  //   return { isAvailable: false, progress: -999 };
-  // }
+  //console.log(viewport);
   const diff = viewportTop + viewportHeight - targetTop;
   if (diff < 0) return { isAvailable: false, progress: 0 };
   if (diff > targetHeight + viewportHeight)
@@ -102,6 +83,7 @@ export const useInitiateScrollViewport = () => {
       scrollViewport.offsetHeight = window.innerHeight;
       scrollViewport.offsetTop = window.scrollY;
       isViewportInitiated = true;
+      checkTargets(scrollViewport);
     }
   }, []);
 };
@@ -113,17 +95,19 @@ export const useScroll = (
 ) => {
   useEffect(() => {
     if (ref.current) {
+      console.dir(ref.current);
       if (
         !scrollTargets
           .map((target) => target.offsetTop)
           .includes(ref.current?.offsetTop)
       ) {
-        scrollTargets.push({
+        const newTarget = {
           offsetTop: ref.current.offsetTop,
           offsetHeight: ref.current.offsetHeight,
           callback,
-        });
+        };
+        scrollTargets.push(newTarget);
       }
     }
-  }, [ref, callback]);
+  }, [ref]);
 };

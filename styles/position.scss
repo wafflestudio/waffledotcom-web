@@ -4,3 +4,27 @@
   align-items: center;
   justify-content: center;
 }
+
+@mixin home-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: transparent;
+  z-index: 100;
+}
+
+@mixin fixed-foreground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+@mixin fixed-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+}
