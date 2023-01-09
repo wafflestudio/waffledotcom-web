@@ -8,7 +8,7 @@ const About = () => {
   const ref = useRef(null);
   const [show, setShow] = useState<boolean>(false);
   useScroll(ref, ({ progress }) => {
-    if (0.5 < progress && progress < 3) {
+    if (0.5 < progress && progress < 2.9) {
       if (!show) {
         setShow(true);
       }

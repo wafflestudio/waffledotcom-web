@@ -4,7 +4,11 @@ import { useScroll } from "../../custom/scroll/useScroll";
 
 const Cover = () => {
   const ref = useRef(null);
-  useScroll(ref, ({}) => {});
+  useScroll(ref, ({ isAvailable, progress }) => {
+    if (isAvailable) {
+      console.log(progress);
+    }
+  });
 
   return (
     <section className={styles.container} ref={ref}>
