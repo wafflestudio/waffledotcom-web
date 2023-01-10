@@ -5,21 +5,19 @@
 .container {
   @include position.home-container;
   @include position.flex-center;
-  opacity: 0;
   transition: 0.5s ease;
-  padding: 0;
-
   .background {
     @include position.fixed-background;
     background: color.$waffle-dark-brown;
-    transition: 0.5s ease;
+    transition: 0.5s;
     visibility: hidden;
     opacity: 0;
   }
+
   .description {
     width: 900px;
     text-align: center;
-    color: color.$waffle-light-yellow;
+    color: color.$waffle-pale-yellow;
     letter-spacing: -0.05em;
     h3 {
       @include font.gmarket-sans("Bold");
@@ -35,7 +33,6 @@
 }
 
 .available {
-  opacity: 1;
   .background {
     opacity: 1;
     visibility: visible;

@@ -16,8 +16,8 @@ $navigatorHeight: 44px;
 }
 
 .background {
+  @include position.fixed-background;
   @include font.nico-moji();
-  position: absolute;
   top: 0;
   width: 100%;
   height: 100%;
