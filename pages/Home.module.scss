@@ -3,7 +3,6 @@
   @include font.gmarket-sans("Medium");
   font-weight: 300;
   position: relative;
-  top: 0;
-  min-width: 100vw;
+  width: 100%;
   min-height: 100vh;
 }

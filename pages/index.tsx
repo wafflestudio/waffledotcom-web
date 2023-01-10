@@ -5,6 +5,7 @@ import Cover from "../components/Home/Cover/Cover";
 import About from "../components/Home/About/About";
 import { useInitiateScrollViewport } from "../hooks/scroll/useScroll";
 import Billboard from "../components/Home/Billboard/Billboard";
+import WhoAreWe from "../components/Home/WhoAreWe/WhoAreWe";
 
 const Home: NextPage = () => {
   useInitiateScrollViewport();
@@ -18,6 +19,7 @@ const Home: NextPage = () => {
       <Cover />
       <Billboard />
       <About />
+      <WhoAreWe />
     </div>
   );
 };

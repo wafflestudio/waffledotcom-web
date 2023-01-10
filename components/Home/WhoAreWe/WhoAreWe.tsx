@@ -1,16 +1,16 @@
-import styles from "./About.module.scss";
+import styles from "./WhoAreWe.module.scss";
 import { useScroll } from "../../../hooks/scroll/useScroll";
 import { useRef, useState } from "react";
 import classNames from "classnames/bind";
 
 const cx = classNames.bind(styles);
-const About = () => {
+const WhoAreWe = () => {
   const ref = useRef(null);
   const [scrollClass, setScrollClass] = useState<{ available: boolean }>({
     available: false,
   });
   useScroll(ref, ({ progress }) => {
-    if (0.75 < progress && progress < 3) {
+    if (0.5 < progress && progress < 2.9) {
       if (!scrollClass.available) {
         setScrollClass({ available: true });
       }
@@ -22,13 +22,7 @@ const About = () => {
   return (
     <>
       <section className={cx("container", scrollClass)} ref={ref}>
-        <div className={cx("background")}>
-          <div className={cx("bubbleFull", "bubble1")} />
-          <div className={cx("bubbleStripe", "bubble2")} />
-          <div className={cx("bubbleFull", "bubble3")} />
-          <div className={cx("bubbleStripe", "bubble4")} />
-          <div className={cx("bubbleFull", "bubble5")} />
-        </div>
+        <div className={cx("background")} />
         <div className={cx("description")}>
           <h3># 와플스튜디오는 어떤 동아리인가요?</h3>
           <p>
@@ -64,4 +58,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default WhoAreWe;
