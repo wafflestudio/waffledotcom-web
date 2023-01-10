@@ -15,11 +15,6 @@
   .container {
     width: 415px;
     padding: 40px;
-    //padding: 47px 36px 47px 47px;
-  }
-
-  .role>div:nth-child(even) {
-    padding-left: 13px;
   }
 }
 
@@ -69,7 +64,9 @@
   justify-content: start;
   flex-wrap: wrap-reverse;
   flex-grow: 1;
-
+  >:nth-child(odd) {
+    width: 145px;
+  }
 }
 
 .status {

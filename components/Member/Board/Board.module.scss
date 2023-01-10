@@ -22,6 +22,10 @@
 
 // 태블릿 사이즈
 @media all and (max-width: 1561px) {
+  .container {
+    min-height: 800px;
+  }
+
   .board {
     width: 1200px;
   }
@@ -33,6 +37,10 @@
 
 // 데스크탑 사이즈
 @media all and (min-width: 1561px) {
+  .container {
+    min-height: 600px;
+  }
+
   .board {
     width: 1561px;
   }
@@ -52,7 +60,6 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  min-height: 50vw;
   overflow: scroll;
   font-family: "Gmarket Sans TTF", sans-serif;
   font-size: 1.375rem;
@@ -104,15 +111,11 @@
 .cardArea {
   position: relative;
   height: 100%;
+  padding: 0.5rem 0 0.5rem 0.5rem;
   display: flex;
   flex-flow: row wrap;
   align-items: start;
   align-content: start;
   justify-content: start;
-  >:nth-child(2n+1) {
-    margin: 1rem 0 0 1rem;
-  }
-  >:nth-child(2n) {
-    margin: 1rem 0 0 0.5rem;
-  }
+  overflow: scroll;
 }

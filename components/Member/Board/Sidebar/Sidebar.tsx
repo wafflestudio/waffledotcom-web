@@ -20,31 +20,31 @@ const Sidebar = () => {
           <div className={styles.filterName}>역할</div>
           <div className={styles.role}>
             <Checkbox
-              value={"frontend"}
+              value={"프론트엔드"}
               label={"프론트엔드"}
               set={roles}
               setSet={setRoles}
             />
             <Checkbox
-              value={"backend"}
+              value={"백엔드"}
               label={"백엔드"}
               set={roles}
               setSet={setRoles}
             />
             <Checkbox
-              value={"android"}
+              value={"안드로이드"}
               label={"안드로이드"}
               set={roles}
               setSet={setRoles}
             />
             <Checkbox
-              value={"ios"}
+              value={"iOS"}
               label={"iOS"}
               set={roles}
               setSet={setRoles}
             />
             <Checkbox
-              value={"designer"}
+              value={"디자이너"}
               label={"디자이너"}
               set={roles}
               setSet={setRoles}

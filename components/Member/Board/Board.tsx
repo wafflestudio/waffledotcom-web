@@ -17,45 +17,20 @@ const Board = () => {
       <div className={styles.board}>
         <Sidebar></Sidebar>
         <div className={styles.cardArea}>
-          <Card
-            name={"김와플"}
-            githubId={"wafflekime"}
-            positions={["안드로이드"]}
-            generation={17.5}
-            introduction={
-              "한줄소개 한줄소개 소개asdfasdf 두줄일수도asdfsadfadsfsdaf"
-            }
-            instagram={""}
-            facebook={""}
-            web={""}
-            admin={true}
-          />
-          <Card
-            name={"김와플"}
-            githubId={"wafflekime"}
-            positions={["안드로이드"]}
-            generation={17.5}
-            introduction={
-              "한줄소개 한줄소개 소개asdfasdf 두줄일수도asdfsadfadsfsdaf"
-            }
-            instagram={""}
-            facebook={""}
-            web={""}
-            admin={true}
-          />
-          <Card
-            name={"김와플"}
-            githubId={"wafflekime"}
-            positions={["안드로이드"]}
-            generation={17.5}
-            introduction={
-              "한줄소개 한줄소개 소개asdfasdf 두줄일수도asdfsadfadsfsdaf"
-            }
-            instagram={""}
-            facebook={""}
-            web={""}
-            admin={true}
-          />
+          {members.map((member) => (
+            <Card
+              key={member.name}
+              name={member.name}
+              githubId={member.githubId}
+              positions={member.position}
+              generation={17.5}
+              introduction={member.introduction}
+              instagram={member.instagram}
+              facebook={member.facebook}
+              web={member.web}
+              admin={member.admin}
+            />
+          ))}
         </div>
       </div>
     </div>
