@@ -22,7 +22,13 @@ const About = () => {
   return (
     <>
       <section className={cx("container", scrollClass)} ref={ref}>
-        <div className={cx("background")}></div>
+        <div className={cx("background")}>
+          <div className={cx("bubbleFull", "bubble1")} />
+          <div className={cx("bubbleStripe", "bubble2")} />
+          <div className={cx("bubbleFull", "bubble3")} />
+          <div className={cx("bubbleStripe", "bubble4")} />
+          <div className={cx("bubbleFull", "bubble5")} />
+        </div>
         <div className={cx("description")}>
           <h3># 와플스튜디오는 어떤 동아리인가요?</h3>
           <p>
