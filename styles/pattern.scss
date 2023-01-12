@@ -1,0 +1,9 @@
+@mixin stripe($color-1, $color-2, $deg: 45, $gap: 10px) {
+  background: repeating-linear-gradient(
+    #{$deg}deg,
+    $color-1,
+    $color-1 $gap,
+    $color-2 $gap,
+    $color-2 $gap * 2
+  );
+}
