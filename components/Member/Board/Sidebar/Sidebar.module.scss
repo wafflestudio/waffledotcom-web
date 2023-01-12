@@ -1,0 +1,90 @@
+@use "./styles/font";
+@use "./styles/color";
+@use "./styles/position";
+
+// 태블릿 사이즈
+@media all and (max-width: 1561px) {
+  .container {
+    width: 305px;
+    padding: 35px;
+  }
+}
+
+// 데스크탑 사이즈
+@media all and (min-width: 1561px) {
+  .container {
+    width: 415px;
+    padding: 40px;
+  }
+}
+
+.container {
+  display: inline-block;
+  background-color: #644F4F;
+  height: 100%;
+  color: #FFF1CF;
+  >div {
+    padding: 8px;
+    width: 100%;
+  }
+  h1 {
+    font-size: 40px;
+  }
+  h2 {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 23px;
+  }
+}
+
+.hr {
+  border: 0;
+  border-top: solid 3px #FFF1CF;
+  width: 100%;
+  //margin-left: 0;
+}
+
+.filter {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  justify-content: start;
+  margin-bottom: 23px;
+}
+
+.filterName {
+  margin-right: 23px;
+  flex: none;
+}
+
+.role {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  flex-wrap: wrap-reverse;
+  flex-grow: 1;
+  >:nth-child(odd) {
+    width: 145px;
+  }
+}
+
+.status {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+}
+
+.align {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  width: 100%;
+  padding-bottom: 0.5em;
+}
+
+.alignName {
+  margin-right: auto;
+}
