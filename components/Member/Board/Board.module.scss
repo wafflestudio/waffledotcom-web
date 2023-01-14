@@ -2,24 +2,6 @@
 @use "./styles/color";
 @use "./styles/position";
 
-@font-face {
-  font-family: "Gmarket Sans TTF";
-  src: local("/font/GmarketSansTTFLight.ttf");
-  font-weight: 300;
-}
-
-@font-face {
-  font-family: "Gmarket Sans TTF";
-  src: local("/font/GmarketSansTTFMedium.ttf");
-  font-weight: 500;
-}
-
-@font-face {
-  font-family: "Gmarket Sans TTF";
-  src: local("/font/GmarketSansTTFBold.ttf");
-  font-weight: 700;
-}
-
 // 태블릿 사이즈
 @media all and (max-width: 1561px) {
   .container {
@@ -51,17 +33,17 @@
 }
 
 .container {
+  @include font.gmarket-sans;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #9D8476;
+  background-color: #9d8476;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
   overflow: scroll;
-  font-family: "Gmarket Sans TTF", sans-serif;
   font-size: 1.375rem;
   user-select: none;
 }
@@ -71,7 +53,7 @@
   flex-direction: row;
   align-items: end;
   justify-content: center;
-  color: #342D29;
+  color: #342d29;
   width: 100%;
   p {
     // 선을 작은 텍스트 중앙에 정렬하기 위해 line-height: 1rem 으로 조정
@@ -100,8 +82,8 @@
 }
 
 .board {
-  background-color: #FFFCF3;
-  border: 3px solid #644F4F;
+  background-color: #fffcf3;
+  border: 3px solid #644f4f;
   height: 80%;
   overflow: hidden;
   display: flex;
