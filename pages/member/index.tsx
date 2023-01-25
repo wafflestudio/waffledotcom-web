@@ -1,7 +1,4 @@
 import { NextPage } from "next";
-import Head from "next/head";
-import Background from "../../components/Background/Background";
-import Cover from "../../components/Cover/Cover";
 import Board from "../../components/Member/Board/Board";
 
 const Member: NextPage = () => {
