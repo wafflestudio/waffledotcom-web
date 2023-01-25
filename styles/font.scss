@@ -1,3 +1,4 @@
+//local fonts
 @font-face {
   font-family: "Gmarket Sans TTF";
   src: url("../public/static/font/GmarketSansTTFLight.ttf") format("truetype");
@@ -8,7 +9,6 @@
 @font-face {
   font-family: "Gmarket Sans TTF";
   src: url("../public/static/font/GmarketSansTTFMedium.ttf") format("truetype");
-
   font-weight: 500;
   font-display: swap;
 }
@@ -25,10 +25,30 @@
   font-family: "nico-moji-regular";
 }
 
+//webfonts
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+
+@font-face {
+  font-family: "KCC-eunyoung";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/KCC-eunyoung-Regular.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 @mixin nico-moji {
   font-family: "nico-moji-regular", sans-serif;
   font-style: normal;
 }
-@mixin gmarket-sans() {
+@mixin gmarket-sans {
   font-family: "Gmarket Sans TTF", sans-serif;
+}
+
+@mixin lobster {
+  font-family: "Lobster", cursive;
+}
+
+@mixin kcc-eunyoung {
+  font-family: "KCC-eunyoung", cursive;
 }
