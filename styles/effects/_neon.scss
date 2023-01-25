@@ -1,0 +1,37 @@
+//reference: https://css-tricks.com/how-to-create-neon-text-with-css/
+@mixin neon-text-weak($color, $light-color) {
+  text-shadow: 0 0 7px $light-color, 0 0 10px $light-color,
+    0 0 21px $light-color, 0 0 42px $color;
+}
+@mixin neon-text-medium($color, $light-color) {
+  text-shadow: 0 0 7px $light-color, 0 0 10px $light-color,
+    0 0 21px $light-color, 0 0 42px $color, 0 0 82px $color;
+}
+@mixin neon-text-strong($color, $light-color) {
+  text-shadow: 0 0 7px $light-color, 0 0 10px $light-color,
+    0 0 21px $light-color, 0 0 42px $color, 0 0 82px $color, 0 0 92px $color;
+}
+@mixin neon-text-stronger($color, $light-color) {
+  text-shadow: 0 0 7px $light-color, 0 0 10px $light-color,
+    0 0 21px $light-color, 0 0 42px $color, 0 0 82px $color, 0 0 92px $color,
+    0 0 102px $color;
+}
+@mixin neon-text-strongest($color, $light-color) {
+  text-shadow: 0 0 7px $light-color, 0 0 10px $light-color,
+    0 0 21px $light-color, 0 0 42px $color, 0 0 82px $color, 0 0 92px $color,
+    0 0 102px $color, 0 0 151px $color;
+}
+
+@mixin text($color, $intensity: 1, $light-color: #ffffff) {
+  @if ($intensity == 0) {
+    @include neon-text-weak($color, $light-color);
+  } @else if ($intensity==1) {
+    @include neon-text-medium($color, $light-color);
+  } @else if ($intensity==2) {
+    @include neon-text-strong($color, $light-color);
+  } @else if ($intensity==3) {
+    @include neon-text-stronger($color, $light-color);
+  } @else {
+    @include neon-text-strongest($color, $light-color);
+  }
+}

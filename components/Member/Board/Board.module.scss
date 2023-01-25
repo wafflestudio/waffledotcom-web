@@ -1,6 +1,6 @@
-@use "./styles/font";
-@use "./styles/color";
-@use "./styles/position";
+@use "../../../styles/font";
+@use "../../../styles/color";
+@use "../../../styles/position";
 
 // 태블릿 사이즈
 @media all and (max-width: 1561px) {

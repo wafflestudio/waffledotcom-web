@@ -1,4 +1,4 @@
-@use "./styles/font";
+@use "../styles/font";
 .container {
   @include font.gmarket-sans();
   font-weight: 300;

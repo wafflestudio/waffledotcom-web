@@ -1,7 +1,7 @@
-@use "./styles/position";
-@use "./styles/color";
-@use "./styles/font";
-@use "./styles/clear";
+@use "../../../styles/position";
+@use "../../../styles/color";
+@use "../../../styles/font";
+@use "../../../styles/clear";
 
 .container {
   @include position.home-container;
