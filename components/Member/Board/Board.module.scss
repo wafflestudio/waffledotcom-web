@@ -38,7 +38,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #9d8476;
+  background-color: color.$waffle-brown;
   top: 0;
   left: 0;
   width: 100vw;
@@ -53,7 +53,7 @@
   flex-direction: row;
   align-items: end;
   justify-content: center;
-  color: #342d29;
+  color: color.$waffle-dark-brown;
   width: 100%;
   p {
     // 선을 작은 텍스트 중앙에 정렬하기 위해 line-height: 1rem 으로 조정
