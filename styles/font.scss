@@ -1,57 +1,54 @@
+//local fonts
+@font-face {
+  font-family: "Gmarket Sans TTF";
+  src: url("../public/static/font/GmarketSansTTFLight.ttf") format("truetype");
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gmarket Sans TTF";
+  src: url("../public/static/font/GmarketSansTTFMedium.ttf") format("truetype");
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gmarket Sans TTF";
+  src: url("../public/static/font/GmarketSansTTFBold.ttf") format("truetype");
+  font-weight: 700;
+  font-display: swap;
+}
+
 @font-face {
   src: url("../public/static/font/NicoMoji-Regular.ttf");
   font-family: "nico-moji-regular";
+}
+
+//webfonts
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+
+@font-face {
+  font-family: "KCC-eunyoung";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/KCC-eunyoung-Regular.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 @mixin nico-moji {
   font-family: "nico-moji-regular", sans-serif;
   font-style: normal;
 }
-@font-face {
-  font-family: "GmarketSansLight";
-  font-weight: 300;
-  font-style: normal;
-  src: url("https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansLight.eot");
-  src: url("https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansLight.eot?#iefix")
-      format("embedded-opentype"),
-    url("https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansLight.woff2")
-      format("woff2"),
-    url("https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansLight.woff")
-      format("woff"),
-    url("https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansLight.ttf")
-      format("truetype");
-  font-display: swap;
+@mixin gmarket-sans {
+  font-family: "Gmarket Sans TTF", sans-serif;
 }
-@font-face {
-  font-family: "GmarketSansMedium";
-  font-weight: 500;
-  font-style: normal;
-  src: url("https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansMedium.eot");
-  src: url("https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansMedium.eot?#iefix")
-      format("embedded-opentype"),
-    url("https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansMedium.woff2")
-      format("woff2"),
-    url("https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansMedium.woff")
-      format("woff"),
-    url("https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansMedium.ttf")
-      format("truetype");
-  font-display: swap;
+
+@mixin lobster {
+  font-family: "Lobster", cursive;
 }
-@font-face {
-  font-family: "GmarketSansBold";
-  font-weight: 700;
-  font-style: normal;
-  src: url("https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansBold.eot");
-  src: url("https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansBold.eot?#iefix")
-      format("embedded-opentype"),
-    url("https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansBold.woff2")
-      format("woff2"),
-    url("https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansBold.woff")
-      format("woff"),
-    url("https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansBold.ttf")
-      format("truetype");
-  font-display: swap;
-}
-@mixin gmarket-sans($weight: "Medium") {
-  font-family: "GmarketSans#{$weight}", sans-serif;
+
+@mixin kcc-eunyoung {
+  font-family: "KCC-eunyoung", cursive;
 }

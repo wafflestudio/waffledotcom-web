@@ -1,18 +1,18 @@
-@use "./styles/position";
-
+@use "../../../../styles/position";
+@use "./styles/color";
 .radio {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: start;
   &:hover input {
-    box-shadow: 0 0 0 2px #FFF1CF;
+    box-shadow: 0 0 0 2px color.$waffle-pale-yellow;
   }
   input {
     appearance: none;
     font-size: inherit;
     position: relative;
-    border: 2px solid #FFF1CF;
+    border: 2px solid color.$waffle-pale-yellow;
     border-radius: 7.5px;
     width: 15px;
     height: 15px;
@@ -20,7 +20,7 @@
     display: grid;
     align-items: center;
     justify-items: center;
-    box-shadow: 0 0 0 0 #FFF1CF;
+    box-shadow: 0 0 0 0 color.$waffle-pale-yellow;
     transition: box-shadow 0.2s linear;
     &:before {
       position: absolute;
@@ -29,13 +29,13 @@
       width: 0;
       height: 0;
       border-radius: 50%;
-      background-color: #FFF1CF;
+      background-color: color.$waffle-pale-yellow;
       transition: all 0.1s ease-in-out;
     }
     &:checked:before {
       width: 65%;
       height: 65%;
-      background-color: #FFF1CF;
+      background-color: color.$waffle-pale-yellow;
     }
   }
 }
@@ -46,20 +46,20 @@
   align-items: center;
   justify-content: start;
   &:hover input {
-    box-shadow: 0 0 0 2px #FFF1CF;
+    box-shadow: 0 0 0 2px color.$waffle-pale-yellow;
   }
   input {
     appearance: none;
     position: relative;
     font-size: inherit;
-    border: 2px solid #FFF1CF;
+    border: 2px solid color.$waffle-pale-yellow;
     width: 15px;
     height: 15px;
     margin-right: 10px;
     display: grid;
     align-items: center;
     justify-items: center;
-    box-shadow: 0 0 0 0 #FFF1CF;
+    box-shadow: 0 0 0 0 color.$waffle-pale-yellow;
     transition: box-shadow 0.2s linear;
     &:before {
       position: absolute;
@@ -67,22 +67,22 @@
       box-sizing: border-box;
       width: 0;
       height: 0;
-      background-color: #FFF1CF;
+      background-color: color.$waffle-pale-yellow;
       transition: all 0.1s ease-in-out;
     }
     &:checked:before {
       width: 65%;
       height: 65%;
-      background-color: #FFF1CF;
+      background-color: color.$waffle-pale-yellow;
     }
   }
 }
 
 .toggle {
   position: relative;
-  border: 2px solid #FFF1CF;
+  border: 2px solid color.$waffle-pale-yellow;
   border-radius: 12.5px;
-  box-shadow: 0 0 0 0 #FFF1CF;
+  box-shadow: 0 0 0 0 color.$waffle-pale-yellow;
   transition: box-shadow 0.2s linear;
   width: 90px;
   height: 25px;
@@ -106,7 +106,7 @@
     width: 19px;
     height: 19px;
     transition: all 0.2s ease-in-out;
-    background-color: #FFF1CF;
+    background-color: color.$waffle-pale-yellow;
     &:checked {
       left: calc(90px - 4px - 1px - 19px);
     }

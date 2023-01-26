@@ -1,6 +1,6 @@
-@use "./styles/font";
-@use "./styles/color";
-@use "./styles/position";
+@use "../../../../styles/font";
+@use "../../../../styles/color";
+@use "../../../../styles/position";
 
 // 태블릿 사이즈
 @media all and (max-width: 1561px) {
@@ -20,10 +20,10 @@
 
 .container {
   display: inline-block;
-  background-color: #644F4F;
+  background-color: color.$board-brown;
   height: 100%;
-  color: #FFF1CF;
-  >div {
+  color: color.$waffle-pale-yellow;
+  > div {
     padding: 8px;
     width: 100%;
   }
@@ -39,7 +39,7 @@
 
 .hr {
   border: 0;
-  border-top: solid 3px #FFF1CF;
+  border-top: solid 3px color.$waffle-pale-yellow;
   width: 100%;
   //margin-left: 0;
 }
@@ -64,7 +64,7 @@
   justify-content: start;
   flex-wrap: wrap-reverse;
   flex-grow: 1;
-  >:nth-child(odd) {
+  > :nth-child(odd) {
     width: 145px;
   }
 }

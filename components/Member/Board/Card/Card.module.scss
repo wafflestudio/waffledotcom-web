@@ -1,6 +1,8 @@
+@use "../../../../styles/color";
+
 .container {
   position: relative;
-  border: 5px solid #F0975E;
+  border: 5px solid color.$waffle-orange;
   border-radius: 15px;
   width: 44%;
   aspect-ratio: 3.44 / 1;
@@ -17,7 +19,7 @@
   position: relative;
   width: 23.8%;
   aspect-ratio: 1 / 1;
-  border: 5px solid #F0975E;
+  border: 5px solid color.$waffle-orange;
   border-radius: 50%;
 }
 
@@ -40,7 +42,7 @@
   top: -6px;
   font-size: 12px;
   color: white;
-  background-color: #6E6E6E;
+  background-color: color.$board-gray;
   border-radius: 4px;
   padding: 3.5px 7px 3.5px 7px;
   margin-right: 7px;
@@ -69,7 +71,7 @@
 .introduction {
   font-size: 14px;
   height: 2.2em;
-  overflow: scroll
+  overflow: scroll;
 }
 
 .snsArea {
@@ -79,14 +81,14 @@
   width: 15.5%;
   height: 100%;
   padding: 14px 0 14px 0;
-  background-color: #F0975E;
+  background-color: color.$waffle-orange;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  >hr {
+  > hr {
     width: 85%;
     border: 0;
-    border-top: 2px solid #FFF1CF;
+    border-top: 2px solid color.$waffle-pale-yellow;
   }
 }

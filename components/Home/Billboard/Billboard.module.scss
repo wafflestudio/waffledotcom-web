@@ -1,7 +1,7 @@
-@use "./styles/position";
-@use "./styles/color";
-@use "./styles/font";
-@use "./styles/clear";
+@use "../../../styles/position";
+@use "../../../styles/color";
+@use "../../../styles/font";
+@use "../../../styles/clear";
 
 .container {
   @include position.home-container;
@@ -57,7 +57,7 @@
       .bannerTitle {
         @include clear.button;
         @include position.flex-center;
-        @include font.gmarket-sans("Light");
+        @include font.gmarket-sans();
         position: relative;
         bottom: -3px;
         font-size: 1.125rem;
@@ -84,7 +84,7 @@
           }
         }
         &.selected {
-          @include font.gmarket-sans("Medium");
+          @include font.gmarket-sans();
           color: color.$waffle-yellow;
           border-bottom-color: color.$waffle-yellow;
           font-weight: 500;
@@ -163,31 +163,31 @@
     font-weight: 500;
   }
   10% {
-    @include font.gmarket-sans("Light");
+    @include font.gmarket-sans();
     color: color.$waffle-inky-brown;
     border-bottom-color: color.$waffle-inky-brown;
     font-weight: 300;
   }
   20% {
-    @include font.gmarket-sans("Medium");
+    @include font.gmarket-sans();
     color: color.$waffle-yellow;
     border-bottom-color: color.$waffle-yellow;
     font-weight: 500;
   }
   30% {
-    @include font.gmarket-sans("Light");
+    @include font.gmarket-sans();
     color: color.$waffle-inky-brown;
     border-bottom-color: color.$waffle-inky-brown;
     font-weight: 300;
   }
   70% {
-    @include font.gmarket-sans("Light");
+    @include font.gmarket-sans();
     color: color.$waffle-inky-brown;
     border-bottom-color: color.$waffle-inky-brown;
     font-weight: 300;
   }
   80% {
-    @include font.gmarket-sans("Medium");
+    @include font.gmarket-sans();
     color: color.$waffle-yellow;
     border-bottom-color: color.$waffle-yellow;
     font-weight: 500;
