@@ -1,18 +1,24 @@
 import { useState } from "react";
 
 const useDelayedState = <T>(initialState: T) => {
-  const [getState, setState] = useState<T>(initialState);
-  const get = getState;
+  let isTimeoutCleared = false;
+  const [state, setState] = useState<T>(initialState);
+  const get: T = state;
   const delayedSet = (newState: T, ms?: number) => {
     if (ms && ms >= 0) {
+      isTimeoutCleared = false;
       setTimeout(() => {
-        setState(newState);
+        if (!isTimeoutCleared) {
+          setState(newState);
+        }
       }, ms);
     } else {
+      isTimeoutCleared = true;
       setState(newState);
     }
   };
-  return [get, delayedSet];
+  const api: [T, typeof delayedSet] = [get, delayedSet];
+  return api;
 };
 
 export default useDelayedState;
