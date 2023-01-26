@@ -3,10 +3,16 @@ import { useState } from "react";
 const useDelayedState = <T>(initialState: T) => {
   const [getState, setState] = useState<T>(initialState);
   const get = getState;
-  const set = (newState: T) => {
-    setState(newState);
+  const delayedSet = (newState: T, ms?: number) => {
+    if (ms && ms >= 0) {
+      setTimeout(() => {
+        setState(newState);
+      }, ms);
+    } else {
+      setState(newState);
+    }
   };
-  return [get, set];
+  return [get, delayedSet];
 };
 
 export default useDelayedState;
