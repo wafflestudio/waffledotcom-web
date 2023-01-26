@@ -82,8 +82,8 @@
 }
 
 .board {
-  background-color: #fffcf3;
-  border: 3px solid #644f4f;
+  background-color: color.$board-pale-yellow;
+  border: 3px solid color.$board-brown;
   height: 80%;
   overflow: hidden;
   display: flex;

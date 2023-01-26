@@ -20,9 +20,9 @@
 
 .container {
   display: inline-block;
-  background-color: #644f4f;
+  background-color: color.$board-brown;
   height: 100%;
-  color: #fff1cf;
+  color: color.$waffle-pale-yellow;
   > div {
     padding: 8px;
     width: 100%;
@@ -39,7 +39,7 @@
 
 .hr {
   border: 0;
-  border-top: solid 3px #fff1cf;
+  border-top: solid 3px color.$waffle-pale-yellow;
   width: 100%;
   //margin-left: 0;
 }
