@@ -1,0 +1,14 @@
+@use "./styles/position";
+@use "./styles/responsive";
+@use "./styles/color";
+@use "./styles/font";
+
+.Role {
+  .background {
+    @include position.fixed-background;
+    background: color.$waffle-darker-teal;
+    transition: 0.5s;
+    visibility: hidden;
+    opacity: 0;
+  }
+}
