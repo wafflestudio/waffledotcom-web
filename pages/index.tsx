@@ -20,7 +20,6 @@ const Home: NextPage = () => {
       <Cover />
       <Billboard />
       <About />
-
       <Services />
       <WhoAreWe />
     </div>
