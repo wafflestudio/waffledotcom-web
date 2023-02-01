@@ -25,7 +25,7 @@ const Services = () => {
     }
     if (isAvailable) {
       if (1 < progress && progress < 2) {
-        setLogoOpacity((progress - 1) * 0.5);
+        setLogoOpacity((progress - 1) * 0.7);
       }
       if (1.5 < progress) {
         setIsMore(true);
@@ -38,9 +38,9 @@ const Services = () => {
   return (
     <>
       <section className={cx("container", scrollClass)} ref={ref}>
-        <div className={cx("background")}></div>
+        <div className={cx("background")} />
         <div className={cx("foreground")}>
-          <div className={cx("logo")} style={{ opacity: 0.5 + logoOpacity }}>
+          <div className={cx("logo")} style={{ opacity: 0.3 + logoOpacity }}>
             waffle
             <span className={cx("blank")} />
             studio

@@ -8,6 +8,7 @@ import Billboard from "../components/Home/Billboard/Billboard";
 import WhoAreWe from "../components/Home/WhoAreWe/WhoAreWe";
 import Services from "../components/Home/Service/Services";
 import Role from "../components/Home/Role/Role";
+import Activity from "../components/Home/Activity/Activity";
 
 const Home: NextPage = () => {
   useInitiateScrollViewport();
@@ -24,6 +25,7 @@ const Home: NextPage = () => {
       <Services />
       <WhoAreWe />
       <Role />
+      <Activity />
     </div>
   );
 };
