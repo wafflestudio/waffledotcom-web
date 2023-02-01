@@ -24,7 +24,7 @@ const Activity = ({}: Props) => {
       setScrollClass({ available: false }, 500);
     }
     if (isAvailable) {
-      if (1.5 < progress) {
+      if (1.2 < progress) {
         setIsMore(true);
       } else {
         setIsMore(false);
@@ -47,7 +47,7 @@ const Activity = ({}: Props) => {
             와플스튜디오에 대해 더 알고 싶으신가요?
           </div>
           <a className={cx("to")} href={"/services"}>
-            모집 안내 보기 >
+            모집 안내 보기 &gt;
           </a>
         </div>
       </div>

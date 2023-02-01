@@ -9,6 +9,7 @@ import WhoAreWe from "../components/Home/WhoAreWe/WhoAreWe";
 import Services from "../components/Home/Service/Services";
 import Role from "../components/Home/Role/Role";
 import Activity from "../components/Home/Activity/Activity";
+import WhatWeDo from "../components/Home/WhatWeDo/WhatWeDo";
 
 const Home: NextPage = () => {
   useInitiateScrollViewport();
@@ -26,6 +27,7 @@ const Home: NextPage = () => {
       <WhoAreWe />
       <Role />
       <Activity />
+      <WhatWeDo />
     </div>
   );
 };
