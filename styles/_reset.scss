@@ -1,0 +1,9 @@
+@mixin button {
+  background: transparent;
+  font: inherit;
+  border-radius: 0;
+  border: none;
+}
+
+@mixin a {
+}

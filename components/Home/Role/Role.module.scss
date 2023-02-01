@@ -1,0 +1,112 @@
+@use "./styles/position";
+@use "./styles/responsive";
+@use "./styles/color";
+@use "./styles/font";
+
+.container {
+  @include position.home-container;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  opacity: 0;
+  transition: 0.5s ease;
+
+  .background {
+    @include position.fixed-background;
+    background: color.$waffle-dark-teal;
+    visibility: hidden;
+    transition: 0.5s ease;
+  }
+  .line {
+    display: flex;
+    width: 100%;
+    max-width: 1300px;
+    justify-content: space-between;
+    margin-top: 25px;
+    transition: 0.5s ease;
+    font-size: 18px;
+    line-height: 30px;
+    color: white;
+    transform: translateY(50px);
+
+    &.sub {
+      max-width: 1112px;
+      margin-left: 188px;
+      margin-top: 16px;
+    }
+    &.boxCover {
+      @include position.flex-center();
+      position: absolute;
+      height: 118px;
+      top: 0;
+      opacity: 0;
+      color: white;
+      font-size: 24px;
+      font-weight: 500;
+    }
+  }
+  .box {
+    position: relative;
+    height: 118px;
+    background-color: color.$waffle-teal;
+    &.short {
+      @include position.flex-center;
+      width: 167px;
+      font-weight: 500;
+    }
+    &.long {
+      width: 1112px;
+      display: flex;
+      align-items: center;
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+    &.middle {
+      display: flex;
+      align-items: center;
+      padding-left: 30px;
+      padding-right: 30px;
+
+      width: 924px;
+    }
+    &.dark {
+      background-color: color.$waffle-darker-teal;
+    }
+  }
+}
+.fold {
+  .line {
+    opacity: 0;
+    &.line1 {
+      transform: translateY(0px);
+    }
+    &.line2 {
+      transform: translateY(-143px);
+    }
+    &.line3 {
+      transform: translateY(-286px);
+    }
+    &.line4 {
+      transform: translateY(-420px);
+    }
+    &.line5 {
+      transform: translateY(-554px);
+    }
+    &.line6 {
+      transform: translateY(-688px);
+    }
+    &.boxCover {
+      transform: translateY(-50px);
+      opacity: 1;
+      background: color.$waffle-teal;
+    }
+  }
+}
+
+.available {
+  opacity: 1;
+  .background {
+    visibility: visible;
+  }
+}
