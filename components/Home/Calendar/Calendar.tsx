@@ -1,13 +1,29 @@
 import classNames from "classnames/bind";
 import styles from "./Calendar.module.scss";
+import { useScroll } from "../../../hooks/scroll/useScroll";
+import { useRef } from "react";
+import useDelayedState from "../../../hooks/delayedState/useDelayedState";
 
 const cx = classNames.bind(styles);
 
 interface Props {}
 
 const Calendar = ({}: Props) => {
+  const ref = useRef(null);
+  const [scrollClass, setScrollClass] = useDelayedState<{ available: boolean }>(
+    { available: false },
+  );
+  useScroll(ref, ({ isAvailable, progress }) => {
+    if (0.5 < progress && progress < 3) {
+      if (!scrollClass.available) {
+        setScrollClass({ available: true });
+      }
+    } else {
+      setScrollClass({ available: false }, 500);
+    }
+  });
   return (
-    <div className={cx("container")}>
+    <div className={cx("container", scrollClass)} ref={ref}>
       <div className={cx("background")}>
         <div className={cx("tableCloth1")} />
         <div className={cx("tableCloth2")} />

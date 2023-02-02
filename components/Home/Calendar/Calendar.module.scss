@@ -12,8 +12,8 @@
     @include position.flex-center;
     background: color.$waffle-red-brown;
     transition: 0.5s ease;
-    //    visibility: hidden;
-    opacity: 1;
+    visibility: hidden;
+    opacity: 0;
     .tableCloth1 {
       position: absolute;
       width: 70%;
@@ -32,8 +32,8 @@
     @include position.flex-center;
     background: transparent;
     transition: 0.5s;
-    //    visibility: hidden;
-    opacity: 1;
+    visibility: hidden;
+    opacity: 0;
     .forkAndKnife {
       position: absolute;
       width: 60%;
@@ -47,6 +47,8 @@
       position: absolute;
       width: 60%;
       height: 100%;
+      transition: 1s;
+      transform: rotate(-240deg) scale(0.1);
       .pancakeBackground {
         width: 100%;
       }
@@ -125,6 +127,20 @@
     }
     .m12 {
       transform: translate(0, -18vw);
+    }
+  }
+}
+
+.available {
+  .background {
+    opacity: 1;
+    visibility: visible;
+  }
+  .foreground {
+    opacity: 1;
+    visibility: visible;
+    .pancake {
+      transform: rotate(0) scale(1);
     }
   }
 }
