@@ -59,10 +59,11 @@
       height: 40vw;
 
       .fakeScreenshot {
+        position: absolute;
+        right: 0;
         background: lightblue;
-        width: 739px;
-        height: 477px;
-        margin-left: 40px;
+        width: 90%;
+        height: 400px;
       }
     }
   }
