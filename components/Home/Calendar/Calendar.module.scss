@@ -1,0 +1,130 @@
+@use "./styles/position";
+@use "./styles/responsive";
+@use "./styles/color";
+@use "./styles/font";
+
+.container {
+  @include position.home-container;
+  transition: 0.5s ease;
+  height: 100vh;
+  .background {
+    @include position.fixed-background;
+    @include position.flex-center;
+    background: color.$waffle-red-brown;
+    transition: 0.5s ease;
+    //    visibility: hidden;
+    opacity: 1;
+    .tableCloth1 {
+      position: absolute;
+      width: 70%;
+      height: 586px;
+      background: color.$waffle-dark-pink;
+    }
+    .tableCloth2 {
+      position: absolute;
+      width: 70%;
+      height: 280px;
+      background: color.$waffle-light-pink;
+    }
+  }
+  .foreground {
+    @include position.fixed-foreground;
+    @include position.flex-center;
+    background: transparent;
+    transition: 0.5s;
+    //    visibility: hidden;
+    opacity: 1;
+    .forkAndKnife {
+      position: absolute;
+      width: 60%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .pancake {
+      @include position.flex-center;
+      position: absolute;
+      width: 60%;
+      height: 100%;
+      .pancakeBackground {
+        width: 100%;
+      }
+      .months {
+        @include font.lobster;
+        @include position.flex-center;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        .month {
+          @include position.flex-center;
+          position: absolute;
+          color: color.$waffle-dark-orange;
+          font-size: 4vw;
+          width: 2em;
+          height: 2em;
+        }
+      }
+      .description {
+        position: absolute;
+        width: 24vw;
+        height: 12vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .title {
+          font-size: 1.5vw;
+          font-weight: 700;
+          color: color.$waffle-red-brown;
+          letter-spacing: -0.05em;
+          margin-bottom: 4vw;
+        }
+        .content {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          .monthName {
+          }
+          .monthContent {
+          }
+        }
+      }
+    }
+    .m1 {
+      transform: translate(9vw, -15vw);
+    }
+    .m2 {
+      transform: translate(15vw, -9vw);
+    }
+    .m3 {
+      transform: translate(18vw, 0);
+    }
+    .m4 {
+      transform: translate(15vw, 9vw);
+    }
+    .m5 {
+      transform: translate(9vw, 15vw);
+    }
+    .m6 {
+      transform: translate(0, 18vw);
+    }
+    .m7 {
+      transform: translate(-9vw, 15vw);
+    }
+    .m8 {
+      transform: translate(-15vw, 9vw);
+    }
+    .m9 {
+      transform: translate(-18vw, 0);
+    }
+    .m10 {
+      transform: translate(-15vw, -9vw);
+    }
+    .m11 {
+      transform: translate(-9vw, -15vw);
+    }
+    .m12 {
+      transform: translate(0, -18vw);
+    }
+  }
+}
