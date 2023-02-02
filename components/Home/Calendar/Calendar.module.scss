@@ -6,7 +6,7 @@
 .container {
   @include position.home-container;
   transition: 0.5s ease;
-  height: 100vh;
+  height: 150vh;
   .background {
     @include position.fixed-background;
     @include position.flex-center;

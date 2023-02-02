@@ -11,6 +11,7 @@ import Role from "../components/Home/Role/Role";
 import Activity from "../components/Home/Activity/Activity";
 import WhatWeDo from "../components/Home/WhatWeDo/WhatWeDo";
 import Calendar from "../components/Home/Calendar/Calendar";
+import QnA from "../components/Home/QnA/QnA";
 
 const Home: NextPage = () => {
   useInitiateScrollViewport();
@@ -30,6 +31,7 @@ const Home: NextPage = () => {
       <Activity />
       <WhatWeDo />
       <Calendar />
+      <QnA />
     </div>
   );
 };

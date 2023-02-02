@@ -1,0 +1,83 @@
+@use "./styles/position";
+@use "./styles/responsive";
+@use "./styles/color";
+@use "./styles/font";
+
+.container {
+  @include position.home-container;
+  transition: 0.5s ease;
+  height: 150vh;
+  .background {
+    @include position.fixed-background;
+    @include position.flex-center;
+    background: color.$waffle-dark-orange;
+    transition: 0.5s ease;
+    visibility: hidden;
+    opacity: 0;
+  }
+  .foreground {
+    @include position.fixed-foreground;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    background: transparent;
+    transition: 0.5s;
+    visibility: hidden;
+    opacity: 0;
+    .phone {
+      position: relative;
+      width: 40vw;
+      height: 80vh;
+      background: color.$QnA-phone-black;
+      border-top-left-radius: 6%;
+      border-top-right-radius: 6%;
+      padding: 80px 25px 0 25px;
+      .screen {
+        width: 100%;
+        height: 100%;
+        background: color.$waffle-dark-orange;
+        .topBar {
+          width: 100%;
+          height: 80px;
+          background: color.$QnA-phone-bar;
+          display: flex;
+          align-items: center;
+          color: white;
+          font-size: 24px;
+          font-weight: 500;
+          padding-left: 72px;
+        }
+        img {
+          margin-left: 8px;
+        }
+      }
+    }
+    .screenshots {
+      @include position.flex-center;
+      position: relative;
+      width: 40vw;
+      height: 40vw;
+
+      .fakeScreenshot {
+        background: lightblue;
+        width: 739px;
+        height: 477px;
+        margin-left: 40px;
+      }
+    }
+  }
+}
+
+.available {
+  .background {
+    opacity: 1;
+    visibility: visible;
+  }
+  .foreground {
+    opacity: 1;
+    visibility: visible;
+    .pancake {
+      transform: rotate(0) scale(1);
+    }
+  }
+}
