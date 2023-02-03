@@ -12,6 +12,7 @@ import Activity from "../components/Home/Activity/Activity";
 import WhatWeDo from "../components/Home/WhatWeDo/WhatWeDo";
 import Calendar from "../components/Home/Calendar/Calendar";
 import QnA from "../components/Home/QnA/QnA";
+import Ending from "../components/common/Ending/Ending";
 
 const Home: NextPage = () => {
   useInitiateScrollViewport();
@@ -32,6 +33,7 @@ const Home: NextPage = () => {
       <WhatWeDo />
       <Calendar />
       <QnA />
+      <Ending type={"side"} />
     </div>
   );
 };
