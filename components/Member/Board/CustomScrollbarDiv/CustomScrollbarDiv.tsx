@@ -75,7 +75,8 @@ const CustomScrollbarDiv = ({
     if (dragStart.current) {
       if (containerRef && containerRef.current) {
         const container = containerRef.current;
-        const newThumbTop = e.target.offsetTop + e.clientY - posY.current;
+        const newThumbTop =
+          e.currentTarget.offsetTop + e.clientY - posY.current;
 
         posY.current = e.clientY;
 
