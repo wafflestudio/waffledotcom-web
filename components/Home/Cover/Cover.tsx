@@ -2,6 +2,7 @@ import styles from "./Cover.module.scss";
 import { useRef, useState } from "react";
 import { useScroll } from "../../../hooks/scroll/useScroll";
 import classNames from "classnames/bind";
+import { useRouter } from "next/router";
 
 const cx = classNames.bind(styles);
 
@@ -10,6 +11,7 @@ const Cover = () => {
   const [scrollClass, setScrollClass] = useState<{ available: boolean }>({
     available: false,
   });
+  const router = useRouter();
   useScroll(ref, ({ isAvailable, progress }) => {
     if (isAvailable) {
       setScrollClass({ available: true });
@@ -35,9 +37,15 @@ const Cover = () => {
 
       <nav className={styles.navigator}>
         <ul>
-          <li>소개</li>
+          <li style={{ background: "brown", color: "white" }}>소개</li>
           <li>서비스</li>
-          <li>멤버</li>
+          <li
+            onClick={() => {
+              router.push("./member");
+            }}
+          >
+            멤버
+          </li>
         </ul>
       </nav>
       <div className={styles.description}>
