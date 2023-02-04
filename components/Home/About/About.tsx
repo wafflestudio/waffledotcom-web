@@ -2,20 +2,23 @@ import styles from "./About.module.scss";
 import { useScroll } from "../../../hooks/scroll/useScroll";
 import { useRef, useState } from "react";
 import classNames from "classnames/bind";
+import useDelayedState from "../../../hooks/delayedState/useDelayedState";
 
 const cx = classNames.bind(styles);
 const About = () => {
   const ref = useRef(null);
-  const [scrollClass, setScrollClass] = useState<{ available: boolean }>({
-    available: false,
-  });
+  const [scrollClass, setScrollClass] = useDelayedState<{ available: boolean }>(
+    {
+      available: false,
+    },
+  );
   useScroll(ref, ({ progress }) => {
     if (0.75 < progress && progress < 3) {
       if (!scrollClass.available) {
         setScrollClass({ available: true });
       }
     } else {
-      setScrollClass({ available: false });
+      setScrollClass({ available: false }, 500);
     }
   });
 
