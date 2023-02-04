@@ -87,11 +87,6 @@ const CustomScrollbarDiv = ({
           (container.scrollTop * (newTrackHeight - newThumbHeight)) /
           (container.scrollHeight - container.offsetHeight);
 
-        console.log({
-          trackHeight: newTrackHeight,
-          thumbHeight: newThumbHeight,
-          thumbTop: newThumbtop,
-        });
         setScrollbar({
           trackHeight: newTrackHeight,
           thumbHeight: newThumbHeight,
@@ -100,24 +95,25 @@ const CustomScrollbarDiv = ({
       }}
     >
       <div className={styles.children}>{children}</div>
-      {offsetHeight === scrollHeight ? null : (
+      <div
+        className={styles.scrollbar}
+        style={{ height: scrollbar.trackHeight }}
+      >
         <div
           className={`${styles.track} ${trackClassName}`}
           style={{
-            height: scrollbar.trackHeight,
             ...trackStyle,
           }}
-        >
-          <div
-            className={`${styles.thumb} ${thumbClassName}`}
-            style={{
-              height: scrollbar.thumbHeight,
-              top: scrollbar.thumbTop,
-              ...thumbStyle,
-            }}
-          ></div>
-        </div>
-      )}
+        ></div>
+        <div
+          className={`${styles.thumb} ${thumbClassName}`}
+          style={{
+            height: scrollbar.thumbHeight,
+            top: scrollbar.thumbTop,
+            ...thumbStyle,
+          }}
+        ></div>
+      </div>
     </div>
   );
 };

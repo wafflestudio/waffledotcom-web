@@ -17,10 +17,21 @@
   width: calc(100% - 17px);
 }
 
-.track {
-  top: 0;
+.scrollbar {
   position: sticky;
-  width: 5px;
+  top: 0;
+  width: 12px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+}
+
+.track {
+  position: absolute;
+  width: 8px;
+  left: 2px;
   margin-right: 5px;
   height: 100%;
   background-color: #644F4F14;
@@ -29,9 +40,7 @@
 
 .thumb {
   position: relative;
-  left: -3px;
-  width: 0;
-  border: 6px solid #644F4F;
+  width: 12px;
   border-radius: 6px;
   background-color: #644F4F;
 }
