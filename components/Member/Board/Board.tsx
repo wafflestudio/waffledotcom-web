@@ -2,7 +2,6 @@ import styles from "./Board.module.scss";
 import Sidebar from "./Sidebar/Sidebar";
 import Card from "./Card/Card";
 import CustomScrollbarDiv from "./CustomScrollbarDiv/CustomScrollbarDiv";
-import Scrollbar from "./CustomScrollbarDiv/Scrollbar/Scrollbar";
 import members from "./members.json";
 
 const Board = () => {
