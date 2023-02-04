@@ -19,14 +19,14 @@ const Role = ({}: Props) => {
     fold: true,
   });
   useScroll(ref, ({ progress }) => {
-    if (0.3 < progress && progress < 3) {
+    if (0.2 < progress && progress < 3) {
       if (!scrollClass.available) {
         setScrollClass({ available: true });
       }
     } else {
       setScrollClass({ available: false }, 500);
     }
-    if (0.6 < progress) {
+    if (0.7 < progress) {
       setIsFold({ fold: false });
     } else {
       setIsFold({ fold: true });
