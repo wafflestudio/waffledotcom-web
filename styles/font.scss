@@ -25,8 +25,13 @@
   font-family: "nico-moji-regular";
 }
 
+@font-face {
+  src: url("../public/static/font/Lobster-Regular.ttf");
+  font-family: "Lobster";
+}
+
 //webfonts
-@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+//@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
 
 @font-face {
   font-family: "KCC-eunyoung";
