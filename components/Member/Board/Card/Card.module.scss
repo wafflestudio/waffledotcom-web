@@ -4,15 +4,14 @@
   position: relative;
   border: 5px solid color.$waffle-orange;
   border-radius: 15px;
-  width: 44%;
+  width: 100%;
+  margin-bottom: 15px;
   aspect-ratio: 3.44 / 1;
   padding-left: 19px;
-  margin: 0.5rem 0 0.5rem 0.5rem;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: start;
-  box-sizing: content-box;
 }
 
 .profileImage {
@@ -70,8 +69,9 @@
 
 .introduction {
   font-size: 14px;
-  height: 2.2em;
-  overflow: scroll;
+  height: 33px;
+  //padding-top: 3px;
+  //padding-bottom: 3px;
 }
 
 .snsArea {

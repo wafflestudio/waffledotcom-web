@@ -1,5 +1,6 @@
 import styles from "./Card.module.scss";
 import Image from "next/image";
+import CustomScrollbarDiv from "../CustomScrollbarDiv/CustomScrollbarDiv";
 
 type cardProps = {
   name: string;
@@ -73,7 +74,17 @@ const Card = ({
           />
           <span className={styles.waffleNumber}>111</span>
         </div>
-        <div className={styles.introduction}>{introduction}</div>
+        <CustomScrollbarDiv
+          className={styles.introduction}
+          trackStyle={{ width: 4, left: 4 }}
+          thumbStyle={{
+            width: 5,
+            backgroundColor: "#F0975E",
+          }}
+          thumbHeight={9}
+        >
+          {introduction}
+        </CustomScrollbarDiv>
       </div>
       <div className={styles.snsArea}>
         <Image

@@ -1,6 +1,8 @@
 import styles from "./Board.module.scss";
 import Sidebar from "./Sidebar/Sidebar";
 import Card from "./Card/Card";
+import CustomScrollbarDiv from "./CustomScrollbarDiv/CustomScrollbarDiv";
+import Scrollbar from "./CustomScrollbarDiv/Scrollbar/Scrollbar";
 import members from "./members.json";
 
 const Board = () => {
@@ -16,22 +18,46 @@ const Board = () => {
       </div>
       <div className={styles.board}>
         <Sidebar></Sidebar>
-        <div className={styles.cardArea}>
-          {members.map((member) => (
-            <Card
-              key={member.name}
-              name={member.name}
-              githubId={member.githubId}
-              positions={member.position}
-              generation={17.5}
-              introduction={member.introduction}
-              instagram={member.instagram}
-              facebook={member.facebook}
-              web={member.web}
-              admin={member.admin}
-            />
-          ))}
-        </div>
+        <CustomScrollbarDiv className={styles.cardArea}>
+          <div className={styles.cardColumnWrapper}>
+            <div className={styles.cardColumn}>
+              {members
+                .filter((_, idx) => idx % 2 === 0)
+                .map((member) => (
+                  <Card
+                    key={member.name}
+                    name={member.name}
+                    githubId={member.githubId}
+                    positions={member.position}
+                    generation={17.5}
+                    introduction={member.introduction}
+                    instagram={member.instagram}
+                    facebook={member.facebook}
+                    web={member.web}
+                    admin={member.admin}
+                  />
+                ))}
+            </div>
+            <div className={styles.cardColumn}>
+              {members
+                .filter((_, idx) => idx % 2 === 1)
+                .map((member) => (
+                  <Card
+                    key={member.name}
+                    name={member.name}
+                    githubId={member.githubId}
+                    positions={member.position}
+                    generation={17.5}
+                    introduction={member.introduction}
+                    instagram={member.instagram}
+                    facebook={member.facebook}
+                    web={member.web}
+                    admin={member.admin}
+                  />
+                ))}
+            </div>
+          </div>
+        </CustomScrollbarDiv>
       </div>
     </div>
   );

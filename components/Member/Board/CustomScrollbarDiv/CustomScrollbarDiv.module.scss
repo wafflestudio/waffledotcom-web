@@ -1,0 +1,46 @@
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  align-content: start;
+  justify-content: space-between;
+  overflow-y: scroll;
+  overflow-x: visible;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.children {
+  width: calc(100% - 17px);
+}
+
+.scrollbar {
+  position: sticky;
+  top: 0;
+  width: 12px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+}
+
+.track {
+  position: absolute;
+  width: 8px;
+  left: 2px;
+  margin-right: 5px;
+  height: 100%;
+  background-color: #644F4F14;
+  border-radius: 2.5px;
+}
+
+.thumb {
+  position: relative;
+  width: 12px;
+  border-radius: 6px;
+  background-color: #644F4F;
+}

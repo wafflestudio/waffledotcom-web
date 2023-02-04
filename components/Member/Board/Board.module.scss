@@ -91,13 +91,24 @@
 }
 
 .cardArea {
-  position: relative;
   height: 100%;
-  padding: 0.5rem 0 0.5rem 0.5rem;
+  padding: 30px 20px 15px 20px;
+}
+
+.cardColumnWrapper {
+  width: 100%;
   display: flex;
-  flex-flow: row wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-right: 20px;
+}
+
+.cardColumn {
+  position: relative;
+  width: calc(50% - 10px);
+  display: flex;
+  flex-flow: column wrap;
   align-items: start;
   align-content: start;
   justify-content: start;
-  overflow: scroll;
 }
