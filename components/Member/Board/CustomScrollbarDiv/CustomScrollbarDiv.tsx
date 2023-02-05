@@ -1,5 +1,5 @@
 import styles from "./CustomScrollbarDiv.module.scss";
-import { useLayoutEffect, useRef, useState } from "react";
+import React, { useLayoutEffect, useEffect, useRef, useState } from "react";
 
 type props = {
   className?: string;
@@ -35,7 +35,6 @@ const CustomScrollbarDiv = ({
   });
 
   const containerRef = useRef<HTMLDivElement>(null);
-  const scrollbarThumbRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
     if (containerRef && containerRef.current) {
@@ -65,32 +64,46 @@ const CustomScrollbarDiv = ({
     }
   }, []);
 
+  useEffect(() => {
+    window.addEventListener("mousemove", handleDrag);
+    window.addEventListener("mouseup", handleDragEnd);
+    return () => {
+      window.removeEventListener("mousemove", handleDrag);
+      window.removeEventListener("mouseup", handleDragEnd);
+    };
+  });
+
   const posY = useRef(0);
   const dragStart = useRef(false);
-  const handleDragStart = (e: React.DragEvent<HTMLDivElement>) => {
+
+  const handleDragStart = (e: React.MouseEvent) => {
     posY.current = e.clientY;
     dragStart.current = true;
   };
-  const handleDrag = (e: React.DragEvent<HTMLDivElement>) => {
+
+  const handleDrag = (e: MouseEvent) => {
     if (dragStart.current) {
       if (containerRef && containerRef.current) {
         const container = containerRef.current;
-        const newThumbTop =
-          e.currentTarget.offsetTop + e.clientY - posY.current;
+        const scrollBy = e.clientY - posY.current;
+        const newThumbTop = scrollbar.thumbTop + scrollBy;
 
-        posY.current = e.clientY;
-
-        container.scrollTo(
-          0,
-          (newThumbTop * (container.scrollHeight - container.offsetHeight)) /
-            (scrollbar.trackHeight - scrollbar.thumbHeight),
-        );
+        if (
+          newThumbTop >= 0 &&
+          newThumbTop <= scrollbar.trackHeight - scrollbar.thumbHeight
+        ) {
+          posY.current = e.clientY;
+          container.scrollBy(
+            0,
+            (scrollBy * (container.scrollHeight - container.offsetHeight)) /
+              (scrollbar.trackHeight - scrollbar.thumbHeight),
+          );
+        }
       }
     }
   };
 
-  const handleDragEnd = (e: React.DragEvent<HTMLDivElement>) => {
-    // e.target.style.top = `${e.target.offsetTop + e.clientY - posY.current}px`;
+  const handleDragEnd = (e: MouseEvent) => {
     dragStart.current = false;
   };
 
@@ -136,15 +149,12 @@ const CustomScrollbarDiv = ({
         ></div>
         <div
           className={`${styles.thumb} ${thumbClassName}`}
-          ref={scrollbarThumbRef}
           style={{
             height: scrollbar.thumbHeight,
             top: scrollbar.thumbTop,
             ...thumbStyle,
           }}
           onMouseDown={handleDragStart}
-          onMouseMove={handleDrag}
-          onMouseUp={handleDragEnd}
         ></div>
       </div>
     </div>
