@@ -6,9 +6,7 @@ import styles from "./Role.module.scss";
 
 const cx = classNames.bind(styles);
 
-interface Props {}
-
-function Role({}: Props) {
+function Role() {
   const ref = useRef(null);
   const [scrollClass, setScrollClass] = useDelayedState<{ available: boolean }>(
     {

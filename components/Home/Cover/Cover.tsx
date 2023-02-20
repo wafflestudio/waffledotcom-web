@@ -41,7 +41,7 @@ function Cover() {
           <li>서비스</li>
           <li
             onClick={() => {
-              router.push("./member");
+              void router.push("./member");
             }}
           >
             멤버

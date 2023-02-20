@@ -6,9 +6,7 @@ import styles from "./Activity.module.scss";
 
 const cx = classNames.bind(styles);
 
-interface Props {}
-
-function Activity({}: Props) {
+function Activity() {
   const ref = useRef(null);
   const [scrollClass, setScrollClass] = useDelayedState<{ available: boolean }>(
     { available: false },

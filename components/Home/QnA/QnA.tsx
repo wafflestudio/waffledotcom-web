@@ -6,9 +6,7 @@ import styles from "./QnA.module.scss";
 
 const cx = classNames.bind(styles);
 
-interface Props {}
-
-function QnA({}: Props) {
+function QnA() {
   const ref = useRef(null);
   const [scrollClass, setScrollClass] = useDelayedState<{ available: boolean }>(
     { available: false },

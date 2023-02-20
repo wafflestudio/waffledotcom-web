@@ -1,14 +1,14 @@
 import { useState } from "react";
 import styles from "./SidebarButtons.module.scss";
 
-type radioProps = {
-  value: any;
+type RadioProps<T> = {
+  value: T;
   label: string;
-  current: any;
-  setCurrent: (arg: any) => void;
+  current: T;
+  setCurrent: (arg: T) => void;
 };
 
-export function Radio({ value, label, current, setCurrent }: radioProps) {
+export function Radio<T>({ value, label, current, setCurrent }: RadioProps<T>) {
   const checkHandler = () => {
     setCurrent(value);
   };
@@ -18,7 +18,7 @@ export function Radio({ value, label, current, setCurrent }: radioProps) {
       <input
         type={"checkbox"}
         checked={current === value}
-        value={value}
+        value={String(value)}
         onChange={() => checkHandler()}
       />
       <span>{label}</span>
@@ -27,10 +27,10 @@ export function Radio({ value, label, current, setCurrent }: radioProps) {
 }
 
 type checkboxProps = {
-  value: any;
+  value: string;
   label: string;
-  set: Set<any>;
-  setSet: (arg: Set<any>) => void;
+  set: Set<string>;
+  setSet: (arg: Set<string>) => void;
 };
 
 export function Checkbox({ value, label, set, setSet }: checkboxProps) {
@@ -91,12 +91,12 @@ export function Toggle({ label1, label2, checked, setter }: switchProps) {
 }
 
 type dropdownProps = {
-  arr: any[];
-  current: any;
-  setCurrent: (arg: any) => void;
+  arr: string[];
+  current: string;
+  setCurrent: (arg: string) => void;
 };
 
-// noinspection JSUnusedLocalSymbols
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function Dropdown({ arr, current, setCurrent }: dropdownProps) {
   return (
     <div>

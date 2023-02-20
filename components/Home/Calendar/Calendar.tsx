@@ -6,9 +6,7 @@ import styles from "./Calendar.module.scss";
 
 const cx = classNames.bind(styles);
 
-interface Props {}
-
-function Calendar({}: Props) {
+function Calendar() {
   const ref = useRef(null);
   const [scrollClass, setScrollClass] = useDelayedState<{ available: boolean }>(
     { available: false },
