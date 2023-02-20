@@ -14,10 +14,15 @@ export const Radio = ({ value, label, current, setCurrent }: radioProps) => {
   };
 
   return (
-    <div className={styles.radio} onClick={checkHandler}>
-      <input type={"checkbox"} checked={current === value} value={value} />
-      <label>{label}</label>
-    </div>
+    <label className={styles.radio}>
+      <input
+        type={"checkbox"}
+        checked={current === value}
+        value={value}
+        onChange={() => checkHandler()}
+      />
+      <span>{label}</span>
+    </label>
   );
 };
 
@@ -42,10 +47,17 @@ export const Checkbox = ({ value, label, set, setSet }: checkboxProps) => {
     setSet(new Set(set));
   };
   return (
-    <div className={styles.checkbox} onClick={checkHandler}>
-      <input type={"checkbox"} checked={checked} value={value} />
-      <label>{label}</label>
-    </div>
+    <label className={styles.checkbox}>
+      <input
+        type={"checkbox"}
+        checked={checked}
+        value={value}
+        onChange={() => {
+          checkHandler();
+        }}
+      />
+      <span>{label}</span>
+    </label>
   );
 };
 
@@ -62,15 +74,19 @@ export const Toggle = ({ label1, label2, checked, setter }: switchProps) => {
   };
 
   return (
-    <div className={styles.toggle} onClick={checkHandler}>
-      <input type={"checkbox"} checked={checked} />
+    <label className={styles.toggle}>
+      <input
+        type={"checkbox"}
+        checked={checked}
+        onChange={() => checkHandler()}
+      />
       <div className={styles.label1Container}>
         <span className={styles.label1}>{label1}</span>
       </div>
       <div className={styles.label2Container}>
         <span className={styles.label2}>{label2}</span>
       </div>
-    </div>
+    </label>
   );
 };
 

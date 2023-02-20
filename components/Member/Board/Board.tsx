@@ -1,8 +1,10 @@
 import styles from "./Board.module.scss";
 import Sidebar from "./Sidebar/Sidebar";
-import Card from "./Card/Card";
+import Card, { MemberType } from "./Card/Card";
 import CustomScrollbarDiv from "./CustomScrollbarDiv/CustomScrollbarDiv";
-import members from "./members.json";
+import _members from "./members.json";
+
+const members = _members as MemberType[];
 
 const Board = () => {
   return (
@@ -23,36 +25,14 @@ const Board = () => {
               {members
                 .filter((_, idx) => idx % 2 === 0)
                 .map((member) => (
-                  <Card
-                    key={member.name}
-                    name={member.name}
-                    githubId={member.githubId}
-                    positions={member.position}
-                    generation={17.5}
-                    introduction={member.introduction}
-                    instagram={member.instagram}
-                    facebook={member.facebook}
-                    web={member.web}
-                    admin={member.admin}
-                  />
+                  <Card key={member.name} member={member} />
                 ))}
             </div>
             <div className={styles.cardColumn}>
               {members
                 .filter((_, idx) => idx % 2 === 1)
                 .map((member) => (
-                  <Card
-                    key={member.name}
-                    name={member.name}
-                    githubId={member.githubId}
-                    positions={member.position}
-                    generation={17.5}
-                    introduction={member.introduction}
-                    instagram={member.instagram}
-                    facebook={member.facebook}
-                    web={member.web}
-                    admin={member.admin}
-                  />
+                  <Card key={member.name} member={member} />
                 ))}
             </div>
           </div>

@@ -1,17 +1,24 @@
 import styles from "./CustomScrollbarDiv.module.scss";
-import React, { useLayoutEffect, useEffect, useRef, useState } from "react";
+import React, {
+  useLayoutEffect,
+  useEffect,
+  useRef,
+  useState,
+  CSSProperties,
+  useCallback,
+} from "react";
 
-type props = {
+type Props = {
   className?: string;
-  style?: object;
+  style?: CSSProperties;
   trackClassName?: string;
-  trackStyle?: object;
+  trackStyle?: CSSProperties;
   trackHeight?: number;
   thumbClassName?: string;
-  thumbStyle?: object;
+  thumbStyle?: CSSProperties;
   thumbHeight?: number;
   scrollbarClassName?: string;
-  scrollbarStyle?: object;
+  scrollbarStyle?: CSSProperties;
   children?: React.ReactNode;
 };
 
@@ -25,9 +32,7 @@ const CustomScrollbarDiv = ({
   thumbStyle = {},
   thumbHeight = -1,
   children,
-}: props) => {
-  const [scrollHeight, setScrollHeight] = useState(0);
-  const [offsetHeight, setOffsetHeight] = useState(0);
+}: Props) => {
   const [scrollbar, setScrollbar] = useState({
     trackHeight: trackHeight,
     thumbHeight: thumbHeight,
@@ -36,9 +41,8 @@ const CustomScrollbarDiv = ({
 
   const containerRef = useRef<HTMLDivElement>(null);
 
-  useLayoutEffect(() => {
-    if (containerRef && containerRef.current) {
-      const container = containerRef.current;
+  const updateScrollBar = useCallback(
+    (container: HTMLDivElement) => {
       const containerStyle = window.getComputedStyle(container);
       const padding =
         parseInt(containerStyle.paddingTop.slice(0, -2)) +
@@ -51,18 +55,25 @@ const CustomScrollbarDiv = ({
           ? (newTrackHeight * container.offsetHeight) / container.scrollHeight
           : thumbHeight;
       const newThumbtop =
-        (container.scrollTop * (newTrackHeight - newThumbHeight)) /
-        (container.scrollHeight - container.offsetHeight);
-
-      setScrollHeight(container.scrollHeight);
-      setOffsetHeight(container.offsetHeight);
+        container.scrollHeight === container.offsetHeight
+          ? 0
+          : (container.scrollTop * (newTrackHeight - newThumbHeight)) /
+            (container.scrollHeight - container.offsetHeight);
       setScrollbar({
         trackHeight: newTrackHeight,
         thumbHeight: newThumbHeight,
         thumbTop: newThumbtop,
       });
+    },
+    [thumbHeight, trackHeight],
+  );
+
+  useLayoutEffect(() => {
+    if (containerRef && containerRef.current) {
+      const container = containerRef.current;
+      updateScrollBar(container);
     }
-  }, []);
+  }, [updateScrollBar]);
 
   useEffect(() => {
     window.addEventListener("mousemove", handleDrag);
@@ -103,7 +114,7 @@ const CustomScrollbarDiv = ({
     }
   };
 
-  const handleDragEnd = (e: MouseEvent) => {
+  const handleDragEnd = () => {
     dragStart.current = false;
   };
 
@@ -113,27 +124,8 @@ const CustomScrollbarDiv = ({
       ref={containerRef}
       style={style}
       onScroll={(e: React.UIEvent<HTMLDivElement>) => {
-        const container = e.target as HTMLDivElement;
-        const containerStyle = window.getComputedStyle(container);
-        const padding =
-          parseInt(containerStyle.paddingTop.slice(0, -2)) +
-          parseInt(containerStyle.paddingBottom.slice(0, -2));
-
-        const newTrackHeight =
-          trackHeight === -1 ? container.offsetHeight - padding : trackHeight;
-        const newThumbHeight =
-          thumbHeight === -1
-            ? (newTrackHeight * container.offsetHeight) / container.scrollHeight
-            : thumbHeight;
-        const newThumbtop =
-          (container.scrollTop * (newTrackHeight - newThumbHeight)) /
-          (container.scrollHeight - container.offsetHeight);
-
-        setScrollbar({
-          trackHeight: newTrackHeight,
-          thumbHeight: newThumbHeight,
-          thumbTop: newThumbtop,
-        });
+        const container = e.currentTarget;
+        updateScrollBar(container);
       }}
     >
       <div className={styles.children}>{children}</div>
@@ -143,10 +135,8 @@ const CustomScrollbarDiv = ({
       >
         <div
           className={`${styles.track} ${trackClassName}`}
-          style={{
-            ...trackStyle,
-          }}
-        ></div>
+          style={trackStyle}
+        />
         <div
           className={`${styles.thumb} ${thumbClassName}`}
           style={{
@@ -155,7 +145,7 @@ const CustomScrollbarDiv = ({
             ...thumbStyle,
           }}
           onMouseDown={handleDragStart}
-        ></div>
+        />
       </div>
     </div>
   );

@@ -2,36 +2,31 @@ import styles from "./Card.module.scss";
 import Image from "next/image";
 import CustomScrollbarDiv from "../CustomScrollbarDiv/CustomScrollbarDiv";
 
-type cardProps = {
+export type MemberType = {
   name: string;
   githubId: string;
-  positions: string[];
-  generation: number;
-  introduction: string;
+  position: string[];
+  generation?: number;
+  introduction?: string;
   instagram: string;
   facebook: string;
   web: string;
   admin: boolean;
 };
+type CardProps = {
+  member: MemberType;
+};
 
 const Card = ({
-  name,
-  githubId,
-  positions,
-  generation,
-  introduction = "",
-  instagram = "",
-  facebook = "",
-  web = "",
-  admin = false,
-}: cardProps) => {
+  member: { name, position, generation, introduction, admin = false },
+}: CardProps) => {
   return (
     <div className={styles.container}>
       <span className={styles.profileImage}></span>
       <div className={styles.profileInformation}>
         <div className={styles.badgeContainer}>
           <span className={styles.badge} style={{ backgroundColor: "#6E6E6E" }}>
-            {generation}기
+            {generation ?? 17.5}기
           </span>
           {admin ? (
             <span
@@ -41,26 +36,26 @@ const Card = ({
               운영팀
             </span>
           ) : null}
-          {positions.map((position) => (
+          {position.map((posItem) => (
             <span
-              key={position}
+              key={posItem}
               className={styles.badge}
               style={{
                 backgroundColor:
-                  position === "안드로이드"
+                  posItem === "안드로이드"
                     ? "#AECA5E"
-                    : position === "iOS"
+                    : posItem === "iOS"
                     ? "#D95959"
-                    : position === "프론트엔드"
+                    : posItem === "프론트엔드"
                     ? "#67C2E9"
-                    : position === "백엔드"
+                    : posItem === "백엔드"
                     ? "#E39955"
-                    : position === "디자이너"
+                    : posItem === "디자이너"
                     ? "#B573C0"
                     : "#464646",
               }}
             >
-              {position}
+              {posItem}
             </span>
           ))}
         </div>
@@ -81,7 +76,7 @@ const Card = ({
             width: 5,
             backgroundColor: "#F0975E",
           }}
-          thumbHeight={9}
+          // thumbHeight={9}
         >
           {introduction}
         </CustomScrollbarDiv>
