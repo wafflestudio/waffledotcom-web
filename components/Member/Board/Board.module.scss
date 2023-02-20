@@ -51,7 +51,7 @@
 .header {
   display: flex;
   flex-direction: row;
-  align-items: end;
+  align-items: flex-end;
   justify-content: center;
   color: color.$waffle-dark-brown;
   width: 100%;
@@ -108,7 +108,7 @@
   width: calc(50% - 10px);
   display: flex;
   flex-flow: column wrap;
-  align-items: start;
-  align-content: start;
-  justify-content: start;
+  align-items: flex-start;
+  align-content: flex-start;
+  justify-content: flex-start;
 }
