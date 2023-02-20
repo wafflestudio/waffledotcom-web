@@ -1,6 +1,5 @@
 import styles from "./CustomScrollbarDiv.module.scss";
 import React, {
-  useLayoutEffect,
   useEffect,
   useRef,
   useState,
@@ -68,7 +67,7 @@ const CustomScrollbarDiv = ({
     [thumbHeight, trackHeight],
   );
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (containerRef && containerRef.current) {
       const container = containerRef.current;
       updateScrollBar(container);
