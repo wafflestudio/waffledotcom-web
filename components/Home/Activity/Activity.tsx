@@ -1,14 +1,14 @@
 import classNames from "classnames/bind";
-import styles from "./Activity.module.scss";
-import useDelayedState from "../../../hooks/delayedState/useDelayedState";
 import { useRef, useState } from "react";
+import useDelayedState from "../../../hooks/delayedState/useDelayedState";
 import { useScroll } from "../../../hooks/scroll/useScroll";
+import styles from "./Activity.module.scss";
 
 const cx = classNames.bind(styles);
 
 interface Props {}
 
-const Activity = ({}: Props) => {
+function Activity({}: Props) {
   const ref = useRef(null);
   const [scrollClass, setScrollClass] = useDelayedState<{ available: boolean }>(
     { available: false },
@@ -53,6 +53,6 @@ const Activity = ({}: Props) => {
       </div>
     </section>
   );
-};
+}
 
 export default Activity;

@@ -1,8 +1,8 @@
+import { useState } from "react";
 import styles from "./Sidebar.module.scss";
 import { Checkbox, Radio, Toggle } from "./SidebarButtons";
-import { useState } from "react";
 
-const Sidebar = () => {
+function Sidebar() {
   const [roles, setRoles] = useState<Set<string>>(new Set());
   const [isActive, setIsActive] = useState<boolean>(true);
   const [alignGiveHeyWaffle, setAlignGiveHeyWaffle] = useState<boolean>(true);
@@ -96,6 +96,6 @@ const Sidebar = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Sidebar;

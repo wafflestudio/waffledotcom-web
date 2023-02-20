@@ -1,19 +1,19 @@
 import classNames from "classnames/bind";
-import styles from "./Calendar.module.scss";
-import { useScroll } from "../../../hooks/scroll/useScroll";
 import { useRef } from "react";
+import { useScroll } from "../../../hooks/scroll/useScroll";
 import useDelayedState from "../../../hooks/delayedState/useDelayedState";
+import styles from "./Calendar.module.scss";
 
 const cx = classNames.bind(styles);
 
 interface Props {}
 
-const Calendar = ({}: Props) => {
+function Calendar({}: Props) {
   const ref = useRef(null);
   const [scrollClass, setScrollClass] = useDelayedState<{ available: boolean }>(
     { available: false },
   );
-  useScroll(ref, ({ isAvailable, progress }) => {
+  useScroll(ref, ({ progress }) => {
     if (0.5 < progress && progress < 3) {
       if (!scrollClass.available) {
         setScrollClass({ available: true });
@@ -30,14 +30,15 @@ const Calendar = ({}: Props) => {
       </div>
       <div className={cx("foreground")}>
         <div className={cx("forkAndKnife")}>
-          <img src="./static/images/illustration/fork.svg" />
-          <img src="./static/images/illustration/knife.svg" />
+          <img src="./static/images/illustration/fork.svg" alt="" />
+          <img src="./static/images/illustration/knife.svg" alt="" />
         </div>
         <div className={cx("honeyBottom")}></div>
         <div className={cx("pancake")}>
           <img
             className={cx("pancakeBackground")}
             src="./static/images/illustration/pancake.svg"
+            alt=""
           />
           <div className={cx("months")}>
             <div className={cx("month", "m1")}>1</div>
@@ -66,6 +67,6 @@ const Calendar = ({}: Props) => {
       </div>
     </div>
   );
-};
+}
 
 export default Calendar;

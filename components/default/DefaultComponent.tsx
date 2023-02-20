@@ -5,8 +5,8 @@ const cx = classNames.bind(styles);
 
 interface Props {}
 
-const DefaultComponent = ({}: Props) => {
+function DefaultComponent({}: Props) {
   return <div className={cx("")}></div>;
-};
+}
 
 export default DefaultComponent;

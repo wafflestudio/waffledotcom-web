@@ -1,11 +1,11 @@
-import styles from "./About.module.scss";
-import { useScroll } from "../../../hooks/scroll/useScroll";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import classNames from "classnames/bind";
+import { useScroll } from "../../../hooks/scroll/useScroll";
 import useDelayedState from "../../../hooks/delayedState/useDelayedState";
+import styles from "./About.module.scss";
 
 const cx = classNames.bind(styles);
-const About = () => {
+function About() {
   const ref = useRef(null);
   const [scrollClass, setScrollClass] = useDelayedState<{ available: boolean }>(
     {
@@ -65,6 +65,6 @@ const About = () => {
       </section>
     </>
   );
-};
+}
 
 export default About;

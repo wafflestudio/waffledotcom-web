@@ -1,7 +1,6 @@
-import { NextPage } from "next";
 import Board from "../../components/Member/Board/Board";
 
-const Member: NextPage = () => {
+function Member() {
   return (
     <div className="">
       {/*<Head>*/}
@@ -14,6 +13,6 @@ const Member: NextPage = () => {
       <Board />
     </div>
   );
-};
+}
 
 export default Member;

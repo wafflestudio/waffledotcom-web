@@ -1,3 +1,13 @@
 {
-  "extends": ["next/core-web-vitals"]
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:react/recommended",
+    "plugin:import/recommended"
+  ],
+  "rules": {
+    "@next/next/no-img-element": "off",
+    "react/function-component-definition": "error",
+    "react/react-in-jsx-scope": "off",
+    "import/order": "warn"
+  }
 }

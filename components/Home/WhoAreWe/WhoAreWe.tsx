@@ -1,11 +1,11 @@
-import styles from "./WhoAreWe.module.scss";
-import { useScroll } from "../../../hooks/scroll/useScroll";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import classNames from "classnames/bind";
+import { useScroll } from "../../../hooks/scroll/useScroll";
 import useDelayedState from "../../../hooks/delayedState/useDelayedState";
+import styles from "./WhoAreWe.module.scss";
 
 const cx = classNames.bind(styles);
-const WhoAreWe = () => {
+function WhoAreWe() {
   const ref = useRef(null);
   const [scrollClass, setScrollClass] = useDelayedState<{ available: boolean }>(
     {
@@ -56,6 +56,6 @@ const WhoAreWe = () => {
       </section>
     </>
   );
-};
+}
 
 export default WhoAreWe;
