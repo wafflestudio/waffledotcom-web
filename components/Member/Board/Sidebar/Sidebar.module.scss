@@ -47,8 +47,8 @@
 .filter {
   display: flex;
   flex-direction: row;
-  align-items: start;
-  justify-content: start;
+  align-items: flex-start;
+  justify-content: flex-start;
   margin-bottom: 23px;
 }
 
@@ -61,7 +61,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: start;
+  justify-content: flex-start;
   flex-wrap: wrap-reverse;
   flex-grow: 1;
   > :nth-child(odd) {
@@ -72,7 +72,7 @@
 .status {
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: flex-start;
   justify-content: center;
 }
 
@@ -80,7 +80,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: start;
+  justify-content: flex-start;
   width: 100%;
   padding-bottom: 0.5em;
 }
