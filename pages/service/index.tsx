@@ -1,7 +1,5 @@
-import { NextPage } from "next";
-
-const Service: NextPage = () => {
+function Service() {
   return <div className="">Service</div>;
-};
+}
 
 export default Service;

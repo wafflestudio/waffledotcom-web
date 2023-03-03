@@ -1,11 +1,11 @@
-import styles from "./Services.module.scss";
-import { useScroll } from "../../../hooks/scroll/useScroll";
 import { useRef, useState } from "react";
 import classNames from "classnames/bind";
+import { useScroll } from "../../../hooks/scroll/useScroll";
 import useDelayedState from "../../../hooks/delayedState/useDelayedState";
+import styles from "./Services.module.scss";
 
 const cx = classNames.bind(styles);
-const Services = () => {
+function Services() {
   const ref = useRef(null);
   const [scrollClass, setScrollClass] = useDelayedState<{ available: boolean }>(
     {
@@ -48,23 +48,23 @@ const Services = () => {
           <div className={cx("mock")}></div>
           <ul className={cx("icons")}>
             <li className={cx("icon")}>
-              <img src="./static/images/logo/snutt_logo.svg" />
+              <img alt="" src="./static/images/logo/snutt_logo.svg" />
               <div className={cx("label")}>스누티티</div>
             </li>
             <li className={cx("icon")}>
-              <img src="./static/images/logo/snutt_logo.svg" />
+              <img alt="" src="./static/images/logo/snutt_logo.svg" />
               <div className={cx("label")}>식샤</div>
             </li>
             <li className={cx("icon")}>
-              <img src="./static/images/logo/snutt_logo.svg" />
+              <img alt="" src="./static/images/logo/snutt_logo.svg" />
               <div className={cx("label")}>스누보드</div>
             </li>
             <li className={cx("icon")}>
-              <img src="./static/images/logo/snutt_logo.svg" />
+              <img alt="" src="./static/images/logo/snutt_logo.svg" />
               <div className={cx("label")}>???</div>
             </li>
             <li className={cx("icon")}>
-              <img src="./static/images/logo/snutt_logo.svg" />
+              <img alt="" src="./static/images/logo/snutt_logo.svg" />
               <div className={cx("label")}>???</div>
             </li>
           </ul>
@@ -80,6 +80,6 @@ const Services = () => {
       </section>
     </>
   );
-};
+}
 
 export default Services;

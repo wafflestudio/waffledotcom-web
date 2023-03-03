@@ -1,12 +1,12 @@
-import styles from "./Billboard.module.scss";
-import { useScroll } from "../../../hooks/scroll/useScroll";
 import { useRef, useState } from "react";
 import classNames from "classnames/bind";
+import { useScroll } from "../../../hooks/scroll/useScroll";
+import styles from "./Billboard.module.scss";
 import { dummyBanners } from "./dummy";
 
 const cx = classNames.bind(styles);
 
-const Billboard = () => {
+function Billboard() {
   const ref = useRef(null);
   const [areaRef0, areaRef1, areaRef2, areaRef3] = [
     useRef(null),
@@ -27,7 +27,7 @@ const Billboard = () => {
   >([0, 0]);
   const [lampHeight, setLampHeight] = useState<number>(120);
 
-  useScroll(ref, ({ isAvailable, progress }) => {
+  useScroll(ref, ({ progress }) => {
     if (progress >= 0.5 && progress < 3.0) {
       setScrollClass({ available: true, bannerOn: true });
       if (progress > 2) {
@@ -68,11 +68,13 @@ const Billboard = () => {
           className={cx("skylineLight")}
           style={{ transform: `translateY(-${lightSkylinePercent}px)` }}
           src="static/images/home/skyline_light.svg"
+          alt=""
         />
         <img
           className={cx("skylineDark")}
           style={{ transform: `translateY(-${darkSkylinePercent}px)` }}
           src="static/images/home/skyline_dark.svg"
+          alt=""
         />
         <div
           className={cx("skylineGround")}
@@ -96,10 +98,12 @@ const Billboard = () => {
                 key={title}
               >
                 <img
+                  alt=""
                   className={cx("lightOff")}
                   src={"static/images/home/light_off.svg"}
                 />
                 <img
+                  alt=""
                   className={cx("lightOn")}
                   src={"static/images/home/light_on.svg"}
                 />
@@ -127,6 +131,6 @@ const Billboard = () => {
       </div>
     </section>
   );
-};
+}
 
 export default Billboard;

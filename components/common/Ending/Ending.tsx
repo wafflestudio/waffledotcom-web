@@ -1,8 +1,8 @@
 import classNames from "classnames/bind";
-import styles from "./Ending.module.scss";
 import { useRef } from "react";
 import useDelayedState from "../../../hooks/delayedState/useDelayedState";
 import { useScroll } from "../../../hooks/scroll/useScroll";
+import styles from "./Ending.module.scss";
 
 const cx = classNames.bind(styles);
 
@@ -10,7 +10,7 @@ interface Props {
   type: "side" | "top";
 }
 
-const Ending = ({ type }: Props) => {
+function Ending({ type }: Props) {
   const ref = useRef(null);
   const [scrollClass, setScrollClass] = useDelayedState<{ available: boolean }>(
     { available: false },
@@ -29,10 +29,23 @@ const Ending = ({ type }: Props) => {
       <div className={cx("background")} />
       {type === "side" && (
         <>
-          <img className={cx("desk")} src="./static/images/ending/desk.svg" />
-          <img className={cx("mouse")} src="./static/images/ending/mouse.svg" />
-          <img className={cx("chair")} src="./static/images/ending/chair.svg" />
           <img
+            alt=""
+            className={cx("desk")}
+            src="./static/images/ending/desk.svg"
+          />
+          <img
+            alt=""
+            className={cx("mouse")}
+            src="./static/images/ending/mouse.svg"
+          />
+          <img
+            alt=""
+            className={cx("chair")}
+            src="./static/images/ending/chair.svg"
+          />
+          <img
+            alt=""
             className={cx("light")}
             src="./static/images/ending/light_side.svg"
           />
@@ -64,6 +77,6 @@ const Ending = ({ type }: Props) => {
       </div>
     </div>
   );
-};
+}
 
 export default Ending;

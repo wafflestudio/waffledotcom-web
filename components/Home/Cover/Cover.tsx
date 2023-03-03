@@ -1,18 +1,18 @@
-import styles from "./Cover.module.scss";
 import { useRef, useState } from "react";
-import { useScroll } from "../../../hooks/scroll/useScroll";
 import classNames from "classnames/bind";
 import { useRouter } from "next/router";
+import { useScroll } from "../../../hooks/scroll/useScroll";
+import styles from "./Cover.module.scss";
 
 const cx = classNames.bind(styles);
 
-const Cover = () => {
+function Cover() {
   const ref = useRef(null);
   const [scrollClass, setScrollClass] = useState<{ available: boolean }>({
     available: false,
   });
   const router = useRouter();
-  useScroll(ref, ({ isAvailable, progress }) => {
+  useScroll(ref, ({ isAvailable }) => {
     if (isAvailable) {
       setScrollClass({ available: true });
     } else {
@@ -28,10 +28,10 @@ const Cover = () => {
       </div>
       <div className={styles.logos}>
         <div className={styles.logoCenter}>
-          <img src="./static/images/logo/waffle_logo_text.png" />
+          <img alt="" src="./static/images/logo/waffle_logo_text.png" />
         </div>
         <div className={styles.logoLeftTop}>
-          <img src="./static/images/logo/waffle_logo_image.png" />
+          <img alt="" src="./static/images/logo/waffle_logo_image.png" />
         </div>
       </div>
 
@@ -41,7 +41,7 @@ const Cover = () => {
           <li>서비스</li>
           <li
             onClick={() => {
-              router.push("./member");
+              void router.push("./member");
             }}
           >
             멤버
@@ -54,6 +54,6 @@ const Cover = () => {
       </div>
     </section>
   );
-};
+}
 
 export default Cover;

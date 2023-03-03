@@ -1,6 +1,6 @@
-import styles from "./Card.module.scss";
 import Image from "next/image";
 import CustomScrollbarDiv from "../CustomScrollbarDiv/CustomScrollbarDiv";
+import styles from "./Card.module.scss";
 
 export type MemberType = {
   name: string;
@@ -17,9 +17,9 @@ type CardProps = {
   member: MemberType;
 };
 
-const Card = ({
+function Card({
   member: { name, position, generation, introduction, admin = false },
-}: CardProps) => {
+}: CardProps) {
   return (
     <div className={styles.container}>
       <span className={styles.profileImage}></span>
@@ -98,6 +98,6 @@ const Card = ({
       </div>
     </div>
   );
-};
+}
 
 export default Card;

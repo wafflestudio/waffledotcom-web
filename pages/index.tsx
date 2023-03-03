@@ -1,6 +1,4 @@
-import type { NextPage } from "next";
 import Head from "next/head";
-import styles from "./Home.module.scss";
 import Cover from "../components/Home/Cover/Cover";
 import About from "../components/Home/About/About";
 import { useInitiateScrollViewport } from "../hooks/scroll/useScroll";
@@ -13,8 +11,9 @@ import WhatWeDo from "../components/Home/WhatWeDo/WhatWeDo";
 import Calendar from "../components/Home/Calendar/Calendar";
 import QnA from "../components/Home/QnA/QnA";
 import Ending from "../components/common/Ending/Ending";
+import styles from "./Home.module.scss";
 
-const Home: NextPage = () => {
+function Home() {
   useInitiateScrollViewport();
   return (
     <div className={styles.container}>
@@ -36,6 +35,6 @@ const Home: NextPage = () => {
       <Ending type={"side"} />
     </div>
   );
-};
+}
 
 export default Home;

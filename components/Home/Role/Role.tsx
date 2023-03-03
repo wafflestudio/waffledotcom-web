@@ -1,14 +1,12 @@
 import classNames from "classnames/bind";
-import styles from "./Role.module.scss";
 import { useRef, useState } from "react";
 import useDelayedState from "../../../hooks/delayedState/useDelayedState";
 import { useScroll } from "../../../hooks/scroll/useScroll";
+import styles from "./Role.module.scss";
 
 const cx = classNames.bind(styles);
 
-interface Props {}
-
-const Role = ({}: Props) => {
+function Role() {
   const ref = useRef(null);
   const [scrollClass, setScrollClass] = useDelayedState<{ available: boolean }>(
     {
@@ -91,6 +89,6 @@ const Role = ({}: Props) => {
       </div>
     </section>
   );
-};
+}
 
 export default Role;

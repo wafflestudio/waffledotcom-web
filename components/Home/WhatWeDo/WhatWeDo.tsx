@@ -1,11 +1,11 @@
-import styles from "./WhatWeDo.module.scss";
-import { useScroll } from "../../../hooks/scroll/useScroll";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import classNames from "classnames/bind";
+import { useScroll } from "../../../hooks/scroll/useScroll";
 import useDelayedState from "../../../hooks/delayedState/useDelayedState";
+import styles from "./WhatWeDo.module.scss";
 
 const cx = classNames.bind(styles);
-const WhatWeDo = () => {
+function WhatWeDo() {
   const ref = useRef(null);
   const [scrollClass, setScrollClass] = useDelayedState<{ available: boolean }>(
     {
@@ -55,6 +55,6 @@ const WhatWeDo = () => {
       </section>
     </>
   );
-};
+}
 
 export default WhatWeDo;

@@ -3,10 +3,8 @@ import styles from "./DefaultStyle.module.scss";
 
 const cx = classNames.bind(styles);
 
-interface Props {}
-
-const DefaultComponent = ({}: Props) => {
+function DefaultComponent() {
   return <div className={cx("")}></div>;
-};
+}
 
 export default DefaultComponent;

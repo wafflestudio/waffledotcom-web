@@ -6,7 +6,7 @@ import _members from "./members.json";
 
 const members = _members as MemberType[];
 
-const Board = () => {
+function Board() {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
@@ -40,6 +40,6 @@ const Board = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Board;

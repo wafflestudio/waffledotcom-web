@@ -1,14 +1,14 @@
-import styles from "./SidebarButtons.module.scss";
 import { useState } from "react";
+import styles from "./SidebarButtons.module.scss";
 
-type radioProps = {
-  value: any;
+type RadioProps<T> = {
+  value: T;
   label: string;
-  current: any;
-  setCurrent: (arg: any) => void;
+  current: T;
+  setCurrent: (arg: T) => void;
 };
 
-export const Radio = ({ value, label, current, setCurrent }: radioProps) => {
+export function Radio<T>({ value, label, current, setCurrent }: RadioProps<T>) {
   const checkHandler = () => {
     setCurrent(value);
   };
@@ -18,22 +18,22 @@ export const Radio = ({ value, label, current, setCurrent }: radioProps) => {
       <input
         type={"checkbox"}
         checked={current === value}
-        value={value}
+        value={String(value)}
         onChange={() => checkHandler()}
       />
       <span>{label}</span>
     </label>
   );
-};
+}
 
 type checkboxProps = {
-  value: any;
+  value: string;
   label: string;
-  set: Set<any>;
-  setSet: (arg: Set<any>) => void;
+  set: Set<string>;
+  setSet: (arg: Set<string>) => void;
 };
 
-export const Checkbox = ({ value, label, set, setSet }: checkboxProps) => {
+export function Checkbox({ value, label, set, setSet }: checkboxProps) {
   const [checked, setChecked] = useState<boolean>(false);
 
   const checkHandler = () => {
@@ -59,7 +59,7 @@ export const Checkbox = ({ value, label, set, setSet }: checkboxProps) => {
       <span>{label}</span>
     </label>
   );
-};
+}
 
 type switchProps = {
   label1: string;
@@ -68,7 +68,7 @@ type switchProps = {
   setter: (arg: boolean) => void;
 };
 
-export const Toggle = ({ label1, label2, checked, setter }: switchProps) => {
+export function Toggle({ label1, label2, checked, setter }: switchProps) {
   const checkHandler = () => {
     setter(!checked);
   };
@@ -88,18 +88,19 @@ export const Toggle = ({ label1, label2, checked, setter }: switchProps) => {
       </div>
     </label>
   );
-};
+}
 
 type dropdownProps = {
-  arr: any[];
-  current: any;
-  setCurrent: (arg: any) => void;
+  arr: string[];
+  current: string;
+  setCurrent: (arg: string) => void;
 };
 
-export const Dropdown = ({ arr, current, setCurrent }: dropdownProps) => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export function Dropdown({ arr, current, setCurrent }: dropdownProps) {
   return (
     <div>
       <div></div>
     </div>
   );
-};
+}

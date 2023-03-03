@@ -1,4 +1,3 @@
-import styles from "./CustomScrollbarDiv.module.scss";
 import React, {
   useEffect,
   useRef,
@@ -6,6 +5,7 @@ import React, {
   CSSProperties,
   useCallback,
 } from "react";
+import styles from "./CustomScrollbarDiv.module.scss";
 
 type Props = {
   className?: string;
@@ -21,7 +21,7 @@ type Props = {
   children?: React.ReactNode;
 };
 
-const CustomScrollbarDiv = ({
+function CustomScrollbarDiv({
   className = "",
   style = {},
   trackClassName = "",
@@ -31,7 +31,7 @@ const CustomScrollbarDiv = ({
   thumbStyle = {},
   thumbHeight = -1,
   children,
-}: Props) => {
+}: Props) {
   const [scrollbar, setScrollbar] = useState({
     trackHeight: trackHeight,
     thumbHeight: thumbHeight,
@@ -148,6 +148,6 @@ const CustomScrollbarDiv = ({
       </div>
     </div>
   );
-};
+}
 
 export default CustomScrollbarDiv;

@@ -1,3 +1,23 @@
 {
-  "extends": ["next/core-web-vitals"]
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:react/recommended",
+    "plugin:import/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking"
+  ],
+  "rules": {
+    "@next/next/no-img-element": "off",
+    "react/function-component-definition": "error",
+    "react/react-in-jsx-scope": "off",
+    "import/order": "warn"
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "root": true
 }
