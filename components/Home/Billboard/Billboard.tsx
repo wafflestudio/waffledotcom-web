@@ -113,18 +113,38 @@ function Billboard() {
           </nav>
           <div className={cx("bannerWrapper", `selected${selected}`)}>
             <div className={cx("bannerSlots")}>
-              {dummyBanners.map(({ title, backgroundColor, url }) => (
-                <div
-                  key={title}
-                  className={cx("banner", { clickable: url })}
-                  style={{ background: backgroundColor }}
-                  onClick={() => {
-                    if (url) {
-                      window.open(url);
-                    }
-                  }}
-                />
-              ))}
+              {dummyBanners.map(
+                ({ title, backgroundColor, url, backgroundImage }) =>
+                  backgroundImage ? (
+                    <img
+                      alt="banner"
+                      key={title}
+                      className={cx("banner", { clickable: url })}
+                      style={{
+                        background: "white",
+                      }}
+                      src={backgroundImage.src}
+                      onClick={() => {
+                        if (url) {
+                          window.open(url);
+                        }
+                      }}
+                    />
+                  ) : (
+                    <div
+                      key={title}
+                      className={cx("banner", { clickable: url })}
+                      style={{
+                        background: backgroundColor,
+                      }}
+                      onClick={() => {
+                        if (url) {
+                          window.open(url);
+                        }
+                      }}
+                    />
+                  ),
+              )}
             </div>
           </div>
         </div>
