@@ -10,7 +10,6 @@ function Calendar() {
   const ref = useRef(null);
   const [syrupAngle, setSyrupAngle] = useState(0);
   const currentMonth = (((((syrupAngle % 360) + 360) % 360) / 30 + 4) % 12) + 1;
-  console.log(currentMonth);
   const [scrollClass, setScrollClass] = useDelayedState<{ available: boolean }>(
     { available: false },
   );
@@ -28,7 +27,6 @@ function Calendar() {
     return (e: React.MouseEvent) => {
       const cwDistance = (month + 12 - currentMonth) % 12;
       const ccwDistance = 12 - cwDistance;
-      console.log(`${currentMonth} => ${month}, currentAngle: ${syrupAngle}`);
       if (cwDistance <= 6) setSyrupAngle(syrupAngle + cwDistance * 30);
       else setSyrupAngle(syrupAngle - ccwDistance * 30);
     };

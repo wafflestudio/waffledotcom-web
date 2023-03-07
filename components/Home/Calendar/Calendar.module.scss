@@ -127,7 +127,7 @@
           font-size: 5vw;
           width: 2em;
           height: 2em;
-          transition: 1.2s;
+          transition: 1s ease-in;
         }
         .monthSuffix {
           @include position.flex-center;
@@ -147,7 +147,7 @@
           font-size: 2vw;
           width: 2em;
           height: 2em;
-          transition: 0.5s;
+          transition: 1s ease-in;
           z-index: -1;
           opacity: 100%;
         }
