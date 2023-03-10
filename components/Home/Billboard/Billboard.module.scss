@@ -2,6 +2,7 @@
 @use "../../../styles/color";
 @use "../../../styles/font";
 @use "../../../styles/clear";
+@import "../../../styles/responsive";
 
 .container {
   @include position.home-container;
@@ -211,5 +212,31 @@
   }
   80% {
     opacity: 1;
+  }
+}
+
+@include mobile {
+  .foreground {
+    .bannerContainer {
+      max-width: 100vw;
+      .bannerNavigator {
+        width: 400%;
+        justify-content: space-around;
+        transition: transform 0.8s;
+        &.selected0 {
+          transform: translateX(0);
+        }
+        &.selected1 {
+          transform: translateX(-25%);
+        }
+        &.selected2 {
+          transform: translateX(-50%);
+        }
+        &.selected3 {
+          transform: translateX(-75%);
+        }
+      }
+    }
+
   }
 }

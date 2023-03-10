@@ -1,5 +1,5 @@
 import classNames from "classnames/bind";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useScroll } from "../../../hooks/scroll/useScroll";
 import useDelayedState from "../../../hooks/delayedState/useDelayedState";
 import styles from "./Calendar.module.scss";
@@ -8,6 +8,8 @@ const cx = classNames.bind(styles);
 
 function Calendar() {
   const ref = useRef(null);
+  const [syrupAngle, setSyrupAngle] = useState(0);
+  const currentMonth = (((((syrupAngle % 360) + 360) % 360) / 30 + 4) % 12) + 1;
   const [scrollClass, setScrollClass] = useDelayedState<{ available: boolean }>(
     { available: false },
   );
@@ -20,6 +22,16 @@ function Calendar() {
       setScrollClass({ available: false }, 500);
     }
   });
+
+  const handleMonthClick = (month: number) => {
+    return (e: React.MouseEvent) => {
+      const cwDistance = (month + 12 - currentMonth) % 12;
+      const ccwDistance = 12 - cwDistance;
+      if (cwDistance <= 6) setSyrupAngle(syrupAngle + cwDistance * 30);
+      else setSyrupAngle(syrupAngle - ccwDistance * 30);
+    };
+  };
+
   return (
     <div className={cx("container", scrollClass)} ref={ref}>
       <div className={cx("background")}>
@@ -39,18 +51,30 @@ function Calendar() {
             alt=""
           />
           <div className={cx("months")}>
-            <div className={cx("month", "m1")}>1</div>
-            <div className={cx("month", "m2")}>2</div>
-            <div className={cx("month", "m3")}>3</div>
-            <div className={cx("month", "m4")}>4</div>
-            <div className={cx("month", "m5")}>5</div>
-            <div className={cx("month", "m6")}>6</div>
-            <div className={cx("month", "m7")}>7</div>
-            <div className={cx("month", "m8")}>8</div>
-            <div className={cx("month", "m9")}>9</div>
-            <div className={cx("month", "m10")}>10</div>
-            <div className={cx("month", "m11")}>11</div>
-            <div className={cx("month", "m12")}>12</div>
+            {Array.from(Array(12).keys()).map((value) => {
+              const month = value + 1;
+              return (
+                <div
+                  key={month}
+                  className={cx(
+                    `month${month === currentMonth ? "Active" : ""}`,
+                    `m${month}`,
+                  )}
+                  onClick={handleMonthClick(month)}
+                >
+                  {month}
+                  <div
+                    key={month}
+                    className={cx(
+                      `monthSuffix${month === currentMonth ? "Active" : ""}`,
+                      `m${month}_`,
+                    )}
+                  >
+                    월
+                  </div>
+                </div>
+              );
+            })}
           </div>
           <div className={cx("description")}>
             <div className={cx("title")}># 와플스튜디오는 매주 토요일마다!</div>
@@ -60,6 +84,34 @@ function Calendar() {
                 1주 토이프로젝트 중간 총회
               </div>
             </div>
+          </div>
+          <div
+            className={cx("syrupTopWrapper")}
+            style={{ transform: `rotate(${syrupAngle}deg)` }}
+          >
+            <img
+              className={cx("syrupTop")}
+              src="./static/images/illustration/syrupTop.svg"
+              alt=""
+              draggable={false}
+            />
+            <img
+              className={cx("syrupLuster")}
+              src="./static/images/illustration/syrupLuster.svg"
+              alt=""
+              draggable={false}
+            />
+          </div>
+          <div
+            className={cx("syrupBottomWrapper")}
+            style={{ transform: `rotate(${syrupAngle}deg)` }}
+          >
+            <img
+              className={cx("syrupBottom")}
+              src="./static/images/illustration/syrupBottom.svg"
+              alt=""
+              draggable={false}
+            />
           </div>
         </div>
       </div>

@@ -2,6 +2,7 @@
 @use "./styles/responsive";
 @use "./styles/color";
 @use "./styles/font";
+@import "./styles/responsive";
 
 .container {
   @include position.home-container;
@@ -64,6 +65,9 @@
         background: lightblue;
         width: 90%;
         height: 400px;
+        @include mobile {
+          position: static;
+        }
       }
     }
   }

@@ -2,6 +2,7 @@
 @use "./styles/responsive";
 @use "./styles/color";
 @use "./styles/font";
+@import "./styles/responsive";
 
 .container {
   @include position.home-container;
@@ -32,7 +33,10 @@
 
     &.sub {
       max-width: 1112px;
-      margin-left: 188px;
+      &::before {
+        content: "";
+        width: 103px;
+      }
       margin-top: 16px;
     }
     &.boxCover {
@@ -49,11 +53,17 @@
   .box {
     position: relative;
     height: 118px;
+    @include mobile {
+      height: auto;
+      font-size: small;
+      line-height: 20px;
+    }
     background-color: color.$waffle-teal;
     &.short {
       @include position.flex-center;
       width: 167px;
       font-weight: 500;
+      flex-shrink: 0.5;
     }
     &.long {
       width: 1112px;
