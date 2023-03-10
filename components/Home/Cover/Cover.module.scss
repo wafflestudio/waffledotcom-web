@@ -1,6 +1,7 @@
 @use "../../../styles/font";
 @use "../../../styles/color";
 @use "../../../styles/position";
+@import "../../../styles/responsive";
 
 $descriptionHeight: 154px;
 $navigatorHeight: 44px;
@@ -67,6 +68,10 @@ $navigatorHeight: 44px;
     li {
       @include position.flex-center();
       width: 303px;
+      @include mobile {
+        width: 30vw;
+        flex: 1;
+      }
       height: 100%;
       display: flex;
     }
