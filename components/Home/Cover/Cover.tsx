@@ -1,26 +1,20 @@
-import { useRef, useState } from "react";
 import classNames from "classnames/bind";
 import { useRouter } from "next/router";
-import { useScroll } from "../../../hooks/scroll/useScroll";
+import useWaffleScroll from "../../../library/waffleScroll";
 import styles from "./Cover.module.scss";
 
 const cx = classNames.bind(styles);
 
 function Cover() {
-  const ref = useRef(null);
-  const [scrollClass, setScrollClass] = useState<{ available: boolean }>({
-    available: false,
-  });
   const router = useRouter();
-  useScroll(ref, ({ isAvailable }) => {
-    if (isAvailable) {
-      setScrollClass({ available: true });
-    } else {
-      setScrollClass({ available: false });
-    }
-  });
+  const { ref, scrollState } = useWaffleScroll(
+    ({ progress, toggleState }) => {
+      toggleState(0, 2.7, "available");
+    },
+    { available: false },
+  );
   return (
-    <section className={cx("container", scrollClass)} ref={ref}>
+    <section className={cx("container", scrollState)} ref={ref}>
       <div className={styles.background}>
         <div className={cx("animatedText", "fromLeft")}>WAFFLE</div>
         <div className={cx("animatedText", "fromRight")}>STUDIO</div>

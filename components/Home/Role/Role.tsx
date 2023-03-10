@@ -2,36 +2,28 @@ import classNames from "classnames/bind";
 import { useRef, useState } from "react";
 import useDelayedState from "../../../hooks/delayedState/useDelayedState";
 import { useScroll } from "../../../hooks/scroll/useScroll";
+import useWaffleScroll from "../../../library/waffleScroll";
 import styles from "./Role.module.scss";
 
 const cx = classNames.bind(styles);
 
 function Role() {
-  const ref = useRef(null);
-  const [scrollClass, setScrollClass] = useDelayedState<{ available: boolean }>(
-    {
-      available: false,
+  const {
+    ref,
+    scrollState: { available, notFold },
+  } = useWaffleScroll(
+    ({ toggleState }) => {
+      toggleState(0.2, 3, "available");
+      toggleState(0.7, 3.1, "notFold");
     },
+    { available: false, notFold: false },
   );
-  const [isFold, setIsFold] = useState<{ fold: boolean }>({
-    fold: true,
-  });
-  useScroll(ref, ({ progress }) => {
-    if (0.2 < progress && progress < 3) {
-      if (!scrollClass.available) {
-        setScrollClass({ available: true });
-      }
-    } else {
-      setScrollClass({ available: false }, 500);
-    }
-    if (0.7 < progress) {
-      setIsFold({ fold: false });
-    } else {
-      setIsFold({ fold: true });
-    }
-  });
+
   return (
-    <section className={cx("container", scrollClass, isFold)} ref={ref}>
+    <section
+      className={cx("container", { available, fold: !notFold })}
+      ref={ref}
+    >
       <div className={cx("background")} />
       <div className={cx("line", "line1")}>
         <div className={cx("box", "short")}>준회원</div>
