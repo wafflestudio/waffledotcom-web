@@ -2,6 +2,7 @@
 @use "./styles/responsive";
 @use "./styles/color";
 @use "./styles/font";
+@import "./styles/responsive";
 
 .container {
   @include position.home-container;
@@ -46,7 +47,7 @@
   .mouse {
     bottom: 37px;
     right: 164px;
-    transform-origin: 50% 0%;
+    transform-origin: 50% 0;
     animation: 3s ease-in-out infinite alternate hang;
   }
   .chair {
@@ -59,6 +60,23 @@
     bottom: 259px;
     right: 64px;
     animation: 4s ease-in-out infinite alternate blink;
+  }
+  @include mobile {
+    .desk {
+      display: none;
+    }
+    .mouse {
+      display: none;
+    }
+    .chair {
+      display: none;
+    }
+    .light {
+      display: none;
+    }
+    .contact {
+      left: 20px;
+    }
   }
 }
 

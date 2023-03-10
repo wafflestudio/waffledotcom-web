@@ -2,6 +2,7 @@
 @use "../../../styles/position";
 @use "../../../styles/font";
 @use "../../../styles/effects/pattern";
+@import "../../../styles/responsive";
 
 .container {
   @include position.home-container;
@@ -18,6 +19,9 @@
 
   .description {
     width: 900px;
+    @include mobile {
+      width: auto;
+    }
     text-align: center;
     color: color.$waffle-pale-yellow;
     letter-spacing: -0.05em;

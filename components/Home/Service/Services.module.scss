@@ -23,6 +23,7 @@
     transition: 0.5s;
     visibility: hidden;
     opacity: 0;
+    overflow: hidden;
     .logo {
       @include font.lobster;
       height: 100%;

@@ -83,12 +83,14 @@ function Billboard() {
           style={{ transform: `translateY(-${lightSkylinePercent}px)` }}
           src="static/images/home/skyline_light.svg"
           alt=""
+          width="100%"
         />
         <img
           className={cx("skylineDark")}
           style={{ transform: `translateY(-${darkSkylinePercent}px)` }}
           src="static/images/home/skyline_dark.svg"
           alt=""
+          width="100%"
         />
         <div
           className={cx("skylineGround")}
@@ -105,7 +107,7 @@ function Billboard() {
           className={cx("bannerContainer")}
           style={{ transform: `translateY(${lampHeight}px)` }}
         >
-          <nav className={cx("bannerNavigator")}>
+          <nav className={cx("bannerNavigator", `selected${selected}`)}>
             {dummyBanners.map(({ title }, index) => (
               <button
                 className={cx("bannerTitle", { selected: index === selected })}
@@ -127,18 +129,38 @@ function Billboard() {
           </nav>
           <div className={cx("bannerWrapper", `selected${selected}`)}>
             <div className={cx("bannerSlots")}>
-              {dummyBanners.map(({ title, backgroundColor, url }) => (
-                <div
-                  key={title}
-                  className={cx("banner", { clickable: url })}
-                  style={{ background: backgroundColor }}
-                  onClick={() => {
-                    if (url) {
-                      window.open(url);
-                    }
-                  }}
-                />
-              ))}
+              {dummyBanners.map(
+                ({ title, backgroundColor, url, backgroundImage }) =>
+                  backgroundImage ? (
+                    <img
+                      alt="banner"
+                      key={title}
+                      className={cx("banner", { clickable: url })}
+                      style={{
+                        background: "white",
+                      }}
+                      src={backgroundImage.src}
+                      onClick={() => {
+                        if (url) {
+                          window.open(url);
+                        }
+                      }}
+                    />
+                  ) : (
+                    <div
+                      key={title}
+                      className={cx("banner", { clickable: url })}
+                      style={{
+                        background: backgroundColor,
+                      }}
+                      onClick={() => {
+                        if (url) {
+                          window.open(url);
+                        }
+                      }}
+                    />
+                  ),
+              )}
             </div>
           </div>
         </div>
