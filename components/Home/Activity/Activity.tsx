@@ -1,36 +1,23 @@
 import classNames from "classnames/bind";
-import { useRef, useState } from "react";
-import useDelayedState from "../../../hooks/delayedState/useDelayedState";
-import { useScroll } from "../../../hooks/scroll/useScroll";
+import useWaffleScroll from "../../../library/waffleScroll";
 import styles from "./Activity.module.scss";
 
 const cx = classNames.bind(styles);
 
 function Activity() {
-  const ref = useRef(null);
-  const [scrollClass, setScrollClass] = useDelayedState<{ available: boolean }>(
-    { available: false },
+  const {
+    ref,
+    scrollState: { available, isMore },
+  } = useWaffleScroll(
+    ({ toggleState }) => {
+      toggleState(0.5, 3, "available");
+      toggleState(1.2, 3.1, "isMore");
+    },
+    { available: false, isMore: false },
   );
-  const [isMore, setIsMore] = useState<boolean>(false);
 
-  useScroll(ref, ({ isAvailable, progress }) => {
-    if (0.5 < progress && progress < 3) {
-      if (!scrollClass.available) {
-        setScrollClass({ available: true });
-      }
-    } else {
-      setScrollClass({ available: false }, 500);
-    }
-    if (isAvailable) {
-      if (1.2 < progress) {
-        setIsMore(true);
-      } else {
-        setIsMore(false);
-      }
-    }
-  });
   return (
-    <section className={cx("container", scrollClass)} ref={ref}>
+    <section className={cx("container", { available })} ref={ref}>
       <div className={cx("background")} />
       <div className={cx("foreground")}>
         <div className={cx("activities")}>

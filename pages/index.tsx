@@ -14,7 +14,6 @@ import Ending from "../components/common/Ending/Ending";
 import styles from "./Home.module.scss";
 
 function Home() {
-  useInitiateScrollViewport();
   return (
     <div className={styles.container}>
       <Head>

@@ -2,6 +2,7 @@ import classNames from "classnames/bind";
 import { useRef } from "react";
 import useDelayedState from "../../../hooks/delayedState/useDelayedState";
 import { useScroll } from "../../../hooks/scroll/useScroll";
+import useWaffleScroll from "../../../library/waffleScroll";
 import styles from "./Ending.module.scss";
 
 const cx = classNames.bind(styles);
@@ -11,21 +12,15 @@ interface Props {
 }
 
 function Ending({ type }: Props) {
-  const ref = useRef(null);
-  const [scrollClass, setScrollClass] = useDelayedState<{ available: boolean }>(
+  const { ref, scrollState } = useWaffleScroll(
+    ({ toggleState }) => {
+      toggleState(0.99, 3.1, "available");
+    },
     { available: false },
   );
-  useScroll(ref, ({ progress }) => {
-    if (1.0 <= progress) {
-      if (!scrollClass.available) {
-        setScrollClass({ available: true });
-      }
-    } else {
-      setScrollClass({ available: false }, 500);
-    }
-  });
+
   return (
-    <div className={cx("container", scrollClass)} ref={ref}>
+    <div className={cx("container", scrollState)} ref={ref}>
       <div className={cx("background")} />
       {type === "side" && (
         <>

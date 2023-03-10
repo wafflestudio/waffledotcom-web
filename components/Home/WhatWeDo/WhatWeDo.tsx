@@ -2,29 +2,21 @@ import { useRef } from "react";
 import classNames from "classnames/bind";
 import { useScroll } from "../../../hooks/scroll/useScroll";
 import useDelayedState from "../../../hooks/delayedState/useDelayedState";
+import useWaffleScroll from "../../../library/waffleScroll";
 import styles from "./WhatWeDo.module.scss";
 
 const cx = classNames.bind(styles);
 function WhatWeDo() {
-  const ref = useRef(null);
-  const [scrollClass, setScrollClass] = useDelayedState<{ available: boolean }>(
-    {
-      available: false,
+  const { ref, scrollState } = useWaffleScroll(
+    ({ toggleState }) => {
+      toggleState(0.5, 2.9, "available");
     },
+    { available: false },
   );
-  useScroll(ref, ({ progress }) => {
-    if (0.5 < progress && progress < 2.9) {
-      if (!scrollClass.available) {
-        setScrollClass({ available: true });
-      }
-    } else {
-      setScrollClass({ available: false }, 500);
-    }
-  });
 
   return (
     <>
-      <section className={cx("container", scrollClass)} ref={ref}>
+      <section className={cx("container", scrollState)} ref={ref}>
         <div className={cx("background")} />
         <div className={cx("description")}>
           <h3># 와플스튜디오에서는 어떤 활동을 하나요?</h3>

@@ -1,29 +1,23 @@
 import classNames from "classnames/bind";
 import { useRef, useState } from "react";
-import { string } from "prop-types";
 import { useScroll } from "../../../hooks/scroll/useScroll";
 import useDelayedState from "../../../hooks/delayedState/useDelayedState";
+import useWaffleScroll from "../../../library/waffleScroll";
 import styles from "./Calendar.module.scss";
 import _annualSchedules from "./annualSchedules.json";
 
 const cx = classNames.bind(styles);
 
 function Calendar() {
-  const ref = useRef(null);
   const [syrupAngle, setSyrupAngle] = useState(0);
   const currentMonth = (((((syrupAngle % 360) + 360) % 360) / 30 + 4) % 12) + 1;
-  const [scrollClass, setScrollClass] = useDelayedState<{ available: boolean }>(
+
+  const { ref, scrollState } = useWaffleScroll(
+    ({ toggleState }) => {
+      toggleState(0.5, 3, "available");
+    },
     { available: false },
   );
-  useScroll(ref, ({ progress }) => {
-    if (0.5 < progress && progress < 3) {
-      if (!scrollClass.available) {
-        setScrollClass({ available: true });
-      }
-    } else {
-      setScrollClass({ available: false }, 500);
-    }
-  });
 
   const handleMonthClick = (month: number) => {
     return (e: React.MouseEvent) => {
@@ -38,7 +32,7 @@ function Calendar() {
   const monthlySchedules = annualSchedules.get(`${currentMonth}월`) ?? [];
 
   return (
-    <div className={cx("container", scrollClass)} ref={ref}>
+    <div className={cx("container", scrollState)} ref={ref}>
       <div className={cx("background")}>
         <div className={cx("tableCloth1")} />
         <div className={cx("tableCloth2")} />
@@ -69,7 +63,6 @@ function Calendar() {
                 >
                   {month}
                   <svg
-                    // key={month}
                     className={cx(
                       `monthSuffix${month === currentMonth ? "Active" : ""}`,
                       `m${month}_`,

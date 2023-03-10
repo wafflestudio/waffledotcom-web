@@ -11,12 +11,12 @@ type IScrollData = {
 };
 type IViewportData = Omit<IScrollData, "callback">;
 
-let isViewportInitiated: boolean = false;
-let scrollViewport: IViewportData = {
+let isViewportInitiated = false;
+const scrollViewport: IViewportData = {
   offsetTop: -1,
   offsetHeight: -1,
 };
-let scrollTargets: IScrollData[] = [];
+const scrollTargets: IScrollData[] = [];
 
 const checkScrollState = (
   target: IScrollData,
