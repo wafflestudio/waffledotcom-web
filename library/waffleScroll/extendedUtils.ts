@@ -23,7 +23,7 @@ export const getScrollUtils = <T extends object>(
     stateKeyToToggle,
     sideEffect,
   ) => {
-    if (progress >= min && progress <= max) {
+    if (progress > min && progress < max) {
       if (sideEffect) sideEffect();
       setScrollState({ [stateKeyToToggle]: true } as Partial<T>);
     } else {

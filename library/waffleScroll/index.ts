@@ -32,7 +32,6 @@ type ScrollListener<T extends object> = {
 };
 
 //local scope window
-const localWindow = window;
 
 //데이터들
 let isInitiated = false;
@@ -41,8 +40,8 @@ const scrollListeners: ScrollListener<any>[] = [];
 //스크롤 이벤트 핸들러
 const onScrollHandler = () => {
   const currentViewport: Calculatable = {
-    offsetTop: localWindow.scrollY,
-    offsetHeight: localWindow.innerHeight,
+    offsetTop: window.scrollY,
+    offsetHeight: window.innerHeight,
   };
   for (const { element, apis, scrollFunction } of scrollListeners) {
     const target: Calculatable = {
@@ -79,8 +78,8 @@ const useWaffleScroll = <T extends object>(
   useLayoutEffect(() => {
     //처음 사용되는 훅은 이벤트리스너를 등록
     if (!isInitiated) {
-      localWindow.addEventListener("scroll", onScrollHandler);
-      localWindow.addEventListener("resize", onScrollHandler);
+      window.addEventListener("scroll", onScrollHandler);
+      window.addEventListener("resize", onScrollHandler);
       isInitiated = true;
     }
     //마운트 시 리스너 등록
