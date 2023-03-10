@@ -45,7 +45,9 @@ function Services() {
             <span className={cx("blank")} />
             studio
           </div>
-          <div className={cx("mock")}></div>
+          <div className={cx("mock")}>
+            <img alt="" src="./static/images/dummy/mobile.png" />
+          </div>
           <ul className={cx("icons")}>
             <li className={cx("icon")}>
               <img alt="" src="./static/images/logo/snutt_logo.svg" />
