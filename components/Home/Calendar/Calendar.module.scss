@@ -113,6 +113,8 @@
           width: 2em;
           height: 2em;
           transition: 0.5s;
+          cursor: pointer;
+          user-select: none;
           &:hover {
             font-size: 5vw;
             .monthSuffix {
@@ -128,14 +130,15 @@
           width: 2em;
           height: 2em;
           transition: 1s ease-in;
+          user-select: none;
         }
         .monthSuffix {
           @include position.flex-center;
           position: absolute;
-          color: color.$waffle-dark-orange;
-          font-size: 2vw;
-          width: 2em;
-          height: 2em;
+          fill: color.$waffle-dark-orange;
+          width: 2vw;
+          height: 2vw;
+          object-fit: cover;
           transition: 0.5s;
           z-index: -1;
           opacity: 0;
@@ -143,10 +146,9 @@
         .monthSuffixActive {
           @include position.flex-center;
           position: absolute;
-          color: color.$waffle-light-yellow;
-          font-size: 2vw;
-          width: 2em;
-          height: 2em;
+          fill: color.$waffle-light-yellow;
+          width: 2vw;
+          height: 2vw;
           transition: 1s ease-in;
           z-index: -1;
           opacity: 100%;
@@ -160,7 +162,7 @@
         flex-direction: column;
         align-items: center;
         .title {
-          font-size: 1.5vw;
+          font-size: 1.25vw;
           font-weight: 700;
           color: color.$waffle-red-brown;
           letter-spacing: -0.05em;
@@ -169,10 +171,45 @@
         .content {
           width: 100%;
           display: flex;
-          justify-content: space-between;
+          justify-items: start;
           .monthName {
+            @include font.gmarket-sans;
+            position: relative;
+            vertical-align: center;
+            width: 4.5vw;
+            height: 2.2vw;
+            line-height: 2.2vw;
+            font-weight: bold;
+            font-size: 1.26vw;
+            text-align: center;
+            aspect-ratio: 9 / 4;
+            border-radius: 0.5em;
+            color: color.$waffle-pale-yellow;
+            background-color: color.$waffle-dark-orange;
           }
           .monthContent {
+            width: 20vw;
+            .weeklySchedules {
+              @include position.flex-center(row);
+              align-items: flex-start;
+              padding: 0.5vw 0 0.5vw 0;
+              font-size: 1vw;
+              .week {
+                width: 4vw;
+                height: 1.1vw;
+                line-height: 1.1vw;
+                font-weight: bold;
+                text-align: center;
+              }
+              .schedules {
+                @include font.gmarket-sans;
+                width: 16vw;
+                line-height: 1.1vw;
+                margin: 0;
+                font-weight: normal;
+                color: color.$waffle-red-brown;
+              }
+            }
           }
         }
       }
