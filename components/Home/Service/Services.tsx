@@ -2,42 +2,29 @@ import { useRef, useState } from "react";
 import classNames from "classnames/bind";
 import { useScroll } from "../../../hooks/scroll/useScroll";
 import useDelayedState from "../../../hooks/delayedState/useDelayedState";
+import useWaffleScroll from "../../../library/waffleScroll";
 import styles from "./Services.module.scss";
 
 const cx = classNames.bind(styles);
 function Services() {
-  const ref = useRef(null);
-  const [scrollClass, setScrollClass] = useDelayedState<{ available: boolean }>(
-    {
-      available: false,
+  const {
+    ref,
+    scrollState: { available, isMore, logoOpacity },
+  } = useWaffleScroll(
+    ({ progress, toggleState, setScrollState }) => {
+      toggleState(0.75, 3, "available", () => {
+        if (1 < progress && progress < 2) {
+          setScrollState({ logoOpacity: (progress - 1) * 0.7 });
+        }
+      });
+      toggleState(1.5, 3.1, "isMore");
     },
+    { available: false, isMore: false, logoOpacity: 0 },
   );
-  const [logoOpacity, setLogoOpacity] = useState<number>(0);
-  const [isMore, setIsMore] = useState<boolean>(false);
-
-  useScroll(ref, ({ isAvailable, progress }) => {
-    if (0.75 < progress && progress < 3) {
-      if (!scrollClass.available) {
-        setScrollClass({ available: true });
-      }
-    } else {
-      setScrollClass({ available: false }, 500);
-    }
-    if (isAvailable) {
-      if (1 < progress && progress < 2) {
-        setLogoOpacity((progress - 1) * 0.7);
-      }
-      if (1.5 < progress) {
-        setIsMore(true);
-      } else {
-        setIsMore(false);
-      }
-    }
-  });
 
   return (
     <>
-      <section className={cx("container", scrollClass)} ref={ref}>
+      <section className={cx("container", { available })} ref={ref}>
         <div className={cx("background")} />
         <div className={cx("foreground")}>
           <div className={cx("logo")} style={{ opacity: 0.3 + logoOpacity }}>

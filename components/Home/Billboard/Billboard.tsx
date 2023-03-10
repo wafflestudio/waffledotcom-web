@@ -1,68 +1,82 @@
 import { useRef, useState } from "react";
 import classNames from "classnames/bind";
-import { useScroll } from "../../../hooks/scroll/useScroll";
+import useWaffleScroll from "../../../library/waffleScroll";
 import styles from "./Billboard.module.scss";
 import { dummyBanners } from "./dummy";
 
 const cx = classNames.bind(styles);
 
 function Billboard() {
-  const ref = useRef(null);
   const [areaRef0, areaRef1, areaRef2, areaRef3] = [
     useRef(null),
     useRef(null),
     useRef(null),
     useRef(null),
   ];
-  const [scrollClass, setScrollClass] = useState<{
+
+  const {
+    ref,
+    scrollState: {
+      available,
+      bannerOn,
+      lampHeight,
+      cityProgress: [darkSkylinePercent, lightSkylinePercent],
+      selected,
+    },
+  } = useWaffleScroll<{
     available: boolean;
     bannerOn: boolean;
-  }>({
-    available: false,
-    bannerOn: false,
-  });
-  const [selected, setSelected] = useState<-1 | 0 | 1 | 2 | 3 | 4>(-1);
-  const [[darkSkylinePercent, lightSkylinePercent], setCityProgress] = useState<
-    [number, number]
-  >([0, 0]);
-  const [lampHeight, setLampHeight] = useState<number>(120);
+    lampHeight: number;
+    cityProgress: [number, number];
+    selected: -1 | 0 | 1 | 2 | 3 | 4;
+  }>(
+    ({ progress, toggleState, setScrollState }) => {
+      //available and banner
+      toggleState(0.5, 3, "available");
+      toggleState(0.5, 2, "bannerOn");
 
-  useScroll(ref, ({ progress }) => {
-    if (progress >= 0.5 && progress < 3.0) {
-      setScrollClass({ available: true, bannerOn: true });
-      if (progress > 2) {
-        setScrollClass({ available: true, bannerOn: false });
+      //city skyline progress
+      if (progress >= 0.5 && progress < 2) {
+        setScrollState({
+          cityProgress: [(progress - 0.5) * 240, (progress - 0.5) * 120],
+        });
+      } else if (progress >= 2) {
+        setScrollState({
+          cityProgress: [
+            (progress - 0.5) * 240 + (progress - 2) * 360,
+            (progress - 0.5) * 120,
+          ],
+        });
       }
-    } else {
-      setScrollClass({ available: false, bannerOn: false });
-    }
-    if (progress >= 0.5 && progress < 2) {
-      setCityProgress([(progress - 0.5) * 240, (progress - 0.5) * 120]);
-    } else if (progress >= 2) {
-      setCityProgress([
-        (progress - 0.5) * 240 + (progress - 2) * 360,
-        (progress - 0.5) * 120,
-      ]);
-    }
-    if (progress < 0.5) {
-      setSelected(-1);
-    } else if (progress < 1) {
-      setLampHeight(120 - 240 * (progress - 0.5));
-    } else if (progress < 1.25) {
-      setSelected(0);
-    } else if (progress < 1.5) {
-      setSelected(1);
-    } else if (progress < 1.75) {
-      setSelected(2);
-    } else if (progress < 2.0) {
-      setSelected(3);
-    } else {
-      setSelected(4);
-    }
-  });
+
+      //scrollState
+      if (progress < 0.5) {
+        setScrollState({ selected: -1 });
+      } else if (progress < 1) {
+        setScrollState({ lampHeight: 120 - 240 * (progress - 0.5) });
+      } else if (progress < 1.25) {
+        setScrollState({ selected: 0 });
+      } else if (progress < 1.5) {
+        setScrollState({ selected: 1 });
+      } else if (progress < 1.75) {
+        setScrollState({ selected: 2 });
+      } else if (progress < 2.0) {
+        setScrollState({ selected: 3 });
+      } else {
+        setScrollState({ selected: 4 });
+      }
+    },
+    {
+      available: false,
+      bannerOn: false,
+      lampHeight: 120,
+      cityProgress: [0, 0],
+      selected: -1,
+    },
+  );
 
   return (
-    <section className={cx("container", scrollClass)} ref={ref}>
+    <section className={cx("container", { available, bannerOn })} ref={ref}>
       <div className={cx("background")}>
         <img
           className={cx("skylineLight")}
