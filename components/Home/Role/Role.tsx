@@ -8,16 +8,22 @@ import styles from "./Role.module.scss";
 const cx = classNames.bind(styles);
 
 function Role() {
-  const { ref, scrollState } = useWaffleScroll(
+  const {
+    ref,
+    scrollState: { available, notFold },
+  } = useWaffleScroll(
     ({ toggleState }) => {
       toggleState(0.2, 3, "available");
-      toggleState(0.7, 3.1, "fold");
+      toggleState(0.7, 3.1, "notFold");
     },
-    { available: false, fold: false },
+    { available: false, notFold: false },
   );
 
   return (
-    <section className={cx("container", scrollState)} ref={ref}>
+    <section
+      className={cx("container", { available, fold: !notFold })}
+      ref={ref}
+    >
       <div className={cx("background")} />
       <div className={cx("line", "line1")}>
         <div className={cx("box", "short")}>준회원</div>

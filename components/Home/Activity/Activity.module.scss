@@ -70,3 +70,11 @@
     }
   }
 }
+
+.available {
+  .background,
+  .foreground {
+    opacity: 1;
+    visibility: visible;
+  }
+}
