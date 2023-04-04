@@ -1,0 +1,162 @@
+@use "../../styles/color";
+@use "../../styles/position";
+@use "../../styles/font";
+@use "../../styles/effects/pattern";
+@import "../../styles/responsive";
+
+.container {
+  @include position.home-container;
+  @include position.flex-center;
+  transition: 0.5s ease;
+  .background {
+    @include position.fixed-background;
+    background: color.$waffle-white;
+    transition: 0.2s;
+    visibility: hidden;
+    opacity: 0;
+
+    .block1 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 150px;
+      height: 300px;
+      transform: translateY(-100px);
+      background: color.$SNUTT-block1;
+      transition: 1.5s;
+    }
+
+    .block2 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 150px;
+      height: 550px;
+      transform: translateY(-100px);
+      background: color.$SNUTT-block2;
+      transition: 1s;
+    }
+
+    .block3 {
+      position: absolute;
+      bottom: 0;
+      left: 160px;
+      width: 150px;
+      height: 500px;
+      transform: translateY(200px);
+      background: color.$SNUTT-block3;
+      transition: 1s;
+    }
+
+    .block4 {
+      position: absolute;
+      bottom: 0;
+      left: 160px;
+      width: 150px;
+      height: 350px;
+      transform: translateY(200px);
+      background: color.$SNUTT-block4;
+      transition: 1.5s;
+    }
+
+    .block5 {
+      position: absolute;
+      bottom: 0;
+      right: 160px;
+      width: 150px;
+      height: 600px;
+      transform: translateY(200px);
+      background: color.$SNUTT-block5;
+      transition: 2s;
+    }
+
+    .block6 {
+      position: absolute;
+      top: 0;
+      right: 0px;
+      width: 150px;
+      height: 500px;
+      transform: translateY(-200px);
+      background: color.$SNUTT-block6;
+      transition: 1.5s;
+    }
+
+    .block7 {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 150px;
+      height: 400px;
+      transform: translateY(-200px);
+      background: color.$SNUTT-block7;
+      transition: 1s;
+    }
+    .bubbleStripe {
+      @include pattern.stripe(
+        rgba(color.$SNUTT-block1, 0.2),
+        transparent,
+        170,
+        8px
+      );
+      position: absolute;
+      border-radius: 50%;
+      transition: 1s;
+    }
+  }
+
+  .description {
+    width: 900px;
+    @include mobile {
+      width: auto;
+    }
+    text-align: center;
+    color: color.$waffle-pale-yellow;
+    letter-spacing: -0.05em;
+    h3 {
+      @include font.gmarket-sans();
+      margin-bottom: 40px;
+    }
+    p {
+      @include font.gmarket-sans();
+      width: 100%;
+      margin-top: 2rem;
+      line-height: 2rem;
+    }
+  }
+}
+
+.available {
+  .background {
+    opacity: 1;
+    visibility: visible;
+    .bubbleFull {
+      transform: translateX(0);
+    }
+    .bubbleStripe {
+      transform: translateX(0);
+    }
+    .block1 {
+      transform: translateY(0);
+    }
+    .block2 {
+      transform: translateY(310px);
+    }
+    .block3 {
+      transform: translateY(-360px);
+    }
+    .block4 {
+      transform: translateY(0);
+    }
+    .block5 {
+      transform: translateY(-200px);
+    }
+
+    .block6 {
+      transform: translateY(0);
+    }
+
+    .block7 {
+      transform: translateY(510px);
+    }
+  }
+}
