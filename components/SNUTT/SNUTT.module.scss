@@ -4,6 +4,49 @@
 @use "../../styles/effects/pattern";
 @import "../../styles/responsive";
 
+$block1: (
+  "time": 1s,
+  "delay": 0s,
+  "start": translateY(-200px),
+  "end": translateY(0),
+);
+$block2: (
+  "time": 1s,
+  "delay": 0s,
+  "start": translateY(400px),
+  "end": translateY(-80px),
+);
+$block3: (
+  "time": 1.5s,
+  "delay": 0.3s,
+  "start": translateY(-500px),
+  "end": translateY(150px),
+);
+$block4: (
+  "time": 1.5s,
+  "delay": 0.3s,
+  "start": translateY(400px),
+  "end": translateY(70px),
+);
+$block5: (
+  "time": 1.5s,
+  "delay": 0.3s,
+  "start": translateY(500px),
+  "end": translateY(-200px),
+);
+$block6: (
+  "time": 1s,
+  "delay": 0s,
+  "start": translateY(-400px),
+  "end": translateY(0),
+);
+$block7: (
+  "time": 1s,
+  "delay": 0s,
+  "start": translateY(200px),
+  "end": translateY(-30px),
+);
+
 .container {
   @include position.home-container;
   @include position.flex-center;
@@ -11,7 +54,7 @@
   .background {
     @include position.fixed-background;
     background: color.$waffle-white;
-    transition: 0.2s;
+    transition: 0.5s;
     visibility: hidden;
     opacity: 0;
 
@@ -19,88 +62,77 @@
       position: absolute;
       top: 0;
       left: 0;
+      background: color.$SNUTT-block1;
       width: 150px;
       height: 300px;
-      transform: translateY(-100px);
-      background: color.$SNUTT-block1;
-      transition: 1.5s;
+      transform: map-get($block1, "start");
+      transition: map-get($block1, "time");
     }
 
     .block2 {
       position: absolute;
-      top: 0;
+      bottom: 0;
       left: 0;
+      background: color.$SNUTT-block2;
       width: 150px;
       height: 550px;
-      transform: translateY(-100px);
-      background: color.$SNUTT-block2;
-      transition: 1s;
+      transform: map-get($block2, "start");
+      transition: map-get($block2, "time");
     }
 
     .block3 {
       position: absolute;
-      bottom: 0;
+      top: 0;
       left: 160px;
+      background: color.$SNUTT-block3;
       width: 150px;
       height: 500px;
-      transform: translateY(200px);
-      background: color.$SNUTT-block3;
-      transition: 1s;
+      transform: map-get($block3, "start");
+      transition: map-get($block3, "time");
     }
 
     .block4 {
       position: absolute;
       bottom: 0;
       left: 160px;
+      background: color.$SNUTT-block4;
       width: 150px;
       height: 350px;
-      transform: translateY(200px);
-      background: color.$SNUTT-block4;
-      transition: 1.5s;
+      transform: map-get($block4, "start");
+      transition: map-get($block4, "time");
     }
 
     .block5 {
       position: absolute;
       bottom: 0;
       right: 160px;
+      background: color.$SNUTT-block5;
       width: 150px;
       height: 600px;
-      transform: translateY(200px);
-      background: color.$SNUTT-block5;
-      transition: 2s;
+      transform: map-get($block5, "start");
+      transition: map-get($block5, "time");
     }
 
     .block6 {
       position: absolute;
       top: 0;
       right: 0px;
+      background: color.$SNUTT-block6;
       width: 150px;
       height: 500px;
-      transform: translateY(-200px);
-      background: color.$SNUTT-block6;
-      transition: 1.5s;
+      transform: map-get($block6, "start");
+      transition: map-get($block6, "time");
     }
 
     .block7 {
       position: absolute;
-      top: 0;
+      bottom: 0;
       right: 0;
+      background: color.$SNUTT-block7;
       width: 150px;
       height: 400px;
-      transform: translateY(-200px);
-      background: color.$SNUTT-block7;
-      transition: 1s;
-    }
-    .bubbleStripe {
-      @include pattern.stripe(
-        rgba(color.$SNUTT-block1, 0.2),
-        transparent,
-        170,
-        8px
-      );
-      position: absolute;
-      border-radius: 50%;
-      transition: 1s;
+      transform: map-get($block7, "start");
+      transition: map-get($block7, "time");
     }
   }
 
@@ -129,34 +161,27 @@
   .background {
     opacity: 1;
     visibility: visible;
-    .bubbleFull {
-      transform: translateX(0);
-    }
-    .bubbleStripe {
-      transform: translateX(0);
-    }
+
     .block1 {
-      transform: translateY(0);
+      transform: map-get($block1, end);
     }
     .block2 {
-      transform: translateY(310px);
+      transform: map-get($block2, end);
     }
     .block3 {
-      transform: translateY(-360px);
+      transform: map-get($block3, end);
     }
     .block4 {
-      transform: translateY(0);
+      transform: map-get($block4, end);
     }
     .block5 {
-      transform: translateY(-200px);
+      transform: map-get($block5, end);
     }
-
     .block6 {
-      transform: translateY(0);
+      transform: map-get($block6, end);
     }
-
     .block7 {
-      transform: translateY(510px);
+      transform: map-get($block7, end);
     }
   }
 }
