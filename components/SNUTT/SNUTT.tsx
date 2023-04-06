@@ -1,8 +1,11 @@
 import classNames from "classnames/bind";
 import useWaffleScroll from "../../library/waffleScroll";
+import IntroduceHead from "../ServiceIntroduce/IntroduceHead/IntroduceHead";
+import IntroduceCarousel from "../ServiceIntroduce/IntroduceCarousel.tsx/IntroduceCarousel";
 import styles from "./SNUTT.module.scss";
 
 const cx = classNames.bind(styles);
+
 function SNUTT() {
   const { ref, scrollState } = useWaffleScroll(
     ({ toggleState }) => {
@@ -24,7 +27,10 @@ function SNUTT() {
           <div className={cx("block7")}></div>
         </div>
 
-        <div className={cx("description")}></div>
+        <div className={cx("description")}>
+          <IntroduceHead />
+          <IntroduceCarousel />
+        </div>
       </section>
     </>
   );
