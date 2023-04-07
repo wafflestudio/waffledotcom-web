@@ -9,10 +9,16 @@ interface IntroduceHeadProps {
   title: string;
   des: string[];
   textColor: string;
-  link?: string[];
+  link: string[];
 }
 
-function IntroduceHead({ logo, title, des, textColor }: IntroduceHeadProps) {
+function IntroduceHead({
+  logo,
+  title,
+  des,
+  textColor,
+  link,
+}: IntroduceHeadProps) {
   return (
     <div className={cx("introduceHeader")}>
       <Image
@@ -43,6 +49,9 @@ function IntroduceHead({ logo, title, des, textColor }: IntroduceHeadProps) {
           alt="appstore"
           width={45}
           height={45}
+          onClick={() => {
+            window.open(link[0]);
+          }}
         />
         <Image
           className={cx("hover")}
@@ -50,6 +59,9 @@ function IntroduceHead({ logo, title, des, textColor }: IntroduceHeadProps) {
           alt="appstore"
           width={45}
           height={45}
+          onClick={() => {
+            window.open(link[1]);
+          }}
         />
         <Image
           className={cx("hover")}
@@ -57,6 +69,9 @@ function IntroduceHead({ logo, title, des, textColor }: IntroduceHeadProps) {
           alt="appstore"
           width={45}
           height={45}
+          onClick={() => {
+            window.open(link[2]);
+          }}
         />
       </div>
     </div>

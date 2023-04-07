@@ -48,6 +48,11 @@ function SNUTT() {
               "SNUTT는 서울대학교 시간표 어플입니다.",
             ]}
             textColor="black"
+            link={[
+              "https://www.wafflestudio.com/",
+              "https://www.wafflestudio.com/",
+              "https://www.wafflestudio.com/",
+            ]}
           />
           <IntroduceCarousel
             carouselImages={[
