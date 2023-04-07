@@ -18,13 +18,25 @@ function SNUTT() {
     <>
       <section className={cx("container", scrollState)} ref={ref}>
         <div className={cx("background")}>
-          <div className={cx("block1")}></div>
-          <div className={cx("block2")}></div>
-          <div className={cx("block3")}></div>
-          <div className={cx("block4")}></div>
-          <div className={cx("block5")}></div>
-          <div className={cx("block6")}></div>
-          <div className={cx("block7")}></div>
+          <div className={cx("lineWrap")}>
+            <div className={cx("blockLine")}>
+              <div className={cx("block1")}></div>
+              <div className={cx("block2")}></div>
+            </div>
+            <div className={cx("blockLine")}>
+              <div className={cx("block3")}></div>
+              <div className={cx("block4")}></div>
+            </div>
+          </div>
+          <div className={cx("lineWrap")}>
+            <div className={cx("blockLine")}>
+              <div className={cx("block5")}></div>
+            </div>
+            <div className={cx("blockLine")}>
+              <div className={cx("block6")}></div>
+              <div className={cx("block7")}></div>
+            </div>
+          </div>
         </div>
         <div className={cx("description")}>
           <IntroduceHead

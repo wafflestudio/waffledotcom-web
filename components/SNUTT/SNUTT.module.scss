@@ -7,44 +7,44 @@
 $block1: (
   "time": 1s,
   "delay": 0s,
-  "start": translateY(-200px),
+  "start": translateY(-80%),
   "end": translateY(0),
 );
 $block2: (
   "time": 1s,
   "delay": 0s,
-  "start": translateY(400px),
-  "end": translateY(-80px),
+  "start": translateY(80%),
+  "end": translateY(0),
 );
 $block3: (
   "time": 1.5s,
   "delay": 0.3s,
-  "start": translateY(-500px),
-  "end": translateY(150px),
+  "start": translateY(-160%),
+  "end": translateY(0),
 );
 $block4: (
   "time": 1.5s,
   "delay": 0.3s,
-  "start": translateY(400px),
-  "end": translateY(70px),
+  "start": translateY(160%),
+  "end": translateY(0),
 );
 $block5: (
   "time": 1.5s,
   "delay": 0.3s,
-  "start": translateY(500px),
-  "end": translateY(-200px),
+  "start": translateY(160%),
+  "end": translateY(0),
 );
 $block6: (
   "time": 1s,
   "delay": 0s,
-  "start": translateY(-400px),
+  "start": translateY(-80%),
   "end": translateY(0),
 );
 $block7: (
   "time": 1s,
   "delay": 0s,
-  "start": translateY(200px),
-  "end": translateY(-30px),
+  "start": translateY(80%),
+  "end": translateY(0),
 );
 
 .container {
@@ -57,58 +57,69 @@ $block7: (
     transition: 0.5s;
     visibility: hidden;
     opacity: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 
+    .lineWrap {
+      display: flex;
+      flex-direction: row;
+      gap: 1vh;
+    }
+
+    .blockLine {
+      position: relative;
+      display: flex;
+      width: 120px;
+      flex-direction: column;
+      align-items: center;
+    }
     .block1 {
       position: absolute;
-      top: 0;
-      left: 0;
       background: color.$SNUTT-block1;
-      width: 150px;
-      height: 300px;
+      top: 0;
+      width: 100%;
+      height: 36%;
       transform: map-get($block1, "start");
       transition: map-get($block1, "time");
     }
 
     .block2 {
       position: absolute;
-      bottom: 0;
-      left: 0;
+      bottom: 10%;
       background: color.$SNUTT-block2;
-      width: 150px;
-      height: 550px;
+      width: 100%;
+      height: 53%;
       transform: map-get($block2, "start");
       transition: map-get($block2, "time");
     }
 
     .block3 {
       position: absolute;
-      top: 0;
-      left: 160px;
+      top: 18%;
       background: color.$SNUTT-block3;
-      width: 150px;
-      height: 500px;
+      width: 100%;
+      height: 47%;
       transform: map-get($block3, "start");
       transition: map-get($block3, "time");
     }
 
     .block4 {
       position: absolute;
-      bottom: 0;
-      left: 160px;
+      bottom: 0%;
       background: color.$SNUTT-block4;
-      width: 150px;
-      height: 350px;
+      width: 100%;
+      height: 34%;
       transform: map-get($block4, "start");
       transition: map-get($block4, "time");
     }
 
     .block5 {
       position: absolute;
-      bottom: 0;
-      right: 160px;
+      bottom: 15%;
       background: color.$SNUTT-block5;
-      width: 150px;
-      height: 600px;
+      width: 100%;
+      height: 60%;
       transform: map-get($block5, "start");
       transition: map-get($block5, "time");
     }
@@ -116,21 +127,19 @@ $block7: (
     .block6 {
       position: absolute;
       top: 0;
-      right: 0px;
       background: color.$SNUTT-block6;
-      width: 150px;
-      height: 500px;
+      width: 100%;
+      height: 59%;
       transform: map-get($block6, "start");
       transition: map-get($block6, "time");
     }
 
     .block7 {
       position: absolute;
-      bottom: 0;
-      right: 0;
+      bottom: 3%;
       background: color.$SNUTT-block7;
-      width: 150px;
-      height: 400px;
+      width: 100%;
+      height: 37%;
       transform: map-get($block7, "start");
       transition: map-get($block7, "time");
     }

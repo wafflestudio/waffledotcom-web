@@ -5,15 +5,16 @@
 @import "../../../styles/responsive";
 
 .introduceHeader {
-  width: 800px;
+  width: 87%;
+  max-width: 870px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 15px;
+  gap: 30px;
 
   .logo {
-    filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.25));
+    filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.25));
   }
 
   .text {
@@ -22,24 +23,24 @@
     font-size: 18px;
     line-height: 21px;
     font-weight: 300;
-    height: 155px;
+    height: 140px;
 
     .title {
-      height: 55px;
+      height: 50px;
       font-weight: 700;
       font-size: 30px;
-      line-height: 35px;
+      line-height: 34px;
       display: flex;
       align-items: flex-end;
       letter-spacing: -0.1em;
     }
 
     .des {
-      height: 100px;
+      height: 90px;
       font-weight: 300;
       font-size: 18px;
       line-height: 21px;
-      letter-spacing: -0.05em;
+      letter-spacing: -0.1em;
       display: flex;
       align-items: center;
     }
@@ -56,9 +57,9 @@
   .store {
     display: flex;
     flex-direction: row;
-    gap: 3px;
+    gap: 7.5px;
     position: relative;
-    top: 20px;
+    top: 30px;
 
     .hover {
       cursor: pointer;

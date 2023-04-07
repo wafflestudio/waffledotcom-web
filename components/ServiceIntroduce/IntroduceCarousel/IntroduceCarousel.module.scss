@@ -5,10 +5,13 @@
 @import "../../../styles/responsive";
 
 .introduceCarousel {
-  width: 900px;
+  width: 90%;
+  max-width: 900px;
+  margin-top: 20px;
 }
 
 .carouselBar {
+  margin-top: 20px;
   display: flex;
   flex-direction: row;
   justify-content: center;
