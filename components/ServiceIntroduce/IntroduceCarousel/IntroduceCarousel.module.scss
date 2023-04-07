@@ -6,6 +6,26 @@
 
 .introduceCarousel {
   width: 900px;
-  height: 600px;
-  border: 1px solid red;
+}
+
+.carouselBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+
+  .imageWrapper {
+    display: flex;
+    width: 210px;
+    height: 118px;
+  }
+
+  .active {
+    filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 1));
+  }
+}
+
+.hover {
+  cursor: pointer;
 }

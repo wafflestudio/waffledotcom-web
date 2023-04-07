@@ -8,10 +8,11 @@ interface IntroduceHeadProps {
   logo: string;
   title: string;
   des: string[];
+  textColor: string;
   link?: string[];
 }
 
-function IntroduceHead({ logo, title, des }: IntroduceHeadProps) {
+function IntroduceHead({ logo, title, des, textColor }: IntroduceHeadProps) {
   return (
     <div className={cx("introduceHeader")}>
       <Image
@@ -22,7 +23,7 @@ function IntroduceHead({ logo, title, des }: IntroduceHeadProps) {
         height={155}
       />
 
-      <div className={cx("text")}>
+      <div className={cx("text", textColor)}>
         <div className={cx("title")}>{title}</div>
         <div className={cx("des")}>
           {des.map((d) => {

@@ -35,8 +35,15 @@ function SNUTT() {
               "SNUTT는 서울대학교 대표 시간표 어플입니다.",
               "SNUTT는 서울대학교 시간표 어플입니다.",
             ]}
+            textColor="black"
           />
-          <IntroduceCarousel />
+          <IntroduceCarousel
+            carouselImages={[
+              "/static/images/dummy/coMo.png",
+              "/static/images/dummy/seminar.png",
+              "/static/images/dummy/Untitled.png",
+            ]}
+          />
         </div>
       </section>
     </>
