@@ -137,7 +137,10 @@ $block7: (
   }
 
   .description {
-    width: 900px;
+    @include position.fixed-foreground;
+    @include position.flex-center;
+    opacity: 0;
+    transition: 0.5s;
     @include mobile {
       width: auto;
     }
@@ -183,5 +186,10 @@ $block7: (
     .block7 {
       transform: map-get($block7, end);
     }
+  }
+
+  .description {
+    opacity: 1;
+    visibility: visible;
   }
 }

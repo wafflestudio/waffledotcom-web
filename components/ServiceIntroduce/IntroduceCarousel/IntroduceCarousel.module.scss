@@ -1,0 +1,11 @@
+@use "../../../styles/color";
+@use "../../../styles/position";
+@use "../../../styles/font";
+@use "../../../styles/effects/pattern";
+@import "../../../styles/responsive";
+
+.introduceCarousel {
+  width: 900px;
+  height: 600px;
+  border: 1px solid red;
+}

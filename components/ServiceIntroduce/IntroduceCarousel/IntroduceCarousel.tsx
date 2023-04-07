@@ -12,7 +12,7 @@ function IntroduceCarousel() {
     { available: false },
   );
 
-  return <></>;
+  return <div className={cx("introduceCarousel")}></div>;
 }
 
 export default IntroduceCarousel;
