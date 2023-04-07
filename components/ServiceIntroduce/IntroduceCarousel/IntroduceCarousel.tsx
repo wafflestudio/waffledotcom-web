@@ -15,7 +15,8 @@ function IntroduceCarousel({ carouselImages }: IntroduceCarouselProps) {
 
   const decreaseIndex = () => {
     if (page === 0 && index === 0) {
-      return;
+      setPage(Math.floor((carouselImages.length - 1) / 3));
+      setIndex((carouselImages.length - 1) % 3);
     } else if (index === 0) {
       setPage(page - 1);
       setIndex(2);
@@ -26,7 +27,8 @@ function IntroduceCarousel({ carouselImages }: IntroduceCarouselProps) {
 
   const increaseIndex = useCallback(() => {
     if (3 * page + index === carouselImages.length - 1) {
-      return;
+      setPage(0);
+      setIndex(0);
     } else if (index % 3 === 2) {
       setPage(page + 1);
       setIndex(0);
@@ -35,6 +37,7 @@ function IntroduceCarousel({ carouselImages }: IntroduceCarouselProps) {
     }
   }, [page, index, carouselImages.length]);
 
+  // 자동 슬라이드 기능 사용하려면 주석 해제
   // useEffect(() => {
   //   const timer = setInterval(() => {
   //     increaseIndex();
@@ -44,14 +47,33 @@ function IntroduceCarousel({ carouselImages }: IntroduceCarouselProps) {
 
   return (
     <div className={cx("introduceCarousel")}>
-      <div className={cx("selectWrap")}>
-        <Image
-          className={cx("select")}
-          src={carouselImages[3 * page + index]}
-          alt="snutt_1"
-          width={864}
-          height={486}
-        />
+      <div className={cx("slider")}>
+        <div className={cx("selectWrap", `image${index}`)}>
+          <div className={cx("slideImage")}>
+            <Image
+              src={carouselImages[3 * page]}
+              alt="carousel main image"
+              width={864}
+              height={486}
+            />
+          </div>
+          <div className={cx("slideImage")}>
+            <Image
+              src={carouselImages[3 * page + 1]}
+              alt="snutt_1"
+              width={864}
+              height={486}
+            />
+          </div>
+          <div className={cx("slideImage")}>
+            <Image
+              src={carouselImages[3 * page + 2]}
+              alt="snutt_1"
+              width={864}
+              height={486}
+            />
+          </div>
+        </div>
       </div>
       <div className={cx("carouselBar")}>
         <Image
