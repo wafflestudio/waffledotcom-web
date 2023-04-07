@@ -78,34 +78,42 @@ function IntroduceCarousel({ carouselImages }: IntroduceCarouselProps) {
             height={118}
           />
         </div>
-        <div
-          className={cx("imageWrapper", "hover", { active: index === 1 })}
-          key={page + 1}
-          onClick={() => {
-            setIndex(1);
-          }}
-        >
-          <Image
-            src={carouselImages[3 * page + 1]}
-            alt="carousel image"
-            width={210}
-            height={118}
-          />
-        </div>
-        <div
-          className={cx("imageWrapper", "hover", { active: index === 2 })}
-          key={page + 2}
-          onClick={() => {
-            setIndex(2);
-          }}
-        >
-          <Image
-            src={carouselImages[3 * page + 2]}
-            alt="carousel image"
-            width={210}
-            height={118}
-          />
-        </div>
+        {3 * page + 1 > carouselImages.length - 1 ? (
+          <div className={cx("imageWrapper")} key={page + 1}></div>
+        ) : (
+          <div
+            className={cx("imageWrapper", "hover", { active: index === 1 })}
+            key={page + 1}
+            onClick={() => {
+              setIndex(1);
+            }}
+          >
+            <Image
+              src={carouselImages[3 * page + 1]}
+              alt="carousel image"
+              width={210}
+              height={118}
+            />
+          </div>
+        )}
+        {3 * page + 2 > carouselImages.length - 1 ? (
+          <div className={cx("imageWrapper")} key={page + 2}></div>
+        ) : (
+          <div
+            className={cx("imageWrapper", "hover", { active: index === 2 })}
+            key={page + 2}
+            onClick={() => {
+              setIndex(2);
+            }}
+          >
+            <Image
+              src={carouselImages[3 * page + 2]}
+              alt="carousel image"
+              width={210}
+              height={118}
+            />
+          </div>
+        )}
         <Image
           className={cx("hover")}
           src={"/static/images/arrow/right_arrow.svg"}
