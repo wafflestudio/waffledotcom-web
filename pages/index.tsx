@@ -4,7 +4,7 @@ import About from "../components/Home/About/About";
 import { useInitiateScrollViewport } from "../hooks/scroll/useScroll";
 import Billboard from "../components/Home/Billboard/Billboard";
 import WhoAreWe from "../components/Home/WhoAreWe/WhoAreWe";
-import Services from "../components/Home/Service/Services";
+import Services from "../components/Home/ServiceSummary/ServicesSummary";
 import Role from "../components/Home/Role/Role";
 import Activity from "../components/Home/Activity/Activity";
 import WhatWeDo from "../components/Home/WhatWeDo/WhatWeDo";
