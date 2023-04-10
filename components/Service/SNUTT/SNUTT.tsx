@@ -1,7 +1,7 @@
 import classNames from "classnames/bind";
-import useWaffleScroll from "../../library/waffleScroll";
-import IntroduceHead from "../ServiceIntroduce/IntroduceHead/IntroduceHead";
-import IntroduceCarousel from "../ServiceIntroduce/IntroduceCarousel/IntroduceCarousel";
+import useWaffleScroll from "../../../library/waffleScroll";
+import IntroduceHead from "../../ServiceIntroduce/IntroduceHead/IntroduceHead";
+import IntroduceCarousel from "../../ServiceIntroduce/IntroduceCarousel/IntroduceCarousel";
 import styles from "./SNUTT.module.scss";
 
 const cx = classNames.bind(styles);

@@ -1,5 +1,5 @@
 import Head from "next/head";
-import SNUTT from "../../components/SNUTT/SNUTT";
+import SNUTT from "../../components/Service/SNUTT/SNUTT";
 import Cover from "../../components/Home/Cover/Cover";
 import styles from "./Service.module.scss";
 
