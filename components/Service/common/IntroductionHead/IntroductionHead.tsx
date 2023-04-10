@@ -1,10 +1,10 @@
 import Image from "next/image";
 import classNames from "classnames/bind";
-import styles from "./IntroduceHead.module.scss";
+import styles from "./IntroductionHead.module.scss";
 
 const cx = classNames.bind(styles);
 
-interface IntroduceHeadProps {
+interface IntroductionHeadProps {
   logo: string;
   title: string;
   des: string[];
@@ -12,15 +12,15 @@ interface IntroduceHeadProps {
   link: string[];
 }
 
-function IntroduceHead({
+function IntroductionHead({
   logo,
   title,
   des,
   textColor,
   link,
-}: IntroduceHeadProps) {
+}: IntroductionHeadProps) {
   return (
-    <div className={cx("introduceHeader")}>
+    <div className={cx("introductionHeader")}>
       <Image
         className={cx("logo")}
         src={logo}
@@ -78,4 +78,4 @@ function IntroduceHead({
   );
 }
 
-export default IntroduceHead;
+export default IntroductionHead;

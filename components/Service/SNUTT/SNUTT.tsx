@@ -1,7 +1,7 @@
 import classNames from "classnames/bind";
 import useWaffleScroll from "../../../library/waffleScroll";
-import IntroduceHead from "../common/IntroduceHead/IntroduceHead";
-import IntroduceCarousel from "../common/IntroduceCarousel/IntroduceCarousel";
+import IntroductionHead from "../common/IntroductionHead/IntroductionHead";
+import IntroductionCarousel from "../common/IntroductionCarousel/IntroductionCarousel";
 import styles from "./SNUTT.module.scss";
 
 const cx = classNames.bind(styles);
@@ -38,8 +38,8 @@ function SNUTT() {
             </div>
           </div>
         </div>
-        <div className={cx("description")}>
-          <IntroduceHead
+        <div className={cx("introduction")}>
+          <IntroductionHead
             logo={"/static/images/logo/snutt_logo.svg"}
             title={"SNUTT"}
             des={[
@@ -54,7 +54,7 @@ function SNUTT() {
               "https://www.wafflestudio.com/",
             ]}
           />
-          <IntroduceCarousel
+          <IntroductionCarousel
             carouselImages={[
               "/static/images/dummy/coMo.png",
               "/static/images/dummy/seminar.png",

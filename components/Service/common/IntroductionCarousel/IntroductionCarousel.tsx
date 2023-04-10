@@ -1,15 +1,15 @@
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 import classNames from "classnames/bind";
-import styles from "./IntroduceCarousel.module.scss";
+import styles from "./IntroductionCarousel.module.scss";
 
 const cx = classNames.bind(styles);
 
-interface IntroduceCarouselProps {
+interface IntroductionCarouselProps {
   carouselImages: string[];
 }
 
-function IntroduceCarousel({ carouselImages }: IntroduceCarouselProps) {
+function IntroductionCarousel({ carouselImages }: IntroductionCarouselProps) {
   const [page, setPage] = useState(0);
   const [index, setIndex] = useState(0);
 
@@ -46,7 +46,7 @@ function IntroduceCarousel({ carouselImages }: IntroduceCarouselProps) {
   // }, [increaseIndex]);
 
   return (
-    <div className={cx("introduceCarousel")}>
+    <div className={cx("introductionCarousel")}>
       <div className={cx("slider")}>
         <div className={cx("selectWrap", `image${index}`)}>
           <div className={cx("slideImage")}>
@@ -151,4 +151,4 @@ function IntroduceCarousel({ carouselImages }: IntroduceCarouselProps) {
   );
 }
 
-export default IntroduceCarousel;
+export default IntroductionCarousel;

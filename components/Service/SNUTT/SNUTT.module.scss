@@ -145,7 +145,7 @@ $block7: (
     }
   }
 
-  .description {
+  .introduction {
     @include position.fixed-foreground;
     @include position.flex-center;
     opacity: 0;
@@ -197,7 +197,7 @@ $block7: (
     }
   }
 
-  .description {
+  .introduction {
     opacity: 1;
     visibility: visible;
   }
