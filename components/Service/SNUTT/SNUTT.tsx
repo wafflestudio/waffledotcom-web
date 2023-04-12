@@ -2,11 +2,11 @@ import classNames from "classnames/bind";
 import useWaffleScroll from "../../../library/waffleScroll";
 import IntroduceHead from "../common/IntroduceHead/IntroduceHead";
 import IntroduceCarousel from "../common/IntroduceCarousel/IntroduceCarousel";
-import styles from "./SNUTT.module.scss";
+import styles from "./Snutt.module.scss";
 
 const cx = classNames.bind(styles);
 
-function SNUTT() {
+function Snutt() {
   const { ref, scrollState } = useWaffleScroll(
     ({ toggleState }) => {
       toggleState(0.75, 3, "available");
@@ -69,4 +69,4 @@ function SNUTT() {
   );
 }
 
-export default SNUTT;
+export default Snutt;

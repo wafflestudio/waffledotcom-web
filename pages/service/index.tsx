@@ -1,5 +1,5 @@
 import Head from "next/head";
-import SNUTT from "../../components/Service/SNUTT/SNUTT";
+import Snutt from "../../components/Service/Snutt/Snutt";
 import Cover from "../../components/Home/Cover/Cover";
 import styles from "./Service.module.scss";
 
@@ -12,7 +12,7 @@ function Service() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Cover />
-      <SNUTT />
+      <Snutt />
     </div>
   );
 }
