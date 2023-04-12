@@ -136,7 +136,6 @@ $blockList: (
   .introduction {
     @include position.fixed-foreground;
     @include position.flex-center;
-    border: 3px solid red;
     opacity: 0;
     transition: 0.5s;
     text-align: center;
