@@ -108,13 +108,13 @@ $blockList: (
     .lineWrap {
       display: flex;
       flex-direction: row;
-      gap: 1vh;
+      gap: 1vmin;
     }
 
     .blockLine {
       position: relative;
       display: flex;
-      width: 120px;
+      width: 10vmin;
       flex-direction: column;
       align-items: center;
     }
@@ -136,24 +136,10 @@ $blockList: (
   .introduction {
     @include position.fixed-foreground;
     @include position.flex-center;
+    border: 3px solid red;
     opacity: 0;
     transition: 0.5s;
-    @include mobile {
-      width: auto;
-    }
     text-align: center;
-    color: color.$waffle-pale-yellow;
-    letter-spacing: -0.05em;
-    h3 {
-      @include font.gmarket-sans();
-      margin-bottom: 40px;
-    }
-    p {
-      @include font.gmarket-sans();
-      width: 100%;
-      margin-top: 2rem;
-      line-height: 2rem;
-    }
   }
 }
 

@@ -5,9 +5,10 @@
 @import "../../../../styles/responsive";
 
 .introductionCarousel {
-  width: 90%;
-  max-width: 900px;
-  margin-top: 20px;
+  @include position.flex-center(column);
+  width: calc(100vmin / 1080 * 840);
+  // max-width: 900px;
+  margin-top: 2vmin;
 }
 
 .slider {
@@ -19,7 +20,7 @@
   display: flex;
   flex-direction: row;
   margin: auto;
-  max-height: 486px;
+  height: 44vmin;
   transition: 0.3s;
 }
 
@@ -34,22 +35,25 @@
 }
 
 .slideImage {
+  position: relative;
   width: 33.333%;
 }
 
 .carouselBar {
-  margin-top: 20px;
+  width: 85%;
+  height: 11vmin;
+  margin-top: 2vmin;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 15px;
+  gap: 1.5vmin;
 
   .imageWrapper {
     position: relative;
     display: flex;
-    width: 210px;
-    height: 118px;
+    width: calc((100% - 32px - 6vmin) / 3);
+    height: 100%;
   }
 
   .active {

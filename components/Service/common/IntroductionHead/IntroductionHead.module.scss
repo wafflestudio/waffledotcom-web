@@ -5,41 +5,40 @@
 @import "../../../../styles/responsive";
 
 .introductionHeader {
-  width: 87%;
-  max-width: 870px;
+  width: calc(100vmin / 1080 * 840);
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 30px;
+  gap: 2vmin;
 
   .logo {
+    position: relative;
     filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.25));
+    width: 17.5%;
+    padding-bottom: 17.5%;
   }
 
   .text {
     @include font.gmarket-sans();
+    display: flex;
+    flex-direction: column;
     text-align: start;
-    font-size: 18px;
-    line-height: 21px;
+    font-size: calc(100vmin / 1080 * 18);
     font-weight: 300;
-    height: 140px;
 
     .title {
-      height: 50px;
+      height: 1.3em;
       font-weight: 700;
-      font-size: 30px;
-      line-height: 34px;
+      font-size: 1.6em;
       display: flex;
       align-items: flex-end;
       letter-spacing: -0.1em;
     }
 
     .des {
-      height: 75px;
-      font-weight: 300;
-      font-size: 18px;
-      line-height: 21px;
+      height: 4em;
+      line-height: 1.2em;
       letter-spacing: -0.1em;
       display: flex;
       align-items: flex-end;
@@ -55,12 +54,20 @@
   }
 
   .store {
+    width: 18%;
     display: flex;
     flex-direction: row;
-    gap: 7.5px;
+    align-items: center;
+    justify-content: center;
+    gap: 0.7vmin;
     position: relative;
-    top: 30px;
+    top: 2.7vmin;
 
+    .link {
+      position: relative;
+      width: 30%;
+      padding-bottom: 30%;
+    }
     .hover {
       cursor: pointer;
     }

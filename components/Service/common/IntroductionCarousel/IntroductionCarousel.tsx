@@ -53,24 +53,24 @@ function IntroductionCarousel({ carouselImages }: IntroductionCarouselProps) {
             <Image
               src={carouselImages[3 * page]}
               alt="carousel main image"
-              width={864}
-              height={486}
+              layout="fill"
+              objectFit="cover"
             />
           </div>
           <div className={cx("slideImage")}>
             <Image
               src={carouselImages[3 * page + 1]}
               alt="snutt_1"
-              width={864}
-              height={486}
+              layout="fill"
+              objectFit="cover"
             />
           </div>
           <div className={cx("slideImage")}>
             <Image
               src={carouselImages[3 * page + 2]}
               alt="snutt_1"
-              width={864}
-              height={486}
+              layout="fill"
+              objectFit="cover"
             />
           </div>
         </div>
@@ -81,7 +81,7 @@ function IntroductionCarousel({ carouselImages }: IntroductionCarouselProps) {
           src={"/static/images/arrow/left_arrow.svg"}
           alt="left arrow"
           width={16}
-          height={43}
+          height={32}
           onClick={() => {
             decreaseIndex();
           }}
@@ -96,8 +96,8 @@ function IntroductionCarousel({ carouselImages }: IntroductionCarouselProps) {
           <Image
             src={carouselImages[3 * page]}
             alt="carousel image"
-            width={210}
-            height={118}
+            layout="fill"
+            objectFit="cover"
           />
         </div>
         {3 * page + 1 > carouselImages.length - 1 ? (
@@ -113,8 +113,8 @@ function IntroductionCarousel({ carouselImages }: IntroductionCarouselProps) {
             <Image
               src={carouselImages[3 * page + 1]}
               alt="carousel image"
-              width={210}
-              height={118}
+              layout="fill"
+              objectFit="cover"
             />
           </div>
         )}
@@ -131,8 +131,8 @@ function IntroductionCarousel({ carouselImages }: IntroductionCarouselProps) {
             <Image
               src={carouselImages[3 * page + 2]}
               alt="carousel image"
-              width={210}
-              height={118}
+              layout="fill"
+              // objectFit="cover"
             />
           </div>
         )}
@@ -141,7 +141,7 @@ function IntroductionCarousel({ carouselImages }: IntroductionCarouselProps) {
           src={"/static/images/arrow/right_arrow.svg"}
           alt="rigth arrow"
           width={16}
-          height={43}
+          height={32}
           onClick={() => {
             increaseIndex();
           }}

@@ -21,14 +21,9 @@ function IntroductionHead({
 }: IntroductionHeadProps) {
   return (
     <div className={cx("introductionHeader")}>
-      <Image
-        className={cx("logo")}
-        src={logo}
-        alt="logo"
-        width={155}
-        height={155}
-      />
-
+      <div className={cx("logo")}>
+        <Image src={logo} alt="logo" layout="fill" />
+      </div>
       <div className={cx("text", textColor)}>
         <div className={cx("title")}>{title}</div>
         <div className={cx("des")}>
@@ -43,36 +38,39 @@ function IntroductionHead({
         </div>
       </div>
       <div className={cx("store")}>
-        <Image
-          className={cx("hover")}
-          src="/static/images/logo/appstore_logo.svg"
-          alt="appstore"
-          width={45}
-          height={45}
-          onClick={() => {
-            window.open(link[0]);
-          }}
-        />
-        <Image
-          className={cx("hover")}
-          src="/static/images/logo/playstore_logo.svg"
-          alt="appstore"
-          width={45}
-          height={45}
-          onClick={() => {
-            window.open(link[1]);
-          }}
-        />
-        <Image
-          className={cx("hover")}
-          src="/static/images/logo/web_logo.svg"
-          alt="appstore"
-          width={45}
-          height={45}
-          onClick={() => {
-            window.open(link[2]);
-          }}
-        />
+        <div className={cx("link")}>
+          <Image
+            className={cx("hover")}
+            src="/static/images/logo/appstore_logo.svg"
+            alt="appstore"
+            layout="fill"
+            onClick={() => {
+              window.open(link[0]);
+            }}
+          />
+        </div>
+        <div className={cx("link")}>
+          <Image
+            className={cx("hover")}
+            src="/static/images/logo/playstore_logo.svg"
+            alt="appstore"
+            layout="fill"
+            onClick={() => {
+              window.open(link[1]);
+            }}
+          />
+        </div>
+        <div className={cx("link")}>
+          <Image
+            className={cx("hover")}
+            src="/static/images/logo/web_logo.svg"
+            alt="appstore"
+            layout="fill"
+            onClick={() => {
+              window.open(link[2]);
+            }}
+          />
+        </div>
       </div>
     </div>
   );
