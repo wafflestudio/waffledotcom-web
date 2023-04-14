@@ -25,8 +25,8 @@ function IntroductionHead({
         <Image src={logo} alt="logo" layout="fill" />
       </div>
       <div className={cx("text", textColor)}>
-        <div className={cx("title")}>{title}</div>
-        <div className={cx("des")}>
+        <span className={cx("title")}>{title}</span>
+        <span className={cx("des")}>
           {des.map((d) => {
             return (
               <>
@@ -35,7 +35,7 @@ function IntroductionHead({
               </>
             );
           })}
-        </div>
+        </span>
       </div>
       <div className={cx("store")}>
         <div className={cx("link")}>

@@ -4,14 +4,18 @@
 @use "../../../styles/effects/pattern";
 @import "../../../styles/responsive";
 
+@function blockheight($value) {
+  @return calc((100% - (100vmin / 1080 * 15)) / 100 * #{$value});
+}
+
 $blockList: (
   // block1
   (
       "background": color.$SNUTT-block1,
-      "top": 0,
+      "top": blockheight(1),
       "bottom": none,
       "width": 100%,
-      "height": 36%,
+      "height": blockheight(36),
       "time": 1s,
       "delay": 0s,
       "start": translateY(-80%),
@@ -21,9 +25,9 @@ $blockList: (
   (
       "background": color.$SNUTT-block2,
       "top": none,
-      "bottom": 10%,
+      "bottom": blockheight(10),
       "width": 100%,
-      "height": 53%,
+      "height": blockheight(53),
       "time": 1s,
       "delay": 0s,
       "start": translateY(80%),
@@ -32,10 +36,10 @@ $blockList: (
   // block3
   (
       "background": color.$SNUTT-block3,
-      "top": 18%,
+      "top": blockheight(18),
       "bottom": none,
       "width": 100%,
-      "height": 47%,
+      "height": blockheight(47),
       "time": 1.5s,
       "delay": 0.3s,
       "start": translateY(-160%),
@@ -47,7 +51,7 @@ $blockList: (
       "top": none,
       "bottom": 0%,
       "width": 100%,
-      "height": 34%,
+      "height": blockheight(35),
       "time": 1.5s,
       "delay": 0.3s,
       "start": translateY(160%),
@@ -57,9 +61,9 @@ $blockList: (
   (
       "background": color.$SNUTT-block5,
       "top": none,
-      "bottom": 15%,
+      "bottom": blockheight(15),
       "width": 100%,
-      "height": 60%,
+      "height": blockheight(60),
       "time": 1.5s,
       "delay": 0.3s,
       "start": translateY(160%),
@@ -71,7 +75,7 @@ $blockList: (
       "top": 0,
       "bottom": none,
       "width": 100%,
-      "height": 59%,
+      "height": blockheight(61),
       "time": 1s,
       "delay": 0s,
       "start": translateY(-80%),
@@ -81,9 +85,9 @@ $blockList: (
   (
       "background": color.$SNUTT-block7,
       "top": none,
-      "bottom": 3%,
+      "bottom": blockheight(2),
       "width": 100%,
-      "height": 37%,
+      "height": blockheight(37),
       "time": 1s,
       "delay": 0s,
       "start": translateY(80%),
@@ -104,17 +108,18 @@ $blockList: (
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    padding: 0 calc(100vmin / 1080 * 15);
 
     .lineWrap {
       display: flex;
       flex-direction: row;
-      gap: 1vmin;
+      gap: calc(100vmin / 1080 * 15);
     }
 
     .blockLine {
       position: relative;
       display: flex;
-      width: 10vmin;
+      width: calc(100vmin / 1080 * 160);
       flex-direction: column;
       align-items: center;
     }

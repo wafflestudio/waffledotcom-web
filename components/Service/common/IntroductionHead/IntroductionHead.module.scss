@@ -4,13 +4,17 @@
 @use "../../../../styles/effects/pattern";
 @import "../../../../styles/responsive";
 
+@function pxbyvmin($value) {
+  @return calc(100vmin / 1080 * #{$value});
+}
+
 .introductionHeader {
-  width: calc(100vmin / 1080 * 840);
+  width: pxbyvmin(870);
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 2vmin;
+  gap: pxbyvmin(30);
 
   .logo {
     position: relative;
@@ -24,21 +28,21 @@
     display: flex;
     flex-direction: column;
     text-align: start;
-    font-size: calc(100vmin / 1080 * 18);
+    font-size: pxbyvmin(18);
     font-weight: 300;
 
     .title {
-      height: 1.3em;
       font-weight: 700;
-      font-size: 1.6em;
+      font-size: calc(1em / 18 * 30);
+      line-height: pxbyvmin(34);
       display: flex;
       align-items: flex-end;
       letter-spacing: -0.1em;
     }
 
     .des {
-      height: 4em;
-      line-height: 1.2em;
+      margin-top: pxbyvmin(17);
+      line-height: pxbyvmin(21);
       letter-spacing: -0.1em;
       display: flex;
       align-items: flex-end;
@@ -59,9 +63,9 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 0.7vmin;
+    gap: pxbyvmin(10);
     position: relative;
-    top: 2.7vmin;
+    top: pxbyvmin(33);
 
     .link {
       position: relative;

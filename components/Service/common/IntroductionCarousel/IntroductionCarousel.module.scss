@@ -4,11 +4,14 @@
 @use "../../../../styles/effects/pattern";
 @import "../../../../styles/responsive";
 
+@function pxbyvmin($value) {
+  @return calc(100vmin / 1080 * #{$value});
+}
+
 .introductionCarousel {
   @include position.flex-center(column);
-  width: calc(100vmin / 1080 * 840);
-  // max-width: 900px;
-  margin-top: 2vmin;
+  width: pxbyvmin(870);
+  margin-top: pxbyvmin(20);
 }
 
 .slider {
@@ -20,7 +23,7 @@
   display: flex;
   flex-direction: row;
   margin: auto;
-  height: 44vmin;
+  height: pxbyvmin(485);
   transition: 0.3s;
 }
 
@@ -40,19 +43,19 @@
 }
 
 .carouselBar {
-  width: 85%;
-  height: 11vmin;
-  margin-top: 2vmin;
+  width: 100%;
+  height: pxbyvmin(120);
+  margin-top: pxbyvmin(20);
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 1.5vmin;
+  gap: pxbyvmin(15);
 
   .imageWrapper {
     position: relative;
     display: flex;
-    width: calc((100% - 32px - 6vmin) / 3);
+    width: pxbyvmin(210);
     height: 100%;
   }
 
