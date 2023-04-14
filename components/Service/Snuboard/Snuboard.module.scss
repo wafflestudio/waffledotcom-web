@@ -10,38 +10,29 @@
 
   .background {
     @include position.fixed-background;
-    background: color.$waffle-white;
-    transition: 0.5s;
+    background: color.$snuboard-background-blue;
     visibility: hidden;
     opacity: 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
   }
 
   .introduction {
     @include position.fixed-foreground;
     @include position.flex-center;
     opacity: 0;
-    transition: 0.5s;
     text-align: center;
   }
 }
 
-.container .available {
+.container.available {
   transition: 0.5s ease;
   .background {
+    transition: 0.5s;
     opacity: 1;
     visibility: visible;
-
-    @for $i from 1 through 7 {
-      .block#{$i} {
-        transform: map-get(nth($blockList, $i), end);
-      }
-    }
   }
 
   .introduction {
+    transition: 0.5s;
     opacity: 1;
     visibility: visible;
   }

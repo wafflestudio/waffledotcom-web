@@ -9,7 +9,7 @@ const cx = classNames.bind(styles);
 function Snuboard() {
   const { ref, scrollState } = useWaffleScroll(
     ({ toggleState }) => {
-      toggleState(0, 3, "available");
+      toggleState(0.75, 3, "available");
     },
     { available: false },
   );
@@ -26,7 +26,7 @@ function Snuboard() {
             "SNUTT는 서울대학교 대표 시간표 어플입니다.",
             "SNUTT는 서울대학교 시간표 어플입니다.",
           ]}
-          textColor="#ffffff"
+          textColor="white"
           // TODO: 변수명 link => links 변경 제의
           link={[
             "https://www.wafflestudio.com/",
