@@ -15,6 +15,7 @@
 }
 
 .slider {
+  background-color: rgba(229, 229, 229);
   width: 100%;
   overflow: hidden;
 }
@@ -24,7 +25,6 @@
   margin: auto;
   height: pxbyvmin(485);
   transition: 0.3s ease;
-  // transform: translateX(100%);
 }
 
 .slideImage {
@@ -42,6 +42,7 @@
   gap: pxbyvmin(15);
 
   .imageWrapper {
+    background-color: rgba(229, 229, 229);
     position: relative;
     display: flex;
     width: pxbyvmin(210);

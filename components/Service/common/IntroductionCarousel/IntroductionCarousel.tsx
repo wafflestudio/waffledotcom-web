@@ -66,7 +66,7 @@ function IntroductionCarousel({ carouselImages }: IntroductionCarouselProps) {
                   src={image}
                   alt="carousel main image"
                   layout="fill"
-                  objectFit="cover"
+                  objectFit="contain"
                 />
               </div>
             );
@@ -95,11 +95,15 @@ function IntroductionCarousel({ carouselImages }: IntroductionCarouselProps) {
             src={carouselImages[3 * page]}
             alt="carousel image"
             layout="fill"
-            objectFit="cover"
+            objectFit="contain"
           />
         </div>
         {3 * page + 1 > carouselImages.length - 1 ? (
-          <div className={cx("imageWrapper")} key={page + 1}></div>
+          <div
+            className={cx("imageWrapper")}
+            style={{ background: "transparent" }}
+            key={page + 1}
+          ></div>
         ) : (
           <div
             className={cx("imageWrapper", "hover", { active: index % 3 === 1 })}
@@ -112,12 +116,16 @@ function IntroductionCarousel({ carouselImages }: IntroductionCarouselProps) {
               src={carouselImages[3 * page + 1]}
               alt="carousel image"
               layout="fill"
-              objectFit="cover"
+              objectFit="contain"
             />
           </div>
         )}
         {3 * page + 2 > carouselImages.length - 1 ? (
-          <div className={cx("imageWrapper")} key={page + 2}></div>
+          <div
+            className={cx("imageWrapper")}
+            style={{ background: "transparent" }}
+            key={page + 2}
+          ></div>
         ) : (
           <div
             className={cx("imageWrapper", "hover", { active: index % 3 === 2 })}
@@ -130,6 +138,7 @@ function IntroductionCarousel({ carouselImages }: IntroductionCarouselProps) {
               src={carouselImages[3 * page + 2]}
               alt="carousel image"
               layout="fill"
+              objectFit="contain"
             />
           </div>
         )}
