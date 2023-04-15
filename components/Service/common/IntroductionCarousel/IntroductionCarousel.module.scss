@@ -19,27 +19,16 @@
   overflow: hidden;
 }
 .selectWrap {
-  width: 300%;
   display: flex;
   flex-direction: row;
   margin: auto;
   height: pxbyvmin(485);
-  transition: 0.3s;
-}
-
-.image0 {
-  transform: translateX(0);
-}
-.image1 {
-  transform: translateX(-33.333%);
-}
-.image2 {
-  transform: translateX(-66.666%);
+  transition: 0.3s ease;
+  // transform: translateX(100%);
 }
 
 .slideImage {
   position: relative;
-  width: 33.333%;
 }
 
 .carouselBar {

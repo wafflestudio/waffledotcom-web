@@ -14,24 +14,24 @@ function IntroductionCarousel({ carouselImages }: IntroductionCarouselProps) {
   const [index, setIndex] = useState(0);
 
   const decreaseIndex = () => {
-    if (page === 0 && index === 0) {
+    if (index === 0) {
       setPage(Math.floor((carouselImages.length - 1) / 3));
-      setIndex((carouselImages.length - 1) % 3);
-    } else if (index === 0) {
+      setIndex(carouselImages.length - 1);
+    } else if (index % 3 === 0) {
       setPage(page - 1);
-      setIndex(2);
+      setIndex(index - 1);
     } else {
       setIndex(index - 1);
     }
   };
 
   const increaseIndex = useCallback(() => {
-    if (3 * page + index === carouselImages.length - 1) {
+    if (index === carouselImages.length - 1) {
       setPage(0);
       setIndex(0);
     } else if (index % 3 === 2) {
       setPage(page + 1);
-      setIndex(0);
+      setIndex(index + 1);
     } else {
       setIndex(index + 1);
     }
@@ -48,31 +48,29 @@ function IntroductionCarousel({ carouselImages }: IntroductionCarouselProps) {
   return (
     <div className={cx("introductionCarousel")}>
       <div className={cx("slider")}>
-        <div className={cx("selectWrap", `image${index}`)}>
-          <div className={cx("slideImage")}>
-            <Image
-              src={carouselImages[3 * page]}
-              alt="carousel main image"
-              layout="fill"
-              objectFit="cover"
-            />
-          </div>
-          <div className={cx("slideImage")}>
-            <Image
-              src={carouselImages[3 * page + 1]}
-              alt="snutt_1"
-              layout="fill"
-              objectFit="cover"
-            />
-          </div>
-          <div className={cx("slideImage")}>
-            <Image
-              src={carouselImages[3 * page + 2]}
-              alt="snutt_1"
-              layout="fill"
-              objectFit="cover"
-            />
-          </div>
+        <div
+          className={cx("selectWrap")}
+          style={{
+            width: `calc(100% * ${carouselImages.length})`,
+            transform: `translateX(-${(index / carouselImages.length) * 100}%)`,
+          }}
+        >
+          {carouselImages.map((image, i) => {
+            return (
+              <div
+                key={i}
+                className={cx("slideImage")}
+                style={{ width: `calc(100% / ${carouselImages.length})` }}
+              >
+                <Image
+                  src={image}
+                  alt="carousel main image"
+                  layout="fill"
+                  objectFit="cover"
+                />
+              </div>
+            );
+          })}
         </div>
       </div>
       <div className={cx("carouselBar")}>
@@ -87,10 +85,10 @@ function IntroductionCarousel({ carouselImages }: IntroductionCarouselProps) {
           }}
         />
         <div
-          className={cx("imageWrapper", "hover", { active: index === 0 })}
+          className={cx("imageWrapper", "hover", { active: index % 3 === 0 })}
           key={page + 0}
           onClick={() => {
-            setIndex(0);
+            setIndex(3 * page);
           }}
         >
           <Image
@@ -104,10 +102,10 @@ function IntroductionCarousel({ carouselImages }: IntroductionCarouselProps) {
           <div className={cx("imageWrapper")} key={page + 1}></div>
         ) : (
           <div
-            className={cx("imageWrapper", "hover", { active: index === 1 })}
+            className={cx("imageWrapper", "hover", { active: index % 3 === 1 })}
             key={page + 1}
             onClick={() => {
-              setIndex(1);
+              setIndex(3 * page + 1);
             }}
           >
             <Image
@@ -122,17 +120,16 @@ function IntroductionCarousel({ carouselImages }: IntroductionCarouselProps) {
           <div className={cx("imageWrapper")} key={page + 2}></div>
         ) : (
           <div
-            className={cx("imageWrapper", "hover", { active: index === 2 })}
+            className={cx("imageWrapper", "hover", { active: index % 3 === 2 })}
             key={page + 2}
             onClick={() => {
-              setIndex(2);
+              setIndex(3 * page + 2);
             }}
           >
             <Image
               src={carouselImages[3 * page + 2]}
               alt="carousel image"
               layout="fill"
-              // objectFit="cover"
             />
           </div>
         )}
