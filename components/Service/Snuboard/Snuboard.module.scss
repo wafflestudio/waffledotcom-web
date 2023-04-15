@@ -2,6 +2,89 @@
 @use "../../../styles/position";
 @use "../../../styles/font";
 
+@function px2vh($pxval) {
+  @return calc($pxval * (100vh / 1080px));
+}
+
+@function px2vw($pxval) {
+  @return calc($pxval * (100vw / 1920px));
+}
+
+$barList: (
+  // bar1
+  (
+      "top": px2vh(31px),
+      "left": px2vw(37px),
+      "time": 1s,
+      "delay": 0s,
+      "start": translateX(px2vw(calc(-1 * (37px + 628px)))),
+      "end": translateX(0),
+    ),
+  // bar2
+  (
+      "top": px2vh(204px),
+      "left": px2vw(-200px),
+      "time": 1s,
+      "delay": 0s,
+      "start": translateX(px2vw(calc(-1 * (37px + 628px)))),
+      "end": translateX(0),
+    ),
+  // bar3
+  (
+      "top": px2vh(377px),
+      "left": px2vw(-14px),
+      "time": 1s,
+      "delay": 0s,
+      "start": translateX(px2vw(calc(-1 * (37px + 628px)))),
+      "end": translateX(0),
+    ),
+  // bar4
+  (
+      "top": px2vh(550px),
+      "left": px2vw(-386px),
+      "time": 1s,
+      "delay": 0s,
+      "start": translateX(px2vw(calc(-1 * (37px + 628px)))),
+      "end": translateX(0),
+    ),
+  // bar5
+  (
+      "top": px2vh(31px),
+      "left": px2vw(583px),
+      "time": 1s,
+      "delay": 0s,
+      "start": translateX(px2vw(calc(-1 * (37px + 628px)))),
+      "end": translateX(0),
+    ),
+  // bar6
+  (
+      "top": px2vh(204px),
+      "left": px2vw(928px),
+      "time": 1s,
+      "delay": 0s,
+      "start": translateX(px2vw(calc(-1 * (37px + 628px)))),
+      "end": translateX(0),
+    ),
+  // bar7
+  (
+      "top": px2vh(727px),
+      "left": px2vw(1265px),
+      "time": 1s,
+      "delay": 0s,
+      "start": translateX(px2vw(calc(-1 * (37px + 628px)))),
+      "end": translateX(0),
+    ),
+  // bar8
+  (
+      "top": px2vh(900px),
+      "left": px2vw(978px),
+      "time": 1s,
+      "delay": 0s,
+      "start": translateX(px2vw(calc(-1 * (37px + 628px)))),
+      "end": translateX(0),
+    )
+);
+
 .container {
   position: relative;
   width: 100%;
@@ -10,9 +93,29 @@
 
   .background {
     @include position.fixed-background;
-    background: color.$snuboard-background-blue;
+    background-color: color.$snuboard-background-blue;
     visibility: hidden;
     opacity: 0;
+
+    .bar {
+      position: absolute;
+      width: px2vw(628px);
+      height: px2vh(150px);
+      border-radius: 0 px2vh(150px) px2vh(150px) 0;
+      background: linear-gradient(
+        to right,
+        transparent,
+        color.$snuboard-dark-blue
+      );
+    }
+
+    @for $i from 1 through 8 {
+      .bar#{$i} {
+        top: map-get(nth($barList, $i), "top");
+        left: map-get(nth($barList, $i), "left");
+        transform: map-get(nth($barList, $i), "start");
+      }
+    }
   }
 
   .introduction {
@@ -24,11 +127,18 @@
 }
 
 .container.available {
-  transition: 0.5s ease;
+  transition: 0.5s;
   .background {
     transition: 0.5s;
     opacity: 1;
     visibility: visible;
+
+    @for $i from 1 through 8 {
+      .bar#{$i} {
+        transition: map-get(nth($barList, $i), "time");
+        transform: map-get(nth($barList, $i), "end");
+      }
+    }
   }
 
   .introduction {
