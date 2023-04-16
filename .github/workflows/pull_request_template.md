@@ -3,11 +3,9 @@
 
 ## 관련 이슈 (Optional)
 <!--
-https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword
-위 링크 참고하여 관련 이슈와 연결해주세요
+노션 이슈트래킹 페이지에서 관련 이슈의 링크를 적어주세요
 Example
-Fix #9
-Resolve #10
+[식샤 서비스 소개 페이지 개발](https://www.notion.so/wafflestudio/81db745055074db1abc0fc7deccccf80)
 -->
 
 
