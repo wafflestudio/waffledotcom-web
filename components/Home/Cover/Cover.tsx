@@ -32,7 +32,13 @@ function Cover() {
       <nav className={styles.navigator}>
         <ul>
           <li style={{ background: "brown", color: "white" }}>소개</li>
-          <li>서비스</li>
+          <li
+            onClick={() => {
+              void router.push("./service");
+            }}
+          >
+            서비스
+          </li>
           <li
             onClick={() => {
               void router.push("./member");

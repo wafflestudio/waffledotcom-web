@@ -1,0 +1,79 @@
+@use "../../../../styles/color";
+@use "../../../../styles/position";
+@use "../../../../styles/font";
+@use "../../../../styles/effects/pattern";
+@import "../../../../styles/responsive";
+
+@function pxbyvmin($value) {
+  @return calc(100vmin / 1080 * #{$value});
+}
+
+.introductionHeader {
+  width: pxbyvmin(870);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: pxbyvmin(30);
+
+  .logo {
+    position: relative;
+    filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.25));
+    width: 17.5%;
+    padding-bottom: 17.5%;
+  }
+
+  .text {
+    @include font.gmarket-sans();
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    font-size: pxbyvmin(18);
+    font-weight: 300;
+
+    .title {
+      font-weight: 700;
+      font-size: calc(1em / 18 * 30);
+      line-height: pxbyvmin(34);
+      display: flex;
+      align-items: flex-end;
+      letter-spacing: -0.1em;
+    }
+
+    .des {
+      margin-top: pxbyvmin(17);
+      line-height: pxbyvmin(21);
+      letter-spacing: -0.1em;
+      display: flex;
+      align-items: flex-end;
+    }
+  }
+
+  .black {
+    color: #342d29;
+  }
+
+  .white {
+    color: #fff;
+  }
+
+  .store {
+    width: 18%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: pxbyvmin(10);
+    position: relative;
+    top: pxbyvmin(33);
+
+    .link {
+      position: relative;
+      width: 30%;
+      padding-bottom: 30%;
+    }
+    .hover {
+      cursor: pointer;
+    }
+  }
+}

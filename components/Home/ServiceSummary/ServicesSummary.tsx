@@ -3,7 +3,7 @@ import classNames from "classnames/bind";
 import { useScroll } from "../../../hooks/scroll/useScroll";
 import useDelayedState from "../../../hooks/delayedState/useDelayedState";
 import useWaffleScroll from "../../../library/waffleScroll";
-import styles from "./Services.module.scss";
+import styles from "./ServicesSummary.module.scss";
 
 const cx = classNames.bind(styles);
 function Services() {

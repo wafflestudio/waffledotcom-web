@@ -1,0 +1,161 @@
+@use "../../../styles/color";
+@use "../../../styles/position";
+@use "../../../styles/font";
+@use "../../../styles/effects/pattern";
+@import "../../../styles/responsive";
+
+@function blockheight($value) {
+  @return calc((100% - (100vmin / 1080 * 15)) / 100 * #{$value});
+}
+
+$blockList: (
+  // block1
+  (
+      "background": color.$snutt-block1,
+      "top": blockheight(1),
+      "bottom": none,
+      "width": 100%,
+      "height": blockheight(36),
+      "time": 1s,
+      "delay": 0s,
+      "start": translateY(-80%),
+      "end": translateY(0),
+    ),
+  // block2
+  (
+      "background": color.$snutt-block2,
+      "top": none,
+      "bottom": blockheight(10),
+      "width": 100%,
+      "height": blockheight(53),
+      "time": 1s,
+      "delay": 0s,
+      "start": translateY(80%),
+      "end": translateY(0),
+    ),
+  // block3
+  (
+      "background": color.$snutt-block3,
+      "top": blockheight(18),
+      "bottom": none,
+      "width": 100%,
+      "height": blockheight(47),
+      "time": 1.5s,
+      "delay": 0.3s,
+      "start": translateY(-160%),
+      "end": translateY(0),
+    ),
+  // block4
+  (
+      "background": color.$snutt-block4,
+      "top": none,
+      "bottom": 0%,
+      "width": 100%,
+      "height": blockheight(35),
+      "time": 1.5s,
+      "delay": 0.3s,
+      "start": translateY(160%),
+      "end": translateY(0),
+    ),
+  //block5
+  (
+      "background": color.$snutt-block5,
+      "top": none,
+      "bottom": blockheight(15),
+      "width": 100%,
+      "height": blockheight(60),
+      "time": 1.5s,
+      "delay": 0.3s,
+      "start": translateY(160%),
+      "end": translateY(0),
+    ),
+  //block6
+  (
+      "background": color.$snutt-block6,
+      "top": 0,
+      "bottom": none,
+      "width": 100%,
+      "height": blockheight(61),
+      "time": 1s,
+      "delay": 0s,
+      "start": translateY(-80%),
+      "end": translateY(0),
+    ),
+  //block7
+  (
+      "background": color.$snutt-block7,
+      "top": none,
+      "bottom": blockheight(2),
+      "width": 100%,
+      "height": blockheight(37),
+      "time": 1s,
+      "delay": 0s,
+      "start": translateY(80%),
+      "end": translateY(0),
+    )
+);
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: transparent;
+  z-index: 100;
+  transition: 0.5s ease;
+  opacity: 0;
+
+  .background {
+    @include position.fixed-background;
+    background: color.$waffle-white;
+    transition: 0.5s;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 calc(100vmin / 1080 * 15);
+
+    .lineWrap {
+      display: flex;
+      flex-direction: row;
+      gap: calc(100vmin / 1080 * 15);
+
+      .blockLine {
+        position: relative;
+        display: flex;
+        width: calc(100vmin / 1080 * 160);
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  }
+
+  @for $i from 1 through 7 {
+    .block#{$i} {
+      position: absolute;
+      background: map-get(nth($blockList, $i), "background");
+      top: map-get(nth($blockList, $i), "top");
+      bottom: map-get(nth($blockList, $i), "bottom");
+      width: map-get(nth($blockList, $i), "width");
+      height: map-get(nth($blockList, $i), "height");
+      transform: map-get(nth($blockList, $i), "start");
+      transition: map-get(nth($blockList, $i), "time");
+    }
+  }
+
+  .introduction {
+    @include position.fixed-foreground;
+    @include position.flex-center;
+    text-align: center;
+  }
+}
+
+// when scrollState "available" is true
+.container.available {
+  opacity: 1;
+  visibility: visible;
+
+  @for $i from 1 through 7 {
+    .block#{$i} {
+      transform: map-get(nth($blockList, $i), end);
+    }
+  }
+}
