@@ -6,7 +6,7 @@ const cx = classNames.bind(styles);
 
 function Siksha() {
   const { ref, scrollState } = useWaffleScroll(
-    ({ progress, toggleState }) => {
+    ({ toggleState }) => {
       toggleState(0.75, 3, "available");
     },
     { available: false },
@@ -33,7 +33,7 @@ function Siksha() {
       </div>
       <div className={cx("centerContainer")}></div>
       <div className={cx("rightContainer")}>
-        <div className={cx("chopsticks")}>
+        <div className={cx("chopsticks", "chopsticks2")}>
           <svg
             className={cx("leftChopstick")}
             width="38"
