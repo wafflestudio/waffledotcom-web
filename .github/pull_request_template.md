@@ -12,7 +12,7 @@ Example
 ## 체크리스트
 - [ ] PR 제목에 관련 issue 번호 추가
 - [ ] pre-commit 성공 여부
-- [ ] yarn build 성공 엽
+- [ ] yarn build 성공 여부
 - [ ] Type label 추가
 
 
