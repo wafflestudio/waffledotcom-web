@@ -9,7 +9,7 @@ const cx = classNames.bind(styles);
 function Snutt() {
   const { ref, scrollState } = useWaffleScroll(
     ({ toggleState }) => {
-      toggleState(0.75, 3, "available");
+      toggleState(0.75, 2.7, "available");
     },
     { available: false },
   );

@@ -1,31 +1,43 @@
 .container {
-  background: linear-gradient(90deg, rgb(237,132,119) 0%, rgb(238,139,109) 50%, rgb(240,154,91) 100%);
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  padding: 0;
-  gap: 20px;
   overflow: hidden;
-  opacity: 0;
-  transition: opacity 1s;
 
-  position: absolute;
+  position: relative;
   width: 100%;
   height: 100vh;
   left: 0;
   top: 1080px;
 
-  &:before {
-    position: absolute;
-    content: '';
-    background: rgb(240,154,91);
-    opacity: 1;
-    transition: 3s;
+  .background {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    position: fixed;
+    background: linear-gradient(90deg, rgb(237,132,119) 0%, rgb(238,139,109) 50%, rgb(240,154,91) 100%);
+
+    padding: 0;
+    gap: 20px;
+
+    opacity: 0;
+    transition: opacity 1s;
+
     width: 100%;
     height: 100%;
 
     left: 0;
-    right: 0;
+    top: 0;
+
+    &::before {
+      position: fixed;
+      content: '';
+      background: rgb(240,154,91);
+      opacity: 1;
+      transition: opacity 3s;
+      width: 100%;
+      height: 100%;
+
+      left: 0;
+      right: 0;
+    }
   }
 
   .leftContainer {
@@ -67,44 +79,41 @@
     width: 26.3%;
     height: 100%;
 
-    .chopsticks {
-      .leftChopstick {
-        transform: rotate(50deg) translateX(20vw) translateY(0.7vh);
-        transform-origin: bottom right;
-        transition: 1s;
+    .leftChopstick {
+      transform: rotate(50deg) translateX(20vw) translateY(0.7vh);
+      transform-origin: bottom right;
+      transition: 1s;
 
-        height: 65.37vh;
-      }
-      .rightChopstick {
-        transform: rotate(70deg) translateX(20vw) translateY(0.7vh);
-        transform-origin: bottom right;
-        transition: 1.2s;
+      height: 65.37vh;
+    }
+    .rightChopstick {
+      transform: rotate(70deg) translateX(20vw) translateY(0.7vh);
+      transform-origin: bottom right;
+      transition: 1.2s;
 
-        height: 65.37vh;
-      }
+      height: 65.37vh;
     }
   }
 }
 
 .container.available {
-  opacity: 1;
+  .background {
+    opacity: 1;
 
-  &:before {
-    opacity: 0;
+    &::before {
+      opacity: 0;
+    }
   }
+
 
   .spoon {
     transform: rotate(-15deg);
   }
 
-  .rightContainer {
-    .chopsticks {
-      .leftChopstick {
-        transform: rotate(10deg);
-      }
-      .rightChopstick {
-        transform: rotate(10deg) translateX(0.1vh) translateY(0.7vh);
-      }
-    }
+  .leftChopstick {
+    transform: rotate(10deg);
+  }
+  .rightChopstick {
+    transform: rotate(10deg) translateX(0.1vh) translateY(0.7vh);
   }
 }
