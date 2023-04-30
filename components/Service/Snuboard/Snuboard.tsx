@@ -18,8 +18,8 @@ function Snuboard() {
     <section className={cx("container", scrollState)} ref={ref}>
       <div className={cx("background")}>
         <div className={cx("bars")}>
-          {/* 아래 Array<number>(8)에서 number은 any를 쓰지 않기 위한 임의 지정 type */}
-          {[...Array<any>(8)].map((_, index) => (
+          {/* 아래 array [0, ..., 7]은 map을 돌리기 위한 임의 array */}
+          {[0, 1, 2, 3, 4, 5, 6, 7].map((_, index) => (
             <div key={index} className={cx("bar", `bar${index + 1}`)}></div>
           ))}
         </div>
