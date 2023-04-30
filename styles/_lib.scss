@@ -1,9 +1,11 @@
 // figma px => vh
+// figma에서는 화면 높이가 1080px
 @function px2vh($pxval) {
   @return calc($pxval * (100vh / 1080px));
 }
 
 // figma px => vw
+// figma에서는 화면 너비가 1920px
 @function px2vw($pxval) {
   @return calc($pxval * (100vw / 1920px));
 }
