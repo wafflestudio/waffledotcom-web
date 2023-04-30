@@ -1,14 +1,7 @@
 @use "../../../styles/color";
 @use "../../../styles/position";
 @use "../../../styles/font";
-
-@function px2vh($pxval) {
-  @return calc($pxval * (100vh / 1080px));
-}
-
-@function px2vw($pxval) {
-  @return calc($pxval * (100vw / 1920px));
-}
+@import "../../../styles/lib";
 
 $barList: (
   // bar1
