@@ -61,6 +61,7 @@ function Snutt() {
               "/static/images/dummy/Untitled.png",
               "/static/images/dummy/seminar.png",
               "/static/images/dummy/coMo.png",
+              "/static/images/dummy/mobile.png",
             ]}
           />
         </div>
