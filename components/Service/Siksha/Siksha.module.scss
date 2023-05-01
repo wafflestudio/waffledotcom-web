@@ -59,10 +59,7 @@
   }
 
   .centerContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    @include position.flex-center();
     padding: 0;
     gap: 20px;
 
