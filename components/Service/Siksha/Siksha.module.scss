@@ -1,3 +1,5 @@
+@use "/styles/position";
+
 .container {
   overflow: hidden;
 
@@ -92,6 +94,12 @@
       height: 65.37vh;
     }
   }
+}
+
+.introduction {
+  @include position.fixed-foreground;
+  @include position.flex-center;
+  text-align: center;
 }
 
 .container.available {
