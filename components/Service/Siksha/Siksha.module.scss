@@ -4,8 +4,6 @@
   position: relative;
   width: 100%;
   height: 100vh;
-  left: 0;
-  top: 1080px;
 
   .background {
     display: flex;
@@ -105,15 +103,14 @@
     }
   }
 
-
   .spoon {
-    transform: rotate(-15deg);
+    transform: rotate(-15deg) translateX(3vh);
   }
 
   .leftChopstick {
-    transform: rotate(10deg);
+    transform: rotate(10deg) translateX(5vh);
   }
   .rightChopstick {
-    transform: rotate(10deg) translateX(0.1vh) translateY(0.7vh);
+    transform: rotate(10deg) translateX(5.3vh) translateY(0.6vh);
   }
 }
