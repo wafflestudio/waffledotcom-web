@@ -26,7 +26,7 @@ function Siksha() {
           <div className={cx("centerContainer")}>
             <div className={cx("introduction")}>
               <IntroductionHead
-                logo={"/static/images/logo/snutt_logo.svg"}
+                logo={"/static/images/logo/siksha_logo.svg"}
                 title={"SNUTT"}
                 des={[
                   "SNUTT는 서울대학교 시간표 어플입니다.",
