@@ -35,7 +35,7 @@ function Snuboard() {
           ]}
           textColor="white"
           // TODO: 변수명 link => links 변경 제의
-          link={[
+          links={[
             "https://www.wafflestudio.com/",
             "https://www.wafflestudio.com/",
             "https://www.wafflestudio.com/",
