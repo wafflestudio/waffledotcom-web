@@ -9,7 +9,7 @@ const cx = classNames.bind(styles);
 function Snutt() {
   const { ref, scrollState } = useWaffleScroll(
     ({ toggleState }) => {
-      toggleState(0.75, 3, "available");
+      toggleState(0.75, 2.7, "available");
     },
     { available: false },
   );
@@ -48,7 +48,7 @@ function Snutt() {
               "SNUTT는 서울대학교 시간표 어플입니다.",
             ]}
             textColor="black"
-            link={[
+            links={[
               "https://www.wafflestudio.com/",
               "https://www.wafflestudio.com/",
               "https://www.wafflestudio.com/",

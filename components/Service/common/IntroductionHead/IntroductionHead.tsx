@@ -9,7 +9,7 @@ interface IntroductionHeadProps {
   title: string;
   des: string[];
   textColor: string;
-  link: string[];
+  links: string[];
 }
 
 function IntroductionHead({
@@ -17,7 +17,7 @@ function IntroductionHead({
   title,
   des,
   textColor,
-  link,
+  links,
 }: IntroductionHeadProps) {
   return (
     <div className={cx("introductionHeader")}>
@@ -45,7 +45,7 @@ function IntroductionHead({
             alt="appstore"
             layout="fill"
             onClick={() => {
-              window.open(link[0]);
+              window.open(links[0]);
             }}
           />
         </div>
@@ -56,7 +56,7 @@ function IntroductionHead({
             alt="appstore"
             layout="fill"
             onClick={() => {
-              window.open(link[1]);
+              window.open(links[1]);
             }}
           />
         </div>
@@ -67,7 +67,7 @@ function IntroductionHead({
             alt="appstore"
             layout="fill"
             onClick={() => {
-              window.open(link[2]);
+              window.open(links[2]);
             }}
           />
         </div>
