@@ -1,5 +1,5 @@
 import classNames from "classnames/bind";
-import useWaffleScroll from "../../../library/waffleScroll";
+import useWaffleScroll from "../../../library/deprecated/waffleScroll";
 import IntroductionHead from "../common/IntroductionHead/IntroductionHead";
 import IntroductionCarousel from "../common/IntroductionCarousel/IntroductionCarousel";
 import styles from "./Snuboard.module.scss";
