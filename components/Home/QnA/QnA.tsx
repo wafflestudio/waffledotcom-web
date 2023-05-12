@@ -2,7 +2,7 @@ import classNames from "classnames/bind";
 import { useRef } from "react";
 import useDelayedState from "../../../hooks/delayedState/useDelayedState";
 import { useScroll } from "../../../hooks/scroll/useScroll";
-import useWaffleScroll from "../../../library/waffleScroll";
+import useWaffleScroll from "../../../library/deprecated/waffleScroll";
 import styles from "./QnA.module.scss";
 
 const cx = classNames.bind(styles);

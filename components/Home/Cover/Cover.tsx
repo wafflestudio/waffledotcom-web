@@ -1,6 +1,6 @@
 import classNames from "classnames/bind";
 import { useRouter } from "next/router";
-import useWaffleScroll from "../../../library/waffleScroll";
+import useWaffleScroll from "../../../library/deprecated/waffleScroll";
 import styles from "./Cover.module.scss";
 
 const cx = classNames.bind(styles);

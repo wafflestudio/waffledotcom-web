@@ -1,5 +1,5 @@
 import classNames from "classnames/bind";
-import useWaffleScroll from "../../../library/waffleScroll";
+import useWaffleScroll from "../../../library/deprecated/waffleScroll";
 import styles from "./About.module.scss";
 
 const cx = classNames.bind(styles);

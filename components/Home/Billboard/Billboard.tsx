@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import classNames from "classnames/bind";
-import useWaffleScroll from "../../../library/waffleScroll";
+import useWaffleScroll from "../../../library/deprecated/waffleScroll";
 import styles from "./Billboard.module.scss";
 import { dummyBanners } from "./dummy";
 
