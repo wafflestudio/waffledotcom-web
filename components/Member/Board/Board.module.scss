@@ -5,29 +5,53 @@
 
 .container{
   @include position.flex-center();
+  gap: 6px;
+  width: 1376px;
+  box-sizing: content-box;
+  height: calc(100% - 224px);
+  min-height: 500px;
   font-family: "Pretendard", sans-serif;
   font-weight: normal;
-  padding: px2vw(80px) px2vw(266px);
+  --horizontalPadding: calc((100% - 1376px) / 2);
+  padding: 80px var(--horizontalPadding) 69px var(--horizontalPadding);
+
   .header {
     @include position.flex(row, $align: center, $justify: start);
     width: 100%;
+    flex: 0 0 auto;
+    padding-left: 6px;
     .title {
       font-weight: bold;
-      font-size: px2vw(48px);
+      font-size: 48px;
       color: #242424;
-      padding-right: px2vw(36px);
+      padding-right: 36px;
     }
     .description {
       color: #342D29;
-      font-size: px2vw(24px);
+      font-size: 24px;
       .numberOfMembers {
         display: inline-block;
         font-variant-numeric: tabular-nums;
         font-weight: bold;
-        font-size: px2vw(48px);
+        font-size: 48px;
         color: #F0745F;
-        padding: 0 px2vw(4px) 0 px2vw(11px);
+        padding: 0 4px 0 11px;
       }
     }
+  }
+
+  .filterContainer {
+    background-color: #0b4c4f;
+    box-sizing: content-box;
+    width: 1162px;
+    flex: 0 0 59px;
+    padding: 42px 107px 30px 107px;
+  }
+
+  .cardContainer {
+    background-color: #0b4c4f;
+    width: 100%;
+    min-height: 300px;
+    flex: 1 1 auto;
   }
 }
