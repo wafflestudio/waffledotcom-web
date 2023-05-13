@@ -1,0 +1,57 @@
+.ScrollNavigator {
+  position: fixed;
+  right: 74px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+
+  .list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 50px;
+    .item {
+      position: relative;
+      height: 17px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 11px;
+
+      .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        border: 1px solid #ed8573;
+      }
+      .label {
+        visibility: hidden;
+        color: #f0745f;
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 17px;
+      }
+      &.current {
+        .dot {
+          width: 17px;
+          height: 17px;
+          background-color: #ed8573;
+        }
+      }
+      &:hover {
+        .dot {
+          width: 17px;
+          height: 17px;
+          background-color: #ed8573;
+        }
+        .label {
+          visibility: visible;
+        }
+      }
+    }
+  }
+}
