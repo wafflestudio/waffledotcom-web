@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Snutt from "../../components/Service/Snutt/Snutt";
+import Snuboard from "../../components/Service/Snuboard/Snuboard";
 import Cover from "../../components/Home/Cover/Cover";
 import Siksha from "../../components/Service/Siksha/Siksha";
 import styles from "./Service.module.scss";
@@ -18,6 +19,7 @@ function Service() {
       <Cover />
       <Snutt />
       <Siksha />
+      <Snuboard />
     </div>
   );
 }
