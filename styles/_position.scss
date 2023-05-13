@@ -1,8 +1,12 @@
-@mixin flex-center($direction: column) {
+@mixin flex($direction: column, $align, $justify) {
   display: flex;
   flex-direction: $direction;
-  align-items: center;
-  justify-content: center;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+@mixin flex-center($direction: column) {
+  @include flex($direction, center, center)
 }
 
 @mixin home-container {

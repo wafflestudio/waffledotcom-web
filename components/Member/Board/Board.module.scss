@@ -1,114 +1,33 @@
 @use "../../../styles/font";
 @use "../../../styles/color";
 @use "../../../styles/position";
+@import "styles/lib";
 
-// 태블릿 사이즈
-@media all and (max-width: 1561px) {
-  .container {
-    min-height: 800px;
+.container{
+  @include position.flex-center();
+  font-family: "Pretendard", sans-serif;
+  font-weight: normal;
+  padding: px2vw(80px) px2vw(266px);
+  .header {
+    @include position.flex(row, $align: center, $justify: start);
+    width: 100%;
+    .title {
+      font-weight: bold;
+      font-size: px2vw(48px);
+      color: #242424;
+      padding-right: px2vw(36px);
+    }
+    .description {
+      color: #342D29;
+      font-size: px2vw(24px);
+      .numberOfMembers {
+        display: inline-block;
+        font-variant-numeric: tabular-nums;
+        font-weight: bold;
+        font-size: px2vw(48px);
+        color: #F0745F;
+        padding: 0 px2vw(4px) 0 px2vw(11px);
+      }
+    }
   }
-
-  .board {
-    width: 1200px;
-  }
-
-  .cardArea {
-    width: calc(100% - 305px);
-  }
-}
-
-// 데스크탑 사이즈
-@media all and (min-width: 1561px) {
-  .container {
-    min-height: 600px;
-  }
-
-  .board {
-    width: 1561px;
-  }
-
-  .cardArea {
-    width: calc(100% - 415px);
-  }
-}
-
-.container {
-  @include font.gmarket-sans;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: color.$waffle-brown;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  overflow: scroll;
-  font-size: 1.375rem;
-  user-select: none;
-}
-
-.header {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-  justify-content: center;
-  color: color.$waffle-dark-brown;
-  width: 100%;
-  p {
-    // 선을 작은 텍스트 중앙에 정렬하기 위해 line-height: 1rem 으로 조정
-    line-height: 1rem;
-    // 텍스트를 1줄로 표현하기 위해
-    min-width: max-content;
-    font-size: 1.5rem;
-    flex: none;
-    margin: 2rem 1rem;
-  }
-  strong {
-    font-size: 3.125rem;
-    margin-left: 0.3rem;
-    margin-right: 0.1rem;
-  }
-  hr {
-    display: block;
-    height: 0;
-    flex-grow: 1;
-    border: 0;
-    border-top: 1px solid;
-    // 선을 작은 텍스트 중앙에 정렬하기 위해 <p> margin + 0.5rem 으로 설정
-    margin: 2.5rem 0;
-    padding: 0;
-  }
-}
-
-.board {
-  background-color: color.$board-pale-yellow;
-  border: 3px solid color.$board-brown;
-  height: 80%;
-  overflow: hidden;
-  display: flex;
-  flex-direction: row;
-}
-
-.cardArea {
-  height: 100%;
-  padding: 30px 20px 15px 20px;
-}
-
-.cardColumnWrapper {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding-right: 20px;
-}
-
-.cardColumn {
-  position: relative;
-  width: calc(50% - 10px);
-  display: flex;
-  flex-flow: column wrap;
-  align-items: flex-start;
-  align-content: flex-start;
-  justify-content: flex-start;
 }
