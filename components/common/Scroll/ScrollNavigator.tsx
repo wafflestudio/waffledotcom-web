@@ -2,12 +2,12 @@ import classNames from "classnames/bind";
 import styles from "./ScrollNavigator.module.scss";
 const cx = classNames.bind(styles);
 
-type ScrollItemProps = {
+type ScrollItem = {
   name: string;
   anchorId: string;
 };
 
-const homeScrolls: ScrollItemProps[] = [
+const homeScrollItems: ScrollItem[] = [
   { name: "MAIN", anchorId: "main" },
   { name: "ABOUT US", anchorId: "about" },
   { name: "OUR SERVICES", anchorId: "services" },
@@ -15,21 +15,15 @@ const homeScrolls: ScrollItemProps[] = [
   { name: "ACTIVITY", anchorId: "activity" },
 ];
 
-function ScrollItem({ name, anchorId }: ScrollItemProps) {
-  return (
-    <li className={cx("item")} onClick={() => {}}>
-      <div className={cx("label")}>{name}</div>
-      <div className={cx("dot")} />
-    </li>
-  );
-}
-
 export default function ScrollNavigator() {
   return (
     <nav className={cx("ScrollNavigator")}>
       <ul className={cx("list")}>
-        {homeScrolls.map(({ name, anchorId }) => (
-          <ScrollItem key={anchorId} name={name} anchorId={anchorId} />
+        {homeScrollItems.map(({ name, anchorId }) => (
+          <li key={anchorId} className={cx("item")} onClick={() => {}}>
+            <div className={cx("label")}>{name}</div>
+            <div className={cx("dot")} />
+          </li>
         ))}
       </ul>
     </nav>
