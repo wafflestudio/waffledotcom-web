@@ -25,6 +25,7 @@
         height: 12px;
         border-radius: 50%;
         border: 1px solid #ed8573;
+        transform: translateX(-1px);
       }
       .label {
         visibility: hidden;
@@ -40,6 +41,7 @@
           width: 17px;
           height: 17px;
           background-color: #ed8573;
+          transform: translateX(0px);
         }
       }
       &:hover {
@@ -47,6 +49,7 @@
           width: 17px;
           height: 17px;
           background-color: #ed8573;
+          transform: translateX(0px);
         }
         .label {
           visibility: visible;
