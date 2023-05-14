@@ -3,27 +3,20 @@ import { useRouter } from "next/router";
 import styles from "./Header.module.scss";
 const cx = classNames.bind(styles);
 
-type TabItemProps = {
+type TabItem = {
   name: string;
   pathname: string;
 };
 
-function TabItem({ name, pathname }: TabItemProps) {
-  const router = useRouter();
-  return (
-    <li
-      className={cx("tabItem", {
-        selected: router.pathname === pathname,
-      })}
-      onClick={() => {
-        router.push(pathname);
-      }}
-    >
-      {name}
-    </li>
-  );
-}
+const tabs: TabItem[] = [
+  { name: "소개", pathname: "/newHome" },
+  { name: "서비스", pathname: "/service" },
+  { name: "멤버", pathname: "/member" },
+];
+
 export default function Header() {
+  const router = useRouter();
+
   return (
     <header className={cx("header")}>
       {/*TODO: 개발/배포 주소 환경변수로 뺄까? */}
@@ -32,9 +25,19 @@ export default function Header() {
       </a>
       <ul className={cx("tabNavigator")}>
         {/*TODO: 라우팅 확정되면 newHome 바꾸기 */}
-        <TabItem name="소개" pathname="/newHome" />
-        <TabItem name="서비스" pathname="/service" />
-        <TabItem name="멤버" pathname="/member" />
+        {tabs.map(({ name, pathname }) => (
+          <li
+            key={pathname}
+            className={cx("tabItem", {
+              selected: router.pathname === pathname,
+            })}
+            onClick={() => {
+              router.push(pathname);
+            }}
+          >
+            {name}
+          </li>
+        ))}
       </ul>
     </header>
   );
