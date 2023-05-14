@@ -1,9 +1,11 @@
 .ScrollNavigator {
   position: fixed;
+  top: 0;
   right: 74px;
   height: 100%;
   display: flex;
   align-items: center;
+  z-index: 999;
 
   .list {
     display: flex;
