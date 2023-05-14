@@ -1,4 +1,6 @@
 import classNames from "classnames/bind";
+import { useEffect } from "react";
+import { useNavigatorScroll } from "../../Home/scroll";
 import styles from "./ScrollNavigator.module.scss";
 const cx = classNames.bind(styles);
 
@@ -16,11 +18,19 @@ const homeScrollItems: ScrollItem[] = [
 ];
 
 export default function ScrollNavigator() {
+  const { targetRef, state } = useNavigatorScroll();
+
+  useEffect(() => {}, []);
+
   return (
-    <nav className={cx("ScrollNavigator")}>
+    <nav ref={targetRef} className={cx("ScrollNavigator")}>
       <ul className={cx("list")}>
         {homeScrollItems.map(({ name, anchorId }) => (
-          <li key={anchorId} className={cx("item")} onClick={() => {}}>
+          <li
+            key={anchorId}
+            className={cx("item", { current: state.current === anchorId })}
+            onClick={() => {}}
+          >
             <div className={cx("label")}>{name}</div>
             <div className={cx("dot")} />
           </li>
