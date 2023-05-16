@@ -10,7 +10,7 @@ export type PickByType<T, U> = {
 export type AvailableHTMLElement = HTMLDivElement;
 
 export type ScrollApis<GlobalInterface extends Record<string, any>> = {
-  getState: GlobalInterface;
+  getState: () => GlobalInterface;
   setState: (partial: Partial<GlobalInterface>) => void;
 };
 
