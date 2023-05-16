@@ -30,6 +30,7 @@
         border-radius: 50%;
         border: 1px solid #ed8573;
         transform: translateX(-2.5px);
+        transition: 0.2s ease;
       }
       .label {
         visibility: hidden;
