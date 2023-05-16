@@ -8,10 +8,13 @@ import styles from "./Home.module.scss";
 const cx = classNames.bind(styles);
 
 function TestMain() {
-  const { targetRef } = useNavigatorScroll(({ progress, setState }) => {
-    if (progress > 0.75 && progress < 2.75) {
-      setState({ currentSection: "main" });
-    }
+  const { targetRef } = useNavigatorScroll({
+    callback: ({ progress, setState }) => {
+      if (progress > 0.75 && progress < 2.75) {
+        setState({ currentSection: "main" });
+      }
+    },
+    anchorId: "main",
   });
 
   return (
@@ -21,13 +24,14 @@ function TestMain() {
   );
 }
 function TestAbout() {
-  const { state, targetRef } = useNavigatorScroll(
-    ({ progress, getState, setState }) => {
+  const { state, targetRef } = useNavigatorScroll({
+    callback: ({ progress, setState }) => {
       if (progress > 0.75 && progress < 2.75) {
         setState({ currentSection: "about" });
       }
     },
-  );
+    anchorId: "about",
+  });
 
   return (
     <div ref={targetRef} className={cx("test", "blue")}>
@@ -36,22 +40,28 @@ function TestAbout() {
   );
 }
 function TestServices() {
-  const { targetRef } = useNavigatorScroll(({ progress, setState }) => {
-    if (progress > 0.75 && progress < 2.75) {
-      setState({ currentSection: "services" });
-    }
+  const { targetRef } = useNavigatorScroll({
+    callback: ({ progress, setState }) => {
+      if (progress > 0.75 && progress < 2.75) {
+        setState({ currentSection: "services" });
+      }
+    },
+    anchorId: "services",
   });
   return (
-    <div ref={targetRef} className={cx("test", "green")}>
+    <div id="services" ref={targetRef} className={cx("test", "green")}>
       Services
     </div>
   );
 }
 function TestMembers() {
-  const { targetRef } = useNavigatorScroll(({ progress, setState }) => {
-    if (progress > 0.75 && progress < 2.75) {
-      setState({ currentSection: "members" });
-    }
+  const { targetRef } = useNavigatorScroll({
+    callback: ({ progress, setState }) => {
+      if (progress > 0.75 && progress < 2.75) {
+        setState({ currentSection: "members" });
+      }
+    },
+    anchorId: "members",
   });
   return (
     <div ref={targetRef} className={cx("test", "orange")}>
@@ -60,10 +70,13 @@ function TestMembers() {
   );
 }
 function TestActivity() {
-  const { targetRef } = useNavigatorScroll(({ progress, setState }) => {
-    if (progress > 0.75 && progress < 2.75) {
-      setState({ currentSection: "activity" });
-    }
+  const { targetRef } = useNavigatorScroll({
+    callback: ({ progress, setState }) => {
+      if (progress > 0.75 && progress < 2.75) {
+        setState({ currentSection: "activity" });
+      }
+    },
+    anchorId: "activity",
   });
   return (
     <div ref={targetRef} className={cx("test", "violet")}>
