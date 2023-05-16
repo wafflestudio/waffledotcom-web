@@ -114,7 +114,7 @@ export const createGlobalScrollHook = <T extends Record<string, any>>(
     const listenerRef = useRef<ScrollListener<T>>(null);
     const scrollCallback = useRef<ScrollCallback<T>>(callback ?? null);
     const apis: ScrollApis<T> = {
-      getState: getGlobalState(),
+      getState: getGlobalState,
       setState: setGlobalState,
     };
 
@@ -141,6 +141,7 @@ export const createGlobalScrollHook = <T extends Record<string, any>>(
         listeners.add(listener);
         if (!hasScrollContainer || (hasScrollContainer && scrollContainer))
           handleOnScroll();
+        listeners.forEach((listener) => listener.forceUpdate());
       }
       //언마운트 시 리스너 삭제
       return () => {
@@ -262,7 +263,7 @@ export const createLocalScrollHook = <
           callback: scrollCallback.current ?? null,
           forceUpdate,
           apis: {
-            getState: getLocalState(),
+            getState: getLocalState,
             setState: setLocalState,
           },
         };
@@ -272,6 +273,7 @@ export const createLocalScrollHook = <
         listeners.add(listener);
         if (!hasScrollContainer || (hasScrollContainer && scrollContainer))
           handleOnScroll();
+        listeners.forEach((listener) => listener.forceUpdate());
       }
       //언마운트 시 리스너 삭제
       return () => {
