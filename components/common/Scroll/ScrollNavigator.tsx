@@ -29,10 +29,15 @@ export default function ScrollNavigator() {
             className={cx("item", {
               current: state.currentSection === anchorId,
             })}
-            onClick={() => {}}
           >
-            <div className={cx("label")}>{name}</div>
-            <div className={cx("dot")} />
+            <button
+              onClick={(e) => {
+                useNavigatorScroll.scrollTo(anchorId);
+              }}
+            >
+              <div className={cx("label")}>{name}</div>
+              <div className={cx("dot")} />
+            </button>
           </li>
         ))}
       </ul>
