@@ -41,3 +41,13 @@ h5,
 p {
   margin: 0;
 }
+
+/*** 스크롤 바 숨기기 ***/
+html {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+html::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera*/
+}
