@@ -1,5 +1,6 @@
 import classNames from "classnames/bind";
 import { useRouter } from "next/router";
+import Link from "next/link";
 import styles from "./Header.module.scss";
 const cx = classNames.bind(styles);
 
@@ -31,11 +32,8 @@ export default function Header() {
             className={cx("tabItem", {
               selected: router.pathname === pathname,
             })}
-            onClick={() => {
-              router.push(pathname);
-            }}
           >
-            {name}
+            <Link href={pathname}>{name}</Link>
           </li>
         ))}
       </ul>
