@@ -11,7 +11,7 @@ import {
   ScrollApis,
   ScrollCallback,
   ScrollCreatorReturnType,
-  ScrollHook,
+  GlobalScrollHook,
   ScrollListener,
   LocalScrollHook,
   LocalScrollCreatorReturnType,
@@ -44,7 +44,10 @@ export const useIsomorphicLayoutEffect = isSSR ? useEffect : useLayoutEffect;
  * @return useScroll 스크롤 훅 API
  */
 export const createGlobalScrollHook = <T extends Record<string, any>>(
-  initialState: { globalState: T; defaultCallback?: ScrollCallback<T> },
+  initialState: {
+    globalState: T;
+    defaultCallback?: ScrollCallback<T>;
+  },
   hasScrollContainer?: boolean,
 ): ScrollCreatorReturnType<T> => {
   let isInitiated = false;
@@ -108,7 +111,14 @@ export const createGlobalScrollHook = <T extends Record<string, any>>(
     containerElement.addEventListener("resize", handleOnScroll);
   };
 
-  const useScroll: ScrollHook<T> = (callback) => {
+  const scrollTo = (to: string) => {
+    listeners.forEach((listener) => {
+      if (listener.anchorId === to)
+        listener.element.scrollIntoView({ behavior: "smooth" });
+    });
+  };
+
+  const useScroll: GlobalScrollHook<T> = ({ callback, anchorId } = {}) => {
     const [, forceUpdate] = useReducer((c: number): number => c + 1, 0);
     const targetRef = useRef<AvailableHTMLElement | null>(null);
     const listenerRef = useRef<ScrollListener<T>>(null);
@@ -132,6 +142,7 @@ export const createGlobalScrollHook = <T extends Record<string, any>>(
         const listener: ScrollListener<T> = {
           element: targetRef.current,
           callback: scrollCallback.current ?? null,
+          anchorId: anchorId ?? null,
           forceUpdate,
           apis,
         };
@@ -154,7 +165,7 @@ export const createGlobalScrollHook = <T extends Record<string, any>>(
     return { targetRef, state: getGlobalState() };
   };
 
-  return Object.assign(useScroll, { setScrollContainer });
+  return Object.assign(useScroll, { setScrollContainer, scrollTo });
 };
 
 /**
@@ -228,10 +239,10 @@ export const createLocalScrollHook = <
     containerElement.addEventListener("resize", handleOnScroll);
   };
 
-  const useLocalScroll: LocalScrollHook<T, U> = (
+  const useLocalScroll: LocalScrollHook<T, U> = ({
     callback = () => null,
     initialState = {} as U,
-  ) => {
+  }) => {
     const [, forceUpdate] = useReducer((c: number): number => c + 1, 0);
     const localState = useRef<T & U>({ ...defaultState, ...initialState });
     const targetRef = useRef<AvailableHTMLElement | null>(null);
@@ -261,6 +272,7 @@ export const createLocalScrollHook = <
         const listener: ScrollListener<T & U> = {
           element: targetRef.current,
           callback: scrollCallback.current ?? null,
+          anchorId: null,
           forceUpdate,
           apis: {
             getState: getLocalState,
