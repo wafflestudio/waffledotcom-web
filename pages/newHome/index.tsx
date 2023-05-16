@@ -1,4 +1,5 @@
 import classNames from "classnames/bind";
+import { useEffect } from "react";
 import Header from "../../components/common/Header/Header";
 import ScrollNavigator from "../../components/common/Scroll/ScrollNavigator";
 import { useNavigatorScroll } from "../../components/Home/scroll";
@@ -7,13 +8,12 @@ import styles from "./Home.module.scss";
 const cx = classNames.bind(styles);
 
 function TestMain() {
-  const { targetRef, state } = useNavigatorScroll(
-    ({ progress, getState, setState }) => {
-      if (progress > 0.75 && progress < 2.75) {
-        setState({ current: "main" });
-      }
-    },
-  );
+  const { targetRef } = useNavigatorScroll(({ progress, setState }) => {
+    if (progress > 0.75 && progress < 2.75) {
+      setState({ currentSection: "main" });
+    }
+  });
+
   return (
     <div ref={targetRef} className={cx("test", "red")}>
       Main
@@ -21,11 +21,14 @@ function TestMain() {
   );
 }
 function TestAbout() {
-  const { targetRef } = useNavigatorScroll(({ progress, setState }) => {
-    if (progress > 0.75 && progress < 2.75) {
-      setState({ current: "about" });
-    }
-  });
+  const { state, targetRef } = useNavigatorScroll(
+    ({ progress, getState, setState }) => {
+      if (progress > 0.75 && progress < 2.75) {
+        setState({ currentSection: "about" });
+      }
+    },
+  );
+
   return (
     <div ref={targetRef} className={cx("test", "blue")}>
       About
@@ -35,7 +38,7 @@ function TestAbout() {
 function TestServices() {
   const { targetRef } = useNavigatorScroll(({ progress, setState }) => {
     if (progress > 0.75 && progress < 2.75) {
-      setState({ current: "services" });
+      setState({ currentSection: "services" });
     }
   });
   return (
@@ -47,7 +50,7 @@ function TestServices() {
 function TestMembers() {
   const { targetRef } = useNavigatorScroll(({ progress, setState }) => {
     if (progress > 0.75 && progress < 2.75) {
-      setState({ current: "members" });
+      setState({ currentSection: "members" });
     }
   });
   return (
@@ -59,7 +62,7 @@ function TestMembers() {
 function TestActivity() {
   const { targetRef } = useNavigatorScroll(({ progress, setState }) => {
     if (progress > 0.75 && progress < 2.75) {
-      setState({ current: "activity" });
+      setState({ currentSection: "activity" });
     }
   });
   return (
