@@ -20,15 +20,15 @@ const homeScrollItems: ScrollItem[] = [
 export default function ScrollNavigator() {
   const { targetRef, state } = useNavigatorScroll();
 
-  useEffect(() => {}, []);
-
   return (
     <nav ref={targetRef} className={cx("ScrollNavigator")}>
       <ul className={cx("list")}>
         {homeScrollItems.map(({ name, anchorId }) => (
           <li
             key={anchorId}
-            className={cx("item", { current: state.current === anchorId })}
+            className={cx("item", {
+              current: state.currentSection === anchorId,
+            })}
             onClick={() => {}}
           >
             <div className={cx("label")}>{name}</div>
