@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import Header from "../../components/common/Header/Header";
 import ScrollNavigator from "../../components/common/Scroll/ScrollNavigator";
 import { useNavigatorScroll } from "../../components/Home/scroll";
-import Main from "../../components/Home/Main/Main";
+import Main from "../../components/newHome/Main/Main";
 import styles from "./Home.module.scss";
 
 const cx = classNames.bind(styles);
