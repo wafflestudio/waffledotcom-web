@@ -64,4 +64,22 @@
       }
     }
   }
+
+  /** section 별 색상 변화 **/
+  &.about {
+    .dot {
+      border-color: #ffffff !important;
+    }
+    .label {
+      color: #ffffff !important;
+    }
+    .current .dot {
+      background-color: #ffffff !important;
+    }
+    .item:hover {
+      .dot {
+        background-color: #ffffff !important;
+      }
+    }
+  }
 }
