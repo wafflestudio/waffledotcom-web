@@ -4,6 +4,7 @@ import Header from "../../components/common/Header/Header";
 import ScrollNavigator from "../../components/common/Scroll/ScrollNavigator";
 import { useNavigatorScroll } from "../../components/Home/scroll";
 import Main from "../../components/newHome/Main/Main";
+import About from "../../components/newHome/About/About";
 import styles from "./Home.module.scss";
 
 const cx = classNames.bind(styles);
@@ -43,7 +44,7 @@ function TestAbout() {
 function TestServices() {
   const { targetRef } = useNavigatorScroll({
     callback: ({ progress, setState }) => {
-      if (progress > 0.75 && progress < 2.75) {
+      if (progress > 1 && progress < 2.75) {
         setState({ currentSection: "services" });
       }
     },
@@ -58,7 +59,7 @@ function TestServices() {
 function TestMembers() {
   const { targetRef } = useNavigatorScroll({
     callback: ({ progress, setState }) => {
-      if (progress > 0.75 && progress < 2.75) {
+      if (progress > 1 && progress < 2.75) {
         setState({ currentSection: "members" });
       }
     },
@@ -73,7 +74,7 @@ function TestMembers() {
 function TestActivity() {
   const { targetRef } = useNavigatorScroll({
     callback: ({ progress, setState }) => {
-      if (progress > 0.75 && progress < 2.75) {
+      if (progress > 1 && progress < 2.75) {
         setState({ currentSection: "activity" });
       }
     },
@@ -91,7 +92,7 @@ export default function Home() {
     <main>
       <Header />
       <Main />
-      <TestAbout />
+      <About />
       <TestServices />
       <TestMembers />
       <TestActivity />
