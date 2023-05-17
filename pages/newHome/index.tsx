@@ -44,7 +44,7 @@ function TestAbout() {
 function TestServices() {
   const { targetRef } = useNavigatorScroll({
     callback: ({ progress, setState }) => {
-      if (progress > 1 && progress < 2.75) {
+      if (progress >= 1 && progress < 2.75) {
         setState({ currentSection: "services" });
       }
     },
@@ -59,7 +59,7 @@ function TestServices() {
 function TestMembers() {
   const { targetRef } = useNavigatorScroll({
     callback: ({ progress, setState }) => {
-      if (progress > 1 && progress < 2.75) {
+      if (progress >= 1 && progress < 2.75) {
         setState({ currentSection: "members" });
       }
     },
@@ -74,7 +74,7 @@ function TestMembers() {
 function TestActivity() {
   const { targetRef } = useNavigatorScroll({
     callback: ({ progress, setState }) => {
-      if (progress > 1 && progress < 2.75) {
+      if (progress >= 1 && progress < 2.75) {
         setState({ currentSection: "activity" });
       }
     },
