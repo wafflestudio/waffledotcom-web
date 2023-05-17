@@ -21,7 +21,10 @@ export default function ScrollNavigator() {
   const { targetRef, state } = useNavigatorScroll();
 
   return (
-    <nav ref={targetRef} className={cx("ScrollNavigator")}>
+    <nav
+      ref={targetRef}
+      className={cx("ScrollNavigator", `${state.currentSection}`)}
+    >
       <ul className={cx("list")}>
         {homeScrollItems.map(({ name, anchorId }) => (
           <li
