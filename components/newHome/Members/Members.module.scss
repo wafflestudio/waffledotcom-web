@@ -1,0 +1,84 @@
+@use "./styles/font";
+@use "../../../styles/position";
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  opacity: 1;
+  transition: 0.5s ease;
+
+  * {
+    @include font.pretendard;
+  }
+
+  > .background {
+    @include position.fixed-background;
+    background-color: #fff;
+  }
+  > .foreground {
+    @include position.fixed-foreground;
+    padding: 0 310px; // TODO: 단위
+    .description {
+      color: #737373;
+      font-size: 20px;
+    }
+
+    > .title-wrapper {
+      display: flex;
+      gap: 22px;
+      margin-top: 135px; // TODO: 단위
+      > .title {
+        color: #323232;
+        font-size: 50px;
+        font-weight: bold;
+      }
+      > .description {
+        height: 33px;
+        padding-top: 27px;
+        line-height: 29px;
+        font-size: 24px;
+        letter-spacing: 0.04em;
+      }
+    }
+
+    > .grade {
+      margin-top: 56px; // TODO: 단위
+      > .grade-name {
+        font-size: 32px;
+        font-weight: bold;
+      }
+      > .positions {
+        display: flex;
+        gap: 57px;
+        > .position {
+          margin-top: 32px; // TODO: 단위
+          padding: 0 10px;
+          display: flex;
+          align-items: center;
+          gap: 40px;
+          > .texts {
+            > .position-name {
+              font-size: 30px;
+              font-weight: bold;
+              letter-spacing: 0.04em;
+            }
+            .description {
+              line-height: 160%;
+              letter-spacing: 0.04em;
+            }
+
+            > .descriptions {
+              padding-left: 30px;
+              list-style-type: disc;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.off {
+  opacity: 0;
+  visibility: hidden;
+}
