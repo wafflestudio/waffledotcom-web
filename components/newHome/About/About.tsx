@@ -7,7 +7,7 @@ const cx = classNames.bind(styles);
 export default function About() {
   const { state, targetRef } = useNavigatorScroll({
     callback: ({ progress, setState }) => {
-      if (progress >= 1) {
+      if (progress >= 1 && progress < 3) {
         setState({ currentSection: "about" });
       }
     },
