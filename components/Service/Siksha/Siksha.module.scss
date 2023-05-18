@@ -1,0 +1,121 @@
+@use "/styles/position";
+
+.container {
+  overflow: hidden;
+
+  position: relative;
+  width: 100%;
+  height: 100vh;
+
+  .background {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    position: fixed;
+    background: linear-gradient(90deg, rgb(237,132,119) 0%, rgb(238,139,109) 50%, rgb(240,154,91) 100%);
+
+    padding: 0;
+    gap: 20px;
+
+    opacity: 0;
+    transition: opacity 1s;
+
+    width: 100%;
+    height: 100%;
+
+    left: 0;
+    top: 0;
+
+    &::before {
+      position: fixed;
+      content: '';
+      background: rgb(240,154,91);
+      opacity: 1;
+      transition: opacity 3s;
+      width: 100%;
+      height: 100%;
+
+      left: 0;
+      right: 0;
+    }
+  }
+
+  .leftContainer {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-end;
+    padding: 0 0 100px;
+
+    width: 26.3%;
+    height: 100%;
+
+    .spoon {
+      transform: rotate(-60deg) translateX(-20vw);
+      transform-origin: bottom left;
+      transition: 1s;
+
+      height: 65.37vh;
+    }
+  }
+
+  .centerContainer {
+    @include position.flex-center();
+    padding: 0;
+    gap: 20px;
+
+    width: 47.4%;
+    height: 100%;
+  }
+
+  .rightContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    padding: 0 0 100px 50px;
+
+    width: 26.3%;
+    height: 100%;
+
+    .leftChopstick {
+      transform: rotate(50deg) translateX(20vw) translateY(0.7vh);
+      transform-origin: bottom right;
+      transition: 1s;
+
+      height: 65.37vh;
+    }
+    .rightChopstick {
+      transform: rotate(70deg) translateX(20vw) translateY(0.7vh);
+      transform-origin: bottom right;
+      transition: 1.2s;
+
+      height: 65.37vh;
+    }
+  }
+}
+
+.introduction {
+  @include position.fixed-foreground;
+  @include position.flex-center;
+  text-align: center;
+}
+
+.container.available {
+  .background {
+    opacity: 1;
+
+    &::before {
+      opacity: 0;
+    }
+  }
+
+  .spoon {
+    transform: rotate(-15deg) translateX(3vh);
+  }
+
+  .leftChopstick {
+    transform: rotate(10deg) translateX(5vh);
+  }
+  .rightChopstick {
+    transform: rotate(10deg) translateX(5.3vh) translateY(0.6vh);
+  }
+}
