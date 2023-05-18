@@ -2,10 +2,6 @@
 @use "../../../styles/position";
 @import "../../../styles/lib";
 
-@function calc80per($val) {
-  @return calc($val * 0.8);
-}
-
 .container {
   width: 100vw;
   height: 100vh;
@@ -23,29 +19,28 @@
   > .foreground {
     @include position.fixed-foreground;
     > .content-wrapper {
-      width: 1106px;
-      min-width: 1106px;
+      width: 1300px;
+      min-width: 1300px;
       margin: 0 auto;
       .description {
         color: #737373;
-        font-size: calc80per(20px);
+        font-size: 20px;
       }
 
       > .title-wrapper {
         display: flex;
         gap: px2vw(22px);
-        // margin-top: px2vh(135px);
-        margin-top: calc80per(135px);
+        margin-top: calc(75px + px2vh(135px));
         > .title {
           color: #323232;
-          font-size: calc80per(50px);
+          font-size: 50px;
           font-weight: bold;
         }
         > .description {
           height: 33px;
           padding-top: 27px;
           line-height: 29px;
-          font-size: calc80per(24px);
+          font-size: 24px;
           letter-spacing: 0.04em;
         }
       }
@@ -53,12 +48,12 @@
       > .grade {
         margin-top: px2vh(56px);
         > .grade-name {
-          font-size: calc80per(32px);
+          font-size: 32px;
           font-weight: bold;
         }
         > .positions {
           display: flex;
-          gap: px2vw(57px);
+          gap: px2vw(49px);
           > .position {
             margin-top: px2vh(32px);
             padding: 0 px2vw(10px);
@@ -67,7 +62,7 @@
             gap: px2vw(40px);
             > .texts {
               > .position-name {
-                font-size: calc80per(30px);
+                font-size: 30px;
                 font-weight: bold;
                 letter-spacing: 0.04em;
               }
@@ -77,7 +72,7 @@
               }
 
               > .descriptions {
-                padding-left: calc80per(30px);
+                padding-left: 30px;
                 list-style-type: disc;
               }
             }
