@@ -1,0 +1,203 @@
+@use "./styles/font";
+@use "../../../styles/position";
+@import "../../../styles/lib";
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  opacity: 1;
+  transition: 0.5s ease;
+
+  * {
+    @include font.pretendard;
+  }
+
+  > .background {
+    @include position.fixed-background;
+    background-color: #fff;
+  }
+
+  > .foreground {
+    @include position.fixed-foreground;
+    > .content-wrapper {
+      width: 1300px;
+      min-width: 1300px;
+      margin: 0 auto;
+      display: flex;
+      gap: px2vw(230px);
+      > .texts {
+        margin-top: calc(75px + px2vh(295px));
+        > .title {
+          font-size: 50px;
+          font-weight: bold;
+          color: #323232;
+        }
+        > .description {
+          margin-top: px2vh(22px);
+          font-size: 24px;
+          color: #737373;
+          line-height: 160%;
+          letter-spacing: 0.04em;
+        }
+        > .more-button {
+          display: inline-flex;
+          gap: px2vw(29px);
+          margin-top: px2vh(23px);
+          padding: px2vh(5px) px2vw(9px);
+          border: 1px solid #a4a4a4;
+          > p {
+            font-size: 14px;
+            font-weight: 500;
+            color: #a4a4a4;
+            height: px2vh(25px);
+            line-height: px2vh(25px);
+          }
+        }
+
+        > .progress-box {
+          margin-top: px2vh(51px);
+          display: flex;
+          align-items: center;
+          gap: px2vw(6px);
+
+          > .bar-wrapper {
+            position: relative;
+            > .bar {
+              position: absolute;
+              height: 3px;
+              border-radius: 1.5px;
+            }
+            > .background-bar {
+              width: 202px;
+              background-color: #ede2e0;
+            }
+            > .foreground-bar {
+              width: calc(202px / 3);
+              background-color: #f0745f;
+              // TODO: 애니메이션
+            }
+          }
+
+          > .index-wrapper {
+            margin-left: calc(6px + 202px);
+            display: flex;
+            align-items: center;
+            gap: 3px;
+
+            > .index {
+              padding: 10px;
+              font-size: 18px;
+              font-weight: 600;
+              line-height: 160%;
+              letter-spacing: 0.04em;
+              color: #e0e0e0;
+            }
+            > .current-index {
+              color: #f0745f;
+            }
+
+            > .divider {
+              width: 1px;
+              height: 15px;
+              background-color: #e0e0e0;
+              border-radius: 0.5px;
+            }
+          }
+
+          > .play-button {
+            display: flex;
+            align-items: center;
+            position: relative;
+            width: 31px;
+            height: 29px;
+            background-color: transparent;
+            border: none;
+            padding: 0;
+            margin: 0;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-image: url("/static/images/newHome/play_button_icon.svg");
+            &:hover {
+              cursor: pointer;
+            }
+            > .border {
+              position: absolute;
+              width: 29px;
+              height: 29px;
+              border: 1px solid #e0e0e0;
+              border-radius: 14.5px;
+            }
+          }
+        }
+      }
+      > .carousel {
+        position: relative;
+        margin-top: calc(75px + px2vh(130px));
+        display: flex;
+        align-items: center;
+        gap: px2vw(75px);
+
+        > .carousel-button {
+          padding: 0;
+          border: none;
+          background-color: transparent;
+          cursor: pointer;
+        }
+        > .carousel-frame {
+          width: 528px;
+          height: 584px;
+          background-color: transparent;
+          overflow-x: hidden;
+          // overflow-y: hidden;
+          > .services {
+            display: flex;
+            > .service {
+              flex: none;
+              display: flex;
+              width: 528px;
+              height: 582px;
+              align-items: center;
+              gap: px2vw(54px);
+              > .left {
+                > .service-icon {
+                  display: block;
+                }
+                > .service-name {
+                  font-size: 28px;
+                  font-weight: bold;
+                  letter-spacing: 0.04em;
+                  line-height: 160%;
+                  color: #323232;
+                  text-align: center;
+                  margin: -2px 0;
+                }
+                > .description {
+                  font-size: 16px;
+                  letter-spacing: 0.04em;
+                  line-height: 160%;
+                  color: #737373;
+                  text-align: center;
+                }
+              }
+              > .phone {
+                display: block;
+              }
+            }
+            > .snutt {
+
+            }
+            > .siksha {
+
+            }
+            >
+          }
+        }
+      }
+    }
+  }
+}
+
+.off {
+  opacity: 0;
+  visibility: hidden;
+}
