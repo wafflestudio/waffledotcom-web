@@ -51,8 +51,11 @@ const serviceDataArray: TserviceData[] = [
   },
 ];
 
-const increasedIndex = (index: number) => (index % 3) + 1;
-const decreasedIndex = (index: number) => ((index + 1) % 3) + 1;
+const serviceDataArrayLength: number = serviceDataArray.length;
+
+const increasedIndex = (index: number) => (index % serviceDataArrayLength) + 1;
+const decreasedIndex = (index: number) =>
+  ((index + 1) % serviceDataArrayLength) + 1;
 
 function ProgressBox({
   serviceIndex,
@@ -69,9 +72,9 @@ function ProgressBox({
       </div>
       <div className={cx("index-wrapper")}>
         {/* TODO: index 작업 */}
-        <p className={cx("index", "current-index")}>1</p>
+        <p className={cx("index", "current-index")}>{serviceIndex}</p>
         <div className={cx("divider")}></div>
-        <p className={cx("index")}>3</p>
+        <p className={cx("index")}>{serviceDataArrayLength}</p>
       </div>
       <button className={cx("play-button")}>
         <div className={cx("border", "background-border")}></div>

@@ -2,6 +2,8 @@
 @use "../../../styles/position";
 @import "../../../styles/lib";
 
+$carousel-length: 3;
+
 .container {
   width: 100vw;
   height: 100vh;
@@ -72,7 +74,7 @@
               background-color: #ede2e0;
             }
             > .foreground-bar {
-              width: calc(202px / 3);
+              width: calc(202px / $carousel-length);
               background-color: #f0745f;
               // TODO: 애니메이션
             }
@@ -85,6 +87,7 @@
             gap: 3px;
 
             > .index {
+              width: 32.58px;
               padding: 10px;
               font-size: 18px;
               font-weight: 600;
@@ -186,7 +189,7 @@
             }
           }
 
-          @for $i from 1 through 3 {
+          @for $i from 1 through $carousel-length {
             > .carousel-items-container.state-#{$i} {
               transform: translateX(calc(528px) * -($i - 1));
             }
