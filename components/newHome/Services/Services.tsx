@@ -56,15 +56,14 @@ const serviceDataArrayLength: number = serviceDataArray.length;
 function ProgressBox({
   serviceIndex,
   increaseIndex,
+  isPlaying,
+  toggleIsPlaying,
 }: {
   serviceIndex: number;
   increaseIndex: () => void;
+  isPlaying: boolean;
+  toggleIsPlaying: () => void;
 }) {
-  const [isPlaying, setIsPlaying] = useState<boolean>(true);
-  const handlePlayButtonClick = () => {
-    setIsPlaying((prev) => !prev);
-  };
-
   useEffect(() => {
     if (isPlaying) {
       const interval1 = setInterval(increaseIndex, 3000);
@@ -104,7 +103,7 @@ function ProgressBox({
       </div>
       <button
         className={cx("play-button", isPlaying ? "playing" : "stopped")}
-        onClick={handlePlayButtonClick}
+        onClick={toggleIsPlaying}
       >
         <div className={cx("border", "background-border")}></div>
         {renderPlayButtonBorderPieces()}
@@ -154,16 +153,21 @@ function Carousel({
   serviceIndex,
   increaseIndex,
   decreaseIndex,
+  stopPlaying,
 }: {
   serviceIndex: number;
   increaseIndex: () => void;
   decreaseIndex: () => void;
+  stopPlaying: () => void;
 }) {
   return (
     <div className={cx("carousel")}>
       <button
         className={cx("carousel-button", "previous")}
-        onClick={decreaseIndex}
+        onClick={() => {
+          decreaseIndex();
+          stopPlaying();
+        }}
       >
         <Image
           src="/static/images/newHome/previous_button_icon.svg"
@@ -181,7 +185,13 @@ function Carousel({
           ))}
         </div>
       </div>
-      <button className={cx("carousel-button", "next")} onClick={increaseIndex}>
+      <button
+        className={cx("carousel-button", "next")}
+        onClick={() => {
+          increaseIndex();
+          stopPlaying();
+        }}
+      >
         <Image
           src="/static/images/newHome/next_button_icon.svg"
           alt="next button"
@@ -202,8 +212,8 @@ export default function Services() {
     },
     anchorId: "services",
   });
-
   const [serviceIndex, setServiceIndex] = useState<number>(1);
+  const [isPlaying, setIsPlaying] = useState<boolean>(true);
   const increaseIndex = () => {
     setServiceIndex((prev) => (prev % serviceDataArrayLength) + 1);
   };
@@ -235,6 +245,10 @@ export default function Services() {
             <ProgressBox
               serviceIndex={serviceIndex}
               increaseIndex={increaseIndex}
+              isPlaying={isPlaying}
+              toggleIsPlaying={() => {
+                setIsPlaying((prev) => !prev);
+              }}
             />
           </div>
 
@@ -242,6 +256,9 @@ export default function Services() {
             serviceIndex={serviceIndex}
             increaseIndex={increaseIndex}
             decreaseIndex={decreaseIndex}
+            stopPlaying={() => {
+              setIsPlaying(false);
+            }}
           />
         </div>
       </div>
