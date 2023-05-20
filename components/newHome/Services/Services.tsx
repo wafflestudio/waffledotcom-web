@@ -51,8 +51,8 @@ const serviceDataArray: TserviceData[] = [
   },
 ];
 
-const increasedIndex = (index: number) => ((index + 1) % 3) + 1;
-const decreasedIndex = (index: number) => (index % 3) + 1;
+const increasedIndex = (index: number) => (index % 3) + 1;
+const decreasedIndex = (index: number) => ((index + 1) % 3) + 1;
 
 function ProgressBox({
   serviceIndex,
@@ -83,7 +83,6 @@ function ProgressBox({
 
 function CarouselItem({ serviceData }: { serviceData: TserviceData }) {
   const {
-    serviceName,
     serviceLink,
     serviceLogo,
     serviceLogoAltMsg,
@@ -93,7 +92,7 @@ function CarouselItem({ serviceData }: { serviceData: TserviceData }) {
     serviceDescription,
   } = serviceData;
   return (
-    <div className={cx("service", serviceName)}>
+    <div className={cx("carousel-item")}>
       <div className={cx("left")}>
         <a className={cx("service-icon")} href={serviceLink}>
           <Image
@@ -141,7 +140,9 @@ function Carousel({
         />
       </button>
       <div className={cx("carousel-frame")}>
-        <div className={cx("services")}>
+        <div
+          className={cx("carousel-items-container", `state-${serviceIndex}`)}
+        >
           {serviceDataArray.map((serviceData: TserviceData, index: number) => (
             <CarouselItem key={index} serviceData={serviceData} />
           ))}

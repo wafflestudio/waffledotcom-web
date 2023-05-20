@@ -149,9 +149,10 @@
           background-color: transparent;
           overflow-x: hidden;
           // overflow-y: hidden;
-          > .services {
+          > .carousel-items-container {
             display: flex;
-            > .service {
+            transition: 0.5s;
+            > .carousel-item {
               flex: none;
               display: flex;
               width: 528px;
@@ -183,13 +184,12 @@
                 display: block;
               }
             }
-            > .snutt {
+          }
 
+          @for $i from 1 through 3 {
+            > .carousel-items-container.state-#{$i} {
+              transform: translateX(calc(528px) * -($i - 1));
             }
-            > .siksha {
-
-            }
-            >
           }
         }
       }
