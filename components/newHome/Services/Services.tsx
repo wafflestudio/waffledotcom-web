@@ -108,6 +108,7 @@ function ProgressBox({
       >
         <div className={cx("border", "background-border")}></div>
         {renderPlayButtonBorderPieces()}
+        {/* TODO: 타이머 애니메이션 미완 */}
       </button>
     </div>
   );
