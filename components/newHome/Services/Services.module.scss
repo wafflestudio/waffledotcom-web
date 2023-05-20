@@ -74,9 +74,7 @@ $carousel-length: 3;
               background-color: #ede2e0;
             }
             > .foreground-bar {
-              width: calc(202px / $carousel-length);
               background-color: #f0745f;
-              // TODO: 애니메이션
             }
           }
 
@@ -111,7 +109,6 @@ $carousel-length: 3;
             display: flex;
             align-items: center;
             position: relative;
-            width: 31px;
             height: 29px;
             background-color: transparent;
             border: none;
@@ -119,7 +116,6 @@ $carousel-length: 3;
             margin: 0;
             background-repeat: no-repeat;
             background-position: center;
-            background-image: url("/static/images/newHome/play_button_icon.svg");
             &:hover {
               cursor: pointer;
             }
@@ -130,6 +126,40 @@ $carousel-length: 3;
               border: 1px solid #e0e0e0;
               border-radius: 14.5px;
             }
+            @for $i from 1 through 360 {
+              > .foreground-border-piece-index-#{$i} {
+                position: absolute;
+                width: 29px;
+                height: 29px;
+                transition-duration: calc(3s / 360);
+                transform: rotate(calc(1deg * ($i - 1)));
+              }
+            }
+          }
+          > .play-button.playing {
+            width: 29px;
+            background-image: url("/static/images/newHome/stop_button_icon.svg");
+            @for $i from 1 through 360 {
+              > .foreground-border-piece-index-#{$i} {
+                transition-delay: calc(3s / 360 * ($i - 1));
+                opacity: 1;
+              }
+            }
+          }
+          > .play-button.stopped {
+            width: 31px;
+            background-image: url("/static/images/newHome/play_button_icon.svg");
+            @for $i from 1 through 360 {
+              > .foreground-border-piece-index-#{$i} {
+                transition-delay: 0s;
+                opacity: 0;
+              }
+            }
+          }
+        }
+        @for $i from 1 through $carousel-length {
+          > .progress-box.state-#{$i} > .bar-wrapper > .foreground-bar {
+            width: calc((202px * $i) / $carousel-length);
           }
         }
       }
@@ -193,6 +223,9 @@ $carousel-length: 3;
             > .carousel-items-container.state-#{$i} {
               transform: translateX(calc(528px) * -($i - 1));
             }
+          }
+          > .carousel-items-container.state-1 {
+            transition: 1s;
           }
         }
       }

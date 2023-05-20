@@ -2,7 +2,7 @@ import classNames from "classnames/bind";
 import { useNavigatorScroll } from "../../Home/scroll";
 import Image from "next/image";
 import styles from "./Services.module.scss";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const cx = classNames.bind(styles);
 
@@ -53,32 +53,61 @@ const serviceDataArray: TserviceData[] = [
 
 const serviceDataArrayLength: number = serviceDataArray.length;
 
-const increasedIndex = (index: number) => (index % serviceDataArrayLength) + 1;
-const decreasedIndex = (index: number) =>
-  ((index + 1) % serviceDataArrayLength) + 1;
-
 function ProgressBox({
   serviceIndex,
-  setServiceIndex,
+  increaseIndex,
 }: {
   serviceIndex: number;
-  setServiceIndex: (getPrev: (prevState: number) => number) => void;
+  increaseIndex: () => void;
 }) {
+  const [isPlaying, setIsPlaying] = useState<boolean>(true);
+  const handlePlayButtonClick = () => {
+    setIsPlaying((prev) => !prev);
+  };
+
+  useEffect(() => {
+    if (isPlaying) {
+      const interval1 = setInterval(increaseIndex, 3000);
+      return () => {
+        clearInterval(interval1);
+      };
+    }
+  }, [isPlaying, increaseIndex]);
+
+  const renderPlayButtonBorderPieces = () => {
+    const result = [];
+    for (let i = 1; i <= 360; i++) {
+      result.push(
+        <div key={i} className={cx(`foreground-border-piece-index-${i}`)}>
+          <Image
+            src="/static/images/newHome/play_button_border_piece.svg"
+            alt="border piece"
+            width="29px"
+            height="29px"
+          />
+        </div>,
+      );
+    }
+    return result;
+  };
+
   return (
-    <div className={cx("progress-box")}>
+    <div className={cx("progress-box", `state-${serviceIndex}`)}>
       <div className={cx("bar-wrapper")}>
         <div className={cx("bar", "background-bar")}></div>
         <div className={cx("bar", "foreground-bar")}></div>
       </div>
       <div className={cx("index-wrapper")}>
-        {/* TODO: index 작업 */}
         <p className={cx("index", "current-index")}>{serviceIndex}</p>
         <div className={cx("divider")}></div>
         <p className={cx("index")}>{serviceDataArrayLength}</p>
       </div>
-      <button className={cx("play-button")}>
+      <button
+        className={cx("play-button", isPlaying ? "playing" : "stopped")}
+        onClick={handlePlayButtonClick}
+      >
         <div className={cx("border", "background-border")}></div>
-        <div className={cx("border", "foreground-border")}></div>
+        {renderPlayButtonBorderPieces()}
       </button>
     </div>
   );
@@ -122,18 +151,18 @@ function CarouselItem({ serviceData }: { serviceData: TserviceData }) {
 
 function Carousel({
   serviceIndex,
-  setServiceIndex,
+  increaseIndex,
+  decreaseIndex,
 }: {
   serviceIndex: number;
-  setServiceIndex: (getPrev: (prevState: number) => number) => void;
+  increaseIndex: () => void;
+  decreaseIndex: () => void;
 }) {
   return (
     <div className={cx("carousel")}>
       <button
         className={cx("carousel-button", "previous")}
-        onClick={() => {
-          setServiceIndex((prev) => decreasedIndex(prev));
-        }}
+        onClick={decreaseIndex}
       >
         <Image
           src="/static/images/newHome/previous_button_icon.svg"
@@ -151,12 +180,7 @@ function Carousel({
           ))}
         </div>
       </div>
-      <button
-        className={cx("carousel-button", "next")}
-        onClick={() => {
-          setServiceIndex((prev) => increasedIndex(prev));
-        }}
-      >
+      <button className={cx("carousel-button", "next")} onClick={increaseIndex}>
         <Image
           src="/static/images/newHome/next_button_icon.svg"
           alt="next button"
@@ -179,6 +203,12 @@ export default function Services() {
   });
 
   const [serviceIndex, setServiceIndex] = useState<number>(1);
+  const increaseIndex = () => {
+    setServiceIndex((prev) => (prev % serviceDataArrayLength) + 1);
+  };
+  const decreaseIndex = () => {
+    setServiceIndex((prev) => ((prev + 1) % serviceDataArrayLength) + 1);
+  };
   return (
     <section
       className={cx("container", { off: state.currentSection !== "services" })}
@@ -203,13 +233,14 @@ export default function Services() {
             </a>
             <ProgressBox
               serviceIndex={serviceIndex}
-              setServiceIndex={setServiceIndex}
+              increaseIndex={increaseIndex}
             />
           </div>
 
           <Carousel
             serviceIndex={serviceIndex}
-            setServiceIndex={setServiceIndex}
+            increaseIndex={increaseIndex}
+            decreaseIndex={decreaseIndex}
           />
         </div>
       </div>
