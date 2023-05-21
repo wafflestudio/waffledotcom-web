@@ -11,7 +11,8 @@
     height: 100%;
     bottom: 0;
     left: 0;
-    background-color: #f0745f;
+    background-color: #ffffff;
+    transition: 0.5s ease;
   }
 
   .foreground {
@@ -29,7 +30,7 @@
       display: flex;
       justify-content: center;
       gap: 365px;
-      color: #ffffff;
+      color: #000000;
       .name {
         > h1 {
           font-size: 82px;
@@ -74,4 +75,13 @@
 .off {
   opacity: 0;
   visibility: hidden;
+}
+
+.red {
+  .background {
+    background-color: #f0745f;
+  }
+  .content {
+    color: #ffffff;
+  }
 }

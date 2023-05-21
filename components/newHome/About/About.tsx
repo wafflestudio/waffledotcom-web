@@ -7,6 +7,7 @@ const cx = classNames.bind(styles);
 
 export default function About() {
   const [more, setMore] = useState(false);
+  const [red, setRed] = useState(true);
   const { state, targetRef } = useNavigatorScroll({
     callback: ({ progress, setState }) => {
       if (progress >= 1 && progress < 3) {
@@ -17,8 +18,14 @@ export default function About() {
   });
   return (
     <section
-      className={cx("container", { off: state.currentSection !== "about" })}
+      className={cx("container", {
+        off: state.currentSection !== "about",
+        red,
+      })}
       ref={targetRef}
+      onTransitionEnd={(e) => {
+        if (red) setRed(false);
+      }}
     >
       <div className={cx("background")} />
       <div className={cx("foreground")}>
