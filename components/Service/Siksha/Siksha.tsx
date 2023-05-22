@@ -1,3 +1,5 @@
+"use client";
+
 import classNames from "classnames/bind";
 import useWaffleScroll from "../../../library/waffleScroll";
 import IntroductionCarousel from "../common/IntroductionCarousel/IntroductionCarousel";

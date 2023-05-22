@@ -1,12 +1,18 @@
+"use client";
+
 import classNames from "classnames/bind";
-import { useRouter } from "next/router";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import useWaffleScroll from "../../../library/waffleScroll";
 import styles from "./Cover.module.scss";
 
 const cx = classNames.bind(styles);
 
 function Cover() {
-  const router = useRouter();
+  const pathname = usePathname();
+  const isService = pathname.startsWith("/service");
+  const isMember = pathname.startsWith("/member");
+  const isHome = pathname === "/";
   const { ref, scrollState } = useWaffleScroll(
     ({ progress, toggleState }) => {
       toggleState(0, 2.7, "available");
@@ -22,29 +28,33 @@ function Cover() {
       </div>
       <div className={styles.logos}>
         <div className={styles.logoCenter}>
-          <img alt="" src="./static/images/logo/waffle_logo_text.png" />
+          <img alt="" src="/static/images/logo/waffle_logo_text.png" />
         </div>
         <div className={styles.logoLeftTop}>
-          <img alt="" src="./static/images/logo/waffle_logo_image.png" />
+          <img alt="" src="/static/images/logo/waffle_logo_image.png" />
         </div>
       </div>
 
       <nav className={styles.navigator}>
         <ul>
-          <li style={{ background: "brown", color: "white" }}>소개</li>
           <li
-            onClick={() => {
-              void router.push("./service");
-            }}
+            style={isHome ? { background: "brown", color: "white" } : undefined}
           >
-            서비스
+            <Link href="/">소개</Link>
           </li>
           <li
-            onClick={() => {
-              void router.push("./member");
-            }}
+            style={
+              isService ? { background: "brown", color: "white" } : undefined
+            }
           >
-            멤버
+            <Link href="/service">서비스</Link>
+          </li>
+          <li
+            style={
+              isMember ? { background: "brown", color: "white" } : undefined
+            }
+          >
+            <Link href="/member">멤버</Link>
           </li>
         </ul>
       </nav>

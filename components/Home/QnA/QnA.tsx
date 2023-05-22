@@ -1,3 +1,4 @@
+"use client";
 import classNames from "classnames/bind";
 import { useRef } from "react";
 import useDelayedState from "../../../hooks/delayedState/useDelayedState";
@@ -23,7 +24,7 @@ function QnA() {
           <div className={cx("screen")}>
             <div className={cx("topBar")}>
               푸푸리{" "}
-              <img alt="" src="./static/images/home/heywaffle_emoji.svg" />
+              <img alt="" src="/static/images/home/heywaffle_emoji.svg" />
             </div>
           </div>
         </div>

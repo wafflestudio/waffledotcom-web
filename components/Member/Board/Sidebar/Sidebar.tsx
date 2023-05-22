@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import styles from "./Sidebar.module.scss";
 import { Checkbox, Radio, Toggle } from "./SidebarButtons";

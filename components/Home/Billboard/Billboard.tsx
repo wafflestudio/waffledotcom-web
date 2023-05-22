@@ -1,3 +1,4 @@
+"use client";
 import { useRef, useState } from "react";
 import classNames from "classnames/bind";
 import useWaffleScroll from "../../../library/waffleScroll";

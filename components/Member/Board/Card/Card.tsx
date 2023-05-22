@@ -64,8 +64,8 @@ function Card({
           <Image
             src={"/static/images/HeyWaffle.png"}
             alt={"Hey Waffle"}
-            width={"27px"}
-            height={"27px"}
+            width={"27"}
+            height={"27"}
           />
           <span className={styles.waffleNumber}>111</span>
         </div>
@@ -85,15 +85,15 @@ function Card({
         <Image
           src={"/static/images/GithubSymbol.png"}
           alt={"Github"}
-          width={"47px"}
-          height={"47px"}
+          width={"47"}
+          height={"47"}
         />
         <hr />
         <Image
           src={"/static/images/InstagramSymbol.png"}
           alt={"Instagram"}
-          width={"47px"}
-          height={"47px"}
+          width={"47"}
+          height={"47"}
         />
       </div>
     </div>
