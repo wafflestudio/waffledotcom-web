@@ -1,8 +1,8 @@
 "use client";
 
 import classNames from "classnames/bind";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Link from "../WaffleLink";
 import useWaffleScroll from "../../../library/waffleScroll";
 import styles from "./Cover.module.scss";
 

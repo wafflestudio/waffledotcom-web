@@ -1,5 +1,6 @@
-import Image from "next/image";
+import Image from "next/legacy/image";
 import classNames from "classnames/bind";
+import { Fragment } from "react";
 import styles from "./IntroductionHead.module.scss";
 
 const cx = classNames.bind(styles);
@@ -27,12 +28,12 @@ function IntroductionHead({
       <div className={cx("text", textColor)}>
         <span className={cx("title")}>{title}</span>
         <span className={cx("des")}>
-          {des.map((d) => {
+          {des.map((d, i) => {
             return (
-              <>
+              <Fragment key={i}>
                 {d}
                 <br />
-              </>
+              </Fragment>
             );
           })}
         </span>

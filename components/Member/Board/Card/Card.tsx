@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/legacy/image";
 import CustomScrollbarDiv from "../CustomScrollbarDiv/CustomScrollbarDiv";
 import styles from "./Card.module.scss";
 

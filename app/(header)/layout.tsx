@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import Cover from "../../components/Home/Cover/Cover";
+import Cover from "../../components/common/Cover/Cover";
 import styles from "./Home.module.scss";
 export default function Layout({ children }: { children: ReactNode }) {
   return (
