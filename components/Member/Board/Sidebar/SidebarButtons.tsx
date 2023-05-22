@@ -97,7 +97,7 @@ type dropdownProps = {
 };
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export function Dropdown({ arr, current, setCurrent }: dropdownProps) {
+export function Dropdown({}: dropdownProps) {
   return (
     <div>
       <div></div>

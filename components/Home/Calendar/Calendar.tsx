@@ -1,8 +1,6 @@
 "use client";
 import classNames from "classnames/bind";
-import { useRef, useState } from "react";
-import { useScroll } from "../../../hooks/scroll/useScroll";
-import useDelayedState from "../../../hooks/delayedState/useDelayedState";
+import { useState } from "react";
 import useWaffleScroll from "../../../library/waffleScroll";
 import styles from "./Calendar.module.scss";
 import _annualSchedules from "./annualSchedules.json";
@@ -21,7 +19,7 @@ function Calendar() {
   );
 
   const handleMonthClick = (month: number) => {
-    return (e: React.MouseEvent) => {
+    return () => {
       const cwDistance = (month + 12 - currentMonth) % 12;
       const ccwDistance = 12 - cwDistance;
       if (cwDistance <= 6) setSyrupAngle(syrupAngle + cwDistance * 30);

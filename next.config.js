@@ -7,8 +7,9 @@ const nextConfig = {
   },
   trailingSlash: true,
   experimental: {
-    appDir: true
-  }
-}
+    appDir: true,
+  },
+  output: "export",
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

@@ -7,10 +7,7 @@
     "build": "next build && next export",
     "start": "next start",
     "lint": "next lint",
-    "lint:fix": "next lint --fix",
-    "test": "jest",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "lint:fix": "next lint --fix"
   },
   "dependencies": {
     "classnames": "^2.3.2",

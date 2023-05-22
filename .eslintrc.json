@@ -10,14 +10,21 @@
     "@next/next/no-img-element": "off",
     "react/function-component-definition": "error",
     "react/react-in-jsx-scope": "off",
-    "import/order": "warn"
+    "import/order": "warn",
+    "@typescript-eslint/no-unused-vars": "off",
+    "unused-imports/no-unused-imports": "warn",
+    "unused-imports/no-unused-vars": [
+      "warn",
+      { "vars": "all", "varsIgnorePattern": "^_", "args": "after-used", "argsIgnorePattern": "^_" }
+    ]
   },
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "project": "./tsconfig.json"
   },
   "plugins": [
-    "@typescript-eslint"
+    "@typescript-eslint",
+    "unused-imports"
   ],
   "root": true
 }

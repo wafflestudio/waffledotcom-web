@@ -23,6 +23,7 @@ function Siksha() {
             <img
               className={cx("spoon")}
               src={"/static/images/illustration/spoon.svg"}
+              alt=""
             />
           </div>
           <div className={cx("centerContainer")}>
@@ -59,10 +60,12 @@ function Siksha() {
               <img
                 className={cx("leftChopstick")}
                 src={"/static/images/illustration/chopstick.svg"}
+                alt=""
               />
               <img
                 className={cx("rightChopstick")}
                 src={"/static/images/illustration/chopstick.svg"}
+                alt=""
               />
             </div>
           </div>

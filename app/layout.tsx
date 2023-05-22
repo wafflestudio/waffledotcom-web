@@ -8,14 +8,12 @@ export const metadata = {
   icons: {
     icon: "/favicon.ico",
   },
+  robots: "noindex",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="ko">
-      <head>
-        <meta name="robots" content="noindex" />
-      </head>
       <body>{children}</body>
     </html>
   );

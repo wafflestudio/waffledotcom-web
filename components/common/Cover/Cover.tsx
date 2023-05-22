@@ -14,7 +14,7 @@ function Cover() {
   const isMember = pathname.startsWith("/member");
   const isHome = pathname === "/";
   const { ref, scrollState } = useWaffleScroll(
-    ({ progress, toggleState }) => {
+    ({ toggleState }) => {
       toggleState(0, 2.7, "available");
     },
     { available: false },
