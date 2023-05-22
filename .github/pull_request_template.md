@@ -1,7 +1,4 @@
 ## 태스크 URL
-
-
-## 관련 이슈 (Optional)
 <!--
 노션 이슈트래킹 페이지에서 관련 이슈의 링크를 적어주세요
 Example
@@ -9,14 +6,18 @@ Example
 -->
 
 
-## 체크리스트
+## PR 체크리스트
 - [ ] pre-commit 성공 여부
-- [ ] yarn build 성공 여부
 - [ ] Type label 추가
 
 
-## 설명
+## Merge 체크리스트
+- [ ] Squash & Merge
+- [ ] 노션 태스크 완료 처리
+- [ ] 이슈 코멘트 resolve
 
+
+## 설명
 
 
 ## 테스트 방법 (Optional)
