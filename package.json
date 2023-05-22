@@ -14,7 +14,7 @@
   },
   "lint-staged": {
     "**/*.{ts,tsx}": [
-      "eslint --config ./.eslintrc.json --fix --debug",
+      "eslint --config ./.eslintrc.json --fix --max-warnings 0",
       "prettier --config ./.prettierrc --write -u"
     ]
   },

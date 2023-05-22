@@ -50,9 +50,11 @@
 - node.js
 - yarn
 
-## 설치
+## 개발 환경 세팅
 ```bash
 yarn
+husky install
+husky add .husky/pre-commit "lint-staged --no-stash && yarn build"
 ```
 
 ## 테스트 서버 실행
