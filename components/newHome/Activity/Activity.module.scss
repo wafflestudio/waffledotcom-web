@@ -5,6 +5,7 @@
   height: 100vh;
   opacity: 1;
   transition: 0.5s ease;
+  display: flex;
 
   .background {
     position: fixed;
@@ -26,12 +27,12 @@
     justify-content: center;
 
     .wrapper {
-      width: calc(1300 / 1920 * 100%);
+      width: 1280px;
       height: fit-content;
+
       .textArea {
         height: calc(100vh / 1080 * 82);
-        position: absolute;
-        top: calc(100vh / 1080 * 150);
+
         p {
           font-family: "Pretendard";
           font-style: normal;
@@ -51,28 +52,79 @@
         }
       }
       .imageArea {
-        margin-top: calc(100vh / 1080 * 80);
-        height: fit-content;
+        margin-top: 62px;
+        height: 422px;
         display: flex;
         flex-direction: row;
         align-items: center;
-        gap: calc(50 / 1920 * 100vw);
+        gap: 70px;
+
+        div {
+          width: 100%;
+          height: 100%;
+        }
+
         .image {
-          flex: 5;
-          height: fit-content;
-          background: #d9d9d9;
-          filter: drop-shadow(2px 5px 6px rgba(0, 0, 0, 0.25));
-          border-radius: 20px;
-          .ratio {
-            padding-bottom: calc(100% / 288 * 384);
-          }
+          flex: 6;
+          background: url(../../../public/static/images/activity/activityImage1.png);
+          background-size: cover;
+          width: 100%;
+          height: 100%;
+          filter: drop-shadow(2px 4px 15px rgba(0, 0, 0, 0.15));
+          border-radius: 10px;
           transition: all 0.5s ease-in-out;
         }
-        .hover {
-          flex: 8;
-          background: #d9d9d9;
-          filter: drop-shadow(2px 5px 6px rgba(0, 0, 0, 0.25));
-          border-radius: 20px;
+
+        .description {
+          flex: 4;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          padding: 5px 0px;
+          justify-content: space-between;
+
+          .subTitle {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            height: 50px;
+            font-family: "Pretendard";
+            font-style: normal;
+            font-weight: 700;
+            font-size: 32px;
+            line-height: 38px;
+            display: flex;
+            align-items: center;
+            letter-spacing: 0.04em;
+            color: #a4a4a4;
+            transition: all 0.15s ease-in-out;
+            overflow: hidden;
+            .head {
+              height: 50px;
+            }
+          }
+
+          .active {
+            color: #000;
+            height: 140px;
+          }
+
+          .detailDescription {
+            height: 0px;
+            overflow: hidden;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 160%;
+            letter-spacing: 0.04em;
+            color: #737373;
+          }
+
+          .visible {
+            height: 90px;
+            overflow: visible;
+          }
         }
       }
     }
