@@ -9,12 +9,13 @@
   --container-width: 1344px;
   width: var(--container-width);
   box-sizing: content-box;
-  height: calc(100% - 224px);
+  height: calc(100% - 148px);
   min-height: 500px;
   font-family: "Pretendard", sans-serif;
   font-weight: normal;
   --horizontalPadding: calc((100% - var(--container-width)) / 2);
-  padding: 80px var(--horizontalPadding) 69px var(--horizontalPadding);
+  padding: 74px var(--horizontalPadding) 74px var(--horizontalPadding);
+  margin-top: 75px;
 
   .header {
     @include position.flex(row, $align: center, $justify: start);
