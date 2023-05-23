@@ -1,0 +1,110 @@
+@use "styles/font";
+@use "styles/color";
+@use "styles/position";
+@import "styles/lib";
+
+.container {
+  @include position.flex(row, center, start);
+  position: relative;
+  font-family: "Pretendard", sans-serif;
+  font-size: 20px;
+  letter-spacing: -0.03em;
+  user-select: none;
+
+  .filterName {
+    font-weight: 600;
+    margin-right: 40px;
+  }
+}
+
+.container.checkbox {
+  .filterList {
+    @include position.flex(row, center, start);
+    .filter {
+      @include position.flex-center(row);
+      margin-right: 40px;
+      .checkbox {
+        display: inline-block;
+        box-sizing: border-box;
+        position: relative;
+        width: 16px;
+        height: 16px;
+        border: 1px solid black;
+        background-color: white;
+        margin-right: 8px;
+        .check {
+          visibility: hidden;
+          position: absolute;
+          left: -1px;
+          top: -1px;
+        }
+      }
+    }
+    .filter:last-child {
+      margin-right: 0;
+    }
+    //.filter:nth-child(2) {
+    //  width: 77.88px;
+    //  white-space: nowrap;
+    //}
+    .filter.active .checkbox .check {
+      visibility: visible;
+    }
+  }
+}
+
+.container.select {
+  .filter {
+    font-size: 16px;
+
+    .option {
+      @include position.flex(row, center, space-between);
+      box-sizing: border-box;
+      width: 86px;
+      height: 23px;
+      padding: 0 7px;
+      background-color: white;
+    }
+
+    .option:hover {
+      background-color: #F2F2F2;
+    }
+
+    .option.selected {
+      width: 88px;
+      height: 25px;
+      padding: 0 8px;
+      border: 1px solid black;
+
+      .arrow {
+        box-sizing: content-box;
+        width: 10px;
+        height: 6px;
+        padding: 7px 5px;
+      }
+    }
+
+    .dropDown {
+      @include position.flex(column, center, start);
+      position: absolute;
+      top: 25px;
+      box-sizing: border-box;
+      border: 1px solid black;
+      border-top: 0;
+    }
+
+    .dropDown.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .dropDown.close {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+}
+
+.container.toggle {
+
+}

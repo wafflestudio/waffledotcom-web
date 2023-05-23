@@ -6,13 +6,14 @@
 .container{
   @include position.flex-center();
   gap: 6px;
-  width: 1376px;
+  --container-width: 1344px;
+  width: var(--container-width);
   box-sizing: content-box;
   height: calc(100% - 224px);
   min-height: 500px;
   font-family: "Pretendard", sans-serif;
   font-weight: normal;
-  --horizontalPadding: calc((100% - 1376px) / 2);
+  --horizontalPadding: calc((100% - var(--container-width)) / 2);
   padding: 80px var(--horizontalPadding) 69px var(--horizontalPadding);
 
   .header {
@@ -21,10 +22,11 @@
     flex: 0 0 auto;
     padding-left: 6px;
     .title {
-      font-weight: bold;
+      font-weight: 700;
       font-size: 48px;
+      letter-spacing: 0.05em;
       color: #242424;
-      padding-right: 36px;
+      margin-right: 36px;
     }
     .description {
       color: #342D29;
@@ -41,17 +43,32 @@
   }
 
   .filterContainer {
-    background-color: #0b4c4f;
+    //background-color: #0b4c4f;
     box-sizing: content-box;
-    width: 1162px;
+    width: 1150px;
     flex: 0 0 59px;
-    padding: 42px 107px 30px 107px;
+    padding: 42px 97px 30px 97px;
+    .filterLine {
+      @include position.flex(row, center, space-between);
+      width: 100%;
+    }
+    .filterLine.first {
+      position: relative;
+      z-index: 1;
+    }
   }
 
   .cardContainer {
-    background-color: #0b4c4f;
+    @include position.flex(row, start, start);
+    gap: 20px;
+    flex-wrap: wrap;
+    flex: 1 1 auto;
+    position: relative;
+    box-sizing: border-box;
     width: 100%;
     min-height: 300px;
-    flex: 1 1 auto;
+    padding-left: 13px;
+    //background-color: #0b4c4f;
+    overflow-y: auto;
   }
 }
