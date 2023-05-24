@@ -1,6 +1,7 @@
 import classNames from "classnames/bind";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import styles from "./MemberCard.module.scss";
+import { HTML } from "mdast";
 
 const cx = classNames.bind(styles);
 
@@ -31,42 +32,51 @@ function MemberCard({
 }: Props) {
   const positionShownCount =
     roles.filter((role) => role === "운영팀").length > 0 ? 2 : 1;
-  const tagsRef = useRef<HTMLDivElement | null>(null);
   const [hoverTags, setHoverTags] = useState(false);
+  const helper = useRef<HTMLDivElement | null>(null);
 
-  function handleMouseOverTags() {
+  function handleMouseEnterTags() {
     if (roles.length > positionShownCount) setHoverTags(true);
   }
 
-  function handleMouseOutTags() {
+  function handleMouseLeaveTags() {
     setHoverTags(false);
   }
 
-  useEffect(() => {
-    tagsRef.current?.addEventListener("mouseover", handleMouseOverTags);
-    tagsRef.current?.addEventListener("mouseout", handleMouseOutTags);
-    return () => {
-      tagsRef.current?.removeEventListener("mouseover", handleMouseOverTags);
-      tagsRef.current?.removeEventListener("mouseout", handleMouseOutTags);
-    };
-  }, []);
+  function handleMouseMoveHelper(e: React.MouseEvent<HTMLDivElement>) {
+    if (e.currentTarget.lastChild) {
+      const helper = e.currentTarget.lastChild as HTMLDivElement;
+      helper.style.left = `${e.clientX}px`;
+      helper.style.top = `${e.clientY - 25}px`;
+    }
+  }
 
   return (
     <div className={cx("container")}>
-      <div className={cx("profileImageAndBadge")}>
+      <div
+        className={cx("profileImageAndBadge", isActive ? "active" : "inactive")}
+        onMouseMove={handleMouseMoveHelper}
+      >
         <img
           className={cx("profileImage")}
           alt={"profileImage"}
           src={"/static/images/DefaultProfileImage.svg"}
         />
-        <div className={cx("badge", isActive ? "active" : "")} />
+        <div className={cx("badge")} />
+        <div className={cx("helper")} ref={helper}>
+          이번 학기 {isActive ? "활동" : "비활동"} 회원입니다.
+        </div>
       </div>
       <div className={cx("profile")}>
         <div className={cx("nameAndLink")}>
           <div className={cx("name")}>{name}</div>
         </div>
         <div className={cx("tagsWrapper")}>
-          <div className={cx("tags", hoverTags ? "hover" : "")} ref={tagsRef}>
+          <div
+            className={cx("tags", hoverTags ? "hover" : "")}
+            onMouseEnter={handleMouseEnterTags}
+            onMouseLeave={handleMouseLeaveTags}
+          >
             <div className={cx("tag")}>
               <span className={cx("tagName")}>{generation}기</span>
             </div>

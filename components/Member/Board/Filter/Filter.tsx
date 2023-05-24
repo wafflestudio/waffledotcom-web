@@ -25,9 +25,9 @@ function CheckBoxFilter({
     setAllSelected(!allSelected);
   }
 
-  function handleClickOption(e: React.MouseEvent) {
+  function handleClickOption(e: React.MouseEvent<HTMLLIElement>) {
     e.preventDefault();
-    const t = e.currentTarget as HTMLLIElement;
+    const t = e.currentTarget;
     const newSelectedOptions = [...selectedOptions];
     newSelectedOptions[t.value] = !selectedOptions[t.value];
     setSelectedOptions(newSelectedOptions);
@@ -98,9 +98,9 @@ function SelectFilter({
     setFilterIsOpen(!filterIsOpen);
   }
 
-  function handleClickOption(e: React.MouseEvent) {
+  function handleClickOption(e: React.MouseEvent<HTMLLIElement>) {
     if (filterIsOpen) {
-      const t = e.currentTarget as HTMLLIElement;
+      const t = e.currentTarget;
       setSelectedOptions(t.value);
       setFilterIsOpen(false);
     }

@@ -1,5 +1,25 @@
 @use "styles/position";
 
+.helper {
+  position: fixed;
+  z-index: 100;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 25px;
+  border-radius: 13px;
+  padding: 4px 12px;
+  font-family: Pretendard, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: -0.05em;
+  background: var(--background-color);
+  color: var(--text-color);
+  opacity: 0;
+}
+
 .container {
   @include position.flex(row, center, space-between);
   width: 420px;
@@ -30,8 +50,27 @@
       height: 12px;
       border-radius: 6px;
       background-color: #c4c4c4;
-      &.active {
+    }
+
+    &:hover .helper {
+      transition: opacity 0.3s;
+      opacity: 1;
+    }
+
+    &.active {
+      .badge {
         background-color: #f0745f;
+      }
+      .helper {
+        --background-color: rgba(240, 116, 95, 0.9);
+        --text-color: rgba(255, 255, 255, 0.9);
+      }
+    }
+
+    &.inactive {
+      .helper {
+        --background-color: rgba(224, 224, 224, 0.9);
+        --text-color: rgba(56, 56, 56, 0.9);
       }
     }
   }
