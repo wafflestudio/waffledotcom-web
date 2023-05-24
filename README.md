@@ -54,7 +54,7 @@
 ```bash
 yarn
 husky install
-husky add .husky/pre-commit "lint-staged --no-stash && yarn build"
+husky add .husky/pre-commit "lint-staged --no-stash --verbose && yarn build"
 ```
 
 ## 테스트 서버 실행
