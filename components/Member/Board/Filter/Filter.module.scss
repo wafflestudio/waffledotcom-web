@@ -23,21 +23,30 @@
     .filter {
       @include position.flex-center(row);
       margin-right: 40px;
+      --color: #C4C4C4;
+      color: var(--color);
       .checkbox {
         display: inline-block;
         box-sizing: border-box;
         position: relative;
         width: 16px;
         height: 16px;
-        border: 1px solid black;
+        border: 1px solid var(--color);
         background-color: white;
         margin-right: 8px;
+        box-shadow: 0 0 0 0 var(--color);
+        transition: box-shadow 0.2s linear;
         .check {
           visibility: hidden;
           position: absolute;
           left: -1px;
           top: -1px;
         }
+      }
+    }
+    .filter:hover {
+      .checkbox {
+        box-shadow: 0 0 0 1px var(--color);
       }
     }
     .filter:last-child {
@@ -47,8 +56,11 @@
     //  width: 77.88px;
     //  white-space: nowrap;
     //}
-    .filter.active .checkbox .check {
-      visibility: visible;
+    .filter.active {
+      --color: black;
+      .check {
+        visibility: visible;
+      }
     }
   }
 }
