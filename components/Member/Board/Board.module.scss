@@ -3,7 +3,7 @@
 @use "../../../styles/position";
 @import "styles/lib";
 
-.container{
+.container {
   @include position.flex-center();
   gap: 6px;
   --container-width: 1300px;
@@ -30,14 +30,14 @@
       margin-right: 36px;
     }
     .description {
-      color: #342D29;
+      color: #342d29;
       font-size: 24px;
       .numberOfMembers {
         display: inline-block;
         font-variant-numeric: tabular-nums;
         font-weight: bold;
         font-size: 48px;
-        color: #F0745F;
+        color: #f0745f;
         padding: 0 4px 0 11px;
       }
     }
@@ -48,7 +48,7 @@
     box-sizing: content-box;
     width: 1150px;
     flex: 0 0 59px;
-    padding: 42px 97px 30px 97px;
+    padding: 42px 75px 30px 75px;
     .filterLine {
       @include position.flex(row, center, space-between);
       width: 100%;
@@ -59,17 +59,61 @@
     }
   }
 
-  .cardContainer {
-    @include position.flex(row, start, start);
-    gap: 15px;
-    flex-wrap: wrap;
-    flex: 1 1 auto;
+  .shadowBox {
     position: relative;
-    box-sizing: border-box;
+    flex: 1 1 auto;
     width: 100%;
     min-height: 300px;
-    padding-left: 0;
     //background-color: #0b4c4f;
-    overflow-y: auto;
+
+    .scrollBox {
+      width: 100%;
+      height: 100%;
+      overflow: scroll;
+
+      .cardContainer {
+        @include position.flex(row, start, start);
+        gap: 15px;
+        flex-wrap: wrap;
+        position: relative;
+        box-sizing: border-box;
+        width: 100%;
+        padding-left: 0;
+        overflow-y: auto;
+      }
+    }
+
+    .shadow {
+      position: absolute;
+      width: 1300px;
+      height: 23px;
+      transition: opacity 0.5s;
+
+      &.top {
+        top: 0;
+        background: linear-gradient(
+          180deg,
+          rgba(138, 138, 138, 0.09) 0%,
+          rgba(255, 255, 255, 0) 77%
+        );
+      }
+
+      &.bottom {
+        bottom: 0;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0) 23%,
+          rgba(138, 138, 138, 0.09) 100%
+        );
+      }
+    }
   }
+}
+
+.active {
+  opacity: 1;
+}
+
+.inactive {
+  opacity: 0;
 }

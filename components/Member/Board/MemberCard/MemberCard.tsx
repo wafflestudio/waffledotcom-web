@@ -1,5 +1,5 @@
 import classNames from "classnames/bind";
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./MemberCard.module.scss";
 
 const cx = classNames.bind(styles);
@@ -14,7 +14,7 @@ export interface MemberType {
 }
 
 interface Props {
-  member: MemberType
+  member: MemberType;
 }
 
 const roleColor: { [key: string]: string } = {
@@ -26,23 +26,19 @@ const roleColor: { [key: string]: string } = {
   운영팀: "#F0745F",
 };
 
-function MemberCard({member: {
-  name,
-  roles,
-  isActive,
-  generation,
-  introduction,
-  githubUrl,
-}}: Props) {
-  const positionShownCount = roles.filter(role => role === "운영팀").length > 0 ? 2 : 1
+function MemberCard({
+  member: { name, roles, isActive, generation, introduction, githubUrl },
+}: Props) {
+  const positionShownCount =
+    roles.filter((role) => role === "운영팀").length > 0 ? 2 : 1;
   const tagsRef = useRef<HTMLDivElement | null>(null);
   const [hoverTags, setHoverTags] = useState(false);
 
-  function handleMouseOverTags(e: MouseEvent) {
+  function handleMouseOverTags() {
     if (roles.length > positionShownCount) setHoverTags(true);
   }
 
-  function handleMouseOutTags(e: MouseEvent) {
+  function handleMouseOutTags() {
     setHoverTags(false);
   }
 
@@ -52,8 +48,8 @@ function MemberCard({member: {
     return () => {
       tagsRef.current?.removeEventListener("mouseover", handleMouseOverTags);
       tagsRef.current?.removeEventListener("mouseout", handleMouseOutTags);
-    }
-  }, [])
+    };
+  }, []);
 
   return (
     <div className={cx("container")}>
@@ -63,7 +59,7 @@ function MemberCard({member: {
           alt={"profileImage"}
           src={"/static/images/DefaultProfileImage.svg"}
         />
-        <div className={cx("badge", isActive ? "active" : "")}/>
+        <div className={cx("badge", isActive ? "active" : "")} />
       </div>
       <div className={cx("profile")}>
         <div className={cx("nameAndLink")}>
@@ -71,21 +67,27 @@ function MemberCard({member: {
         </div>
         <div className={cx("tagsWrapper")}>
           <div className={cx("tags", hoverTags ? "hover" : "")} ref={tagsRef}>
-            <div
-              className={cx("tag")}
-            >
+            <div className={cx("tag")}>
               <span className={cx("tagName")}>{generation}기</span>
             </div>
-            {roles.slice(0, hoverTags ? 100 : positionShownCount).map((role, i) => (
-              <div
-                key={i}
-                className={cx("tag")}
-                style={{ backgroundColor: roleColor[role] }}
-              >
-                <span className={cx("tagName")}>{role}</span>
+            {roles
+              .slice(0, hoverTags ? 100 : positionShownCount)
+              .map((role, i) => (
+                <div
+                  key={i}
+                  className={cx("tag")}
+                  style={{ backgroundColor: roleColor[role] }}
+                >
+                  <span className={cx("tagName")}>{role}</span>
+                </div>
+              ))}
+            {roles.length > positionShownCount && !hoverTags ? (
+              <div className={cx("tag")} style={{ backgroundColor: "#B8B8B8" }}>
+                <span className={cx("tagName")}>
+                  +{roles.length - positionShownCount}
+                </span>
               </div>
-            ))}
-            {roles.length > positionShownCount && !hoverTags ? <div className={cx("tag")} style={{backgroundColor: "#B8B8B8"}}><span className={cx("tagName")}>+{roles.length - positionShownCount}</span></div> : null }
+            ) : null}
           </div>
         </div>
         <div className={cx("introduction")}>{introduction}</div>

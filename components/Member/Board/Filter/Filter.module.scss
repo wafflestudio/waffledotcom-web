@@ -23,7 +23,7 @@
     .filter {
       @include position.flex-center(row);
       margin-right: 40px;
-      --color: #C4C4C4;
+      --color: #c4c4c4;
       color: var(--color);
       .checkbox {
         display: inline-block;
@@ -79,7 +79,7 @@
     }
 
     .option:hover {
-      background-color: #F2F2F2;
+      background-color: #f2f2f2;
     }
 
     .option.selected {
@@ -118,5 +118,4 @@
 }
 
 .container.toggle {
-
 }

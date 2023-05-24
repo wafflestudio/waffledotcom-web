@@ -1,5 +1,5 @@
 import classNames from "classnames/bind";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Filter.module.scss";
 
 const cx = classNames.bind(styles);
@@ -89,7 +89,7 @@ function SelectFilter({
   const [filterIsOpen, setFilterIsOpen] = useState(false);
   const filterState = filterIsOpen ? "open" : "close";
 
-  function handleClickDocument(e: MouseEvent) {
+  function handleClickDocument() {
     setFilterIsOpen(false);
   }
 

@@ -3,9 +3,9 @@ import { useState } from "react";
 import styles from "./Board.module.scss";
 import { CheckBoxFilter, SelectFilter } from "./Filter/Filter";
 import MemberCard, { MemberType } from "./MemberCard/MemberCard";
-import _members from "./members.json"
+import _members from "./members.json";
 
-const members = _members as MemberType[]
+const members = _members as MemberType[];
 
 const cx = classNames.bind(styles);
 
@@ -38,7 +38,7 @@ function Board() {
   const [selectedRoles, setSelectedRoles] = useState<boolean[]>(
     roles.map(() => true),
   );
-  const selectedRoleSet = new Set(roles.filter((role, i) => selectedRoles[i]))
+  const selectedRoleSet = new Set(roles.filter((role, i) => selectedRoles[i]));
 
   const states = ["활동 회원", "비활동 회원"];
   const [selectedStates, setSelectedStates] = useState<boolean[]>(
@@ -47,6 +47,15 @@ function Board() {
 
   const generations = ["19", "19.5", "20", "20.5", "21"];
   const [selectedGeneration, setSelectedGeneration] = useState<number>(-1);
+
+  const [scrollProgress, setScrollProgress] = useState(0);
+  function handleScrollProgress(e: React.UIEvent<HTMLDivElement>) {
+    console.log(scrollProgress);
+    setScrollProgress(
+      e.currentTarget.scrollTop /
+        (e.currentTarget.scrollHeight - e.currentTarget.clientHeight),
+    );
+  }
 
   return (
     <section className={cx("container")}>
@@ -91,12 +100,45 @@ function Board() {
           />
         </div>
       </div>
-      <div className={cx("cardContainer")}>
-        {members
-          .filter(member => member.roles.map(role => selectedRoleSet.has(role)).indexOf(true) !== -1) // role 필터
-          .filter(member => member.isActive && selectedStates[0] || !member.isActive && selectedStates[1]) // 활동회원 필터
-          .filter(member => selectedGeneration === -1 || generations[selectedGeneration] === member.generation) // 기수 필터
-          .map(member => <MemberCard key={member.name} member={member}/>)}
+      <div className={cx("shadowBox")}>
+        <div
+          className={cx(
+            "shadow",
+            "top",
+            scrollProgress !== 0 ? "active" : "inactive",
+          )}
+        />
+        <div className={cx("scrollBox")} onScroll={handleScrollProgress}>
+          <div className={cx("cardContainer")}>
+            {members
+              .filter(
+                (member) =>
+                  member.roles
+                    .map((role) => selectedRoleSet.has(role))
+                    .indexOf(true) !== -1,
+              ) // role 필터
+              .filter(
+                (member) =>
+                  (member.isActive && selectedStates[0]) ||
+                  (!member.isActive && selectedStates[1]),
+              ) // 활동회원 필터
+              .filter(
+                (member) =>
+                  selectedGeneration === -1 ||
+                  generations[selectedGeneration] === member.generation,
+              ) // 기수 필터
+              .map((member) => (
+                <MemberCard key={member.name} member={member} />
+              ))}
+          </div>
+        </div>
+        <div
+          className={cx(
+            "shadow",
+            "bottom",
+            scrollProgress !== 1 ? "active" : "inactive",
+          )}
+        />
       </div>
     </section>
   );
