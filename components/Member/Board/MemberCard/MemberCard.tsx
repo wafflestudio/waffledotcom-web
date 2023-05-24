@@ -43,9 +43,9 @@ function MemberCard({
     setHoverTags(false);
   }
 
-  function handleMouseMoveHelper(e: React.MouseEvent<HTMLDivElement>) {
+  function handleMouseMoveHelper(e: React.MouseEvent<HTMLElement>) {
     if (e.currentTarget.lastChild) {
-      const helper = e.currentTarget.lastChild as HTMLDivElement;
+      const helper = e.currentTarget.lastChild as HTMLElement;
       helper.style.left = `${e.clientX}px`;
       helper.style.top = `${e.clientY - 25}px`;
     }
@@ -70,6 +70,22 @@ function MemberCard({
       <div className={cx("profile")}>
         <div className={cx("nameAndLink")}>
           <div className={cx("name")}>{name}</div>
+          <a
+            className={cx("github")}
+            href={githubUrl}
+            target="_blank"
+            rel="noreferrer"
+            onMouseMove={handleMouseMoveHelper}
+          >
+            <img
+              className={cx("githubSymbol")}
+              alt="githubSymbol"
+              src="/static/images/githubSymbol.svg"
+            />
+            <div className={cx("helper")}>
+              <b>GitHub</b>&nbsp;바로가기
+            </div>
+          </a>
         </div>
         <div className={cx("tagsWrapper")}>
           <div
