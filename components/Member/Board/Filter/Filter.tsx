@@ -1,14 +1,15 @@
 import classNames from "classnames/bind";
 import React, { useEffect, useState } from "react";
 import styles from "./Filter.module.scss";
+import { isA } from "@jest/expect-utils";
 
 const cx = classNames.bind(styles);
 
-interface FilterProps<T> {
+interface CheckBoxFilterProps {
   name: string;
   options: string[];
-  selectedOptions: T;
-  setSelectedOptions: (options: T) => void;
+  selectedOptions: boolean[];
+  setSelectedOptions: (options: boolean[]) => void;
 }
 
 function CheckBoxFilter({
@@ -16,7 +17,7 @@ function CheckBoxFilter({
   options,
   selectedOptions,
   setSelectedOptions,
-}: FilterProps<boolean[]>) {
+}: CheckBoxFilterProps) {
   const [allSelected, setAllSelected] = useState(true);
   function handleClickAllOption(e: React.MouseEvent) {
     e.preventDefault();
@@ -79,13 +80,19 @@ function CheckBoxFilter({
   );
 }
 
+interface SelectFilterProps {
+  name: string;
+  options: string[];
+  selectedOption: number;
+  setSelectedOption: (options: number) => void;
+}
+
 function SelectFilter({
   name,
   options,
-  selectedOptions,
-  setSelectedOptions,
-}: FilterProps<number>) {
-  // const [selectedOptions, setSelectedOptions] = useState(0);
+  selectedOption,
+  setSelectedOption,
+}: SelectFilterProps) {
   const [filterIsOpen, setFilterIsOpen] = useState(false);
   const filterState = filterIsOpen ? "open" : "close";
 
@@ -101,7 +108,7 @@ function SelectFilter({
   function handleClickOption(e: React.MouseEvent<HTMLLIElement>) {
     if (filterIsOpen) {
       const t = e.currentTarget;
-      setSelectedOptions(t.value);
+      setSelectedOption(t.value);
       setFilterIsOpen(false);
     }
   }
@@ -119,7 +126,7 @@ function SelectFilter({
       <div className={cx("filter")} onClick={handleClickFilter}>
         <div className={cx("option", "selected")}>
           <label>
-            {selectedOptions === -1 ? "전체" : options[selectedOptions]}
+            {selectedOption === -1 ? "전체" : options[selectedOption]}
           </label>
           <img
             className={cx("arrow")}
@@ -149,16 +156,39 @@ function SelectFilter({
   );
 }
 
+interface ToggleFilterProps {
+  name: string;
+  activeLabel: string;
+  inactiveLabel: string;
+  isActive: boolean;
+  setIsActive: (options: boolean) => void;
+}
+
 function ToggleFilter({
   name,
-  options,
-  selectedOptions,
-  setSelectedOptions,
-}: FilterProps<boolean>) {
+  activeLabel,
+  inactiveLabel,
+  isActive,
+  setIsActive,
+}: ToggleFilterProps) {
+  function handleClickFilter() {
+    setIsActive(!isActive);
+  }
   return (
     <div className={cx("container", "toggle")}>
       <label className={cx("filterName")}>{name}</label>
-      <div className={cx("filter")}></div>
+      <div
+        className={cx("filter", isActive ? "active" : "inactive")}
+        onClick={handleClickFilter}
+      >
+        <div className={cx("slider")} />
+        <div className={cx("optionWrapper", "inactive")}>
+          <span className={cx("option")}>{inactiveLabel}</span>
+        </div>
+        <div className={cx("optionWrapper", "active")}>
+          <span className={cx("option")}>{activeLabel}</span>
+        </div>
+      </div>
     </div>
   );
 }

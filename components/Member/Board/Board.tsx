@@ -1,7 +1,7 @@
 import classNames from "classnames/bind";
 import { useState } from "react";
 import styles from "./Board.module.scss";
-import { CheckBoxFilter, SelectFilter } from "./Filter/Filter";
+import { CheckBoxFilter, SelectFilter, ToggleFilter } from "./Filter/Filter";
 import MemberCard, { MemberType } from "./MemberCard/MemberCard";
 import _members from "./members.json";
 
@@ -57,6 +57,8 @@ function Board() {
     );
   }
 
+  const [ascendingGeneration, setAscendingGeneration] = useState(true);
+
   return (
     <section className={cx("container")}>
       <div className={cx("header")}>
@@ -87,8 +89,8 @@ function Board() {
           <SelectFilter
             name={"기수 선택"}
             options={generations}
-            selectedOptions={selectedGeneration}
-            setSelectedOptions={setSelectedGeneration}
+            selectedOption={selectedGeneration}
+            setSelectedOption={setSelectedGeneration}
           />
         </div>
         <div className={cx("filterLine", "second")}>
@@ -97,6 +99,13 @@ function Board() {
             options={states}
             selectedOptions={selectedStates}
             setSelectedOptions={setSelectedStates}
+          />
+          <ToggleFilter
+            name={"기수 정렬"}
+            activeLabel={"오름차순"}
+            inactiveLabel={"내림차순"}
+            isActive={ascendingGeneration}
+            setIsActive={setAscendingGeneration}
           />
         </div>
       </div>
@@ -127,6 +136,11 @@ function Board() {
                   selectedGeneration === -1 ||
                   generations[selectedGeneration] === member.generation,
               ) // 기수 필터
+              .sort((m1, m2) =>
+                ascendingGeneration
+                  ? m1.generation.localeCompare(m2.generation)
+                  : m2.generation.localeCompare(m1.generation),
+              )
               .map((member) => (
                 <MemberCard key={member.name} member={member} />
               ))}

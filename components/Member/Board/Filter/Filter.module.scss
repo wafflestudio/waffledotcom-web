@@ -3,6 +3,8 @@
 @use "styles/position";
 @import "styles/lib";
 
+$hover-animation: box-shadow 0.2s linear;
+
 .container {
   @include position.flex(row, center, start);
   position: relative;
@@ -35,7 +37,7 @@
         background-color: white;
         margin-right: 8px;
         box-shadow: 0 0 0 0 var(--color);
-        transition: box-shadow 0.2s linear;
+        transition: $hover-animation;
         .check {
           visibility: hidden;
           position: absolute;
@@ -123,4 +125,68 @@
 }
 
 .container.toggle {
+  .filter {
+    position: relative;
+    box-sizing: border-box;
+    width: 90px;
+    height: 25px;
+    border: 1px solid black;
+    border-radius: 13px;
+    transition: $hover-animation;
+    .slider {
+      position: absolute;
+      top: 2px;
+      width: 19px;
+      height: 19px;
+      background: black;
+      border-radius: 15px;
+      transition: right 0.5s ease;
+    }
+    .optionWrapper {
+      position: absolute;
+      top: 3px;
+      width: 74px;
+      height: 100%;
+      transition: width 0.5s ease;
+      overflow: hidden;
+      .option {
+        position: absolute;
+        font-size: 14px;
+        line-height: 17px;
+        letter-spacing: -0.05em;
+        white-space: nowrap;
+      }
+      &.active {
+        left: 7px;
+        .option {
+          left: 0;
+        }
+      }
+      &.inactive {
+        right: 7px;
+        .option {
+          right: 0;
+        }
+      }
+    }
+  }
+  .filter.active {
+    .slider {
+      right: 2px;
+    }
+    .optionWrapper.inactive {
+      width: 0;
+    }
+  }
+  .filter.inactive {
+    .slider {
+      right: 67px;
+    }
+    .optionWrapper.active {
+      width: 0;
+    }
+  }
+  .filter:hover {
+    box-shadow: 0 0 0 1px black;
+  }
 }
