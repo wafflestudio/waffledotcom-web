@@ -43,6 +43,11 @@
           top: -1px;
         }
       }
+      .option {
+        font-size: 20px;
+        line-height: 25px;
+        letter-spacing: -0.05em;
+      }
     }
     .filter:hover {
       .checkbox {
@@ -52,10 +57,10 @@
     .filter:last-child {
       margin-right: 0;
     }
-    //.filter:nth-child(2) {
-    //  width: 77.88px;
-    //  white-space: nowrap;
-    //}
+    .filter:nth-child(2) .option {
+      width: 49px;
+      white-space: nowrap;
+    }
     .filter.active {
       --color: black;
       .check {
