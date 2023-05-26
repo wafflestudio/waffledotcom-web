@@ -21,7 +21,6 @@
     @include position.flex(row, $align: center, $justify: start);
     width: 100%;
     flex: 0 0 auto;
-    padding-left: 6px;
     .title {
       font-weight: 700;
       font-size: 48px;
@@ -73,11 +72,11 @@
 
       .cardContainer {
         @include position.flex(row, start, start);
-        gap: 15px;
+        gap: 20px;
         flex-wrap: wrap;
         position: relative;
         box-sizing: border-box;
-        width: 100%;
+        width: 1276px;
         padding-left: 0;
         overflow-y: auto;
       }
@@ -88,6 +87,7 @@
       width: 1300px;
       height: 23px;
       transition: opacity 0.5s;
+      z-index: 2;
 
       &.top {
         top: 0;
