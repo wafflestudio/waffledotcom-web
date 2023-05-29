@@ -1,5 +1,5 @@
-@use "../../../styles/font";
-
+@use "./styles/font";
+@use "./styles/lib";
 $header-height: 75px;
 
 .container {
@@ -22,7 +22,7 @@ $header-height: 75px;
     .bgText {
       @include font.nico-moji;
       text-align: center;
-      font-size: 420px;
+      font-size: lib.px2vh(480px);
       font-weight: 400;
       line-height: 70%;
       color: #fdf2dc40;
