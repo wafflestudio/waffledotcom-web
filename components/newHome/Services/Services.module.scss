@@ -185,6 +185,7 @@ $carousel-length: 3;
           > .carousel-items-container {
             display: flex;
             transition: 0.5s;
+            gap: 100px;
             > .carousel-item {
               flex: none;
               display: flex;
@@ -221,7 +222,7 @@ $carousel-length: 3;
 
           @for $i from 1 through $carousel-length {
             > .carousel-items-container.state-#{$i} {
-              transform: translateX(calc(528px) * -($i - 1));
+              transform: translateX(calc(628px) * -($i - 1));
             }
           }
           > .carousel-items-container.state-1 {
