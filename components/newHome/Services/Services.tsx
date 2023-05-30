@@ -1,6 +1,7 @@
 import classNames from "classnames/bind";
 import { useNavigatorScroll } from "../../Home/scroll";
 import Image from "next/image";
+import foregroundBorder from "../../../public/static/images/newHome/progress_foreground_border.svg";
 import styles from "./Services.module.scss";
 import { useEffect, useState } from "react";
 
@@ -64,31 +65,25 @@ function ProgressBox({
   isPlaying: boolean;
   toggleIsPlaying: () => void;
 }) {
+  const [timeCount, setTimeCount] = useState<number>(0);
+
+  useEffect(() => {
+    if (timeCount === 3000) {
+      setTimeCount(0);
+      increaseIndex();
+    }
+  }, [timeCount, increaseIndex]);
+
   useEffect(() => {
     if (isPlaying) {
-      const interval1 = setInterval(increaseIndex, 3000);
+      const interval = setInterval(() => {
+        setTimeCount((prev) => prev + 5);
+      }, 5);
       return () => {
-        clearInterval(interval1);
+        clearInterval(interval);
       };
     }
-  }, [isPlaying, increaseIndex]);
-
-  const renderPlayButtonBorderPieces = () => {
-    const result = [];
-    for (let i = 1; i <= 360; i++) {
-      result.push(
-        <div key={i} className={cx(`foreground-border-piece-index-${i}`)}>
-          <Image
-            src="/static/images/newHome/play_button_border_piece.svg"
-            alt="border piece"
-            width="29px"
-            height="29px"
-          />
-        </div>,
-      );
-    }
-    return result;
-  };
+  }, [isPlaying]);
 
   return (
     <div className={cx("progress-box", `state-${serviceIndex}`)}>
@@ -106,8 +101,21 @@ function ProgressBox({
         onClick={toggleIsPlaying}
       >
         <div className={cx("border", "background-border")}></div>
-        {renderPlayButtonBorderPieces()}
         {/* TODO: 타이머 애니메이션 미완 */}
+        <div className={cx("foreground-border")}>
+          <svg
+            width="29"
+            height="29"
+            viewBox="0 0 29 29"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M28.4655 14.4828C28.4655 22.2052 22.2052 28.4655 14.4828 28.4655C6.76029 28.4655 0.5 22.2052 0.5 14.4828C0.5 6.76029 6.76029 0.5 14.4828 0.5C22.2052 0.5 28.4655 6.76029 28.4655 14.4828Z"
+              stroke="#F0745F"
+            />
+          </svg>
+        </div>
       </button>
     </div>
   );
@@ -213,7 +221,7 @@ export default function Services() {
     anchorId: "services",
   });
   const [serviceIndex, setServiceIndex] = useState<number>(1);
-  const [isPlaying, setIsPlaying] = useState<boolean>(true);
+  const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const increaseIndex = () => {
     setServiceIndex((prev) => (prev % serviceDataArrayLength) + 1);
   };
