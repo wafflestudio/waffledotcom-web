@@ -222,12 +222,22 @@ export default function Services() {
   });
   const [serviceIndex, setServiceIndex] = useState<number>(1);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
+
   const increaseIndex = useCallback(() => {
     setServiceIndex((prev) => (prev % carouselItemDataList.length) + 1);
   }, [setServiceIndex]);
   const decreaseIndex = useCallback(() => {
     setServiceIndex((prev) => ((prev + 1) % carouselItemDataList.length) + 1);
   }, [setServiceIndex]);
+
+  useEffect(() => {
+    if (state.currentSection === "services") {
+      setIsPlaying(true);
+    } else {
+      setIsPlaying(false);
+    }
+  }, [state, setIsPlaying]);
+
   return (
     <section
       className={cx("container", { off: state.currentSection !== "services" })}
