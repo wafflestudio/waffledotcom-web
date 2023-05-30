@@ -75,8 +75,8 @@ function ProgressBox({
   useEffect(() => {
     if (isPlaying) {
       const interval = setInterval(() => {
-        setTimeCount((prev) => prev + 5);
-      }, 5);
+        setTimeCount((prev) => prev + 50);
+      }, 50);
       return () => {
         clearInterval(interval);
       };
