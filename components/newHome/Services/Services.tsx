@@ -7,7 +7,7 @@ import { useCallback, useEffect, useState } from "react";
 
 const cx = classNames.bind(styles);
 
-type TServiceData = {
+type TCarouselItemData = {
   // TODO: enum으로
   serviceName: string;
   serviceLink: string;
@@ -19,7 +19,7 @@ type TServiceData = {
   serviceDescription: string;
 };
 
-const serviceDataArray: TServiceData[] = [
+const carouselItemDataList: TCarouselItemData[] = [
   {
     serviceName: "snutt",
     serviceLink: "https://wafflestudio.com",
@@ -92,7 +92,7 @@ function ProgressBox({
       <div className={cx("index-wrapper")}>
         <p className={cx("index", "current-index")}>{serviceIndex}</p>
         <div className={cx("divider")}></div>
-        <p className={cx("index")}>{serviceDataArray.length}</p>
+        <p className={cx("index")}>{carouselItemDataList.length}</p>
       </div>
       <button
         className={cx("play-button", isPlaying ? "playing" : "stopped")}
@@ -119,7 +119,7 @@ function ProgressBox({
   );
 }
 
-function CarouselItem({ serviceData }: { serviceData: TServiceData }) {
+function CarouselItem({ serviceData }: { serviceData: TCarouselItemData }) {
   const {
     serviceLink,
     serviceLogo,
@@ -186,9 +186,11 @@ function Carousel({
         <div
           className={cx("carousel-items-container", `state-${serviceIndex}`)}
         >
-          {serviceDataArray.map((serviceData: TServiceData, index: number) => (
-            <CarouselItem key={index} serviceData={serviceData} />
-          ))}
+          {carouselItemDataList.map(
+            (serviceData: TCarouselItemData, index: number) => (
+              <CarouselItem key={index} serviceData={serviceData} />
+            ),
+          )}
         </div>
       </div>
       <button
@@ -221,10 +223,10 @@ export default function Services() {
   const [serviceIndex, setServiceIndex] = useState<number>(1);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const increaseIndex = useCallback(() => {
-    setServiceIndex((prev) => (prev % serviceDataArray.length) + 1);
+    setServiceIndex((prev) => (prev % carouselItemDataList.length) + 1);
   }, [setServiceIndex]);
   const decreaseIndex = useCallback(() => {
-    setServiceIndex((prev) => ((prev + 1) % serviceDataArray.length) + 1);
+    setServiceIndex((prev) => ((prev + 1) % carouselItemDataList.length) + 1);
   }, [setServiceIndex]);
   return (
     <section
