@@ -3,7 +3,7 @@ import { useNavigatorScroll } from "../../Home/scroll";
 import Image from "next/image";
 import foregroundBorder from "../../../public/static/images/newHome/progress_foreground_border.svg";
 import styles from "./Services.module.scss";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 const cx = classNames.bind(styles);
 
@@ -52,8 +52,6 @@ const serviceDataArray: TServiceData[] = [
   },
 ];
 
-const serviceDataArrayLength: number = serviceDataArray.length;
-
 function ProgressBox({
   serviceIndex,
   increaseIndex,
@@ -94,7 +92,7 @@ function ProgressBox({
       <div className={cx("index-wrapper")}>
         <p className={cx("index", "current-index")}>{serviceIndex}</p>
         <div className={cx("divider")}></div>
-        <p className={cx("index")}>{serviceDataArrayLength}</p>
+        <p className={cx("index")}>{serviceDataArray.length}</p>
       </div>
       <button
         className={cx("play-button", isPlaying ? "playing" : "stopped")}
@@ -222,12 +220,12 @@ export default function Services() {
   });
   const [serviceIndex, setServiceIndex] = useState<number>(1);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
-  const increaseIndex = () => {
-    setServiceIndex((prev) => (prev % serviceDataArrayLength) + 1);
-  };
-  const decreaseIndex = () => {
-    setServiceIndex((prev) => ((prev + 1) % serviceDataArrayLength) + 1);
-  };
+  const increaseIndex = useCallback(() => {
+    setServiceIndex((prev) => (prev % serviceDataArray.length) + 1);
+  }, [setServiceIndex]);
+  const decreaseIndex = useCallback(() => {
+    setServiceIndex((prev) => ((prev + 1) % serviceDataArray.length) + 1);
+  }, [setServiceIndex]);
   return (
     <section
       className={cx("container", { off: state.currentSection !== "services" })}
