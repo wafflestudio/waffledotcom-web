@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 
 const cx = classNames.bind(styles);
 
-type TserviceData = {
+type TServiceData = {
   // TODO: enum으로
   serviceName: string;
   serviceLink: string;
@@ -19,7 +19,7 @@ type TserviceData = {
   serviceDescription: string;
 };
 
-const serviceDataArray: TserviceData[] = [
+const serviceDataArray: TServiceData[] = [
   {
     serviceName: "snutt",
     serviceLink: "https://wafflestudio.com",
@@ -121,7 +121,7 @@ function ProgressBox({
   );
 }
 
-function CarouselItem({ serviceData }: { serviceData: TserviceData }) {
+function CarouselItem({ serviceData }: { serviceData: TServiceData }) {
   const {
     serviceLink,
     serviceLogo,
@@ -188,7 +188,7 @@ function Carousel({
         <div
           className={cx("carousel-items-container", `state-${serviceIndex}`)}
         >
-          {serviceDataArray.map((serviceData: TserviceData, index: number) => (
+          {serviceDataArray.map((serviceData: TServiceData, index: number) => (
             <CarouselItem key={index} serviceData={serviceData} />
           ))}
         </div>
