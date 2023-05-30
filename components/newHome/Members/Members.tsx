@@ -82,7 +82,7 @@ export default function Members() {
                       자율적으로 팀을 구성하여 활동합니다.
                     </li>
                     <li className={cx("description")}>
-                      상시 모집{"("}개발 실무 경험자{")"}
+                      개발 실무 경험이 있을 경우 상시 모집
                     </li>
                   </ul>
                 </div>
