@@ -1,0 +1,71 @@
+@import "../../../styles/lib";
+
+$carousel-length: 3;
+
+.carousel {
+  position: relative;
+  margin-top: calc(75px + px2vh(130px));
+  display: flex;
+  align-items: center;
+  gap: px2vw(75px);
+
+  > .carousel-button {
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+  > .carousel-frame {
+    width: 528px;
+    height: 584px;
+    background-color: transparent;
+    overflow-x: hidden;
+    // overflow-y: hidden;
+    > .carousel-items-container {
+      display: flex;
+      transition: 0.5s;
+      gap: 100px;
+      > .carousel-item {
+        flex: none;
+        display: flex;
+        width: 528px;
+        height: 582px;
+        align-items: center;
+        gap: px2vw(54px);
+        > .left {
+          > .service-icon {
+            display: block;
+          }
+          > .service-name {
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 0.04em;
+            line-height: 160%;
+            color: #323232;
+            text-align: center;
+            margin: -2px 0;
+          }
+          > .description {
+            font-size: 16px;
+            letter-spacing: 0.04em;
+            line-height: 160%;
+            color: #737373;
+            text-align: center;
+          }
+        }
+        > .phone {
+          display: block;
+        }
+      }
+    }
+
+    @for $i from 1 through $carousel-length {
+      > .carousel-items-container.state-#{$i} {
+        transform: translateX(calc(628px) * -($i - 1));
+      }
+    }
+    > .carousel-items-container.state-1 {
+      transition: 1s;
+    }
+  }
+}
