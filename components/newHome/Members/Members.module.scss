@@ -7,6 +7,8 @@
   height: 100vh;
   opacity: 1;
   transition: 0.5s ease;
+  position: relative;
+  z-index: 100;
 
   * {
     @include font.pretendard;
