@@ -126,34 +126,44 @@ $carousel-length: 3;
               border: 1px solid #e0e0e0;
               border-radius: 14.5px;
             }
-            @for $i from 1 through 360 {
-              > .foreground-border-piece-index-#{$i} {
-                position: absolute;
-                width: 29px;
-                height: 29px;
-                transition-duration: calc(3s / 360);
-                transform: rotate(calc(1deg * ($i - 1)));
+            > .foreground-border {
+              @include position.flex-center;
+              z-index: 1;
+              > svg {
+                stroke-dasharray: 88;
+                stroke-dashoffset: 88;
+                transform: rotate(-90deg);
+                animation-name: ani;
+                animation-duration: 3s;
+                animation-timing-function: linear;
+                animation-delay: 0s;
+                animation-play-state: paused;
+                animation-iteration-count: infinite;
+              }
+              @keyframes ani {
+                0% {
+                  stroke-dashoffset: 88;
+                }
+                100% {
+                  stroke-dashoffset: 0;
+                }
               }
             }
           }
           > .play-button.playing {
             width: 29px;
             background-image: url("/static/images/newHome/stop_button_icon.svg");
-            @for $i from 1 through 360 {
-              > .foreground-border-piece-index-#{$i} {
-                transition-delay: calc(3s / 360 * ($i - 1));
-                opacity: 1;
+            > .foreground-border {
+              > svg {
+                animation-play-state: running;
               }
             }
           }
           > .play-button.stopped {
             width: 31px;
             background-image: url("/static/images/newHome/play_button_icon.svg");
-            @for $i from 1 through 360 {
-              > .foreground-border-piece-index-#{$i} {
-                transition-delay: 0s;
-                opacity: 0;
-              }
+            > svg {
+              animation-play-state: paused;
             }
           }
         }
