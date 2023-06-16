@@ -3,13 +3,18 @@
   top: 0;
   left: 0;
   width: 100%;
+  min-width: 1300px;
   height: 75px;
   background-color: white;
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 927px;
   z-index: 999;
+  .content {
+    width: 1300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
   .logo {
     > img {
       height: 27px;
