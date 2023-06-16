@@ -1,0 +1,64 @@
+@use "./styles/font";
+@use "../../../styles/position";
+@import "../../../styles/lib";
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  opacity: 1;
+  transition: 0.5s ease;
+
+  * {
+    @include font.pretendard;
+  }
+
+  > .background {
+    @include position.fixed-background;
+    background-color: #fff;
+  }
+
+  > .foreground {
+    @include position.fixed-foreground;
+    > .content-wrapper {
+      width: 1300px;
+      min-width: 1300px;
+      margin: 0 auto;
+      display: flex;
+      gap: px2vw(230px);
+      > .texts {
+        margin-top: calc(75px + px2vh(295px));
+        > .title {
+          font-size: 50px;
+          font-weight: bold;
+          color: #323232;
+        }
+        > .description {
+          margin-top: px2vh(22px);
+          font-size: 24px;
+          color: #737373;
+          line-height: 160%;
+          letter-spacing: 0.04em;
+        }
+        > .more-button {
+          display: inline-flex;
+          gap: px2vw(29px);
+          margin-top: px2vh(23px);
+          padding: px2vh(5px) px2vw(9px);
+          border: 1px solid #a4a4a4;
+          > p {
+            font-size: 14px;
+            font-weight: 500;
+            color: #a4a4a4;
+            height: px2vh(25px);
+            line-height: px2vh(25px);
+          }
+        }
+      }
+    }
+  }
+}
+
+.off {
+  opacity: 0;
+  visibility: hidden;
+}

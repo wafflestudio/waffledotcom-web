@@ -5,6 +5,8 @@ import ScrollNavigator from "../../components/common/Scroll/ScrollNavigator";
 import { useNavigatorScroll } from "../../components/Home/scroll";
 import Main from "../../components/newHome/Main/Main";
 import About from "../../components/newHome/About/About";
+import Services from "../../components/newHome/Services/Services";
+import Members from "../../components/newHome/Members/Members";
 import styles from "./Home.module.scss";
 
 const cx = classNames.bind(styles);
@@ -93,8 +95,8 @@ export default function Home() {
       <Header />
       <Main />
       <About />
-      <TestServices />
-      <TestMembers />
+      <Services />
+      <Members />
       <TestActivity />
       <ScrollNavigator />
     </main>
