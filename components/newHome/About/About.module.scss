@@ -11,12 +11,14 @@
     height: 100%;
     bottom: 0;
     left: 0;
-    background-color: #f0745f;
+    background-color: #ffffff;
+    transition: 0.5s ease;
   }
 
   .foreground {
     position: fixed;
     width: 100%;
+    min-width: 1300px;
     height: 100%;
     bottom: 0;
     left: 0;
@@ -28,7 +30,7 @@
       display: flex;
       justify-content: center;
       gap: 365px;
-      color: #ffffff;
+      color: #000000;
       .name {
         > h1 {
           font-size: 82px;
@@ -56,8 +58,13 @@
           > p {
             font-weight: 400;
             font-size: 18px;
-            line-height: 170%;
+            line-height: 34px;
             letter-spacing: 0.04em;
+
+            .underline {
+              text-decoration: underline;
+              cursor: pointer;
+            }
           }
         }
       }
@@ -68,4 +75,13 @@
 .off {
   opacity: 0;
   visibility: hidden;
+}
+
+.red {
+  .background {
+    background-color: #f0745f;
+  }
+  .content {
+    color: #ffffff;
+  }
 }
