@@ -7,6 +7,7 @@ import Main from "../../components/newHome/Main/Main";
 import About from "../../components/newHome/About/About";
 import Services from "../../components/newHome/Services/Services";
 import Members from "../../components/newHome/Members/Members";
+import Activity from "../../components/newHome/Activity/Activity";
 import styles from "./Home.module.scss";
 
 const cx = classNames.bind(styles);
@@ -97,7 +98,7 @@ export default function Home() {
       <About />
       <Services />
       <Members />
-      <TestActivity />
+      <Activity />
       <ScrollNavigator />
     </main>
   );

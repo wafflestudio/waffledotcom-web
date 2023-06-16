@@ -3,11 +3,19 @@
   top: 0;
   left: 0;
   width: 100%;
+<<<<<<< HEAD
+=======
   min-width: 1300px;
+>>>>>>> main
   height: 75px;
   background-color: white;
   display: flex;
   justify-content: center;
+<<<<<<< HEAD
+  align-items: center;
+  gap: 927px;
+  z-index: 999;
+=======
   z-index: 999;
   .content {
     width: 1300px;
@@ -15,6 +23,7 @@
     align-items: center;
     justify-content: space-between;
   }
+>>>>>>> main
   .logo {
     > img {
       height: 27px;
