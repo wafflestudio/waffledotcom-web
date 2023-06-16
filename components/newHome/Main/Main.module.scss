@@ -1,0 +1,87 @@
+@use "./styles/font";
+@use "./styles/lib";
+$header-height: 75px;
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  opacity: 1;
+  transition: 0.5s ease;
+  .background {
+    position: fixed;
+    width: 100%;
+
+    height: 100%;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    pointer-events: none;
+
+    .bgText {
+      @include font.nico-moji;
+      text-align: center;
+      font-size: lib.px2vh(480px);
+      font-weight: 400;
+      line-height: 70%;
+      color: #fdf2dc40;
+    }
+  }
+  .logoWrapper {
+    @include font.pretendard;
+    position: fixed;
+    width: 100%;
+    min-width: 1300px;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .subLogo {
+      font-size: 40px;
+      font-weight: 500;
+      line-height: 100%;
+      letter-spacing: 0.36em;
+      color: #595959;
+    }
+    .mainLogo {
+      font-size: 150px;
+      font-weight: 700;
+      line-height: 100%;
+      letter-spacing: 0.1em;
+      color: #242424;
+    }
+  }
+  .buttonWrapper {
+    position: fixed;
+    margin: auto;
+    width: 100%;
+    min-width: 1300px;
+    bottom: 53px;
+    display: flex;
+    justify-content: center;
+    .button {
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 17px;
+    }
+    .label {
+      @include font.fredoka;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 100%;
+      text-align: center;
+      letter-spacing: 0.05em;
+    }
+  }
+}
+
+.off {
+  opacity: 0;
+  visibility: hidden;
+}
