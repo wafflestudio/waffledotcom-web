@@ -99,13 +99,13 @@
     }
 
     .tagsWrapper {
-      width: 100%;
+      max-width: 100%;
       height: 21px;
       z-index: 1;
     }
     .tags {
       @include position.flex(row, center, start);
-      width: 100%;
+      max-width: 100%;
       border-radius: 5px;
       background-color: #ffffff;
       gap: 7px;
