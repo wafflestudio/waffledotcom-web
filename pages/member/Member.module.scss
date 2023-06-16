@@ -1,0 +1,6 @@
+@import "styles/lib";
+
+.container {
+  width: px2vw(1920px);
+  height: calc(px2vh(1080px) - 75px);
+}
