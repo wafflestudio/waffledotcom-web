@@ -1,5 +1,4 @@
 import classNames from "classnames/bind";
-import useWaffleScroll from "../../../library/deprecated/waffleScroll";
 import IntroductionHead from "../common/IntroductionHead/IntroductionHead";
 import IntroductionCarousel from "../common/IntroductionCarousel/IntroductionCarousel";
 import { useServiceScroll } from "../serviceScroll";
