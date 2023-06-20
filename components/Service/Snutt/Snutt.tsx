@@ -20,63 +20,61 @@ function Snutt() {
   });
 
   return (
-    <>
-      <section
-        className={cx("container", {
-          available: state.currentService === "snutt",
-        })}
-        ref={targetRef}
-      >
-        <div className={cx("background")}>
-          <div className={cx("lineWrap")}>
-            <div className={cx("blockLine")}>
-              <div className={cx("block1")}></div>
-              <div className={cx("block2")}></div>
-            </div>
-            <div className={cx("blockLine")}>
-              <div className={cx("block3")}></div>
-              <div className={cx("block4")}></div>
-            </div>
+    <section
+      className={cx("container", {
+        available: state.currentService === "snutt",
+      })}
+      ref={targetRef}
+    >
+      <div className={cx("background")}>
+        <div className={cx("lineWrap")}>
+          <div className={cx("blockLine")}>
+            <div className={cx("block1")}></div>
+            <div className={cx("block2")}></div>
           </div>
-          <div className={cx("lineWrap")}>
-            <div className={cx("blockLine")}>
-              <div className={cx("block5")}></div>
-            </div>
-            <div className={cx("blockLine")}>
-              <div className={cx("block6")}></div>
-              <div className={cx("block7")}></div>
-            </div>
+          <div className={cx("blockLine")}>
+            <div className={cx("block3")}></div>
+            <div className={cx("block4")}></div>
           </div>
         </div>
-        <div className={cx("introduction")}>
-          <IntroductionHead
-            logo={"/static/images/logo/snutt_logo.svg"}
-            title={"SNUTT"}
-            des={[
-              "SNUTT는 서울대학교 시간표 어플입니다.",
-              "SNUTT는 서울대학교 대표 시간표 어플입니다.",
-              "SNUTT는 서울대학교 시간표 어플입니다.",
-            ]}
-            textColor="black"
-            links={[
-              "https://www.wafflestudio.com/",
-              "https://www.wafflestudio.com/",
-              "https://www.wafflestudio.com/",
-            ]}
-          />
-          <IntroductionCarousel
-            carouselImages={[
-              "/static/images/dummy/coMo.png",
-              "/static/images/dummy/seminar.png",
-              "/static/images/dummy/Untitled.png",
-              "/static/images/dummy/seminar.png",
-              "/static/images/dummy/coMo.png",
-              "/static/images/dummy/mobile.png",
-            ]}
-          />
+        <div className={cx("lineWrap")}>
+          <div className={cx("blockLine")}>
+            <div className={cx("block5")}></div>
+          </div>
+          <div className={cx("blockLine")}>
+            <div className={cx("block6")}></div>
+            <div className={cx("block7")}></div>
+          </div>
         </div>
-      </section>
-    </>
+      </div>
+      <div className={cx("introduction")}>
+        <IntroductionHead
+          logo={"/static/images/logo/snutt_logo.svg"}
+          title={"SNUTT"}
+          des={[
+            "SNUTT는 서울대학교 시간표 어플입니다.",
+            "SNUTT는 서울대학교 대표 시간표 어플입니다.",
+            "SNUTT는 서울대학교 시간표 어플입니다.",
+          ]}
+          textColor="black"
+          links={[
+            "https://www.wafflestudio.com/",
+            "https://www.wafflestudio.com/",
+            "https://www.wafflestudio.com/",
+          ]}
+        />
+        <IntroductionCarousel
+          carouselImages={[
+            "/static/images/dummy/coMo.png",
+            "/static/images/dummy/seminar.png",
+            "/static/images/dummy/Untitled.png",
+            "/static/images/dummy/seminar.png",
+            "/static/images/dummy/coMo.png",
+            "/static/images/dummy/mobile.png",
+          ]}
+        />
+      </div>
+    </section>
   );
 }
 
