@@ -2,21 +2,32 @@ import classNames from "classnames/bind";
 import useWaffleScroll from "../../../library/deprecated/waffleScroll";
 import IntroductionHead from "../common/IntroductionHead/IntroductionHead";
 import IntroductionCarousel from "../common/IntroductionCarousel/IntroductionCarousel";
+import { useServiceScroll } from "../serviceScroll";
 import styles from "./Snutt.module.scss";
 
 const cx = classNames.bind(styles);
 
 function Snutt() {
-  const { ref, scrollState } = useWaffleScroll(
-    ({ toggleState }) => {
-      toggleState(0.75, 2.7, "available");
+  const { targetRef, state } = useServiceScroll({
+    callback: ({ progress, getState, setState }) => {
+      if (progress > 0.75 && progress < 2.7) {
+        if (getState().currentService !== "snutt")
+          setState({ currentService: "snutt" });
+      } else {
+        if (progress <= 0.75 && getState().currentService === "snutt")
+          setState({ currentService: "none" });
+      }
     },
-    { available: false },
-  );
+  });
 
   return (
     <>
-      <section className={cx("container", scrollState)} ref={ref}>
+      <section
+        className={cx("container", {
+          available: state.currentService === "snutt",
+        })}
+        ref={targetRef}
+      >
         <div className={cx("background")}>
           <div className={cx("lineWrap")}>
             <div className={cx("blockLine")}>

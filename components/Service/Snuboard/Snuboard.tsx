@@ -1,21 +1,28 @@
 import classNames from "classnames/bind";
-import useWaffleScroll from "../../../library/deprecated/waffleScroll";
 import IntroductionHead from "../common/IntroductionHead/IntroductionHead";
 import IntroductionCarousel from "../common/IntroductionCarousel/IntroductionCarousel";
+import { useServiceScroll } from "../serviceScroll";
 import styles from "./Snuboard.module.scss";
 
 const cx = classNames.bind(styles);
 
 function Snuboard() {
-  const { ref, scrollState } = useWaffleScroll(
-    ({ toggleState }) => {
-      toggleState(0.75, 2.7, "available");
+  const { targetRef, state } = useServiceScroll({
+    callback: ({ progress, getState, setState }) => {
+      if (progress > 0.75 && progress < 2.7) {
+        if (getState().currentService !== "snuboard")
+          setState({ currentService: "snuboard" });
+      }
     },
-    { available: false },
-  );
+  });
 
   return (
-    <section className={cx("container", scrollState)} ref={ref}>
+    <section
+      className={cx("container", {
+        available: state.currentService === "snuboard",
+      })}
+      ref={targetRef}
+    >
       <div className={cx("background")}>
         <div className={cx("bars")}>
           {/* 아래 array [0, ..., 7]은 map을 돌리기 위한 임의 array */}

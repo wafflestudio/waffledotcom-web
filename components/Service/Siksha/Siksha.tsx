@@ -1,21 +1,29 @@
 import classNames from "classnames/bind";
-import useWaffleScroll from "../../../library/waffleScroll";
 import IntroductionCarousel from "../common/IntroductionCarousel/IntroductionCarousel";
 import IntroductionHead from "../common/IntroductionHead/IntroductionHead";
+import { useServiceScroll } from "../serviceScroll";
 import styles from "./Siksha.module.scss";
 
 const cx = classNames.bind(styles);
 
 function Siksha() {
-  const { ref, scrollState } = useWaffleScroll(
-    ({ toggleState }) => {
-      toggleState(0.75, 3, "available");
+  const { targetRef, state } = useServiceScroll({
+    callback: ({ progress, getState, setState }) => {
+      if (progress > 0.75 && progress < 3) {
+        if (getState().currentService !== "siksha")
+          setState({ currentService: "siksha" });
+      }
     },
-    { available: false },
-  );
+  });
+
   return (
     <>
-      <section className={cx("container", scrollState)} ref={ref}>
+      <section
+        className={cx("container", {
+          available: state.currentService === "siksha",
+        })}
+        ref={targetRef}
+      >
         <div className={cx("background")}>
           <div className={cx("leftContainer")}>
             <img
