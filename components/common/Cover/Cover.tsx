@@ -3,7 +3,7 @@
 import classNames from "classnames/bind";
 import { usePathname } from "next/navigation";
 import Link from "../WaffleLink";
-import useWaffleScroll from "../../../library/waffleScroll";
+import useWaffleScroll from "../../../library/deprecated/waffleScroll";
 import styles from "./Cover.module.scss";
 
 const cx = classNames.bind(styles);

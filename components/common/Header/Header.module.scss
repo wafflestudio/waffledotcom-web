@@ -1,0 +1,44 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-width: 1300px;
+  height: 75px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 927px;
+  z-index: 999;
+  .content {
+    width: 1300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo {
+    > img {
+      height: 27px;
+    }
+  }
+
+  .tabNavigator {
+    display: flex;
+    gap: 73px;
+    padding: 0;
+    cursor: pointer;
+    .tabItem {
+      font-family: "Pretendard", sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 21px;
+      color: #323232;
+      &.selected {
+        font-weight: 600;
+        color: #f0745f;
+      }
+    }
+  }
+}

@@ -1,0 +1,87 @@
+.ScrollNavigator {
+  position: fixed;
+  top: 0;
+  right: 74px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+  z-index: 999;
+
+  .list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 50px;
+    .item {
+      > button {
+        height: 17px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 11px;
+        pointer-events: auto;
+        cursor: pointer;
+        background: none;
+        border: none;
+      }
+      .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        border: 1px solid #ed8573;
+        transform: translateX(-2.5px);
+        transition: 0.2s ease;
+      }
+      .label {
+        visibility: hidden;
+        color: #f0745f;
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 17px;
+      }
+      &.current {
+        .dot {
+          width: 17px;
+          height: 17px;
+          background-color: #ed8573;
+          transform: translateX(0px);
+        }
+      }
+      &:hover {
+        .dot {
+          width: 17px;
+          height: 17px;
+          background-color: #ed8573;
+          transform: translateX(0px);
+        }
+        .label {
+          visibility: visible;
+        }
+      }
+    }
+  }
+
+  /** section 별 색상 변화 **/
+  /*
+  &.about {
+    .dot {
+      border-color: #ffffff !important;
+    }
+    .label {
+      color: #ffffff !important;
+    }
+    .current .dot {
+      background-color: #ffffff !important;
+    }
+    .item:hover {
+      .dot {
+        background-color: #ffffff !important;
+      }
+    }
+  }
+   */
+}

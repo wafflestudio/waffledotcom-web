@@ -50,10 +50,13 @@
 - node.js
 - yarn
 
-## 설치
+## 개발 환경 세팅
 ```bash
 yarn
+husky install
+husky add .husky/pre-commit "lint-staged --no-stash --verbose && yarn build"
 ```
+- 윈도우의 경우 "yarn lint-staged --no-stash --verbose && yarn build"를 사용
 
 ## 테스트 서버 실행
 
@@ -94,7 +97,7 @@ yarn dev
 개발 된/개발 중인 라이브러리는 이후의 개발자들을 위해 간단한 README 문서를 반드시 작성해두어야 합니다. 
 
 현재 개발중인 라이브러리의 목록은 다음과 같습니다. (개발 시 직접 추가하세요!) 
-- [WaffleScroll](./library/waffleScroll/README.md)
+- [WaffleScroll](library/waffleScroll/README.md)
 
 ## 협업
 `wafflestudio-web`은 기본적으로 노션의 칸반을 이용하여 진행상황 및 보고 내용을 관리할 예정입니다.

@@ -21,6 +21,34 @@
 }
 
 @font-face {
+  font-family: 'Pretendard';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
   src: url("../public/static/font/NicoMoji-Regular.ttf");
   font-family: "nico-moji-regular";
 }
@@ -42,6 +70,11 @@
   font-display: swap;
 }
 
+/* pretendard */
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+/* fredoka */
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap");
+
 @mixin nico-moji {
   font-family: "nico-moji-regular", sans-serif;
   font-style: normal;
@@ -56,4 +89,12 @@
 
 @mixin kcc-eunyoung {
   font-family: "KCC-eunyoung", cursive;
+}
+
+@mixin pretendard {
+  font-family: "pretendard", sans-serif;
+}
+
+@mixin fredoka {
+  font-family: "Fredoka", sans-serif;
 }

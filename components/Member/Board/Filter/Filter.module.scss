@@ -1,0 +1,192 @@
+@use "styles/font";
+@use "styles/color";
+@use "styles/position";
+@import "styles/lib";
+
+$hover-animation: box-shadow 0.2s linear;
+
+.container {
+  @include position.flex(row, center, start);
+  position: relative;
+  font-family: "Pretendard", sans-serif;
+  font-size: 20px;
+  letter-spacing: -0.03em;
+  user-select: none;
+
+  .filterName {
+    font-weight: 600;
+    margin-right: 40px;
+  }
+}
+
+.container.checkbox {
+  .filterList {
+    @include position.flex(row, center, start);
+    .filter {
+      @include position.flex-center(row);
+      margin-right: 40px;
+      --color: #c4c4c4;
+      color: var(--color);
+      .checkbox {
+        display: inline-block;
+        box-sizing: border-box;
+        position: relative;
+        width: 16px;
+        height: 16px;
+        border: 1px solid var(--color);
+        background-color: white;
+        margin-right: 8px;
+        box-shadow: 0 0 0 0 var(--color);
+        transition: $hover-animation;
+        .check {
+          visibility: hidden;
+          position: absolute;
+          left: -1px;
+          top: -1px;
+        }
+      }
+      .option {
+        font-size: 20px;
+        line-height: 25px;
+        letter-spacing: -0.05em;
+      }
+    }
+    .filter:hover {
+      .checkbox {
+        box-shadow: 0 0 0 1px var(--color);
+      }
+    }
+    .filter:last-child {
+      margin-right: 0;
+    }
+    .filter:nth-child(2) .option {
+      width: 49px;
+      white-space: nowrap;
+    }
+    .filter.active {
+      --color: black;
+      .check {
+        visibility: visible;
+      }
+    }
+  }
+}
+
+.container.select {
+  .filter {
+    font-size: 16px;
+
+    .option {
+      @include position.flex(row, center, space-between);
+      box-sizing: border-box;
+      width: 86px;
+      height: 23px;
+      padding: 0 7px;
+      background-color: white;
+    }
+
+    .option:hover {
+      background-color: #f2f2f2;
+    }
+
+    .option.selected {
+      width: 88px;
+      height: 25px;
+      padding: 0 8px;
+      border: 1px solid black;
+
+      .arrow {
+        box-sizing: content-box;
+        width: 10px;
+        height: 6px;
+        padding: 7px 5px;
+      }
+    }
+
+    .dropDown {
+      @include position.flex(column, center, start);
+      position: absolute;
+      top: 25px;
+      box-sizing: border-box;
+      border: 1px solid black;
+      border-top: 0;
+    }
+
+    .dropDown.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .dropDown.close {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+}
+
+.container.toggle {
+  .filter {
+    position: relative;
+    box-sizing: border-box;
+    width: 90px;
+    height: 25px;
+    border: 1px solid black;
+    border-radius: 13px;
+    transition: $hover-animation;
+    .slider {
+      position: absolute;
+      top: 2px;
+      width: 19px;
+      height: 19px;
+      background: black;
+      border-radius: 15px;
+      transition: right 0.5s ease;
+    }
+    .optionWrapper {
+      position: absolute;
+      top: 3px;
+      width: 74px;
+      height: 100%;
+      transition: width 0.5s ease;
+      overflow: hidden;
+      .option {
+        position: absolute;
+        font-size: 14px;
+        line-height: 17px;
+        letter-spacing: -0.05em;
+        white-space: nowrap;
+      }
+      &.active {
+        left: 7px;
+        .option {
+          left: 0;
+        }
+      }
+      &.inactive {
+        right: 7px;
+        .option {
+          right: 0;
+        }
+      }
+    }
+  }
+  .filter.active {
+    .slider {
+      right: 2px;
+    }
+    .optionWrapper.inactive {
+      width: 0;
+    }
+  }
+  .filter.inactive {
+    .slider {
+      right: 67px;
+    }
+    .optionWrapper.active {
+      width: 0;
+    }
+  }
+  .filter:hover {
+    box-shadow: 0 0 0 1px black;
+  }
+}

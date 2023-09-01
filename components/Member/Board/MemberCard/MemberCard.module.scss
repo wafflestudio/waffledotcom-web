@@ -1,0 +1,145 @@
+@use "styles/position";
+
+.helper {
+  position: fixed;
+  z-index: 100;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 25px;
+  border-radius: 13px;
+  padding: 4px 12px;
+  font-family: Pretendard, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: -0.05em;
+  background: var(--background-color);
+  color: var(--text-color);
+  opacity: 0;
+}
+
+.container {
+  @include position.flex(row, center, space-between);
+  width: 412px;
+  height: 152px;
+  box-sizing: border-box;
+  border: 1px solid #c4c4c4;
+  border-radius: 10px;
+  padding: 20px;
+  font-family: Pretendard, sans-serif;
+  letter-spacing: -0.05em;
+
+  .profileImageAndBadge {
+    position: relative;
+    width: 112px;
+    height: 112px;
+    .profileImage {
+      width: 112px;
+      height: 112px;
+      border-radius: 56px;
+      border: 1px solid #c4c4c4;
+    }
+
+    .badge {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 12px;
+      height: 12px;
+      border-radius: 6px;
+      background-color: #c4c4c4;
+    }
+
+    &:hover .helper {
+      transition: opacity 0.3s;
+      opacity: 1;
+    }
+
+    &.active {
+      .badge {
+        background-color: #f0745f;
+      }
+      .helper {
+        --background-color: rgba(240, 116, 95, 0.9);
+        --text-color: rgba(255, 255, 255, 0.9);
+      }
+    }
+
+    &.inactive {
+      .helper {
+        --background-color: rgba(224, 224, 224, 0.9);
+        --text-color: rgba(56, 56, 56, 0.9);
+      }
+    }
+  }
+
+  .profile {
+    @include position.flex(column, start, space-between);
+    width: 232px;
+    height: 100px;
+    .nameAndLink {
+      @include position.flex(row, center, start);
+      gap: 16px;
+      .name {
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 23px;
+      }
+      .github {
+        height: 23px;
+        &:hover .helper {
+          transition: opacity 0.3s;
+          opacity: 1;
+          --background-color: rgba(224, 224, 224, 0.9);
+          --text-color: rgba(56, 56, 56, 0.9);
+        }
+      }
+    }
+
+    .tagsWrapper {
+      max-width: 100%;
+      height: 21px;
+      z-index: 1;
+    }
+    .tags {
+      @include position.flex(row, center, start);
+      max-width: 100%;
+      border-radius: 5px;
+      background-color: #ffffff;
+      gap: 7px;
+
+      &.hover {
+        flex-wrap: wrap;
+        padding-right: 10px;
+        padding-bottom: 10px;
+        filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.1));
+      }
+
+      .tag {
+        display: inline-block;
+        height: 21px;
+        padding: 2px 8px;
+        border-radius: 3px;
+        background-color: #464646;
+
+        .tagName {
+          display: flex;
+          font-size: 14px;
+          line-height: 17px;
+          white-space: nowrap;
+          color: #ffffff;
+        }
+      }
+    }
+
+    .introduction {
+      width: 100%;
+      height: 35px;
+      font-size: 16px;
+      line-height: 19px;
+      overflow-y: auto;
+    }
+  }
+}

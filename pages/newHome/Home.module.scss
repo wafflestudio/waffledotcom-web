@@ -1,0 +1,22 @@
+.test {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &.red {
+    background-color: #fff0f0;
+  }
+  &.blue {
+    background-color: #d7e9ff;
+  }
+  &.green {
+    background-color: #e6ffe3;
+  }
+  &.orange {
+    background-color: #ffddc5;
+  }
+  &.violet {
+    background-color: #ffd7f7;
+  }
+}
