@@ -1,3 +1,5 @@
+"use client";
+
 import classNames from "classnames/bind";
 import { useState } from "react";
 import { useNavigatorScroll } from "../../Home/scroll";
