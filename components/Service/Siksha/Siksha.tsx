@@ -1,3 +1,5 @@
+"use client";
+
 import classNames from "classnames/bind";
 import IntroductionCarousel from "../common/IntroductionCarousel/IntroductionCarousel";
 import IntroductionHead from "../common/IntroductionHead/IntroductionHead";

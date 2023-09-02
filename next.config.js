@@ -5,7 +5,11 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  trailingSlash: true
-}
+  trailingSlash: true,
+  experimental: {
+    appDir: true,
+  },
+  output: "export",
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

@@ -1,5 +1,7 @@
-import Image from "next/image";
-import { useCallback, useEffect, useState } from "react";
+"use client";
+
+import Image from "next/legacy/image";
+import { useCallback, useState } from "react";
 import classNames from "classnames/bind";
 import styles from "./IntroductionCarousel.module.scss";
 

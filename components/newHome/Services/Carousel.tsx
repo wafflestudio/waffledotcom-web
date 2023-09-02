@@ -22,8 +22,8 @@ function CarouselItem({ serviceData }: { serviceData: TCarouselItemData }) {
           <Image
             src={serviceLogo}
             alt={serviceLogoAltMsg}
-            width="168px"
-            height="168px"
+            width="168"
+            height="168"
           />
         </a>
         <h1 className={cx("service-name")}>{serviceNameForServiceNameH1Tag}</h1>
@@ -33,8 +33,8 @@ function CarouselItem({ serviceData }: { serviceData: TCarouselItemData }) {
         <Image
           src={servicePhoneImg}
           alt={servicePhoneImgAltMsg}
-          width="306px"
-          height="582px"
+          width="306"
+          height="582"
         />
       </a>
     </div>
@@ -66,8 +66,8 @@ export default function Carousel({
         <Image
           src="/static/images/newHome/previous_button_icon.svg"
           alt="previous button"
-          width="26px"
-          height="43px"
+          width="26"
+          height="43"
         />
       </button>
       <div className={cx("carousel-frame")}>
@@ -91,8 +91,8 @@ export default function Carousel({
         <Image
           src="/static/images/newHome/next_button_icon.svg"
           alt="next button"
-          width="26px"
-          height="43px"
+          width="26"
+          height="43"
         />
       </button>
     </div>

@@ -1,3 +1,5 @@
+"use client";
+
 import classNames from "classnames/bind";
 import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
@@ -98,8 +100,8 @@ export default function Services() {
               <Image
                 src="/static/images/newHome/arrow_icon.svg"
                 alt="arrow icon"
-                width="28px"
-                height="9px"
+                width="28"
+                height="9"
               />
             </a>
             <ProgressBox

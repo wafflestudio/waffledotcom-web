@@ -1,3 +1,4 @@
+"use client";
 import classNames from "classnames/bind";
 import { useRef } from "react";
 import useDelayedState from "../../../hooks/delayedState/useDelayedState";
@@ -27,22 +28,22 @@ function Ending({ type }: Props) {
           <img
             alt=""
             className={cx("desk")}
-            src="./static/images/ending/desk.svg"
+            src="/static/images/ending/desk.svg"
           />
           <img
             alt=""
             className={cx("mouse")}
-            src="./static/images/ending/mouse.svg"
+            src="/static/images/ending/mouse.svg"
           />
           <img
             alt=""
             className={cx("chair")}
-            src="./static/images/ending/chair.svg"
+            src="/static/images/ending/chair.svg"
           />
           <img
             alt=""
             className={cx("light")}
-            src="./static/images/ending/light_side.svg"
+            src="/static/images/ending/light_side.svg"
           />
         </>
       )}

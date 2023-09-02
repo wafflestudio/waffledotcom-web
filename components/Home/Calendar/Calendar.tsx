@@ -1,3 +1,4 @@
+"use client";
 import classNames from "classnames/bind";
 import { useRef, useState } from "react";
 import { useScroll } from "../../../hooks/scroll/useScroll";
@@ -20,7 +21,7 @@ function Calendar() {
   );
 
   const handleMonthClick = (month: number) => {
-    return (e: React.MouseEvent) => {
+    return () => {
       const cwDistance = (month + 12 - currentMonth) % 12;
       const ccwDistance = 12 - cwDistance;
       if (cwDistance <= 6) setSyrupAngle(syrupAngle + cwDistance * 30);
@@ -39,14 +40,14 @@ function Calendar() {
       </div>
       <div className={cx("foreground")}>
         <div className={cx("forkAndKnife")}>
-          <img src="./static/images/illustration/fork.svg" alt="" />
-          <img src="./static/images/illustration/knife.svg" alt="" />
+          <img src="/static/images/illustration/fork.svg" alt="" />
+          <img src="/static/images/illustration/knife.svg" alt="" />
         </div>
         <div className={cx("honeyBottom")}></div>
         <div className={cx("pancake")}>
           <img
             className={cx("pancakeBackground")}
-            src="./static/images/illustration/pancake.svg"
+            src="/static/images/illustration/pancake.svg"
             alt=""
           />
           <div className={cx("months")}>
@@ -111,13 +112,13 @@ function Calendar() {
           >
             <img
               className={cx("syrupTop")}
-              src="./static/images/illustration/syrupTop.svg"
+              src="/static/images/illustration/syrupTop.svg"
               alt=""
               draggable={false}
             />
             <img
               className={cx("syrupLuster")}
-              src="./static/images/illustration/syrupLuster.svg"
+              src="/static/images/illustration/syrupLuster.svg"
               alt=""
               draggable={false}
             />
@@ -128,7 +129,7 @@ function Calendar() {
           >
             <img
               className={cx("syrupBottom")}
-              src="./static/images/illustration/syrupBottom.svg"
+              src="/static/images/illustration/syrupBottom.svg"
               alt=""
               draggable={false}
             />

@@ -1,3 +1,5 @@
+"use client";
+
 import classNames from "classnames/bind";
 import { useNavigatorScroll } from "../../Home/scroll";
 import Image from "next/image";
@@ -38,8 +40,8 @@ export default function Members() {
                   className={cx("position-image")}
                   src="/static/images/newHome/rookies_icon.svg"
                   alt="rookies icon"
-                  width="150px"
-                  height="150px"
+                  width="150"
+                  height="150"
                 />
                 <div className={cx("texts")}>
                   <h3 className={cx("position-name")}>Rookies</h3>
@@ -69,8 +71,8 @@ export default function Members() {
                   className={cx("position-image")}
                   src="/static/images/newHome/programmers_icon.svg"
                   alt="programmers icon"
-                  width="150px"
-                  height="150px"
+                  width="150"
+                  height="150"
                 />
                 <div className={cx("texts")}>
                   <h3 className={cx("position-name")}>Programmers</h3>
@@ -93,8 +95,8 @@ export default function Members() {
                   className={cx("position-image")}
                   src="/static/images/newHome/designers_icon.svg"
                   alt="designers icon"
-                  width="151px"
-                  height="150px"
+                  width="151"
+                  height="150"
                 />
                 <div className={cx("texts")}>
                   <h3 className={cx("position-name")}>Designers</h3>

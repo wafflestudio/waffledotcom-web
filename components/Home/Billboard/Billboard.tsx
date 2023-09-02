@@ -1,4 +1,5 @@
-import { useRef, useState } from "react";
+"use client";
+import { useRef } from "react";
 import classNames from "classnames/bind";
 import useWaffleScroll from "../../../library/deprecated/waffleScroll";
 import styles from "./Billboard.module.scss";

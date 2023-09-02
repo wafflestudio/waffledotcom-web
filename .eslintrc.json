@@ -10,7 +10,8 @@
     "@next/next/no-img-element": "off",
     "react/function-component-definition": "error",
     "react/react-in-jsx-scope": "off",
-    "import/order": "warn"
+    "import/order": "warn",
+    "@next/next/no-html-link-for-pages": "off"
   },
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
