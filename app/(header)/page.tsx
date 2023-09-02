@@ -1,29 +1,21 @@
-import About from "../../components/Home/About/About";
-import Billboard from "../../components/Home/Billboard/Billboard";
-import WhoAreWe from "../../components/Home/WhoAreWe/WhoAreWe";
-import Services from "../../components/Home/ServiceSummary/ServicesSummary";
-import Role from "../../components/Home/Role/Role";
-import Activity from "../../components/Home/Activity/Activity";
-import WhatWeDo from "../../components/Home/WhatWeDo/WhatWeDo";
-import Calendar from "../../components/Home/Calendar/Calendar";
-import QnA from "../../components/Home/QnA/QnA";
-import Ending from "../../components/common/Ending/Ending";
+import Header from "../../components/common/Header/Header";
+import ScrollNavigator from "../../components/common/Scroll/ScrollNavigator";
+import Main from "../../components/newHome/Main/Main";
+import About from "../../components/newHome/About/About";
+import Services from "../../components/newHome/Services/Services";
+import Members from "../../components/newHome/Members/Members";
+import Activity from "../../components/newHome/Activity/Activity";
 
-function Home() {
+export default function Home() {
   return (
-    <>
-      <Billboard />
+    <main>
+      <Header />
+      <Main />
       <About />
       <Services />
-      <WhoAreWe />
-      <Role />
+      <Members />
       <Activity />
-      <WhatWeDo />
-      <Calendar />
-      <QnA />
-      <Ending type={"side"} />
-    </>
+      <ScrollNavigator />
+    </main>
   );
 }
-
-export default Home;
