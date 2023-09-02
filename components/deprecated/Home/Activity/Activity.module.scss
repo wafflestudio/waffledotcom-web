@@ -1,8 +1,8 @@
-@use "./styles/position";
-@use "./styles/responsive";
-@use "./styles/color";
-@use "./styles/font";
-@use "./styles/reset";
+@use "/styles/position";
+@use "/styles/responsive";
+@use "/styles/color";
+@use "/styles/font";
+@use "/styles/reset";
 
 .container {
   @include position.home-container;

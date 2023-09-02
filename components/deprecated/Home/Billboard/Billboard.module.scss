@@ -1,8 +1,8 @@
-@use "../../../styles/position";
-@use "../../../styles/color";
-@use "../../../styles/font";
-@use "../../../styles/clear";
-@import "../../../styles/responsive";
+@use "/styles/position";
+@use "/styles/color";
+@use "/styles/font";
+@use "/styles/clear";
+@import "/styles/responsive";
 
 .container {
   @include position.home-container;
@@ -237,6 +237,5 @@
         }
       }
     }
-
   }
 }
