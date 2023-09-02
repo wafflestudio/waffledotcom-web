@@ -12,7 +12,7 @@ type TabItem = {
 };
 
 const tabs: TabItem[] = [
-  { name: "소개", pathname: "/newHome" },
+  { name: "소개", pathname: "/" },
   { name: "서비스", pathname: "/service" },
   { name: "멤버", pathname: "/member" },
 ];
@@ -23,7 +23,7 @@ export default function Header() {
     <header className={cx("header")}>
       <div className={cx("content")}>
         {/*TODO: 개발/배포 주소 환경변수로 뺄까? */}
-        <a className={cx("logo")} href="http://localhost:3000/newHome/">
+        <a className={cx("logo")} href="http://localhost:3000/">
           <img src="/static/images/logo/waffle_logo_title.png" />
         </a>
         <ul className={cx("tabNavigator")}>
