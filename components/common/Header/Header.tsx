@@ -1,7 +1,7 @@
 "use client";
 
 import classNames from "classnames/bind";
-import { useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import styles from "./Header.module.scss";
 const cx = classNames.bind(styles);
@@ -18,8 +18,7 @@ const tabs: TabItem[] = [
 ];
 
 export default function Header() {
-  const router = useRouter();
-
+  const currentPathname = usePathname();
   return (
     <header className={cx("header")}>
       <div className={cx("content")}>
@@ -33,7 +32,7 @@ export default function Header() {
             <li
               key={pathname}
               className={cx("tabItem", {
-                selected: router.pathname === pathname,
+                selected: currentPathname === pathname,
               })}
             >
               <Link href={pathname}>{name}</Link>
