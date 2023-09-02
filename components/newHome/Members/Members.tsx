@@ -1,7 +1,7 @@
 "use client";
 
 import classNames from "classnames/bind";
-import { useNavigatorScroll } from "../../Home/scroll";
+import { useNavigatorScroll } from "../../deprecated/Home/scroll";
 import Image from "next/image";
 
 import styles from "./Members.module.scss";

@@ -2,7 +2,7 @@
 
 import classNames from "classnames/bind";
 import { usePathname } from "next/navigation";
-import Link from "../WaffleLink";
+import Link from "../../common/WaffleLink";
 import useWaffleScroll from "../../../library/deprecated/waffleScroll";
 import styles from "./Cover.module.scss";
 

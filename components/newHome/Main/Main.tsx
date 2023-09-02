@@ -3,7 +3,7 @@
 import classNames from "classnames/bind";
 import Link from "next/link";
 
-import { useNavigatorScroll } from "../../Home/scroll";
+import { useNavigatorScroll } from "../../deprecated/Home/scroll";
 import styles from "./Main.module.scss";
 
 const cx = classNames.bind(styles);
