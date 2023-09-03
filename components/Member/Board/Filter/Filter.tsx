@@ -1,7 +1,6 @@
 import classNames from "classnames/bind";
 import React, { useEffect, useState } from "react";
 import styles from "./Filter.module.scss";
-import { isA } from "@jest/expect-utils";
 
 const cx = classNames.bind(styles);
 

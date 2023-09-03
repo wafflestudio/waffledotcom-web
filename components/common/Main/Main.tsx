@@ -1,7 +1,6 @@
 "use client";
 
 import classNames from "classnames/bind";
-import Link from "next/link";
 
 import { useNavigatorScroll } from "../../deprecated/Home/scroll";
 import styles from "./Main.module.scss";
@@ -38,7 +37,10 @@ export default function Main() {
           onClick={() => useNavigatorScroll.scrollTo("about")}
           className={cx("button")}
         >
-          <img src={"/static/images/home/home_main_button.png"} />
+          <img
+            src={"/static/images/home/home_main_button.png"}
+            alt="3D waffle shaped button"
+          />
           <div className={cx("label")}>CLICK</div>
         </a>
       </div>

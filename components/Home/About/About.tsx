@@ -25,7 +25,7 @@ export default function About() {
         red,
       })}
       ref={targetRef}
-      onTransitionEnd={(e) => {
+      onTransitionEnd={() => {
         if (red) setRed(false);
       }}
     >
@@ -35,7 +35,10 @@ export default function About() {
           <div className={cx("name")}>
             <h1>와플</h1>
             <h1>스튜디오</h1>
-            <img src={"/static/images/logo/pupuri_logo.png"} />
+            <img
+              src={"/static/images/logo/pupuri_logo.png"}
+              alt="wafflestudio_logo_pupuri"
+            />
           </div>
           <div className={cx("description")}>
             <div className={cx("question")}>

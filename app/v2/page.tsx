@@ -7,7 +7,7 @@ import Activity from "../../components/deprecated/Home/Activity/Activity";
 import WhatWeDo from "../../components/deprecated/Home/WhatWeDo/WhatWeDo";
 import Calendar from "../../components/deprecated/Home/Calendar/Calendar";
 import QnA from "../../components/deprecated/Home/QnA/QnA";
-import Ending from "../../components/common/Ending/Ending";
+import Ending from "../../components/deprecated/Ending/Ending";
 import Cover from "../../components/deprecated/Cover/Cover";
 
 function Home() {

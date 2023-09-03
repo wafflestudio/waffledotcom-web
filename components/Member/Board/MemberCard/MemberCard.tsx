@@ -1,7 +1,6 @@
 import classNames from "classnames/bind";
 import { useRef, useState } from "react";
 import styles from "./MemberCard.module.scss";
-import { HTML } from "mdast";
 
 const cx = classNames.bind(styles);
 

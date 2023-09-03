@@ -1,7 +1,7 @@
 "use client";
 
 import classNames from "classnames/bind";
-import { MouseEvent, useState } from "react";
+import { useState } from "react";
 import { useNavigatorScroll } from "../../deprecated/Home/scroll";
 import styles from "./Activity.module.scss";
 
