@@ -18,7 +18,7 @@
   margin-top: 75px;
 
   .header {
-    @include position.flex(row, $align: center, $justify: start);
+    @include position.flex(row, $align: center, $justify: flex-start);
     width: 100%;
     flex: 0 0 auto;
     .title {
@@ -72,7 +72,7 @@
       overflow: scroll;
 
       .cardContainer {
-        @include position.flex(row, start, start);
+        @include position.flex(row, start, flex-start);
         gap: 20px;
         flex-wrap: wrap;
         position: relative;
