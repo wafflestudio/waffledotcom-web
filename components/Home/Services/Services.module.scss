@@ -19,12 +19,14 @@
 
   > .foreground {
     @include position.fixed-foreground;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     > .content-wrapper {
       width: 1300px;
       min-width: 1300px;
-      margin: 0 auto;
       display: flex;
-      gap: px2vw(210px);
+      gap: px2vw(230px);
       align-items: center;
       height: 100%;
       > .texts {

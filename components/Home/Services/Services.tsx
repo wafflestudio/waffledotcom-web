@@ -4,8 +4,9 @@ import classNames from "classnames/bind";
 import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 import { useNavigatorScroll } from "../../common/Scroll/scroll";
-import ProgressBox from "./ProgressBox";
+import WaffleLink from "../../common/WaffleLink";
 import Carousel from "./Carousel";
+import ProgressBox from "./ProgressBox";
 import styles from "./Services.module.scss";
 
 const cx = classNames.bind(styles);
@@ -25,7 +26,7 @@ export type TCarouselItemData = {
 const carouselItemDataList: TCarouselItemData[] = [
   {
     serviceName: "snutt",
-    serviceLink: "https://wafflestudio.com",
+    serviceLink: "https://snutt.wafflestudio.com/",
     serviceLogo: "/static/images/logo/snutt_logo.svg",
     serviceLogoAltMsg: "snutt app logo",
     servicePhoneImg: "/static/images/home/phone_snutt.svg",
@@ -35,7 +36,7 @@ const carouselItemDataList: TCarouselItemData[] = [
   },
   {
     serviceName: "siksha",
-    serviceLink: "https://wafflestudio.com",
+    serviceLink: "https://siksha.wafflestudio.com/",
     serviceLogo: "/static/images/logo/siksha_logo.svg",
     serviceLogoAltMsg: "siksha app logo",
     servicePhoneImg: "/static/images/home/phone_siksha.svg",
@@ -45,7 +46,8 @@ const carouselItemDataList: TCarouselItemData[] = [
   },
   {
     serviceName: "snuboard",
-    serviceLink: "https://wafflestudio.com",
+    serviceLink:
+      "https://play.google.com/store/apps/details?id=com.wafflestudio.snuboard&hl=ko",
     serviceLogo: "/static/images/logo/snuboard_logo.svg",
     serviceLogoAltMsg: "snuboard app logo",
     servicePhoneImg: "/static/images/home/phone_snuboard.svg",
@@ -95,7 +97,7 @@ export default function Services() {
             <p className={cx("description")}>
               와플스튜디오의 프로젝트로 시작해 <br /> 실제 사용되고 있는 서비스
             </p>
-            <a className={cx("more-button")} href="https://wafflestudio.com/">
+            <WaffleLink className={cx("more-button")} href="/service">
               <p>자세히 알아보기</p>
               <Image
                 src="/static/images/home/arrow_icon.svg"
@@ -103,7 +105,7 @@ export default function Services() {
                 width="28"
                 height="9"
               />
-            </a>
+            </WaffleLink>
             <ProgressBox
               carouselLength={carouselItemDataList.length}
               serviceIndex={serviceIndex}
