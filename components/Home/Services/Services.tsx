@@ -3,7 +3,7 @@
 import classNames from "classnames/bind";
 import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
-import { useNavigatorScroll } from "../../deprecated/Home/scroll";
+import { useNavigatorScroll } from "../../common/Scroll/scroll";
 import ProgressBox from "./ProgressBox";
 import Carousel from "./Carousel";
 import styles from "./Services.module.scss";

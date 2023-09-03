@@ -1,17 +1,16 @@
 "use client";
 
 import classNames from "classnames/bind";
-
-import { useNavigatorScroll } from "../../deprecated/Home/scroll";
+import { useServiceScroll } from "../serviceScroll";
 import styles from "./Main.module.scss";
 
 const cx = classNames.bind(styles);
 
 export default function Main() {
-  const { state, targetRef } = useNavigatorScroll({
+  const { state, targetRef } = useServiceScroll({
     callback: ({ progress, setState }) => {
       if (progress >= 1 && progress < 3) {
-        setState({ currentSection: "main" });
+        setState({ currentService: "main" });
       }
     },
     anchorId: "main",
@@ -19,7 +18,7 @@ export default function Main() {
 
   return (
     <section
-      className={cx("container", { off: state.currentSection !== "main" })}
+      className={cx("container", { off: state.currentService !== "main" })}
       ref={targetRef}
     >
       <div className={cx("background")}>
@@ -34,7 +33,7 @@ export default function Main() {
       </div>
       <div className={cx("buttonWrapper")}>
         <a
-          onClick={() => useNavigatorScroll.scrollTo("about")}
+          onClick={() => useServiceScroll.scrollTo("snutt")}
           className={cx("button")}
         >
           <img

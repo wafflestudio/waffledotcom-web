@@ -19,6 +19,7 @@ function Snutt() {
           setState({ currentService: "none" });
       }
     },
+    anchorId: "snutt",
   });
 
   return (

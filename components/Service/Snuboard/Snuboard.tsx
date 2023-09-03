@@ -16,6 +16,7 @@ function Snuboard() {
           setState({ currentService: "snuboard" });
       }
     },
+    anchorId: "snuboard",
   });
 
   return (

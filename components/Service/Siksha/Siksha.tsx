@@ -16,6 +16,7 @@ function Siksha() {
           setState({ currentService: "siksha" });
       }
     },
+    anchorId: "siksha",
   });
 
   return (
