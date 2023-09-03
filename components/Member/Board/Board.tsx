@@ -76,18 +76,30 @@ function Board() {
     [selectedRoleSet, selectedStates, selectedGeneration],
   );
 
+  function isAdmin(member: MemberType) {
+    return member.roles.includes("운영팀");
+  }
+
   const sortMember = useCallback(
     (m1: MemberType, m2: MemberType) => {
+      const m1IsAdmin = isAdmin(m1);
+      const m2IsAdmin = isAdmin(m2);
+      if (m1IsAdmin && !m2IsAdmin) return -1;
+      if (!m1IsAdmin && m2IsAdmin) return 1;
+
       let compare;
+
       if (orderByGenAsc) {
         compare =
           Number(m1.generation ?? Infinity) - Number(m2.generation ?? Infinity);
       } else {
         compare = Number(m2.generation) - Number(m1.generation);
       }
-      if (compare === 0) {
+
+      if (compare === 0 || isNaN(compare)) {
         compare = m1.name.localeCompare(m2.name);
       }
+
       return compare;
     },
     [orderByGenAsc],
