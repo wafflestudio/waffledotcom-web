@@ -35,9 +35,14 @@
       font-size: 18px;
       line-height: 21px;
       color: #323232;
+      &:hover {
+        color: #f0745f;
+        opacity: 0.7;
+      }
       &.selected {
         font-weight: 600;
         color: #f0745f;
+        opacity: 1;
       }
     }
   }

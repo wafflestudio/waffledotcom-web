@@ -22,7 +22,7 @@ export default function Header() {
 
   return (
     <header className={cx("header")}>
-      <div className={cx("content")}>
+      <nav className={cx("content")}>
         {/*TODO: 개발/배포 주소 환경변수로 뺄까? */}
         <a className={cx("logo")} href="http://localhost:3000/">
           <img
@@ -43,7 +43,7 @@ export default function Header() {
             </li>
           ))}
         </ul>
-      </div>
+      </nav>
     </header>
   );
 }
