@@ -72,7 +72,7 @@
       overflow: scroll;
 
       .cardContainer {
-        @include position.flex(row, start, flex-start);
+        @include position.flex(row, flex-start, flex-start);
         gap: 20px;
         flex-wrap: wrap;
         position: relative;

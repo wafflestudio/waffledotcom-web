@@ -76,7 +76,7 @@
   }
 
   .profile {
-    @include position.flex(column, start, space-between);
+    @include position.flex(column, flex-start, space-between);
     width: 232px;
     height: 100px;
     .nameAndLink {
