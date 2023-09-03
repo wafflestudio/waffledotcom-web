@@ -1,0 +1,103 @@
+@use "/styles/color";
+@use "/styles/position";
+@use "/styles/font";
+@use "/styles/effects/pattern";
+@import "/styles/responsive";
+
+.container {
+  @include position.home-container;
+  @include position.flex-center;
+  transition: 0.5s ease;
+  .background {
+    @include position.fixed-background;
+    background: color.$waffle-dark-brown;
+    transition: 0.5s;
+    visibility: hidden;
+    opacity: 0;
+    .bubbleStripe {
+      @include pattern.stripe(
+        rgba(color.$waffle-pale-yellow, 0.05),
+        transparent,
+        170,
+        8px
+      );
+      position: absolute;
+      border-radius: 50%;
+      transition: 1s;
+    }
+    .bubbleFull {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(color.$waffle-pale-yellow, 0.05);
+      transition: 1s;
+    }
+    .bubble1 {
+      top: 145px;
+      left: 144px;
+      width: 254px;
+      height: 254px;
+      transform: translateX(-398px);
+    }
+    .bubble2 {
+      top: 328px;
+      left: 71px;
+      width: 298px;
+      height: 298px;
+      transform: translateX(-369px);
+    }
+    .bubble3 {
+      bottom: 439px;
+      right: 57px;
+      width: 198px;
+      height: 198px;
+      transform: translateX(255px);
+    }
+    .bubble4 {
+      bottom: 152px;
+      right: 100px;
+      width: 420px;
+      height: 420px;
+      transform: translateX(520px);
+    }
+    .bubble5 {
+      bottom: 90px;
+      right: 496px;
+      width: 129px;
+      height: 129px;
+      transform: translateX(725px);
+    }
+  }
+
+  .description {
+    width: 900px;
+    @include mobile {
+      width: auto;
+    }
+    text-align: center;
+    color: color.$waffle-pale-yellow;
+    letter-spacing: -0.05em;
+    h3 {
+      @include font.gmarket-sans();
+      margin-bottom: 40px;
+    }
+    p {
+      @include font.gmarket-sans();
+      width: 100%;
+      margin-top: 2rem;
+      line-height: 2rem;
+    }
+  }
+}
+
+.available {
+  .background {
+    opacity: 1;
+    visibility: visible;
+    .bubbleFull {
+      transform: translateX(0);
+    }
+    .bubbleStripe {
+      transform: translateX(0);
+    }
+  }
+}

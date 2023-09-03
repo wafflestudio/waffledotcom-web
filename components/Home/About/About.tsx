@@ -1,61 +1,86 @@
 "use client";
 
 import classNames from "classnames/bind";
-import useWaffleScroll from "../../../library/deprecated/waffleScroll";
+import { useState } from "react";
+import { useNavigatorScroll } from "../../deprecated/Home/scroll";
 import styles from "./About.module.scss";
 
 const cx = classNames.bind(styles);
-function About() {
-  const { ref, scrollState } = useWaffleScroll(
-    ({ toggleState }) => {
-      toggleState(0.75, 3, "available");
-    },
-    { available: false },
-  );
 
+export default function About() {
+  const [more, setMore] = useState(false);
+  const [red, setRed] = useState(true);
+  const { state, targetRef } = useNavigatorScroll({
+    callback: ({ progress, setState }) => {
+      if (progress >= 1 && progress < 3) {
+        setState({ currentSection: "about" });
+      }
+    },
+    anchorId: "about",
+  });
   return (
-    <>
-      <section className={cx("container", scrollState)} ref={ref}>
-        <div className={cx("background")}>
-          <div className={cx("bubbleFull", "bubble1")} />
-          <div className={cx("bubbleStripe", "bubble2")} />
-          <div className={cx("bubbleFull", "bubble3")} />
-          <div className={cx("bubbleStripe", "bubble4")} />
-          <div className={cx("bubbleFull", "bubble5")} />
+    <section
+      className={cx("container", {
+        off: state.currentSection !== "about",
+        red,
+      })}
+      ref={targetRef}
+      onTransitionEnd={() => {
+        if (red) setRed(false);
+      }}
+    >
+      <div className={cx("background")} />
+      <div className={cx("foreground")}>
+        <div className={cx("content")}>
+          <div className={cx("name")}>
+            <h1>와플</h1>
+            <h1>스튜디오</h1>
+            <img
+              src={"/static/images/logo/pupuri_logo.png"}
+              alt="wafflestudio_logo_pupuri"
+            />
+          </div>
+          <div className={cx("description")}>
+            <div className={cx("question")}>
+              <h3>와플스튜디오는 어떤 동아리인가요?</h3>
+              <p>
+                와플스튜디오는 서울대학교 컴퓨터공학부에서 탄생한 웹/앱 개발
+                동아리에요. 개발자들의 커뮤니티 형성을 도모하고, 개발에 대해
+                서로 이야기하고 경험하며 성장하는 것을 추구해요.
+              </p>
+            </div>
+            <div className={cx("question")}>
+              <h3>와플스튜디오는 어떤 활동이 진행되나요?</h3>
+              <p>
+                와플스튜디오에서는 이런 성장을 위해 다양한 활동이 진행돼요.
+                대표적으로 프로젝트와 스터디가 있는데, 스터디 같은 경우 개발과
+                관련하여 원하는 주제가 있다면 자유롭게 열 수 있어요. 저희의
+                근본적인 목적은 “개발 공부”랍니다!{" "}
+                {!more && (
+                  <span>
+                    ...{" "}
+                    <span
+                      className={cx("underline")}
+                      onClick={() => setMore(true)}
+                    >
+                      더보기
+                    </span>
+                  </span>
+                )}
+              </p>
+              {more && (
+                <p>
+                  <br />
+                  또한 개발자간의 커뮤니티를 도모하기 위해 “코딩 모임”이라는
+                  모임이 매월 자유롭게 열려요. 코딩을 좋아하는 사람들끼리 모여서
+                  각자 할 일을 하게 돼요. 그러면서 코딩이나 개발과 관련된
+                  이야기도 나누고, 친목을 다질 수 있어요!
+                </p>
+              )}
+            </div>
+          </div>
         </div>
-        <div className={cx("description")}>
-          <h3># 와플스튜디오는 어떤 동아리인가요?</h3>
-          <p>
-            와플스튜디오는 서울대학교 컴퓨터공학부에서 탄생한{" "}
-            <b>웹 / 앱 개발 동아리</b>예요. <br />
-            와플스튜디오는 개발자들의 커뮤니티 형성을 도모하고, 개발에 대해 서로
-            이야기하고 경험하며 성장하는 것을 추구해요.
-          </p>
-          <p>
-            <span className="emoji">&#128421;</span> 와플스튜디오에서는 이런
-            성장을 위해 여러 가지 활동이 진행돼요. 대표적으로 <b>프로젝트</b>
-            가 있어요.
-            <br />
-            개발자라면 많은 경우 결국 프로젝트를 하는 직업이 되기 때문에,
-            프로젝트 진행은 와플스튜디오에서 가장 큰 활동이에요.
-            <br />
-            아니면 개발과 관련하여 원하는 주제가 있다면 자유롭게 <b>스터디</b>를
-            열 수도 있어요. 프로젝트든 스터디든, 근본적인 목적은 “개발 공부”
-            랍니다!
-          </p>
-          <p>
-            <span className="emoji">&#x1F5E3;</span> 또한 개발자간의 커뮤니티를
-            도모하기 위해 “<b>코딩 모임</b>”이라는 모임이 매월 + 자유롭게
-            열려요.
-            <br />
-            코딩을 좋아하는 사람들끼리 모여서 각자 할 일을 하게 돼요. <br />
-            그러면서 코딩이나 개발과 관련된 이야기도 나누고, <b>친목</b>을 다질
-            수 있어요!
-          </p>
-        </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }
-
-export default About;

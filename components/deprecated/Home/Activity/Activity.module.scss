@@ -1,0 +1,80 @@
+@use "/styles/position";
+@use "/styles/responsive";
+@use "/styles/color";
+@use "/styles/font";
+@use "/styles/reset";
+
+.container {
+  @include position.home-container;
+  transition: 0.5s ease;
+  height: 100vh;
+  .background {
+    @include position.fixed-background;
+    background: color.$waffle-dark-teal;
+    transition: 0.5s ease;
+    visibility: hidden;
+    opacity: 0;
+  }
+  .foreground {
+    @include position.fixed-foreground;
+    @include position.flex-center;
+    background: transparent;
+    transition: 0.5s;
+    visibility: hidden;
+    opacity: 0;
+    .activities {
+      .projectName {
+        @include position.flex-center;
+        @include font.kcc-eunyoung;
+        color: color.$waffle-pale-yellow;
+        font-weight: 400;
+        font-size: 70px;
+        opacity: 0.6;
+      }
+    }
+    .more {
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 154px;
+      font-size: 30px;
+      font-weight: 500;
+      letter-spacing: -0.05em;
+      color: color.$waffle-dark-brown;
+      background-color: color.$waffle-pale-yellow;
+      transition: 0.5s ease;
+      transform: translateY(100%);
+      opacity: 0;
+
+      &.up {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    .to {
+      @include reset.a;
+      margin-left: 30px;
+      padding: 8px 16px;
+      border: 4px solid color.$waffle-pink;
+      border-radius: 15px;
+      font-weight: 700;
+      color: color.$waffle-pink;
+      letter-spacing: -5%;
+      cursor: pointer;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.available {
+  .background,
+  .foreground {
+    opacity: 1;
+    visibility: visible;
+  }
+}

@@ -6,7 +6,7 @@
 $hover-animation: box-shadow 0.2s linear;
 
 .container {
-  @include position.flex(row, center, start);
+  @include position.flex(row, center, flex-start);
   position: relative;
   font-family: "Pretendard", sans-serif;
   font-size: 20px;
@@ -21,7 +21,7 @@ $hover-animation: box-shadow 0.2s linear;
 
 .container.checkbox {
   .filterList {
-    @include position.flex(row, center, start);
+    @include position.flex(row, center, flex-start);
     .filter {
       @include position.flex-center(row);
       margin-right: 40px;
@@ -104,7 +104,7 @@ $hover-animation: box-shadow 0.2s linear;
     }
 
     .dropDown {
-      @include position.flex(column, center, start);
+      @include position.flex(column, center, flex-start);
       position: absolute;
       top: 25px;
       box-sizing: border-box;

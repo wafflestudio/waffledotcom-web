@@ -1,8 +1,7 @@
 "use client";
 
 import classNames from "classnames/bind";
-import { useEffect } from "react";
-import { useNavigatorScroll } from "../../Home/scroll";
+import { useNavigatorScroll } from "../../deprecated/Home/scroll";
 import styles from "./ScrollNavigator.module.scss";
 const cx = classNames.bind(styles);
 
@@ -36,7 +35,7 @@ export default function ScrollNavigator() {
             })}
           >
             <button
-              onClick={(e) => {
+              onClick={() => {
                 useNavigatorScroll.scrollTo(anchorId);
               }}
             >

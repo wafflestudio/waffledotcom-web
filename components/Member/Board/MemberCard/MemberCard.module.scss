@@ -76,11 +76,11 @@
   }
 
   .profile {
-    @include position.flex(column, start, space-between);
+    @include position.flex(column, flex-start, space-between);
     width: 232px;
     height: 100px;
     .nameAndLink {
-      @include position.flex(row, center, start);
+      @include position.flex(row, center, flex-start);
       gap: 16px;
       .name {
         font-size: 24px;
@@ -104,7 +104,7 @@
       z-index: 1;
     }
     .tags {
-      @include position.flex(row, center, start);
+      @include position.flex(row, center, flex-start);
       max-width: 100%;
       border-radius: 5px;
       background-color: #ffffff;

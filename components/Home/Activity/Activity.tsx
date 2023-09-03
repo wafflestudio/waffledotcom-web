@@ -1,45 +1,123 @@
 "use client";
 
 import classNames from "classnames/bind";
-import useWaffleScroll from "../../../library/deprecated/waffleScroll";
+import { useState } from "react";
+import { useNavigatorScroll } from "../../deprecated/Home/scroll";
 import styles from "./Activity.module.scss";
 
 const cx = classNames.bind(styles);
 
-function Activity() {
-  const {
-    ref,
-    scrollState: { available, isMore },
-  } = useWaffleScroll(
-    ({ toggleState }) => {
-      toggleState(0.5, 3, "available");
-      toggleState(1.2, 3.1, "isMore");
+export default function About() {
+  const { state, targetRef } = useNavigatorScroll({
+    callback: ({ progress, setState }) => {
+      if (progress >= 1 && progress < 3) {
+        setState({ currentSection: "activity" });
+      }
     },
-    { available: false, isMore: false },
-  );
+    anchorId: "activity",
+  });
+
+  const [index, setIndex] = useState(0);
 
   return (
-    <section className={cx("container", { available })} ref={ref}>
+    <section
+      className={cx("container", { off: state.currentSection !== "activity" })}
+      ref={targetRef}
+    >
       <div className={cx("background")} />
       <div className={cx("foreground")}>
-        <div className={cx("activities")}>
-          <div className={cx("projectName")}>프로젝트</div>
-          <div className={cx("projectName")}>루키 세미나</div>
-          <div className={cx("projectName")}>코딩 모임</div>
-          <div className={cx("projectName")}>와플 반죽하기/굽기</div>
-          <div className={cx("projectName")}>스터디</div>
-        </div>
-        <div className={cx("more", { up: isMore })}>
-          <div className={cx("description")}>
-            와플스튜디오에 대해 더 알고 싶으신가요?
+        <div className={cx("wrapper")}>
+          <div className={cx("textArea")}>
+            <p>활동소개</p>
+            <span>와플스튜디오에서 하는 활동들</span>
           </div>
-          <a className={cx("to")} href={"/services"}>
-            모집 안내 보기 &gt;
-          </a>
+          <div className={cx("imageArea")}>
+            <div className={cx("image")}></div>
+            <div className={cx("description")}>
+              <div className={cx("subTitle", { active: index === 0 })}>
+                <div
+                  className={cx("head")}
+                  onClick={() => {
+                    setIndex(0);
+                  }}
+                >
+                  프로젝트
+                </div>
+                <div
+                  className={cx("detailDescription", { visible: index === 0 })}
+                >
+                  와플스튜디오의 가장 핵심 활동으로, 각자의 팀에서 프로젝트를
+                  진행하게 됩니다.
+                </div>
+              </div>
+              <div className={cx("subTitle", { active: index === 1 })}>
+                <div
+                  className={cx("head")}
+                  onClick={() => {
+                    setIndex(1);
+                  }}
+                >
+                  세미나 및 토이프로젝트
+                </div>
+                <div
+                  className={cx("detailDescription", { visible: index === 1 })}
+                >
+                  와플스튜디오의 가장 핵심 활동으로, 각자의 팀에서 프로젝트를
+                  진행하게 됩니다.
+                </div>
+              </div>
+              <div className={cx("subTitle", { active: index === 2 })}>
+                <div
+                  className={cx("head")}
+                  onClick={() => {
+                    setIndex(2);
+                  }}
+                >
+                  굽기
+                </div>
+                <div
+                  className={cx("detailDescription", { visible: index === 2 })}
+                >
+                  와플스튜디오의 가장 핵심 활동으로, 각자의 팀에서 프로젝트를
+                  진행하게 됩니다.
+                </div>
+              </div>
+              <div className={cx("subTitle", { active: index === 3 })}>
+                <div
+                  className={cx("head")}
+                  onClick={() => {
+                    setIndex(3);
+                  }}
+                >
+                  와커톤
+                </div>
+                <div
+                  className={cx("detailDescription", { visible: index === 3 })}
+                >
+                  와플스튜디오의 가장 핵심 활동으로, 각자의 팀에서 프로젝트를
+                  진행하게 됩니다.
+                </div>
+              </div>
+              <div className={cx("subTitle", { active: index === 4 })}>
+                <div
+                  className={cx("head")}
+                  onClick={() => {
+                    setIndex(4);
+                  }}
+                >
+                  MT
+                </div>
+                <div
+                  className={cx("detailDescription", { visible: index === 4 })}
+                >
+                  와플스튜디오의 가장 핵심 활동으로, 각자의 팀에서 프로젝트를
+                  진행하게 됩니다.
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
   );
 }
-
-export default Activity;
