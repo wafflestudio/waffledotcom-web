@@ -1,7 +1,5 @@
 "use client";
 import classNames from "classnames/bind";
-import { useScroll } from "../../../../hooks/scroll/useScroll";
-import useDelayedState from "../../../../hooks/delayedState/useDelayedState";
 import useWaffleScroll from "../../../../library/deprecated/waffleScroll";
 import styles from "./WhatWeDo.module.scss";
 

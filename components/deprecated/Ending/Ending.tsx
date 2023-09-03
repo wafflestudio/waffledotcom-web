@@ -1,8 +1,6 @@
 "use client";
+
 import classNames from "classnames/bind";
-import { useRef } from "react";
-import useDelayedState from "../../../hooks/delayedState/useDelayedState";
-import { useScroll } from "../../../hooks/scroll/useScroll";
 import useWaffleScroll from "../../../library/deprecated/waffleScroll";
 import styles from "./Ending.module.scss";
 

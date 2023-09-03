@@ -1,8 +1,6 @@
 "use client";
 import classNames from "classnames/bind";
-import { useRef, useState } from "react";
-import { useScroll } from "../../../../hooks/scroll/useScroll";
-import useDelayedState from "../../../../hooks/delayedState/useDelayedState";
+import { useState } from "react";
 import useWaffleScroll from "../../../../library/deprecated/waffleScroll";
 import styles from "./Calendar.module.scss";
 import _annualSchedules from "./annualSchedules.json";
