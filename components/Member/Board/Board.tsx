@@ -1,7 +1,7 @@
 "use client";
 
 import classNames from "classnames/bind";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import styles from "./Board.module.scss";
 import { CheckBoxFilter, SelectFilter, ToggleFilter } from "./Filter/Filter";
 import MemberCard, { MemberType } from "./MemberCard/MemberCard";
@@ -52,14 +52,46 @@ function Board() {
 
   const [scrollProgress, setScrollProgress] = useState(0);
   function handleScrollProgress(e: React.UIEvent<HTMLDivElement>) {
-    console.log(scrollProgress);
     setScrollProgress(
       e.currentTarget.scrollTop /
         (e.currentTarget.scrollHeight - e.currentTarget.clientHeight),
     );
   }
 
-  const [ascendingGeneration, setAscendingGeneration] = useState(true);
+  const [orderByGenAsc, setOrderByGenAsc] = useState(true);
+
+  const filterMember = useCallback(
+    (member: MemberType) => {
+      const roleFilter =
+        member.roles.map((role) => selectedRoleSet.has(role)).indexOf(true) >
+        -1;
+      const activeFilter =
+        (member.isActive && selectedStates[0]) ||
+        (!member.isActive && selectedStates[1]);
+      const generationFilter =
+        selectedGeneration === -1 ||
+        generations[selectedGeneration] === member.generation;
+      return roleFilter && activeFilter && generationFilter;
+    },
+    [selectedRoleSet, selectedStates, selectedGeneration],
+  );
+
+  const sortMember = useCallback(
+    (m1: MemberType, m2: MemberType) => {
+      let compare;
+      if (orderByGenAsc) {
+        compare =
+          Number(m1.generation ?? Infinity) - Number(m2.generation ?? Infinity);
+      } else {
+        compare = Number(m2.generation) - Number(m1.generation);
+      }
+      if (compare === 0) {
+        compare = m1.name.localeCompare(m2.name);
+      }
+      return compare;
+    },
+    [orderByGenAsc],
+  );
 
   return (
     <section className={cx("container")}>
@@ -106,8 +138,8 @@ function Board() {
             name={"기수 정렬"}
             activeLabel={"오름차순"}
             inactiveLabel={"내림차순"}
-            isActive={ascendingGeneration}
-            setIsActive={setAscendingGeneration}
+            isActive={orderByGenAsc}
+            setIsActive={setOrderByGenAsc}
           />
         </div>
       </div>
@@ -122,27 +154,8 @@ function Board() {
         <div className={cx("scrollBox")} onScroll={handleScrollProgress}>
           <div className={cx("cardContainer")}>
             {members
-              .filter(
-                (member) =>
-                  member.roles
-                    .map((role) => selectedRoleSet.has(role))
-                    .indexOf(true) !== -1,
-              ) // role 필터
-              .filter(
-                (member) =>
-                  (member.isActive && selectedStates[0]) ||
-                  (!member.isActive && selectedStates[1]),
-              ) // 활동회원 필터
-              .filter(
-                (member) =>
-                  selectedGeneration === -1 ||
-                  generations[selectedGeneration] === member.generation,
-              ) // 기수 필터
-              .sort((m1, m2) =>
-                ascendingGeneration
-                  ? m1.generation.localeCompare(m2.generation)
-                  : m2.generation.localeCompare(m1.generation),
-              )
+              .filter(filterMember)
+              .sort(sortMember)
               .map((member) => (
                 <MemberCard key={member.name} member={member} />
               ))}

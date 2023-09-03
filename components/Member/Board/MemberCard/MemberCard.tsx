@@ -8,7 +8,7 @@ export interface MemberType {
   name: string;
   roles: string[];
   isActive: boolean;
-  generation: string;
+  generation?: string;
   introduction: string;
   githubUrl?: string;
 }
@@ -92,9 +92,11 @@ function MemberCard({
             onMouseEnter={handleMouseEnterTags}
             onMouseLeave={handleMouseLeaveTags}
           >
-            <div className={cx("tag")}>
-              <span className={cx("tagName")}>{generation}기</span>
-            </div>
+            {generation === null ? null : (
+              <div className={cx("tag")}>
+                <span className={cx("tagName")}>{generation}기</span>
+              </div>
+            )}
             {roles
               .slice(0, hoverTags ? 100 : positionShownCount)
               .map((role, i) => (
