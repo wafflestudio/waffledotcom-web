@@ -82,14 +82,14 @@ function Billboard() {
         <img
           className={cx("skylineLight")}
           style={{ transform: `translateY(-${lightSkylinePercent}px)` }}
-          src="static/images/home/skyline_light.svg"
+          src="static/images/deprecated/skyline_light.svg"
           alt=""
           width="100%"
         />
         <img
           className={cx("skylineDark")}
           style={{ transform: `translateY(-${darkSkylinePercent}px)` }}
-          src="static/images/home/skyline_dark.svg"
+          src="static/images/deprecated/skyline_dark.svg"
           alt=""
           width="100%"
         />
@@ -117,12 +117,12 @@ function Billboard() {
                 <img
                   alt=""
                   className={cx("lightOff")}
-                  src={"static/images/home/light_off.svg"}
+                  src={"static/images/deprecated/light_off.svg"}
                 />
                 <img
                   alt=""
                   className={cx("lightOn")}
-                  src={"static/images/home/light_on.svg"}
+                  src={"static/images/deprecated/light_on.svg"}
                 />
                 {title}
               </button>

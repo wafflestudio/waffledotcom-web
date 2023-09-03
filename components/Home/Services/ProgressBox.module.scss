@@ -99,7 +99,7 @@ $carousel-length: 3;
   }
   > .play-button.playing {
     width: 29px;
-    background-image: url("/static/images/newHome/stop_button_icon.svg");
+    background-image: url("/static/images/home/stop_button_icon.svg");
     > .foreground-border {
       > svg {
         animation-play-state: running;
@@ -108,7 +108,7 @@ $carousel-length: 3;
   }
   > .play-button.stopped {
     width: 31px;
-    background-image: url("/static/images/newHome/play_button_icon.svg");
+    background-image: url("/static/images/home/play_button_icon.svg");
     > svg {
       animation-play-state: paused;
     }

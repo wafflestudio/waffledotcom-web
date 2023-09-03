@@ -64,7 +64,7 @@ export default function Carousel({
         }}
       >
         <Image
-          src="/static/images/newHome/previous_button_icon.svg"
+          src="/static/images/home/previous_button_icon.svg"
           alt="previous button"
           width="26"
           height="43"
@@ -89,7 +89,7 @@ export default function Carousel({
         }}
       >
         <Image
-          src="/static/images/newHome/next_button_icon.svg"
+          src="/static/images/home/next_button_icon.svg"
           alt="next button"
           width="26"
           height="43"

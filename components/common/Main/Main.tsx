@@ -38,7 +38,7 @@ export default function Main() {
           className={cx("button")}
         >
           <img
-            src={"/static/images/home/home_main_button.png"}
+            src={"/static/images/deprecated/home_main_button.png"}
             alt="3D waffle shaped button"
           />
           <div className={cx("label")}>CLICK</div>

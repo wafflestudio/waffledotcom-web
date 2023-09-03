@@ -28,7 +28,7 @@ const carouselItemDataList: TCarouselItemData[] = [
     serviceLink: "https://wafflestudio.com",
     serviceLogo: "/static/images/logo/snutt_logo.svg",
     serviceLogoAltMsg: "snutt app logo",
-    servicePhoneImg: "/static/images/newHome/phone_snutt.svg",
+    servicePhoneImg: "/static/images/home/phone_snutt.svg",
     servicePhoneImgAltMsg: "snutt phone display image",
     serviceNameForServiceNameH1Tag: "SNUTT",
     serviceDescription: "서울대학교 시간표 어플",
@@ -38,7 +38,7 @@ const carouselItemDataList: TCarouselItemData[] = [
     serviceLink: "https://wafflestudio.com",
     serviceLogo: "/static/images/logo/siksha_logo.svg",
     serviceLogoAltMsg: "siksha app logo",
-    servicePhoneImg: "/static/images/newHome/phone_siksha.svg",
+    servicePhoneImg: "/static/images/home/phone_siksha.svg",
     servicePhoneImgAltMsg: "siksha phone display image",
     serviceNameForServiceNameH1Tag: "식샤",
     serviceDescription: "서울대학교 학식 어플",
@@ -48,7 +48,7 @@ const carouselItemDataList: TCarouselItemData[] = [
     serviceLink: "https://wafflestudio.com",
     serviceLogo: "/static/images/logo/snuboard_logo.svg",
     serviceLogoAltMsg: "snuboard app logo",
-    servicePhoneImg: "/static/images/newHome/phone_snuboard.svg",
+    servicePhoneImg: "/static/images/home/phone_snuboard.svg",
     servicePhoneImgAltMsg: "snuboard phone display image",
     serviceNameForServiceNameH1Tag: "스누보드",
     serviceDescription: "서울대학교 과별 알림 어플",
@@ -98,7 +98,7 @@ export default function Services() {
             <a className={cx("more-button")} href="https://wafflestudio.com/">
               <p>자세히 알아보기</p>
               <Image
-                src="/static/images/newHome/arrow_icon.svg"
+                src="/static/images/home/arrow_icon.svg"
                 alt="arrow icon"
                 width="28"
                 height="9"

@@ -38,7 +38,7 @@ export default function Members() {
               <div className={cx("position")}>
                 <Image
                   className={cx("position-image")}
-                  src="/static/images/newHome/rookies_icon.svg"
+                  src="/static/images/home/rookies_icon.svg"
                   alt="rookies icon"
                   width="150"
                   height="150"
@@ -69,7 +69,7 @@ export default function Members() {
               <div className={cx("position")}>
                 <Image
                   className={cx("position-image")}
-                  src="/static/images/newHome/programmers_icon.svg"
+                  src="/static/images/home/programmers_icon.svg"
                   alt="programmers icon"
                   width="150"
                   height="150"
@@ -93,7 +93,7 @@ export default function Members() {
               <div className={cx("position")}>
                 <Image
                   className={cx("position-image")}
-                  src="/static/images/newHome/designers_icon.svg"
+                  src="/static/images/home/designers_icon.svg"
                   alt="designers icon"
                   width="151"
                   height="150"
