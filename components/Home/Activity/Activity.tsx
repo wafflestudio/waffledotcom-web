@@ -2,7 +2,7 @@
 
 import classNames from "classnames/bind";
 import { useState } from "react";
-import { useNavigatorScroll } from "../../deprecated/Home/scroll";
+import { useNavigatorScroll } from "../../common/Scroll/scroll";
 import styles from "./Activity.module.scss";
 
 const cx = classNames.bind(styles);
@@ -32,7 +32,12 @@ export default function About() {
             <span>와플스튜디오에서 하는 활동들</span>
           </div>
           <div className={cx("imageArea")}>
-            <div className={cx("image")}></div>
+            <div className={cx("image")}>
+              <img
+                src="/static/images/activity/activityImage1.png"
+                alt="Someone is programming a website with laptop"
+              />
+            </div>
             <div className={cx("description")}>
               <div className={cx("subTitle", { active: index === 0 })}>
                 <div

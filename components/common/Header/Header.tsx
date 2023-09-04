@@ -2,7 +2,7 @@
 
 import classNames from "classnames/bind";
 import { usePathname } from "next/navigation";
-import Link from "next/link";
+import WaffleLink from "../WaffleLink";
 import styles from "./Header.module.scss";
 const cx = classNames.bind(styles);
 
@@ -19,9 +19,10 @@ const tabs: TabItem[] = [
 
 export default function Header() {
   const currentPathname = usePathname();
+
   return (
     <header className={cx("header")}>
-      <div className={cx("content")}>
+      <nav className={cx("content")}>
         {/*TODO: 개발/배포 주소 환경변수로 뺄까? */}
         <a className={cx("logo")} href="http://localhost:3000/">
           <img
@@ -38,11 +39,11 @@ export default function Header() {
                 selected: currentPathname === pathname,
               })}
             >
-              <Link href={pathname}>{name}</Link>
+              <WaffleLink href={pathname}>{name}</WaffleLink>
             </li>
           ))}
         </ul>
-      </div>
+      </nav>
     </header>
   );
 }

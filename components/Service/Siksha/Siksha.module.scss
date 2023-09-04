@@ -2,6 +2,7 @@
 
 .container {
   overflow: hidden;
+  visibility: hidden;
 
   position: relative;
   width: 100%;
@@ -12,7 +13,12 @@
     flex-direction: row;
     align-items: flex-start;
     position: fixed;
-    background: linear-gradient(90deg, rgb(237,132,119) 0%, rgb(238,139,109) 50%, rgb(240,154,91) 100%);
+    background: linear-gradient(
+      90deg,
+      rgb(237, 132, 119) 0%,
+      rgb(238, 139, 109) 50%,
+      rgb(240, 154, 91) 100%
+    );
 
     padding: 0;
     gap: 20px;
@@ -28,8 +34,8 @@
 
     &::before {
       position: fixed;
-      content: '';
-      background: rgb(240,154,91);
+      content: "";
+      background: rgb(240, 154, 91);
       opacity: 1;
       transition: opacity 3s;
       width: 100%;
@@ -100,6 +106,7 @@
 }
 
 .container.available {
+  visibility: visible;
   .background {
     opacity: 1;
 

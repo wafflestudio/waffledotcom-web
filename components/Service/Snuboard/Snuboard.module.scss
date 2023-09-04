@@ -85,6 +85,7 @@ $barList: (
   z-index: 100;
   transition: 0.5s;
   opacity: 0;
+  visibility: hidden;
 
   .background {
     @include position.fixed-background;
@@ -124,6 +125,7 @@ $barList: (
 
 .container.available {
   opacity: 1;
+  visibility: visible;
   .background {
     @for $i from 1 through 8 {
       .bar#{$i} {

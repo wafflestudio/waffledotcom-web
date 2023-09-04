@@ -103,6 +103,7 @@ $blockList: (
   z-index: 100;
   transition: 0.5s ease;
   opacity: 0;
+  visibility: hidden;
 
   .background {
     @include position.fixed-background;

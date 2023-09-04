@@ -4,7 +4,7 @@ $carousel-length: 3;
 
 .carousel {
   position: relative;
-  margin-top: calc(75px + px2vh(130px));
+  // margin-top: calc(75px + px2vh(130px));
   display: flex;
   align-items: center;
   gap: px2vw(75px);

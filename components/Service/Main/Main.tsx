@@ -1,17 +1,16 @@
 "use client";
 
 import classNames from "classnames/bind";
-
-import { useNavigatorScroll } from "../../deprecated/Home/scroll";
+import { useServiceScroll } from "../serviceScroll";
 import styles from "./Main.module.scss";
 
 const cx = classNames.bind(styles);
 
 export default function Main() {
-  const { state, targetRef } = useNavigatorScroll({
+  const { state, targetRef } = useServiceScroll({
     callback: ({ progress, setState }) => {
       if (progress >= 1 && progress < 3) {
-        setState({ currentSection: "main" });
+        setState({ currentService: "main" });
       }
     },
     anchorId: "main",
@@ -19,7 +18,7 @@ export default function Main() {
 
   return (
     <section
-      className={cx("container", { off: state.currentSection !== "main" })}
+      className={cx("container", { off: state.currentService !== "main" })}
       ref={targetRef}
     >
       <div className={cx("background")}>
@@ -28,13 +27,13 @@ export default function Main() {
         <div className={cx("bgText")}>WAFFLE</div>
       </div>
       <div className={cx("logoWrapper")}>
-        <h3 className={cx("subLogo")}>맛있는 서비스가 탄생하는 곳</h3>
+        <h3 className={cx("subLogo")}>와플의 서비스를 소개합니다</h3>
         <h1 className={cx("mainLogo")}>WAFFLE</h1>
-        <h1 className={cx("mainLogo")}>STUDIO</h1>
+        <h1 className={cx("mainLogo")}>SERVICES</h1>
       </div>
       <div className={cx("buttonWrapper")}>
         <a
-          onClick={() => useNavigatorScroll.scrollTo("about")}
+          onClick={() => useServiceScroll.scrollTo("snutt")}
           className={cx("button")}
         >
           <img

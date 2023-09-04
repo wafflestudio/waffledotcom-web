@@ -18,7 +18,7 @@ function CarouselItem({ serviceData }: { serviceData: TCarouselItemData }) {
   return (
     <div className={cx("carousel-item")}>
       <div className={cx("left")}>
-        <a className={cx("service-icon")} href={serviceLink}>
+        <a className={cx("service-icon")} href={serviceLink} target="blank">
           <Image
             src={serviceLogo}
             alt={serviceLogoAltMsg}
@@ -29,7 +29,7 @@ function CarouselItem({ serviceData }: { serviceData: TCarouselItemData }) {
         <h1 className={cx("service-name")}>{serviceNameForServiceNameH1Tag}</h1>
         <p className={cx("description")}>{serviceDescription}</p>
       </div>
-      <a className={cx("phone")} href={serviceLink}>
+      <a className={cx("phone")} href={serviceLink} target="blank">
         <Image
           src={servicePhoneImg}
           alt={servicePhoneImgAltMsg}

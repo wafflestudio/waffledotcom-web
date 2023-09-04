@@ -1,38 +1,36 @@
 "use client";
 
 import classNames from "classnames/bind";
-import { useNavigatorScroll } from "./scroll";
+import { useServiceScroll } from "../../Service/serviceScroll";
+import { ScrollItem } from "./ScrollNavigator";
 import styles from "./ScrollNavigator.module.scss";
 const cx = classNames.bind(styles);
-
-export type ScrollItem = {
-  name: string;
-  anchorId: string;
-};
 
 type ScrollNavigatorProps = {
   items: ScrollItem[];
 };
 
-export default function ScrollNavigator({ items }: ScrollNavigatorProps) {
-  const { targetRef, state } = useNavigatorScroll();
+export default function ServiceScrollNavigator({
+  items,
+}: ScrollNavigatorProps) {
+  const { targetRef, state } = useServiceScroll();
 
   return (
     <nav
       ref={targetRef}
-      className={cx("ScrollNavigator", `${state.currentSection}`)}
+      className={cx("ScrollNavigator", `${state.currentService}`)}
     >
       <ul className={cx("list")}>
         {items.map(({ name, anchorId }) => (
           <li
             key={anchorId}
             className={cx("item", {
-              current: state.currentSection === anchorId,
+              current: state.currentService === anchorId,
             })}
           >
             <button
               onClick={() => {
-                useNavigatorScroll.scrollTo(anchorId);
+                useServiceScroll.scrollTo(anchorId);
               }}
             >
               <div className={cx("label")}>{name}</div>

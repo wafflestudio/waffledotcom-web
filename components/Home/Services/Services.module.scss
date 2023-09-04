@@ -19,21 +19,24 @@
 
   > .foreground {
     @include position.fixed-foreground;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     > .content-wrapper {
       width: 1300px;
       min-width: 1300px;
-      margin: 0 auto;
       display: flex;
       gap: px2vw(230px);
+      align-items: center;
+      height: 100%;
       > .texts {
-        margin-top: calc(75px + px2vh(295px));
+        // margin-top: calc(75px + px2vh(295px));
         > .title {
           font-size: 50px;
           font-weight: bold;
           color: #323232;
         }
         > .description {
-          margin-top: px2vh(22px);
           font-size: 24px;
           color: #737373;
           line-height: 160%;
@@ -45,6 +48,7 @@
           margin-top: px2vh(23px);
           padding: px2vh(5px) px2vw(9px);
           border: 1px solid #a4a4a4;
+          align-items: center;
           > p {
             font-size: 14px;
             font-weight: 500;

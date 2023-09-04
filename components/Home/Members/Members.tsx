@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import classNames from "classnames/bind";
-import { useNavigatorScroll } from "../../deprecated/Home/scroll";
+import { useNavigatorScroll } from "../../common/Scroll/scroll";
 
 import styles from "./Members.module.scss";
 
