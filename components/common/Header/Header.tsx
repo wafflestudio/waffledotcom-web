@@ -12,7 +12,7 @@ type TabItem = {
 };
 
 const tabs: TabItem[] = [
-  { name: "소개", pathname: "/" },
+  { name: "소개", pathname: "" },
   { name: "서비스", pathname: "/service" },
   { name: "멤버", pathname: "/member" },
 ];
@@ -24,7 +24,7 @@ export default function Header() {
     <header className={cx("header")}>
       <nav className={cx("content")}>
         {/*TODO: 개발/배포 주소 환경변수로 뺄까? */}
-        <a className={cx("logo")} href="http://localhost:3000/">
+        <a className={cx("logo")} href="https://dev.wafflestudio.com/">
           <img
             src="/static/images/logo/waffle_logo_title.png"
             alt="Wafflestudio logo image"
@@ -36,7 +36,7 @@ export default function Header() {
             <li
               key={pathname}
               className={cx("tabItem", {
-                selected: currentPathname === pathname,
+                selected: currentPathname === `${pathname}/`,
               })}
             >
               <WaffleLink href={pathname}>{name}</WaffleLink>

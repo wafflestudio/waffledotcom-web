@@ -5,8 +5,7 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  /** @TODO trailingSlash가 필요한가? */
-  // trailingSlash: true,
+  trailingSlash: true,
   experimental: {
     appDir: true,
   },
