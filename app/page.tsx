@@ -6,6 +6,7 @@ import Activity from "../components/Home/Activity/Activity";
 import ScrollNavigator, {
   ScrollItem,
 } from "../components/common/Scroll/ScrollNavigator";
+import Support from "../components/Home/Support/Support";
 
 const homeScrollItems: ScrollItem[] = [
   { name: "MAIN", anchorId: "main" },
@@ -13,6 +14,7 @@ const homeScrollItems: ScrollItem[] = [
   { name: "OUR SERVICES", anchorId: "services" },
   { name: "MEMBERS", anchorId: "members" },
   { name: "ACTIVITY", anchorId: "activity" },
+  { name: "SUPPORT", anchorId: "support" },
 ];
 
 export default function Home() {
@@ -23,6 +25,7 @@ export default function Home() {
       <Services />
       <Members />
       <Activity />
+      <Support />
       <ScrollNavigator items={homeScrollItems} />
     </>
   );
