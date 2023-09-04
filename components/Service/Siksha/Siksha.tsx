@@ -38,17 +38,13 @@ function Siksha() {
           <div className={cx("introduction")}>
             <IntroductionHead
               logo={"/static/images/logo/siksha_logo.svg"}
-              title={"SNUTT"}
-              des={[
-                "SNUTT는 서울대학교 시간표 어플입니다.",
-                "SNUTT는 서울대학교 대표 시간표 어플입니다.",
-                "SNUTT는 서울대학교 시간표 어플입니다.",
-              ]}
+              title={"식샤"}
+              des={["식샤는 서울대학교 식단 알리미 앱입니다."]}
               textColor="black"
               links={[
-                "https://www.wafflestudio.com/",
-                "https://www.wafflestudio.com/",
-                "https://www.wafflestudio.com/",
+                "https://apps.apple.com/kr/app/%EC%8B%9D%EC%83%A4-%EC%84%9C%EC%9A%B8%EB%8C%80%ED%95%99%EA%B5%90-%EC%8B%9D%EB%8B%A8-%EC%95%B1/id1032700617",
+                "https://play.google.com/store/apps/details?id=com.wafflestudio.siksha2&hl=ko&gl=US",
+                "https://siksha.wafflestudio.com/",
               ]}
             />
             <IntroductionCarousel

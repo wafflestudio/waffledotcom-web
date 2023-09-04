@@ -54,24 +54,26 @@ function IntroductionHead({
           <Image
             className={cx("hover")}
             src="/static/images/logo/playstore_logo.svg"
-            alt="appstore"
+            alt="playstore"
             layout="fill"
             onClick={() => {
               window.open(links[1]);
             }}
           />
         </div>
-        <div className={cx("link")}>
-          <Image
-            className={cx("hover")}
-            src="/static/images/logo/web_logo.svg"
-            alt="appstore"
-            layout="fill"
-            onClick={() => {
-              window.open(links[2]);
-            }}
-          />
-        </div>
+        {links.length > 2 && (
+          <div className={cx("link")}>
+            <Image
+              className={cx("hover")}
+              src="/static/images/logo/web_logo.svg"
+              alt="web"
+              layout="fill"
+              onClick={() => {
+                window.open(links[2]);
+              }}
+            />
+          </div>
+        )}
       </div>
     </div>
   );

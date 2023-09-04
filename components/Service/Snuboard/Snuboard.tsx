@@ -38,17 +38,12 @@ function Snuboard() {
         <IntroductionHead
           logo={"/static/images/logo/snuboard_logo.svg"}
           title={"스누보드"}
-          des={[
-            "SNUTT는 서울대학교 시간표 어플입니다.",
-            "SNUTT는 서울대학교 대표 시간표 어플입니다.",
-            "SNUTT는 서울대학교 시간표 어플입니다.",
-          ]}
+          des={["스누보드는 서울대학교의 과별 공지를 모아보는 앱입니다."]}
           textColor="white"
           // TODO: 변수명 link => links 변경 제의
           links={[
-            "https://www.wafflestudio.com/",
-            "https://www.wafflestudio.com/",
-            "https://www.wafflestudio.com/",
+            "https://apps.apple.com/kr/app/%EC%8A%A4%EB%88%84%EB%B3%B4%EB%93%9C-%EC%84%9C%EC%9A%B8%EB%8C%80%ED%95%99%EA%B5%90-%EA%B3%BC%EB%B3%84-%EA%B3%B5%EC%A7%80-%EB%AA%A8%EC%95%84%EB%B3%B4%EA%B3%A0-%EC%95%8C%EB%A6%BC-%EB%B0%9B%EC%9E%90/id1585860405",
+            "https://play.google.com/store/apps/details?id=com.wafflestudio.snuboard&hl=ko&gl=US",
           ]}
         />
         <IntroductionCarousel
