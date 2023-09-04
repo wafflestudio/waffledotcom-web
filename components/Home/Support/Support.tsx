@@ -58,7 +58,7 @@ export default function Support() {
                 </div>
                 <div>
                   <span className={cx("label")}>와플 동아리장</span>
-                  hanan.dev04@gmail.com
+                  snjlee58@snu.ac.kr
                 </div>
               </div>
             </div>
