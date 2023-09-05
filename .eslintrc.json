@@ -17,8 +17,7 @@
   "parserOptions": {
     "project": "./tsconfig.json"
   },
-  "plugins": [
-    "@typescript-eslint"
-  ],
-  "root": true
+  "plugins": ["@typescript-eslint"],
+  "root": true,
+  "ignorePatterns": ["library/waffleScroll/*"]
 }
