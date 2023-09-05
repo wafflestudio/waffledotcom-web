@@ -46,7 +46,7 @@ export const useIsomorphicLayoutEffect = isSSR ? useEffect : useLayoutEffect;
  *
  * @return useScroll 스크롤 훅 API
  */
-export const createGlobalScrollHook = <T extends Record<string, any>>(
+export const createGlobalScrollHook = <T extends Record<string, unknown>>(
   initialState: T,
   config: {
     hasScrollContainer?: boolean;
@@ -56,6 +56,7 @@ export const createGlobalScrollHook = <T extends Record<string, any>>(
 ): ScrollCreatorReturnType<T> => {
   let isInitiated = false;
   let globalState: T = initialState;
+  let lastScrollTop = 0;
   const {
     hasScrollContainer = false,
     defaultCallbackWait = 50,
@@ -101,6 +102,7 @@ export const createGlobalScrollHook = <T extends Record<string, any>>(
           ...apis,
           ...getScrollUtils(progress, apis),
           progress,
+          direction: lastScrollTop > currentViewport.offsetTop ? "up" : "down",
         });
       }
       //자체 callback 적용
@@ -109,8 +111,10 @@ export const createGlobalScrollHook = <T extends Record<string, any>>(
           ...apis,
           ...getScrollUtils(progress, apis),
           progress,
+          direction: lastScrollTop > currentViewport.offsetTop ? "up" : "down",
         });
       }
+      lastScrollTop = currentViewport.offsetTop;
     }
   };
 
@@ -207,8 +211,8 @@ export const createGlobalScrollHook = <T extends Record<string, any>>(
  * @return useLocalScroll 로컬 스크롤 훅 API
  */
 export const createLocalScrollHook = <
-  T extends Record<string, any>,
-  U extends Record<string, any>,
+  T extends Record<string, unknown>,
+  U extends Record<string, unknown>,
 >(
   initialState: { localState: T; defaultCallback?: ScrollCallback<T & U> },
   hasScrollContainer?: boolean,
@@ -240,12 +244,14 @@ export const createLocalScrollHook = <
         defaultCallback({
           ...apis,
           ...getScrollUtils(progress, apis),
+          direction: "up",
           progress,
         });
       if (callback)
         callback({
           ...apis,
           ...getScrollUtils(progress, apis),
+          direction: "up",
           progress,
         });
     }
