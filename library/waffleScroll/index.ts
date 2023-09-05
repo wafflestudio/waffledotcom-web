@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useLayoutEffect, useReducer, useRef } from "react";
+import { throttle } from "lodash";
 import {
   Calculatable,
   calculateProgress,
@@ -46,15 +47,26 @@ export const useIsomorphicLayoutEffect = isSSR ? useEffect : useLayoutEffect;
  * @return useScroll 스크롤 훅 API
  */
 export const createGlobalScrollHook = <T extends Record<string, any>>(
-  initialState: {
-    globalState: T;
+  initialState: T,
+  config: {
+    hasScrollContainer?: boolean;
     defaultCallback?: ScrollCallback<T>;
-  },
-  hasScrollContainer?: boolean,
+    defaultCallbackWait?: number;
+  } = {},
 ): ScrollCreatorReturnType<T> => {
   let isInitiated = false;
-  let globalState: T = initialState.globalState;
-  const defaultCallback = initialState.defaultCallback;
+  let globalState: T = initialState;
+  const {
+    hasScrollContainer = false,
+    defaultCallbackWait = 50,
+    defaultCallback,
+  } = config;
+  const throttledDefaultCallback = defaultCallback
+    ? throttle(defaultCallback, defaultCallbackWait, {
+        trailing: true,
+        leading: true,
+      })
+    : null;
   const listeners: Set<ScrollListener<T>> = new Set();
   let scrollContainer: AvailableHTMLElement | null = null;
 
@@ -83,21 +95,22 @@ export const createGlobalScrollHook = <T extends Record<string, any>>(
         offsetHeight: element.offsetHeight,
       };
       const progress = roundBy(calculateProgress(target, currentViewport), 2);
-
       //defaultCallback이 있을 경우 적용
-      if (defaultCallback)
-        defaultCallback({
+      if (throttledDefaultCallback) {
+        throttledDefaultCallback({
           ...apis,
           ...getScrollUtils(progress, apis),
           progress,
         });
+      }
       //자체 callback 적용
-      if (callback)
+      if (callback) {
         callback({
           ...apis,
           ...getScrollUtils(progress, apis),
           progress,
         });
+      }
     }
   };
 
@@ -120,7 +133,11 @@ export const createGlobalScrollHook = <T extends Record<string, any>>(
     });
   };
 
-  const useScroll: GlobalScrollHook<T> = ({ callback, anchorId } = {}) => {
+  const useScroll: GlobalScrollHook<T> = ({
+    callback,
+    anchorId,
+    wait = 50,
+  } = {}) => {
     const [, forceUpdate] = useReducer((c: number): number => c + 1, 0);
     const targetRef = useRef<AvailableHTMLElement | null>(null);
     const listenerRef = useRef<ScrollListener<T>>(null);
@@ -143,7 +160,12 @@ export const createGlobalScrollHook = <T extends Record<string, any>>(
       if (targetRef.current) {
         const listener: ScrollListener<T> = {
           element: targetRef.current,
-          callback: scrollCallback.current ?? null,
+          callback: scrollCallback.current
+            ? throttle(scrollCallback.current, wait, {
+                trailing: true,
+                leading: true,
+              })
+            : null,
           anchorId: anchorId ?? null,
           forceUpdate,
           apis,

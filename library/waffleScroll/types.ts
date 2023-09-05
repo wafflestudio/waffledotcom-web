@@ -29,6 +29,7 @@ export type ScrollListener<T extends Record<string, any>> = {
 export type GlobalScrollHook<T extends Record<string, any>> = (params?: {
   callback?: ScrollCallback<T>;
   anchorId?: string;
+  wait?: number;
 }) => {
   targetRef: MutableRefObject<AvailableHTMLElement | null>;
   state: T;
