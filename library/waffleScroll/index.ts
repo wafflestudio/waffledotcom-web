@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useLayoutEffect, useReducer, useRef } from "react";
-import { throttle } from "lodash";
+import { debounce, throttle } from "lodash";
 import {
   Calculatable,
   calculateProgress,
@@ -18,6 +18,8 @@ import {
   ScrollListener,
   LocalScrollHook,
   LocalScrollCreatorReturnType,
+  DefaultScrollCallback,
+  ScrollTo,
 } from "./types";
 import { getScrollUtils } from "./utility";
 
@@ -50,7 +52,7 @@ export const createGlobalScrollHook = <T extends Record<string, unknown>>(
   initialState: T,
   config: {
     hasScrollContainer?: boolean;
-    defaultCallback?: ScrollCallback<T>;
+    defaultCallback?: DefaultScrollCallback<T>;
     defaultCallbackWait?: number;
   } = {},
 ): ScrollCreatorReturnType<T> => {
@@ -62,10 +64,10 @@ export const createGlobalScrollHook = <T extends Record<string, unknown>>(
     defaultCallbackWait = 50,
     defaultCallback,
   } = config;
-  const throttledDefaultCallback = defaultCallback
-    ? throttle(defaultCallback, defaultCallbackWait, {
+  const debouncedDefaultCallback = defaultCallback
+    ? debounce(defaultCallback, defaultCallbackWait, {
         trailing: true,
-        leading: true,
+        leading: false,
       })
     : null;
   const listeners: Set<ScrollListener<T>> = new Set();
@@ -89,6 +91,16 @@ export const createGlobalScrollHook = <T extends Record<string, unknown>>(
           offsetTop: window.scrollY,
           offsetHeight: window.innerHeight,
         };
+    const direction: "up" | "down" =
+      lastScrollTop > currentViewport.offsetTop ? "up" : "down";
+    //defaultCallback이 있을 경우 적용
+    if (debouncedDefaultCallback) {
+      debouncedDefaultCallback({
+        getState: getGlobalState,
+        setState: setGlobalState,
+        direction,
+      });
+    }
 
     for (const { element, apis, callback } of listeners) {
       const target: Calculatable = {
@@ -96,22 +108,14 @@ export const createGlobalScrollHook = <T extends Record<string, unknown>>(
         offsetHeight: element.offsetHeight,
       };
       const progress = roundBy(calculateProgress(target, currentViewport), 2);
-      //defaultCallback이 있을 경우 적용
-      if (throttledDefaultCallback) {
-        throttledDefaultCallback({
-          ...apis,
-          ...getScrollUtils(progress, apis),
-          progress,
-          direction: lastScrollTop > currentViewport.offsetTop ? "up" : "down",
-        });
-      }
+
       //자체 callback 적용
       if (callback) {
         callback({
           ...apis,
           ...getScrollUtils(progress, apis),
           progress,
-          direction: lastScrollTop > currentViewport.offsetTop ? "up" : "down",
+          direction,
         });
       }
       lastScrollTop = currentViewport.offsetTop;
@@ -130,10 +134,15 @@ export const createGlobalScrollHook = <T extends Record<string, unknown>>(
     containerElement.addEventListener("resize", handleOnScroll);
   };
 
-  const scrollTo = (to: string) => {
+  const scrollTo: ScrollTo = (
+    to,
+    config = {
+      behavior: "instant",
+      block: "start",
+    },
+  ) => {
     listeners.forEach((listener) => {
-      if (listener.anchorId === to)
-        listener.element.scrollIntoView({ behavior: "smooth" });
+      if (listener.anchorId === to) listener.element.scrollIntoView(config);
     });
   };
 
@@ -166,7 +175,7 @@ export const createGlobalScrollHook = <T extends Record<string, unknown>>(
           element: targetRef.current,
           callback: scrollCallback.current
             ? throttle(scrollCallback.current, wait, {
-                trailing: true,
+                trailing: false,
                 leading: true,
               })
             : null,
@@ -193,7 +202,12 @@ export const createGlobalScrollHook = <T extends Record<string, unknown>>(
     return { targetRef, state: getGlobalState() };
   };
 
-  return Object.assign(useScroll, { setScrollContainer, scrollTo });
+  return Object.assign(useScroll, {
+    setScrollContainer,
+    scrollTo,
+    setState: setGlobalState,
+    getState: getGlobalState,
+  });
 };
 
 /**

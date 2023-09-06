@@ -14,6 +14,10 @@ export type ScrollApis<GlobalInterface extends Record<string, unknown>> = {
   setState: (partial: Partial<GlobalInterface>) => void;
 };
 
+export type DefaultScrollCallback<T extends Record<string, unknown>> = (
+  params: ScrollApis<T> & { direction: "up" | "down" },
+) => void;
+
 export type ScrollCallback<T extends Record<string, unknown>> = (
   params: ScrollApis<T> &
     ScrollUtils<T> & { progress: number; direction: "up" | "down" },
@@ -51,14 +55,20 @@ export type SetScrollContainer = (
   containerElement: AvailableHTMLElement,
 ) => void;
 
-export type ScrollTo = (to: string) => void;
+export type ScrollTo = (
+  to: string,
+  config?: {
+    behavior?: ScrollBehavior;
+    block?: "start" | "center" | "end" | "nearest";
+  },
+) => void;
 
 /* TODO: 조건부 타입 이용해서 hasScrollContainer가 true일 때만 setScrollContainer가 가능하게 할 수는 없을까? */
 export type ScrollCreatorReturnType<T extends Record<string, unknown>> =
   GlobalScrollHook<T> & {
     setScrollContainer: SetScrollContainer;
     scrollTo: ScrollTo;
-  };
+  } & ScrollApis<T>;
 
 export type LocalScrollCreatorReturnType<
   T extends Record<string, unknown>,
