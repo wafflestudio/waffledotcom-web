@@ -1,7 +1,7 @@
 "use client";
 
 import classNames from "classnames/bind";
-import { useNavigatorScroll } from "./scroll";
+import { useHomeScroll } from "../../Home/homeScroll";
 import styles from "./ScrollNavigator.module.scss";
 const cx = classNames.bind(styles);
 
@@ -15,7 +15,7 @@ type ScrollNavigatorProps = {
 };
 
 export default function ScrollNavigator({ items }: ScrollNavigatorProps) {
-  const { targetRef, state } = useNavigatorScroll();
+  const { targetRef, state } = useHomeScroll();
 
   return (
     <nav
@@ -32,7 +32,11 @@ export default function ScrollNavigator({ items }: ScrollNavigatorProps) {
           >
             <button
               onClick={() => {
-                useNavigatorScroll.scrollTo(anchorId);
+                useHomeScroll.scrollTo(anchorId, {
+                  behavior: "instant",
+                  block: "center",
+                });
+                useHomeScroll.setState({ currentSection: anchorId });
               }}
             >
               <div className={cx("label")}>{name}</div>

@@ -3,7 +3,7 @@
 import classNames from "classnames/bind";
 import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
-import { useNavigatorScroll } from "../../common/Scroll/scroll";
+import { onHomeScroll, useHomeScroll } from "../homeScroll";
 import WaffleLink from "../../common/WaffleLink";
 import Carousel from "./Carousel";
 import ProgressBox from "./ProgressBox";
@@ -58,14 +58,7 @@ const carouselItemDataList: TCarouselItemData[] = [
 ];
 
 export default function Services() {
-  const { state, targetRef } = useNavigatorScroll({
-    callback: ({ progress, setState }) => {
-      if (progress >= 1 && progress < 3) {
-        setState({ currentSection: "services" });
-      }
-    },
-    anchorId: "services",
-  });
+  const { state, targetRef } = useHomeScroll(onHomeScroll("services"));
   const [serviceIndex, setServiceIndex] = useState<number>(1);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
 

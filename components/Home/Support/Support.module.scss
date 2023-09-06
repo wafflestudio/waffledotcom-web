@@ -2,7 +2,6 @@
 @use "./styles/color";
 
 .container {
-  position: relative;
   width: 100vw;
   height: 100vh;
   opacity: 1;
@@ -48,8 +47,6 @@
       .mail {
         display: flex;
         gap: 44px;
-        .column {
-        }
         .label {
           display: inline-block;
           width: 160px;

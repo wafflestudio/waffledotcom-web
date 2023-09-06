@@ -1,21 +1,14 @@
 "use client";
 
 import classNames from "classnames/bind";
-
 import { useNavigatorScroll } from "../../common/Scroll/scroll";
+import { onHomeScroll, useHomeScroll } from "../homeScroll";
 import styles from "./Main.module.scss";
 
 const cx = classNames.bind(styles);
 
 export default function Main() {
-  const { state, targetRef } = useNavigatorScroll({
-    callback: ({ progress, setState }) => {
-      if (progress >= 1 && progress < 3) {
-        setState({ currentSection: "main" });
-      }
-    },
-    anchorId: "main",
-  });
+  const { state, targetRef } = useHomeScroll(onHomeScroll("main"));
 
   return (
     <section
