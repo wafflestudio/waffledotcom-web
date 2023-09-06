@@ -1,6 +1,6 @@
 import { PickByType, ScrollApis } from "./types";
 
-export type ScrollUtils<T extends object> = {
+export type ScrollUtils<T extends Record<string, unknown>> = {
   toggleState: (
     min: number,
     max: number,
@@ -10,11 +10,11 @@ export type ScrollUtils<T extends object> = {
 };
 
 //utility function
-export const getScrollUtils = <T extends object>(
+export const getScrollUtils = <T extends Record<string, unknown>>(
   progress: number,
   apis: ScrollApis<T>,
 ): ScrollUtils<T> => {
-  const { getState, setState } = apis;
+  const { setState } = apis;
 
   const toggleState: ScrollUtils<T>["toggleState"] = (
     min,
