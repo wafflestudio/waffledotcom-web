@@ -1,7 +1,6 @@
 "use client";
 
 import classNames from "classnames/bind";
-import { useNavigatorScroll } from "../../common/Scroll/scroll";
 import { onHomeScroll, useHomeScroll } from "../homeScroll";
 import styles from "./Main.module.scss";
 
@@ -27,7 +26,7 @@ export default function Main() {
       </div>
       <div className={cx("buttonWrapper")}>
         <a
-          onClick={() => useNavigatorScroll.scrollTo("about")}
+          onClick={() => useHomeScroll.scrollTo("about")}
           className={cx("button")}
         >
           <img
