@@ -1,7 +1,11 @@
 import { createGlobalScrollHook } from "../../library/waffleScroll";
-import { GlobalScrollHookParams } from "../../library/waffleScroll/types";
 
-const homeScrollItems = [
+export type ScrollItem = {
+  name: string;
+  anchorId: string;
+};
+
+export const homeScrollItems = [
   { name: "MAIN", anchorId: "main" },
   { name: "ABOUT US", anchorId: "about" },
   { name: "OUR SERVICES", anchorId: "services" },
@@ -19,24 +23,6 @@ export const useHomeScroll = createGlobalScrollHook(
         block: direction === "up" ? "start" : "end",
       });
     },
-    defaultCallbackWait: 1000,
+    defaultCallbackWait: 500,
   },
 );
-
-export const onHomeScroll: (
-  anchorId: typeof homeScrollItems[number]["anchorId"],
-) => GlobalScrollHookParams<{ currentSection: string }> = (anchorId) => ({
-  callback: ({ progress, direction, setState }) => {
-    // console.log(`${anchorId}: ${progress} (${direction})`);
-    if (direction === "up") {
-      if (progress < 3 && progress >= 2) {
-        setState({ currentSection: anchorId });
-      }
-    } else {
-      if (progress <= 2 && progress > 0) {
-        setState({ currentSection: anchorId });
-      }
-    }
-  },
-  anchorId,
-});

@@ -4,25 +4,20 @@ import classNames from "classnames/bind";
 import IntroductionHead from "../common/IntroductionHead/IntroductionHead";
 import IntroductionCarousel from "../common/IntroductionCarousel/IntroductionCarousel";
 import { useServiceScroll } from "../serviceScroll";
+import { handleOnePageScroll } from "../../common/commonScroll";
 import styles from "./Snuboard.module.scss";
 
 const cx = classNames.bind(styles);
 
 function Snuboard() {
-  const { targetRef, state } = useServiceScroll({
-    callback: ({ progress, getState, setState }) => {
-      if (progress > 0.75 && progress < 2.7) {
-        if (getState().currentService !== "snuboard")
-          setState({ currentService: "snuboard" });
-      }
-    },
-    anchorId: "snuboard",
-  });
+  const { targetRef, state } = useServiceScroll(
+    handleOnePageScroll("snuboard"),
+  );
 
   return (
     <section
       className={cx("container", {
-        available: state.currentService === "snuboard",
+        available: state.currentSection === "snuboard",
       })}
       ref={targetRef}
     >

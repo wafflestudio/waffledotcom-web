@@ -1,13 +1,14 @@
 "use client";
 
 import classNames from "classnames/bind";
-import { onHomeScroll, useHomeScroll } from "../homeScroll";
+import { useHomeScroll } from "../homeScroll";
+import { handleOnePageScroll } from "../../common/commonScroll";
 import styles from "./Main.module.scss";
 
 const cx = classNames.bind(styles);
 
 export default function Main() {
-  const { state, targetRef } = useHomeScroll(onHomeScroll("main"));
+  const { state, targetRef } = useHomeScroll(handleOnePageScroll("main"));
 
   return (
     <section

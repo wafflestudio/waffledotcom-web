@@ -2,23 +2,17 @@
 
 import classNames from "classnames/bind";
 import { useServiceScroll } from "../serviceScroll";
+import { handleOnePageScroll } from "../../common/commonScroll";
 import styles from "./Main.module.scss";
 
 const cx = classNames.bind(styles);
 
 export default function Main() {
-  const { state, targetRef } = useServiceScroll({
-    callback: ({ progress, setState }) => {
-      if (progress >= 1 && progress < 3) {
-        setState({ currentService: "main" });
-      }
-    },
-    anchorId: "main",
-  });
+  const { state, targetRef } = useServiceScroll(handleOnePageScroll("main"));
 
   return (
     <section
-      className={cx("container", { off: state.currentService !== "main" })}
+      className={cx("container", { off: state.currentSection !== "main" })}
       ref={targetRef}
     >
       <div className={cx("background")}>

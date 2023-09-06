@@ -2,13 +2,14 @@
 
 import Image from "next/image";
 import classNames from "classnames/bind";
-import { onHomeScroll, useHomeScroll } from "../homeScroll";
+import { useHomeScroll } from "../homeScroll";
+import { handleOnePageScroll } from "../../common/commonScroll";
 import styles from "./Members.module.scss";
 
 const cx = classNames.bind(styles);
 
 export default function Members() {
-  const { state, targetRef } = useHomeScroll(onHomeScroll("members"));
+  const { state, targetRef } = useHomeScroll(handleOnePageScroll("members"));
 
   return (
     <section

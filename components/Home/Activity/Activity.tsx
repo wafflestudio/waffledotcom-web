@@ -2,13 +2,14 @@
 
 import classNames from "classnames/bind";
 import { useState } from "react";
-import { onHomeScroll, useHomeScroll } from "../homeScroll";
+import { useHomeScroll } from "../homeScroll";
+import { handleOnePageScroll } from "../../common/commonScroll";
 import styles from "./Activity.module.scss";
 
 const cx = classNames.bind(styles);
 
 export default function Activity() {
-  const { state, targetRef } = useHomeScroll(onHomeScroll("activity"));
+  const { state, targetRef } = useHomeScroll(handleOnePageScroll("activity"));
   const [index, setIndex] = useState(0);
 
   return (

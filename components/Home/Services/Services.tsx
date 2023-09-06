@@ -3,7 +3,8 @@
 import classNames from "classnames/bind";
 import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
-import { onHomeScroll, useHomeScroll } from "../homeScroll";
+import { useHomeScroll } from "../homeScroll";
+import { handleOnePageScroll } from "../../common/commonScroll";
 import WaffleLink from "../../common/WaffleLink";
 import Carousel from "./Carousel";
 import ProgressBox from "./ProgressBox";
@@ -58,7 +59,7 @@ const carouselItemDataList: TCarouselItemData[] = [
 ];
 
 export default function Services() {
-  const { state, targetRef } = useHomeScroll(onHomeScroll("services"));
+  const { state, targetRef } = useHomeScroll(handleOnePageScroll("services"));
   const [serviceIndex, setServiceIndex] = useState<number>(1);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
 

@@ -2,7 +2,8 @@
 
 import classNames from "classnames/bind";
 import { useState } from "react";
-import { onHomeScroll, useHomeScroll } from "../homeScroll";
+import { useHomeScroll } from "../homeScroll";
+import { handleOnePageScroll } from "../../common/commonScroll";
 import styles from "./About.module.scss";
 
 const cx = classNames.bind(styles);
@@ -10,7 +11,7 @@ const cx = classNames.bind(styles);
 export default function About() {
   const [more, setMore] = useState(false);
   const [red, setRed] = useState(true);
-  const { state, targetRef } = useHomeScroll(onHomeScroll("about"));
+  const { state, targetRef } = useHomeScroll(handleOnePageScroll("about"));
 
   return (
     <section
