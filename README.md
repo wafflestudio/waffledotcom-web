@@ -54,7 +54,7 @@
 ```bash
 yarn
 husky install
-husky add .husky/pre-commit "lint-staged --no-stash --verbose && yarn build"
+husky add .husky/pre-commit "yarn lint-staged --no-stash --verbose && yarn build"
 ```
 - 윈도우의 경우 "yarn lint-staged --no-stash --verbose && yarn build"를 사용
 
