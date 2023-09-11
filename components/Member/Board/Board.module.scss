@@ -130,6 +130,7 @@
 
     .header {
       flex-direction: column;
+      margin-bottom: 20px;
     }
 
     .shadowBox {
@@ -140,6 +141,10 @@
         }
       }
     }
+
+    .filterContainer {
+      display: none;
+    }
   }
 }
 
@@ -147,6 +152,8 @@
 @include responsive.mobile {
   .container {
     .header {
+      margin-bottom: 15px;
+
       .title {
         font-size: 32px;
         margin-right: 0;
@@ -159,15 +166,6 @@
           font-size: 32px;
           padding: 0 4px 0 11px;
         }
-      }
-    }
-
-    .filterContainer {
-      // width: 100%;
-      // padding: 0 20px;
-
-      .filterLine {
-        // padding: 0 20px;
       }
     }
   }
