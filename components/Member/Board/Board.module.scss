@@ -1,10 +1,11 @@
 @use "../../../styles/font";
 @use "../../../styles/color";
 @use "../../../styles/position";
+@use "styles/responsive";
 @import "styles/lib";
 
 .container {
-  @include position.flex-center();
+  @include position.flex-center;
   gap: 6px;
   --container-width: 1300px;
   width: var(--container-width);
@@ -13,14 +14,14 @@
   min-height: 500px;
   font-family: "Pretendard", sans-serif;
   font-weight: normal;
-  --horizontalPadding: calc((100% - var(--container-width)) / 2);
-  padding: 74px var(--horizontalPadding) 74px var(--horizontalPadding);
+  padding: 74px 0;
   margin-top: 75px;
 
   .header {
     @include position.flex(row, $align: center, $justify: flex-start);
     width: 100%;
     flex: 0 0 auto;
+
     .title {
       font-weight: 700;
       font-size: 48px;
@@ -28,9 +29,11 @@
       color: #242424;
       margin-right: 36px;
     }
+
     .description {
       color: #342d29;
       font-size: 24px;
+
       .numberOfMembers {
         display: inline-block;
         font-variant-numeric: tabular-nums;
@@ -48,10 +51,12 @@
     width: 1150px;
     flex: 0 0 59px;
     padding: 42px 75px 30px 75px;
+
     .filterLine {
       @include position.flex(row, center, space-between);
       width: 100%;
     }
+
     .filterLine.first {
       position: relative;
       z-index: 100;
@@ -77,7 +82,7 @@
         flex-wrap: wrap;
         position: relative;
         box-sizing: border-box;
-        width: 1276px;
+        width: 100%;
         padding-left: 0;
         overflow-y: auto;
       }
@@ -85,7 +90,7 @@
 
     .shadow {
       position: absolute;
-      width: 1300px;
+      width: 100%;
       height: 23px;
       transition: opacity 0.5s;
       z-index: 2;
@@ -93,18 +98,18 @@
       &.top {
         top: 0;
         background: linear-gradient(
-          180deg,
-          rgba(138, 138, 138, 0.09) 0%,
-          rgba(255, 255, 255, 0) 77%
+                        180deg,
+                        rgba(138, 138, 138, 0.09) 0%,
+                        rgba(255, 255, 255, 0) 77%
         );
       }
 
       &.bottom {
         bottom: 0;
         background: linear-gradient(
-          180deg,
-          rgba(255, 255, 255, 0) 23%,
-          rgba(138, 138, 138, 0.09) 100%
+                        180deg,
+                        rgba(255, 255, 255, 0) 23%,
+                        rgba(138, 138, 138, 0.09) 100%
         );
       }
     }
@@ -117,4 +122,53 @@
 
 .inactive {
   opacity: 0;
+}
+
+@include responsive.tabletAndMobile {
+  .container {
+    width: 100%;
+
+    .header {
+      flex-direction: column;
+    }
+
+    .shadowBox {
+      .scrollBox {
+        .cardContainer {
+          width: 100%;
+          justify-content: center;
+        }
+      }
+    }
+  }
+}
+
+
+@include responsive.mobile {
+  .container {
+    .header {
+      .title {
+        font-size: 32px;
+        margin-right: 0;
+      }
+
+      .description {
+        font-size: 16px;
+
+        .numberOfMembers {
+          font-size: 32px;
+          padding: 0 4px 0 11px;
+        }
+      }
+    }
+
+    .filterContainer {
+      // width: 100%;
+      // padding: 0 20px;
+
+      .filterLine {
+        // padding: 0 20px;
+      }
+    }
+  }
 }

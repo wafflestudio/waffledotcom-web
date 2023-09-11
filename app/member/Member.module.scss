@@ -1,6 +1,8 @@
 @import "styles/lib";
 
 .container {
+  display: flex;
+  justify-content: center;
   width: px2vw(1920px);
   height: calc(px2vh(1080px) - 75px);
 }
