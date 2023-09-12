@@ -8,8 +8,9 @@
   @include position.flex-center;
   gap: 6px;
   --container-width: 1300px;
-  width: var(--container-width);
   box-sizing: content-box;
+  width: var(--container-width);
+  min-width: 350px;
   height: calc(100% - 148px);
   min-height: 500px;
   font-family: "Pretendard", sans-serif;

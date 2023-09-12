@@ -27,11 +27,12 @@
 
 .container {
   @include position.flex(row, center, space-between);
-  width: calc(412 * var(--unit));
+  width: 412px;
   aspect-ratio: 412 / 152;
   border: 1px solid #C4C4C4;
   border-radius: 10px;
-  padding: calc(var(--unit) * 19);
+  padding: 19px;
+  gap: 28px;
   font-family: Pretendard, sans-serif;
   letter-spacing: -0.05em;
 
@@ -53,7 +54,7 @@
       right: 0;
       height: 10.7%;
       aspect-ratio: 1 / 1;
-      border-radius: 6px;
+      border-radius: 50%;
       background-color: #c4c4c4;
     }
 
@@ -83,7 +84,7 @@
 
   .profile {
     @include position.flex(column, flex-start, flex-start);
-    width: calc(232 * var(--unit));
+    width: auto;
     aspect-ratio: 232 / 100;
     gap: 12px;
 
@@ -157,13 +158,51 @@
 }
 
 @include responsive.tablet {
-  .helper, .container {
-    --unit: calc((50vw - 22px) / 412);
+  .container {
+    $card-width: calc(50% - 22px);
+    width: $card-width;
+    padding: calc($card-width / 412 * 19);
+    gap: 6.8%;
   }
 }
 
 @include responsive.mobile {
-  .helper, .container {
-    --unit: calc((100vw - 24px) / 412);
+  .container {
+    $card-width: calc(100% - 24px);
+    width: $card-width;
+    padding: calc($card-width / 412 * 19);
+    gap: 6.8%;
+  }
+}
+
+@media (max-width: 400px), ((min-width: responsive.$breakpoint-tablet) and (max-width: 845px)) {
+  .container {
+    min-width: 350px;
+
+    .profile {
+      .nameAndLink {
+        .name {
+          font-size: 20px;
+        }
+      }
+
+      .tagsWrapper {
+        height: 18px;
+      }
+
+      .tags {
+        .tag {
+          height: 18px;
+
+          .tagName {
+            font-size: 12px;
+          }
+        }
+      }
+
+      .introduction {
+        font-size: 14px;
+      }
+    }
   }
 }
