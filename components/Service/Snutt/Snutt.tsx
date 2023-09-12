@@ -68,12 +68,12 @@ function Snutt() {
         />
         <IntroductionCarousel
           carouselImages={[
-            "/static/images/dummy/coMo.png",
-            "/static/images/dummy/seminar.png",
-            "/static/images/dummy/Untitled.png",
-            "/static/images/dummy/seminar.png",
-            "/static/images/dummy/coMo.png",
-            "/static/images/dummy/mobile.png",
+            "/static/services/snutt/snutt1.webp",
+            "/static/services/snutt/snutt2.webp",
+            "/static/services/snutt/snutt3.webp",
+            "/static/services/snutt/snutt4.png",
+            "/static/services/snutt/snutt5.png",
+            "/static/services/snutt/snutt6.png",
           ]}
         />
       </div>
