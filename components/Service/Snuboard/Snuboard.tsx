@@ -48,11 +48,12 @@ function Snuboard() {
         />
         <IntroductionCarousel
           carouselImages={[
-            "/static/images/dummy/coMo.png",
-            "/static/images/dummy/seminar.png",
-            "/static/images/dummy/Untitled.png",
-            "/static/images/dummy/seminar.png",
-            "/static/images/dummy/coMo.png",
+            "/static/services/snuboard/snuboard1.webp",
+            "/static/services/snuboard/snuboard2.webp",
+            "/static/services/snuboard/snuboard3.webp",
+            "/static/services/snuboard/snuboard4.webp",
+            "/static/services/snuboard/snuboard5.webp",
+            "/static/services/snuboard/snuboard6.webp",
           ]}
         />
       </div>
