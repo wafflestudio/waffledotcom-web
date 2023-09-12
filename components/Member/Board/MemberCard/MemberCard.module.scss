@@ -193,9 +193,11 @@
       .tags {
         .tag {
           height: 18px;
+          padding: 1.5px 6px;
 
           .tagName {
             font-size: 12px;
+            line-height: 15px;
           }
         }
       }
