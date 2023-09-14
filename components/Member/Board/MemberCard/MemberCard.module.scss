@@ -1,10 +1,6 @@
 @use "styles/position";
 @use "styles/responsive";
 
-.helper, .container {
-  --unit: 1px;
-}
-
 .helper {
   position: fixed;
   z-index: 100;
