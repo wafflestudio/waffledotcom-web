@@ -2,10 +2,10 @@
 
 $breakpoint-mobile: 335px;
 $breakpoint-tablet: 758px;
-$breakpoint-desktop: 1024px;
+$breakpoint-desktop: 1300px;
 
 @mixin mobile {
-  @media (min-width: #{$breakpoint-mobile}) and (max-width: #{$breakpoint-tablet - 1px}) {
+  @media (max-width: #{$breakpoint-tablet - 1px}) {
     @content;
   }
 }
@@ -18,6 +18,12 @@ $breakpoint-desktop: 1024px;
 
 @mixin desktop {
   @media (min-width: #{$breakpoint-desktop}) {
+    @content;
+  }
+}
+
+@mixin tabletAndMobile {
+  @media (max-width: #{$breakpoint-desktop - 1px}) {
     @content;
   }
 }
