@@ -169,7 +169,9 @@ function Board() {
               .filter(filterMember)
               .sort(sortMember)
               .map((member) => (
-                <MemberCard key={member.name} member={member} />
+                <div key={member.name} className={cx("memberCardWrapper")}>
+                  <MemberCard member={member} />
+                </div>
               ))}
           </div>
         </div>

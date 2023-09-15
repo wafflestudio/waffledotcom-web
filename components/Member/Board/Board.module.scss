@@ -125,6 +125,10 @@
   opacity: 0;
 }
 
+.memberCardWrapper {
+  flex: 1 0 350px;
+}
+
 @include responsive.tabletAndMobile {
   .container {
     width: 100%;
@@ -136,6 +140,8 @@
 
     .shadowBox {
       .scrollBox {
+        padding: 0 12px;
+
         .cardContainer {
           width: 100%;
           justify-content: center;
