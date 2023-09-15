@@ -1,5 +1,6 @@
 @use "./styles/font";
 @use "./styles/color";
+@use "./styles/responsive";
 
 .container {
   position: relative;
@@ -35,6 +36,7 @@
       line-height: 30px;
       left: 80px;
       bottom: 80px;
+      z-index: 10;
 
       .instagram {
         display: flex;
@@ -61,7 +63,7 @@
     .sponsorship {
       @include font.pretendard;
       width: 100%;
-      height: 560px;
+      height: 50%;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -87,9 +89,11 @@
       }
       .sponsors {
         @include font.pretendard;
+        position: relative;
         display: flex;
         width: 50%;
         justify-content: space-between;
+        z-index: 10;
         .sponsor {
           color: #323232;
           font-size: 32px;
@@ -109,23 +113,23 @@
           position: absolute;
         }
         .chair {
-          right: 1150px;
+          right: 850px;
           bottom: 35px;
           transform: translateX(300px);
           transition: 1s ease;
         }
         .desk {
-          right: 300px;
+          right: 0px;
           bottom: 35px;
         }
         .mouse {
-          right: 465px;
+          right: 165px;
           bottom: 75px;
           transform-origin: 50% 0;
           animation: 3s ease-in-out infinite alternate hang;
         }
         .light {
-          right: 363px;
+          right: 63px;
           bottom: 291px;
           animation: 4s ease-in-out infinite alternate blink;
         }
@@ -156,5 +160,38 @@
   }
   100% {
     transform: rotate(10deg);
+  }
+}
+
+@include responsive.tabletAndMobile {
+  .images {
+    display: none;
+  }
+}
+
+@include responsive.mobile {
+  .description {
+    display: none;
+  }
+  .title {
+    margin-bottom: 10px !important;
+    font-size: 32px !important;
+  }
+  .sponsors {
+    flex-direction: column;
+    align-items: center;
+    .sponsor {
+      font-size: 24px !important;
+    }
+  }
+  .contact {
+    font-size: 16px !important;
+    left: 20px !important;
+    img {
+      display: none;
+    }
+    .label {
+      width: 100px !important;
+    }
   }
 }
