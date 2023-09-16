@@ -8,10 +8,10 @@ import styles from "./Activity.module.scss";
 const cx = classNames.bind(styles);
 
 const activityImages: string[] = [
-  "/static/images/activity/project.webp",
-  "/static/images/activity/activityImage1.png",
+  "/static/images/activity/project.png",
+  "/static/images/activity/seminar.jpg",
   "/static/images/activity/bake.webp",
-  "/static/images/activity/activityImage1.png",
+  "/static/images/activity/wackathon.webp",
   "/static/images/activity/mt.webp",
 ];
 
