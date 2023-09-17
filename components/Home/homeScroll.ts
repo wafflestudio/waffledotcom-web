@@ -14,14 +14,23 @@ export const homeScrollItems = [
   { name: "SUPPORT", anchorId: "support" },
 ] as const;
 
-export const useHomeScroll = createGlobalScrollHook(
-  { currentSection: "main" },
+export const useHomeScroll = createGlobalScrollHook<{
+  currentSection: string;
+  initialDirection: null | "up" | "down";
+}>(
+  { currentSection: "main", initialDirection: null },
   {
-    defaultCallback: ({ direction, getState }) => {
-      useHomeScroll.scrollTo(getState().currentSection, {
-        behavior: "instant",
-        block: direction === "up" ? "start" : "end",
-      });
+    defaultCallback: ({ direction, getState, setState }) => {
+      if (getState().initialDirection === null) {
+        setState({ initialDirection: direction });
+      } else {
+        useHomeScroll.scrollTo(getState().currentSection, {
+          behavior: "instant",
+          block: direction === "up" ? "start" : "end",
+        });
+        /** @TODO setTimeout 말고 더 좋은 방법 고안하기 */
+        setTimeout(() => setState({ initialDirection: null }), 10);
+      }
     },
     defaultCallbackWait: 500,
   },

@@ -65,7 +65,7 @@ export const createGlobalScrollHook = <T extends Record<string, unknown>>(
   const debouncedDefaultCallback = defaultCallback
     ? debounce(defaultCallback, defaultCallbackWait, {
         trailing: true,
-        leading: false,
+        leading: true,
       })
     : null;
   const listeners: Set<ScrollListener<T>> = new Set();

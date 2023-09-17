@@ -7,14 +7,21 @@ export const serviceScrollItems = [
   { name: "SNUBOARD", anchorId: "snuboard" },
 ] as const;
 
-export const useServiceScroll = createGlobalScrollHook(
-  { currentSection: "main" },
+export const useServiceScroll = createGlobalScrollHook<{
+  currentSection: string;
+  initialDirection: null | "up" | "down";
+}>(
+  { currentSection: "main", initialDirection: null },
   {
-    defaultCallback: ({ direction, getState }) => {
-      useServiceScroll.scrollTo(getState().currentSection, {
-        behavior: "instant",
-        block: direction === "up" ? "start" : "end",
-      });
+    defaultCallback: ({ direction, getState, setState }) => {
+      if (getState().initialDirection === null) {
+        setState({ initialDirection: direction });
+      } else {
+        useServiceScroll.scrollTo(getState().currentSection, {
+          behavior: "instant",
+          block: direction === "up" ? "start" : "end",
+        });
+      }
     },
     defaultCallbackWait: 500,
   },
