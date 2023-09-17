@@ -4,28 +4,18 @@ import classNames from "classnames/bind";
 import IntroductionHead from "../common/IntroductionHead/IntroductionHead";
 import IntroductionCarousel from "../common/IntroductionCarousel/IntroductionCarousel";
 import { useServiceScroll } from "../serviceScroll";
+import { handleOnePageScroll } from "../../common/commonScroll";
 import styles from "./Snutt.module.scss";
 
 const cx = classNames.bind(styles);
 
 function Snutt() {
-  const { targetRef, state } = useServiceScroll({
-    callback: ({ progress, getState, setState }) => {
-      if (progress > 0.75 && progress < 2.7) {
-        if (getState().currentService !== "snutt")
-          setState({ currentService: "snutt" });
-      } else {
-        if (progress <= 0.75 && getState().currentService === "snutt")
-          setState({ currentService: "none" });
-      }
-    },
-    anchorId: "snutt",
-  });
+  const { targetRef, state } = useServiceScroll(handleOnePageScroll("snutt"));
 
   return (
     <section
       className={cx("container", {
-        available: state.currentService === "snutt",
+        available: state.currentSection === "snutt",
       })}
       ref={targetRef}
     >

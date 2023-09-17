@@ -9,16 +9,21 @@ export type PickByType<T, U> = {
 /* TODO: AvailableHTMLElment 가짓수 늘리기 */
 export type AvailableHTMLElement = HTMLDivElement;
 
-export type ScrollApis<GlobalInterface extends Record<string, any>> = {
+export type ScrollApis<GlobalInterface extends Record<string, unknown>> = {
   getState: () => GlobalInterface;
   setState: (partial: Partial<GlobalInterface>) => void;
 };
 
-export type ScrollCallback<T extends Record<string, any>> = (
-  params: ScrollApis<T> & ScrollUtils<T> & { progress: number },
+export type DefaultScrollCallback<T extends Record<string, unknown>> = (
+  params: ScrollApis<T> & { direction: "up" | "down" },
 ) => void;
 
-export type ScrollListener<T extends Record<string, any>> = {
+export type ScrollCallback<T extends Record<string, unknown>> = (
+  params: ScrollApis<T> &
+    ScrollUtils<T> & { progress: number; direction: "up" | "down" },
+) => void;
+
+export type ScrollListener<T extends Record<string, unknown>> = {
   element: AvailableHTMLElement;
   callback: ScrollCallback<T> | null;
   anchorId: string | null;
@@ -26,17 +31,15 @@ export type ScrollListener<T extends Record<string, any>> = {
   apis: ScrollApis<T>;
 };
 
-export type GlobalScrollHook<T extends Record<string, any>> = (params?: {
+export type GlobalScrollHookParams<T extends Record<string, unknown>> = {
   callback?: ScrollCallback<T>;
   anchorId?: string;
-}) => {
-  targetRef: MutableRefObject<AvailableHTMLElement | null>;
-  state: T;
+  wait?: number;
 };
-export type LocalScrollHook<
-  T extends Record<string, any>,
-  U extends Record<string, any>,
-> = (params: { callback?: ScrollCallback<T & U>; initialState?: U }) => {
+
+export type GlobalScrollHook<T extends Record<string, unknown>> = (
+  params?: GlobalScrollHookParams<T>,
+) => {
   targetRef: MutableRefObject<AvailableHTMLElement | null>;
   state: T;
 };
@@ -45,16 +48,17 @@ export type SetScrollContainer = (
   containerElement: AvailableHTMLElement,
 ) => void;
 
-export type ScrollTo = (to: string) => void;
+export type ScrollTo = (
+  to: string,
+  config?: {
+    behavior?: ScrollBehavior;
+    block?: "start" | "center" | "end" | "nearest";
+  },
+) => void;
 
 /* TODO: 조건부 타입 이용해서 hasScrollContainer가 true일 때만 setScrollContainer가 가능하게 할 수는 없을까? */
-export type ScrollCreatorReturnType<T extends Record<string, any>> =
+export type ScrollCreatorReturnType<T extends Record<string, unknown>> =
   GlobalScrollHook<T> & {
     setScrollContainer: SetScrollContainer;
     scrollTo: ScrollTo;
-  };
-
-export type LocalScrollCreatorReturnType<
-  T extends Record<string, any>,
-  U extends Record<string, any>,
-> = LocalScrollHook<T, U> & { setScrollContainer: SetScrollContainer };
+  } & ScrollApis<T>;

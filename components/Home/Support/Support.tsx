@@ -1,22 +1,17 @@
 "use client";
 
 import classNames from "classnames/bind";
-import { useNavigatorScroll } from "../../common/Scroll/scroll";
+import { useHomeScroll } from "../homeScroll";
+import { handleOnePageScroll } from "../../common/commonScroll";
 import styles from "./Support.module.scss";
 
 const cx = classNames.bind(styles);
 
 export default function Support() {
-  const { state, targetRef } = useNavigatorScroll({
-    callback: ({ progress, setState }) => {
-      if (progress >= 1 && progress < 3) {
-        setState({ currentSection: "support" });
-      }
-    },
-    anchorId: "support",
-  });
+  const { state, targetRef } = useHomeScroll(handleOnePageScroll("support"));
+
   return (
-    <div
+    <section
       className={cx("container", { off: state.currentSection !== "support" })}
       ref={targetRef}
     >
@@ -87,6 +82,6 @@ export default function Support() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

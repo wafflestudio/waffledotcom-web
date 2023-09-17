@@ -4,25 +4,18 @@ import classNames from "classnames/bind";
 import IntroductionCarousel from "../common/IntroductionCarousel/IntroductionCarousel";
 import IntroductionHead from "../common/IntroductionHead/IntroductionHead";
 import { useServiceScroll } from "../serviceScroll";
+import { handleOnePageScroll } from "../../common/commonScroll";
 import styles from "./Siksha.module.scss";
 
 const cx = classNames.bind(styles);
 
 function Siksha() {
-  const { targetRef, state } = useServiceScroll({
-    callback: ({ progress, getState, setState }) => {
-      if (progress > 0.75 && progress < 3) {
-        if (getState().currentService !== "siksha")
-          setState({ currentService: "siksha" });
-      }
-    },
-    anchorId: "siksha",
-  });
+  const { targetRef, state } = useServiceScroll(handleOnePageScroll("siksha"));
 
   return (
     <section
       className={cx("container", {
-        available: state.currentService === "siksha",
+        available: state.currentSection === "siksha",
       })}
       ref={targetRef}
     >

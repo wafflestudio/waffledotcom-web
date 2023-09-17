@@ -2,21 +2,14 @@
 
 import classNames from "classnames/bind";
 import { useState } from "react";
-import { useNavigatorScroll } from "../../common/Scroll/scroll";
+import { useHomeScroll } from "../homeScroll";
+import { handleOnePageScroll } from "../../common/commonScroll";
 import styles from "./Activity.module.scss";
 
 const cx = classNames.bind(styles);
 
-export default function About() {
-  const { state, targetRef } = useNavigatorScroll({
-    callback: ({ progress, setState }) => {
-      if (progress >= 1 && progress < 3) {
-        setState({ currentSection: "activity" });
-      }
-    },
-    anchorId: "activity",
-  });
-
+export default function Activity() {
+  const { state, targetRef } = useHomeScroll(handleOnePageScroll("activity"));
   const [index, setIndex] = useState(0);
 
   return (

@@ -1,13 +1,20 @@
 import { createGlobalScrollHook } from "../../library/waffleScroll";
 
-export const serviceScrollItems = [
+export type ScrollItem = {
+  name: string;
+  anchorId: string;
+};
+
+export const homeScrollItems = [
   { name: "MAIN", anchorId: "main" },
-  { name: "SNUTT", anchorId: "snutt" },
-  { name: "SIKSHA", anchorId: "siksha" },
-  { name: "SNUBOARD", anchorId: "snuboard" },
+  { name: "ABOUT US", anchorId: "about" },
+  { name: "OUR SERVICES", anchorId: "services" },
+  { name: "MEMBERS", anchorId: "members" },
+  { name: "ACTIVITY", anchorId: "activity" },
+  { name: "SUPPORT", anchorId: "support" },
 ] as const;
 
-export const useServiceScroll = createGlobalScrollHook<{
+export const useHomeScroll = createGlobalScrollHook<{
   currentSection: string;
   initialDirection: null | "up" | "down";
 }>(
@@ -17,10 +24,12 @@ export const useServiceScroll = createGlobalScrollHook<{
       if (getState().initialDirection === null) {
         setState({ initialDirection: direction });
       } else {
-        useServiceScroll.scrollTo(getState().currentSection, {
+        useHomeScroll.scrollTo(getState().currentSection, {
           behavior: "instant",
           block: direction === "up" ? "start" : "end",
         });
+        /** @TODO setTimeout 말고 더 좋은 방법 고안하기 */
+        setTimeout(() => setState({ initialDirection: null }), 10);
       }
     },
     defaultCallbackWait: 500,

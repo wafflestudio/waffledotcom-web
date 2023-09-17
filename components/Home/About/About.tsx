@@ -2,7 +2,8 @@
 
 import classNames from "classnames/bind";
 import { useState } from "react";
-import { useNavigatorScroll } from "../../common/Scroll/scroll";
+import { useHomeScroll } from "../homeScroll";
+import { handleOnePageScroll } from "../../common/commonScroll";
 import styles from "./About.module.scss";
 
 const cx = classNames.bind(styles);
@@ -10,14 +11,8 @@ const cx = classNames.bind(styles);
 export default function About() {
   const [more, setMore] = useState(false);
   const [red, setRed] = useState(true);
-  const { state, targetRef } = useNavigatorScroll({
-    callback: ({ progress, setState }) => {
-      if (progress >= 1 && progress < 3) {
-        setState({ currentSection: "about" });
-      }
-    },
-    anchorId: "about",
-  });
+  const { state, targetRef } = useHomeScroll(handleOnePageScroll("about"));
+
   return (
     <section
       className={cx("container", {

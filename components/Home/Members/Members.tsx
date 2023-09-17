@@ -2,21 +2,15 @@
 
 import Image from "next/image";
 import classNames from "classnames/bind";
-import { useNavigatorScroll } from "../../common/Scroll/scroll";
-
+import { useHomeScroll } from "../homeScroll";
+import { handleOnePageScroll } from "../../common/commonScroll";
 import styles from "./Members.module.scss";
 
 const cx = classNames.bind(styles);
 
 export default function Members() {
-  const { state, targetRef } = useNavigatorScroll({
-    callback: ({ progress, setState }) => {
-      if (progress >= 1 && progress < 3) {
-        setState({ currentSection: "members" });
-      }
-    },
-    anchorId: "members",
-  });
+  const { state, targetRef } = useHomeScroll(handleOnePageScroll("members"));
+
   return (
     <section
       className={cx("container", { off: state.currentSection !== "members" })}
