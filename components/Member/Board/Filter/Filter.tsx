@@ -18,6 +18,7 @@ function CheckBoxFilter({
   setSelectedOptions,
 }: CheckBoxFilterProps) {
   const [allSelected, setAllSelected] = useState(true);
+
   function handleClickAllOption(e: React.MouseEvent) {
     e.preventDefault();
     const newSelectedOptions = options.map(() => !allSelected);
@@ -99,8 +100,8 @@ function SelectFilter({
     setFilterIsOpen(false);
   }
 
-  function handleClickFilter(e: React.MouseEvent) {
-    e.stopPropagation();
+  function handleClickFilter(e: React.MouseEvent<HTMLDivElement>) {
+    e.nativeEvent.stopImmediatePropagation();
     setFilterIsOpen(!filterIsOpen);
   }
 
@@ -173,6 +174,7 @@ function ToggleFilter({
   function handleClickFilter() {
     setIsActive(!isActive);
   }
+
   return (
     <div className={cx("container", "toggle")}>
       <label className={cx("filterName")}>{name}</label>
