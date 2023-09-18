@@ -1,3 +1,5 @@
+@use "./styles/responsive";
+
 .header {
   position: fixed;
   top: 0;
@@ -5,6 +7,7 @@
   width: 100%;
   min-width: 1300px;
   height: 75px;
+  padding: 0 14px;
   background-color: white;
   display: flex;
   justify-content: center;
@@ -45,5 +48,24 @@
         opacity: 1;
       }
     }
+  }
+}
+
+@include responsive.tabletAndMobile {
+  .header {
+    height: auto !important;
+    min-width: responsive.$breakpoint-mobile !important;
+    padding: 14px !important;
+  }
+  .logo {
+    > img {
+      height: 16px !important;
+    }
+  }
+  .tabNavigator {
+    gap: 20px !important;
+  }
+  .tabItem {
+    font-size: 14px !important;
   }
 }
