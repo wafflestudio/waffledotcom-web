@@ -1,5 +1,7 @@
 @use "./styles/font";
 @use "./styles/lib";
+@use "./styles/responsive";
+
 $header-height: 75px;
 
 .container {
@@ -84,4 +86,31 @@ $header-height: 75px;
 .off {
   opacity: 0;
   visibility: hidden;
+}
+
+@include responsive.tabletAndMobile {
+  .logoWrapper {
+    min-width: responsive.$breakpoint-mobile !important;
+  }
+  .buttonWrapper {
+    min-width: responsive.$breakpoint-mobile !important;
+  }
+}
+
+@include responsive.tablet {
+  .mainLogo {
+    font-size: lib.px2width(60px, responsive.$breakpoint-tablet) !important;
+  }
+  .subLogo {
+    font-size: lib.px2width(16px, responsive.$breakpoint-tablet) !important;
+  }
+}
+
+@include responsive.mobile {
+  .mainLogo {
+    font-size: 60px !important;
+  }
+  .subLogo {
+    font-size: 16px !important;
+  }
 }
