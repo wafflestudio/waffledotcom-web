@@ -62,7 +62,7 @@
   }
 }
 
-@include responsive.desktop {
+@include responsive.desktopAndTablet {
   .container {
     .foreground {
       .wrapper {
