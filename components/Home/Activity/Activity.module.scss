@@ -38,12 +38,6 @@
         }
       }
       .imageArea {
-        .image {
-          background-size: cover;
-          width: 100%;
-          height: 100%;
-        }
-
         .description {
           width: 100%;
           height: 100%;
@@ -137,8 +131,10 @@
   .container {
     .foreground {
       .wrapper {
+        @include position.flex-center;
         width: 100%;
         text-align: center;
+
         .textArea {
           p {
             font-size: 26px;
@@ -147,65 +143,42 @@
           span {
             font-size: 16px;
             line-height: 150%;
-            letter-spacing: normal;
           }
         }
         .imageArea {
           @include position.flex-center;
           margin-top: 40px;
-          width: 300px;
-
           .image {
-            flex: 6;
-            background-size: cover;
-            width: 100%;
-            height: 100%;
-            filter: drop-shadow(2px 4px 15px rgba(0, 0, 0, 0.15));
-            border-radius: 8px;
-            transition: all 0.5s ease-in-out;
-          }
-
-          .description {
-            padding: 5px 0px;
-            flex: 4;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-
-            .subTitle {
-              @include position.flex-center;
-              height: 50px;
-              letter-spacing: 0.04em;
-              color: #a4a4a4;
-              transition: all 0.15s ease-in-out;
-              overflow: hidden;
-              cursor: pointer;
-
-              .head {
-                font-weight: 700;
-                font-size: 32px;
-                width: 100%;
-                height: 50px;
-              }
-
-              .detailDescription {
-                height: 0px;
-                overflow: hidden;
-                font-size: 18px;
-                line-height: 160%;
-                color: #434343;
-              }
-              .visible {
-                height: 90px;
-                overflow: visible;
-              }
+            width: 296px;
+            height: 167px;
+            img {
+              display: block;
+              margin-left: 4px;
+              width: 296px;
+              height: 167px;
+              object-fit: cover;
             }
-
-            .active {
-              color: #000;
-              height: 140px;
+          }
+          .description {
+            @include position.flex-center;
+            margin-top: 40px;
+            .subTitle {
+              &.inactive {
+                display: none;
+              }
+              .head {
+                color: #323232;
+                font-size: 18px;
+                letter-spacing: 0.05em;
+              }
+              .detailDescription {
+                margin-top: 8px;
+                word-break: keep-all;
+                width: 260px;
+                color: #737373;
+                font-size: 14px;
+                line-height: 170%;
+              }
             }
           }
         }
