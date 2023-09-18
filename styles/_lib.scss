@@ -9,3 +9,7 @@
 @function px2vw($pxval) {
   @return calc($pxval * (100vw / 1920px));
 }
+
+@function px2width($pxval, $base) {
+  @return calc($pxval * (100vw / $base));
+}
