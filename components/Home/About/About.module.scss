@@ -1,4 +1,6 @@
 @use "./styles/font";
+@use "./styles/lib";
+@use "./styles/responsive";
 
 .container {
   width: 100vw;
@@ -83,5 +85,68 @@
   }
   .content {
     color: #ffffff;
+  }
+}
+
+@include responsive.tablet {
+  .container {
+    .foreground {
+      min-width: responsive.$breakpoint-mobile;
+      .content {
+        gap: calc(lib.px2vw(365px) / 2);
+        .name {
+          > h1 {
+            font-size: lib.px2vw(81px) !important;
+            white-space: nowrap;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include responsive.mobile {
+  .container {
+    .foreground {
+      min-width: responsive.$breakpoint-mobile;
+      .content {
+        display: block;
+        .name {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          > h1 {
+            color: #f0745f;
+            text-align: center;
+            font-size: 50px;
+            font-style: normal;
+            font-weight: 800;
+            line-height: 130%; /* 65px */
+            letter-spacing: 11px;
+          }
+          > img {
+            width: 60px;
+            margin-bottom: 40px;
+          }
+        }
+        .description {
+          width: auto;
+          padding: 0 28px;
+          .question {
+            > h3 {
+              font-size: 18px;
+              text-align: center;
+              margin-bottom: 11px;
+            }
+            > p {
+              color: #584e4e;
+              font-size: 14px;
+              line-height: 24px;
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
   }
 }
