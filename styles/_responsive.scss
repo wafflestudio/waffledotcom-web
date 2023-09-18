@@ -27,3 +27,9 @@ $breakpoint-desktop: 1300px;
     @content;
   }
 }
+
+@mixin desktopAndTablet {
+  @media (min-width: #{$breakpoint-mobile}) {
+    @content;
+  }
+}
