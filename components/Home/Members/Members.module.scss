@@ -1,6 +1,8 @@
-@use "./styles/font";
-@use "../../../styles/position";
-@import "../../../styles/lib";
+@use "styles/font";
+@use "styles/position";
+@use "styles/responsive";
+@import "styles/lib";
+
 
 .container {
   width: 100vw;
@@ -18,12 +20,14 @@
     @include position.fixed-background;
     background-color: #fff;
   }
+
   > .foreground {
     @include position.fixed-foreground;
+
     > .content-wrapper {
       width: 1300px;
-      min-width: 1300px;
       margin: 0 auto;
+
       .description {
         color: #737373;
         font-size: 20px;
@@ -33,11 +37,13 @@
         display: flex;
         gap: px2vw(22px);
         margin-top: calc(75px + px2vh(135px));
+
         > .title {
           color: #323232;
           font-size: 50px;
           font-weight: bold;
         }
+
         > .description {
           height: 33px;
           padding-top: 27px;
@@ -49,25 +55,30 @@
 
       > .grade {
         margin-top: px2vh(56px);
+
         > .grade-name {
           font-size: 32px;
           font-weight: bold;
         }
+
         > .positions {
           display: flex;
           gap: px2vw(49px);
+
           > .position {
             margin-top: px2vh(32px);
             padding: 0 px2vw(10px);
             display: flex;
             align-items: center;
             gap: px2vw(40px);
+
             > .texts {
               > .position-name {
                 font-size: 30px;
                 font-weight: bold;
                 letter-spacing: 0.04em;
               }
+
               .description {
                 line-height: 160%;
                 letter-spacing: 0.04em;
@@ -88,4 +99,116 @@
 .off {
   opacity: 0;
   visibility: hidden;
+}
+
+.waffle-icon {
+  display: none;
+}
+
+@include responsive.desktop {
+  .mobile-description {
+    display: none;
+  }
+}
+
+@include responsive.tabletAndMobile {
+  .container {
+    > .foreground {
+      overflow-y: scroll;
+      width: 100%;
+
+      > .content-wrapper {
+        width: 100%;
+        min-width: 360px;
+        padding: 0;
+        margin: 0;
+
+        > .title-wrapper {
+          flex-direction: column;
+          gap: 5px;
+          margin-top: calc(75px + px2vh(135px));
+
+          > .title {
+            color: #F0745F;
+            font-size: 28px;
+            text-align: center;
+            padding: 0;
+          }
+
+          > .description {
+            color: #584E4E;
+            font-size: 18px;
+            text-align: center;
+            padding: 0;
+          }
+        }
+
+        > .grade {
+          @include position.flex-center(column);
+          margin: 0;
+          padding: 30px 0 15px 0;
+
+          .grade-title {
+            @include position.flex-center(row);
+            gap: 4.4px;
+
+            .grade-name {
+              color: #F0745F;
+              font-size: 16px;
+            }
+          }
+
+          > .positions {
+            @include position.flex-center(column);
+            gap: 0;
+
+            > .position {
+              @include position.flex-center(column);
+              padding: 15px 0 15px 0;
+              margin: 0;
+
+              > .position-image {
+                height: 95px;
+              }
+
+              > .texts {
+                text-align: center;
+                // white-space: pre-wrap;
+                word-break: keep-all;
+
+                > .position-name {
+                  font-size: 24px;
+
+                  & + .description {
+                    color: #353030;
+                    font-size: 16px;
+                    padding-top: 5px;
+                  }
+                }
+
+                .description {
+                  font-size: 14px;
+                  line-height: 160%;
+                  letter-spacing: 0.04em;
+                }
+
+                > .descriptions {
+                  list-style-type: none;
+                  padding: 10px 0 0 0;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .pc-description {
+    display: none;
+  }
+
+  .waffle-icon {
+    display: inline-block;
+  }
 }

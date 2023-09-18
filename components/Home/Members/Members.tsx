@@ -17,6 +17,17 @@ export default function Members() {
     },
     anchorId: "members",
   });
+
+  const waffleIcon = (
+    <Image
+      className={cx("waffle-icon")}
+      src="static/images/home/simple_waffle_icon_45deg.svg"
+      alt=""
+      width={12}
+      height={12}
+    />
+  );
+
   return (
     <section
       className={cx("container", { off: state.currentSection !== "members" })}
@@ -33,7 +44,11 @@ export default function Members() {
           </div>
 
           <div className={cx("grade")}>
-            <h2 className={cx("grade-name")}>준회원</h2>
+            <div className={cx("grade-title")}>
+              {waffleIcon}
+              <h2 className={cx("grade-name")}>준회원</h2>
+              {waffleIcon}
+            </div>
             <div className={cx("positions")}>
               <div className={cx("position")}>
                 <Image
@@ -49,12 +64,18 @@ export default function Members() {
                     서비스 개발에 필요한 지식을 쌓는 인원
                   </p>
                   <ul className={cx("descriptions")}>
-                    <li className={cx("description")}>
+                    <li className={cx("description", "pc-description")}>
                       한 학기 동안 세미나, 과제, 팀 프로젝트를 통해 개발에 대해
                       학습합니다.
                     </li>
+                    <li className={cx("description", "mobile-description")}>
+                      한 학기동안 루키활동이 이루어지며
+                    </li>
+                    <li className={cx("description", "mobile-description")}>
+                      세미나, 과제, 팀프로젝트를 통해 개발에 대해 학습합니다.
+                    </li>
                     <li className={cx("description")}>
-                      모든 과정을 이수하면 정회원 Programmers로 승격됩니다.
+                      모든 과정을 이수하면 정회원 정회원으로 승격됩니다.
                     </li>
                     <li className={cx("description")}>8월 중 모집</li>
                   </ul>
@@ -64,7 +85,11 @@ export default function Members() {
           </div>
 
           <div className={cx("grade")}>
-            <h2 className={cx("grade-name")}>정회원</h2>
+            <div className={cx("grade-title")}>
+              {waffleIcon}
+              <h2 className={cx("grade-name")}>정회원</h2>
+              {waffleIcon}
+            </div>
             <div className={cx("positions")}>
               <div className={cx("position")}>
                 <Image
