@@ -1,7 +1,7 @@
 "use client";
 
 import classNames from "classnames/bind";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigatorScroll } from "../../common/Scroll/scroll";
 import styles from "./Activity.module.scss";
 import Carousel from "./Carousel";
