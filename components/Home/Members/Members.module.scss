@@ -111,6 +111,18 @@
   }
 }
 
+@include responsive.tablet {
+  .container {
+    font-size: 15px;
+  }
+}
+
+@include responsive.mobile {
+  .container {
+    font-size: 10px;
+  }
+}
+
 @include responsive.tabletAndMobile {
   .container {
     > .foreground {
@@ -125,19 +137,19 @@
 
         > .title-wrapper {
           flex-direction: column;
-          gap: 5px;
+          gap: 0.5em;
           margin-top: calc(75px + px2vh(135px));
 
           > .title {
             color: #F0745F;
-            font-size: 28px;
+            font-size: 2.8em;
             text-align: center;
             padding: 0;
           }
 
           > .description {
             color: #584E4E;
-            font-size: 18px;
+            font-size: 1.8em;
             text-align: center;
             padding: 0;
           }
@@ -146,15 +158,15 @@
         > .grade {
           @include position.flex-center(column);
           margin: 0;
-          padding: 30px 0 15px 0;
+          padding: 3em 0 1.5em 0;
 
           .grade-title {
             @include position.flex-center(row);
-            gap: 4.4px;
+            gap: 0.44em;
 
             .grade-name {
               color: #F0745F;
-              font-size: 16px;
+              font-size: 1.6em;
             }
           }
 
@@ -164,11 +176,11 @@
 
             > .position {
               @include position.flex-center(column);
-              padding: 15px 0 15px 0;
+              padding: 1.5em 0;
               margin: 0;
 
               > .position-image {
-                height: 95px;
+                height: 9.5em;
               }
 
               > .texts {
@@ -177,24 +189,24 @@
                 word-break: keep-all;
 
                 > .position-name {
-                  font-size: 24px;
+                  font-size: 2.4em;
 
                   & + .description {
                     color: #353030;
-                    font-size: 16px;
-                    padding-top: 5px;
+                    font-size: 1.6em;
+                    padding-top: 0.5em;
                   }
                 }
 
                 .description {
-                  font-size: 14px;
+                  font-size: 1.4em;
                   line-height: 160%;
                   letter-spacing: 0.04em;
                 }
 
                 > .descriptions {
                   list-style-type: none;
-                  padding: 10px 0 0 0;
+                  padding: 1em 0 0 0;
                 }
               }
             }
