@@ -1,0 +1,62 @@
+@use "styles/responsive";
+@use "styles/position";
+@import "styles/lib";
+$carousel-length: 5;
+
+@include responsive.mobile {
+  .carousel {
+    position: relative;
+    @include position.flex-center;
+
+    .carousel-frame {
+      width: 50vw;
+      height: 167px;
+      display: flex;
+
+      .carousel-items-container {
+        display: flex;
+        gap: 14px;
+        transition: 0.5s;
+        .carousel-item {
+          flex: none;
+          width: 296px;
+          height: 167px;
+
+          .imageContainer {
+            width: 296px;
+            // height: 167px;
+            > img {
+              display: block;
+              margin-left: 4px;
+              width: 296px;
+              height: 167px;
+              object-fit: cover;
+            }
+          }
+        }
+        @for $i from 0 through ($carousel-length - 1) {
+          &.state-#{$i} {
+            transform: translateX(calc(310px) * -$i);
+          }
+        }
+        &.state-0 {
+          transition: 1s;
+        }
+      }
+    }
+  }
+  .dots {
+    margin-top: 24px;
+    @include position.flex-center(row);
+    gap: 10px;
+    .dot {
+      width: 8px;
+      height: 8px;
+      img {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
