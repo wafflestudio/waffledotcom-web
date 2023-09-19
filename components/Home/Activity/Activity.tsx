@@ -72,13 +72,15 @@ export default function Activity() {
   const [selectedId, setSelectedId] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setSelectedId((prev) => (prev + 1) % activities.length);
-    }, 2000);
-    return () => {
-      clearInterval(interval);
-    };
-  }, []);
+    if (targetRef.current && targetRef.current.clientWidth < 758) {
+      const interval = setInterval(() => {
+        setSelectedId((prev) => (prev + 1) % activities.length);
+      }, 2000);
+      return () => {
+        clearInterval(interval);
+      };
+    }
+  }, [targetRef, targetRef.current?.clientWidth]);
 
   return (
     <section
