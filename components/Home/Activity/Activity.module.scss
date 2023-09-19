@@ -55,7 +55,7 @@
   }
 }
 
-@include responsive.desktopAndTablet {
+@include responsive.desktop {
   .container {
     .foreground {
       @include position.flex-center;
@@ -131,10 +131,22 @@
   }
 }
 
+@include responsive.tablet {
+  .container {
+    font-size: 15px;
+  }
+}
+
 @include responsive.mobile {
   .container {
+    font-size: 10px;
+  }
+}
+
+@include responsive.tabletAndMobile {
+  .container {
     .foreground {
-      margin-top: 120px;
+      margin-top: 20vh;
       .wrapper {
         @include position.flex-center;
         width: 100%;
@@ -142,11 +154,11 @@
 
         .textArea {
           p {
-            font-size: 26px;
+            font-size: 2.6em;
             margin-bottom: 8px;
           }
           span {
-            font-size: 16px;
+            font-size: 1.6em;
             line-height: 150%;
           }
         }
@@ -167,7 +179,7 @@
               }
               .head {
                 color: #323232;
-                font-size: 18px;
+                font-size: 1.8em;
                 letter-spacing: 0.05em;
               }
               .detailDescription {
@@ -175,7 +187,7 @@
                 word-break: keep-all;
                 width: 260px;
                 color: #737373;
-                font-size: 14px;
+                font-size: 1.4em;
                 line-height: 170%;
               }
             }

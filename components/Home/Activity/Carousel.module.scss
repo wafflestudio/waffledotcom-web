@@ -3,7 +3,7 @@
 @import "styles/lib";
 $carousel-length: 5;
 
-@include responsive.mobile {
+@include responsive.tabletAndMobile {
   .carousel {
     position: relative;
     @include position.flex-center;
