@@ -48,15 +48,15 @@ export default function Support() {
             <div className={cx("mail")}>
               <img src="/static/images/support/gmail.svg" alt="gmail" />
               <div className={styles.column}>
-                <div>
+                <div className={styles.row}>
                   <span className={cx("label")}>총괄 및 문의</span>
                   master@wafflestudio.com
                 </div>
-                <div>
+                <div className={styles.row}>
                   <span className={cx("label")}>리크루팅 지원</span>
                   recruit@wafflestudio.com
                 </div>
-                <div>
+                <div className={styles.row}>
                   <span className={cx("label")}>와플 동아리장</span>
                   snjlee58@snu.ac.kr
                 </div>
