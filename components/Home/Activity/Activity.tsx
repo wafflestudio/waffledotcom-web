@@ -77,11 +77,25 @@ export default function About() {
             <span>와플스튜디오의 주요 활동</span>
           </div>
           <div className={cx("imageArea")}>
-            <div className={cx("image")}>
+            <div className={cx("imageContainer")}>
               <img
                 src={acitivities[index].image}
                 alt={acitivities[index].altImg}
               />
+              <ul className={cx("dots")}>
+                {[0, 1, 2, 3, 4].map((idx) => (
+                  <li key={idx} className={cx("dot")}>
+                    <img
+                      src={
+                        idx === index
+                          ? "/static/images/activity/dot_orange.svg"
+                          : "/static/images/activity/dot_gray.svg"
+                      }
+                      alt=""
+                    />
+                  </li>
+                ))}
+              </ul>
             </div>
             <div className={cx("description")}>
               {acitivities.map((activity, id) => (

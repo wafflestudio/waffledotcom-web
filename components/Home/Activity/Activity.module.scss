@@ -79,10 +79,14 @@
           height: 422px;
           gap: px2vw(70px);
 
-          .image {
+          .imageContainer {
             flex: 6;
             filter: drop-shadow(2px 4px 15px rgba(0, 0, 0, 0.15));
             border-radius: 10px;
+
+            .dots {
+              display: none;
+            }
           }
 
           .description {
@@ -148,15 +152,30 @@
         .imageArea {
           @include position.flex-center;
           margin-top: 40px;
-          .image {
+          .imageContainer {
             width: 296px;
-            height: 167px;
-            img {
+            // height: 167px;
+            > img {
               display: block;
               margin-left: 4px;
               width: 296px;
               height: 167px;
               object-fit: cover;
+            }
+
+            .dots {
+              margin-top: 24px;
+              @include position.flex-center(row);
+              gap: 10px;
+              .dot {
+                width: 8px;
+                height: 8px;
+                img {
+                  display: block;
+                  width: 100%;
+                  height: 100%;
+                }
+              }
             }
           }
           .description {
