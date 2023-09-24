@@ -49,12 +49,11 @@ function Siksha() {
             />
             <IntroductionCarousel
               carouselImages={[
-                "/static/images/dummy/coMo.png",
-                "/static/images/dummy/seminar.png",
-                "/static/images/dummy/Untitled.png",
-                "/static/images/dummy/seminar.png",
-                "/static/images/dummy/coMo.png",
-                "/static/images/dummy/mobile.png",
+                "/static/services/siksha/siksha1.webp",
+                "/static/services/siksha/siksha2.webp",
+                "/static/services/siksha/siksha3.webp",
+                "/static/services/siksha/siksha4.png",
+                "/static/services/siksha/siksha5.png",
               ]}
             />
           </div>

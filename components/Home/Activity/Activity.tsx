@@ -7,6 +7,14 @@ import styles from "./Activity.module.scss";
 
 const cx = classNames.bind(styles);
 
+const activityImages: string[] = [
+  "/static/images/activity/project.png",
+  "/static/images/activity/seminar.jpg",
+  "/static/images/activity/bake.webp",
+  "/static/images/activity/wackathon.webp",
+  "/static/images/activity/mt.webp",
+];
+
 export default function About() {
   const { state, targetRef } = useNavigatorScroll({
     callback: ({ progress, setState }) => {
@@ -34,7 +42,7 @@ export default function About() {
           <div className={cx("imageArea")}>
             <div className={cx("image")}>
               <img
-                src="/static/images/activity/activityImage1.png"
+                src={activityImages[index]}
                 alt="Someone is programming a website with laptop"
               />
             </div>
