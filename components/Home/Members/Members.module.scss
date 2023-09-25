@@ -16,211 +16,232 @@
     @include font.pretendard;
   }
 
-  > .background {
+  .background {
     @include position.fixed-background;
-    background-color: #fff;
   }
 
-  > .foreground {
+  .foreground {
     @include position.fixed-foreground;
+    @include position.flex-center;
+  }
+}
 
-    > .content-wrapper {
-      width: 1300px;
-      margin: 0 auto;
 
-      .description {
-        color: #737373;
-        font-size: 20px;
-      }
+@include responsive.desktop {
+  .without.desktop {
+    display: none;
+  }
 
-      > .title-wrapper {
-        display: flex;
-        gap: px2vw(22px);
-        margin-top: calc(75px + px2vh(135px));
+  .content {
+    @include position.flex(column, start, start);
+    width: 1300px;
+    font-size: 0.625rem;
+    gap: 4.8em;
+    margin-top: 75px;
+  }
 
-        > .title {
-          color: #323232;
-          font-size: 50px;
-          font-weight: bold;
-        }
+  .titleBar {
+    @include position.flex(row, baseline, start);
+    gap: 2.2em;
+    margin-bottom: 0.8em;
+  }
 
-        > .description {
-          height: 33px;
-          padding-top: 27px;
-          line-height: 29px;
-          font-size: 24px;
-          letter-spacing: 0.04em;
-        }
-      }
+  .title {
+    color: #323232;
+    font-size: 5em;
+    font-weight: 700;
+  }
 
-      > .grade {
-        margin-top: px2vh(56px);
+  .subTitle {
+    color: #737373;
+    font-size: 2.4em;
+    font-weight: 400;
+    letter-spacing: 0.096em;
+  }
 
-        > .grade-name {
-          font-size: 32px;
-          font-weight: bold;
-        }
+  .section {
+    @include position.flex(column, start, start);
+    gap: 3.2em;
+    width: 100%;
+  }
 
-        > .positions {
-          display: flex;
-          gap: px2vw(49px);
+  .sectionTitleText {
+    color: #000;
+    font-size: 3.2em;
+    font-weight: 700;
+  }
 
-          > .position {
-            margin-top: px2vh(32px);
-            padding: 0 px2vw(10px);
-            display: flex;
-            align-items: center;
-            gap: px2vw(40px);
+  .memberTypeSet {
+    @include position.flex(row, start, space-between);
+    width: 100%;
+  }
 
-            > .texts {
-              > .position-name {
-                font-size: 30px;
-                font-weight: bold;
-                letter-spacing: 0.04em;
-              }
+  .memberTypeImage {
+    width: 15em;
+    height: 15em;
+  }
 
-              .description {
-                line-height: 160%;
-                letter-spacing: 0.04em;
-              }
+  .memberType {
+    @include position.flex(row, center, start);
+    height: 15.6em;
+    gap: 4em;
+  }
 
-              > .descriptions {
-                padding-left: 30px;
-                list-style-type: disc;
-              }
-            }
-          }
-        }
-      }
+  .memberTypeName {
+    color: #323232;
+    font-size: 3em;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.04em;
+    margin-bottom: 4px;
+  }
+
+  .memberTypeDefinition {
+    color: #737373;
+    font-size: 1.8em;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 160%;
+    letter-spacing: 0.04em;
+  }
+
+  .memberTypeDescription {
+    color: #737373;
+    font-size: 1.8em;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 160%;
+    letter-spacing: 0.04em;
+    list-style-type: disc;
+    padding-left: 1.3em;
+  }
+}
+
+@include responsive.tablet {
+  .content {
+    font-size: calc(0.625rem * 1.5)
+  }
+
+  .without.tablet {
+    display: none;
+  }
+}
+
+@include responsive.mobile {
+  .content {
+    font-size: 0.625rem;
+  }
+
+  .without.mobile {
+    display: none;
+  }
+}
+
+@include responsive.tabletAndMobile {
+  .content {
+    @include position.flex(column, center, start);
+    gap: 5.5em;
+    width: 100%;
+    overflow-y: scroll;
+    margin-top: 75px;
+  }
+
+  .titleBar {
+    @include position.flex(column, center, start);
+    gap: 0.8em;
+  }
+
+  .title {
+    color: #323232;
+    font-size: 2.6em;
+    font-weight: 700;
+  }
+
+  .subTitle {
+    color: #737373;
+    font-size: 1.6em;
+    font-weight: 400;
+    letter-spacing: 0.096em;
+  }
+
+  .section {
+    @include position.flex(column, center, start);
+    gap: 1.4em;
+  }
+
+  .sectionTitle {
+    @include position.flex(row, center, center);
+    gap: 0.35em;
+  }
+
+  .simpleWaffleIcon {
+    width: 0.7em;
+    height: 0.7em;
+    transform: rotate(45deg);
+  }
+
+  .sectionTitleText {
+    color: #F0745F;
+    font-size: 1.4em;
+    font-weight: 600;
+  }
+
+  .memberTypeSet {
+    @include position.flex(column, center, space-between);
+    width: 100%;
+    gap: 3em;
+  }
+
+  .memberType {
+    @include position.flex(column, center, start);
+    gap: 0.6em;
+  }
+
+  .memberTypeImage {
+    width: 4.7em;
+    height: 4.7em;
+  }
+
+  .memberTypeName {
+    color: #323232;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5em;
+  }
+
+  .memberTypeDefinition {
+    text-align: center;
+    color: #434343;
+    font-size: 1.4em;
+    font-weight: 600;
+    line-height: 170%;
+  }
+
+  .memberTypeDescription {
+    color: #737373;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: 400;
+    line-height: 170%;
+
+    li {
+      width: 100%;
     }
+  }
+
+  .memberTypeDescription > li:last-child::before {
+    content: "- "
+  }
+
+  .memberTypeDescription > li:last-child::after {
+    content: " -"
   }
 }
 
 .off {
   opacity: 0;
   visibility: hidden;
-}
-
-.waffle-icon {
-  display: none;
-}
-
-@include responsive.desktop {
-  .mobile-description {
-    display: none;
-  }
-}
-
-@include responsive.tablet {
-  .container {
-    font-size: 15px;
-  }
-}
-
-@include responsive.mobile {
-  .container {
-    font-size: 10px;
-  }
-}
-
-@include responsive.tabletAndMobile {
-  .container {
-    > .foreground {
-      overflow-y: scroll;
-      width: 100%;
-
-      > .content-wrapper {
-        width: 100%;
-        min-width: 360px;
-        padding: 0;
-        margin: 0;
-
-        > .title-wrapper {
-          flex-direction: column;
-          gap: 0.5em;
-          margin-top: calc(75px + px2vh(135px));
-
-          > .title {
-            color: #F0745F;
-            font-size: 2.8em;
-            text-align: center;
-            padding: 0;
-          }
-
-          > .description {
-            color: #584E4E;
-            font-size: 1.8em;
-            text-align: center;
-            padding: 0;
-          }
-        }
-
-        > .grade {
-          @include position.flex-center(column);
-          margin: 0;
-          padding: 3em 0 1.5em 0;
-
-          .grade-title {
-            @include position.flex-center(row);
-            gap: 0.44em;
-
-            .grade-name {
-              color: #F0745F;
-              font-size: 1.6em;
-            }
-          }
-
-          > .positions {
-            @include position.flex-center(column);
-            gap: 0;
-
-            > .position {
-              @include position.flex-center(column);
-              padding: 1.5em 0;
-              margin: 0;
-
-              > .position-image {
-                height: 9.5em;
-              }
-
-              > .texts {
-                text-align: center;
-                // white-space: pre-wrap;
-                word-break: keep-all;
-
-                > .position-name {
-                  font-size: 2.4em;
-
-                  & + .description {
-                    color: #353030;
-                    font-size: 1.6em;
-                    padding-top: 0.5em;
-                  }
-                }
-
-                .description {
-                  font-size: 1.4em;
-                  line-height: 160%;
-                  letter-spacing: 0.04em;
-                }
-
-                > .descriptions {
-                  list-style-type: none;
-                  padding: 1em 0 0 0;
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-
-  .pc-description {
-    display: none;
-  }
-
-  .waffle-icon {
-    display: inline-block;
-  }
 }
