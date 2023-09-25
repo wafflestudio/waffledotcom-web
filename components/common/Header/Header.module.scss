@@ -1,19 +1,20 @@
 @use "./styles/responsive";
-
+@use "./styles/lib";
 .header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  min-width: 1300px;
-  height: 75px;
-  padding: 0 14px;
+  min-width: responsive.$breakpoint-mobile;
+  padding: responsive.responsive-px(20px, 24px, 4) 14px;
   background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 927px;
   z-index: 999;
+  font-size: responsive.responsive-px(14px, 18px, 4);
+
   .content {
     width: 1300px;
     display: flex;
@@ -22,20 +23,19 @@
   }
   .logo {
     > img {
-      height: 27px;
+      height: responsive.responsive-px(16px, 27px, 11);
     }
   }
 
   .tabNavigator {
     display: flex;
-    gap: 73px;
+    gap: responsive.responsive-px(20px, 73px, 53);
     padding: 0;
     cursor: pointer;
     .tabItem {
       font-family: "Pretendard", sans-serif;
       font-style: normal;
       font-weight: 400;
-      font-size: 18px;
       line-height: 21px;
       color: #323232;
       &:hover {
@@ -48,24 +48,5 @@
         opacity: 1;
       }
     }
-  }
-}
-
-@include responsive.tabletAndMobile {
-  .header {
-    height: auto !important;
-    min-width: responsive.$breakpoint-mobile !important;
-    padding: 14px !important;
-  }
-  .logo {
-    > img {
-      height: 16px !important;
-    }
-  }
-  .tabNavigator {
-    gap: 20px !important;
-  }
-  .tabItem {
-    font-size: 14px !important;
   }
 }
