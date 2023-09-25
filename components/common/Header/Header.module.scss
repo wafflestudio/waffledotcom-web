@@ -1,19 +1,19 @@
 @use "./styles/responsive";
 @use "./styles/lib";
 .header {
+  @include responsive.fontSize(14px, 16px, 18px);
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   min-width: responsive.$breakpoint-mobile;
-  padding: responsive.responsive-px(20px, 24px, 4) 14px;
+  padding: 24px 14px;
   background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 927px;
   z-index: 999;
-  font-size: responsive.responsive-px(14px, 18px, 4);
 
   .content {
     width: 1300px;
@@ -23,13 +23,13 @@
   }
   .logo {
     > img {
-      height: responsive.responsive-px(16px, 27px, 11);
+      height: 1.5em;
     }
   }
 
   .tabNavigator {
     display: flex;
-    gap: responsive.responsive-px(20px, 73px, 53);
+    gap: min(73px, 5vw);
     padding: 0;
     cursor: pointer;
     .tabItem {

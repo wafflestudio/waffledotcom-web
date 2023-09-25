@@ -43,14 +43,14 @@ $header-height: 75px;
     align-items: center;
     justify-content: center;
     .subLogo {
-      font-size: responsive.responsive-px(16px, 40px, 24);
+      @include responsive.fontSize(16px, 24px, 40px);
       font-weight: 500;
       line-height: 100%;
       letter-spacing: 0.36em;
       color: #595959;
     }
     .mainLogo {
-      font-size: responsive.responsive-px(60px, 150px, 90);
+      @include responsive.fontSize(60px, 90px, 150px);
       font-weight: 700;
       line-height: 100%;
       letter-spacing: 0.1em;

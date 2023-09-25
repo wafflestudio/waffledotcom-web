@@ -28,19 +28,14 @@ $breakpoint-desktop: 1300px;
   }
 }
 
-// 중간값 구하는 함수
-@function clampValue($min, $val, $max) {
-  @return min(max($val, $min), $max);
-}
-
-// 태블릿 사이즈일 때 px 값을 화면 크기에 비례하게 변환해주는 함수입니다.
-// 최소값(모바일 사이즈), 최대값(데스크톱 사이즈), 둘의 차이(정수)를 입력해주면 변환 완료.
-// @TODO: 세번째 패러미터를 지우고 싶은데 어카면 좋을까여...?
-// 현재는 min, max 값이 모두 픽셀이라 (max-min) 값을 vw 값에 곱해주는 데에 에러가 발생.
-@function responsive-px($min, $max, $diff) {
-  @return clampValue(
-    $min,
-    calc($min + (100vw - $breakpoint-tablet) / 542 * $diff),
-    $max
-  );
+@mixin fontSize($mobile, $tablet, $desktop) {
+  @include mobile {
+    font-size: $mobile;
+  }
+  @include tablet {
+    font-size: $tablet;
+  }
+  @include desktop {
+    font-size: $desktop;
+  }
 }

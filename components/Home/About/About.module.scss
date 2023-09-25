@@ -35,14 +35,14 @@
       color: #000000;
       .name {
         > h1 {
-          font-size: responsive.responsive-px(50px, 82px, 32);
+          @include responsive.fontSize(50px, 64px, 82px);
           font-weight: 800;
           line-height: 135%;
           letter-spacing: 0.22em;
         }
         > img {
           margin-top: 20px;
-          width: responsive.responsive-px(60px, 110px, 50);
+          width: 110px;
         }
       }
       .description {
@@ -52,15 +52,15 @@
         gap: 70px;
         .question {
           > h3 {
+            @include responsive.fontSize(18px, 24px, 30px);
             font-weight: 700;
-            font-size: responsive.responsive-px(18px, 30px, 12);
             line-height: 36px;
             letter-spacing: 0.05em;
             margin-bottom: 40px;
           }
           > p {
+            @include responsive.fontSize(14px, 16px, 18px);
             font-weight: 400;
-            font-size: responsive.responsive-px(14px, 18px, 4);
             line-height: 34px;
             letter-spacing: 0.04em;
 
@@ -106,11 +106,12 @@
           }
           > img {
             margin-bottom: 40px;
+            width: 60px !important;
           }
         }
         .description {
           width: auto;
-          max-width: 640px;
+          max-width: 720px;
           padding: 0 28px;
           .question {
             > h3 {
