@@ -1,5 +1,7 @@
 @use "./styles/font";
 @use "./styles/lib";
+@use "./styles/responsive";
+
 $header-height: 75px;
 
 .container {
@@ -32,7 +34,7 @@ $header-height: 75px;
     @include font.pretendard;
     position: fixed;
     width: 100%;
-    min-width: 1300px;
+    min-width: responsive.$breakpoint-mobile !important;
     height: 100%;
     top: 0;
     left: 0;
@@ -41,14 +43,14 @@ $header-height: 75px;
     align-items: center;
     justify-content: center;
     .subLogo {
-      font-size: 40px;
+      font-size: responsive.responsive-px(16px, 40px, 24);
       font-weight: 500;
       line-height: 100%;
       letter-spacing: 0.36em;
       color: #595959;
     }
     .mainLogo {
-      font-size: 150px;
+      font-size: responsive.responsive-px(60px, 150px, 90);
       font-weight: 700;
       line-height: 100%;
       letter-spacing: 0.1em;
@@ -59,7 +61,7 @@ $header-height: 75px;
     position: fixed;
     margin: auto;
     width: 100%;
-    min-width: 1300px;
+    min-width: responsive.$breakpoint-mobile !important;
     bottom: 53px;
     display: flex;
     justify-content: center;
