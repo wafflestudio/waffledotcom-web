@@ -20,7 +20,7 @@
   .foreground {
     position: fixed;
     width: 100%;
-    min-width: 1300px;
+    min-width: responsive.$breakpoint-mobile;
     height: 100%;
     bottom: 0;
     left: 0;
@@ -35,13 +35,14 @@
       color: #000000;
       .name {
         > h1 {
-          font-size: 82px;
+          font-size: responsive.responsive-px(50px, 82px, 32);
           font-weight: 800;
           line-height: 135%;
           letter-spacing: 0.22em;
         }
         > img {
           margin-top: 20px;
+          width: responsive.responsive-px(60px, 110px, 50);
         }
       }
       .description {
@@ -52,14 +53,14 @@
         .question {
           > h3 {
             font-weight: 700;
-            font-size: 30px;
+            font-size: responsive.responsive-px(18px, 30px, 12);
             line-height: 36px;
             letter-spacing: 0.05em;
             margin-bottom: 40px;
           }
           > p {
             font-weight: 400;
-            font-size: 18px;
+            font-size: responsive.responsive-px(14px, 18px, 4);
             line-height: 34px;
             letter-spacing: 0.04em;
 
@@ -88,27 +89,9 @@
   }
 }
 
-@include responsive.tablet {
+@include responsive.tabletAndMobile {
   .container {
     .foreground {
-      min-width: responsive.$breakpoint-mobile;
-      .content {
-        gap: calc(lib.px2vw(365px) / 2);
-        .name {
-          > h1 {
-            font-size: lib.px2vw(81px) !important;
-            white-space: nowrap;
-          }
-        }
-      }
-    }
-  }
-}
-
-@include responsive.mobile {
-  .container {
-    .foreground {
-      min-width: responsive.$breakpoint-mobile;
       .content {
         display: block;
         .name {
@@ -116,30 +99,25 @@
           flex-direction: column;
           align-items: center;
           > h1 {
-            color: #f0745f;
             text-align: center;
-            font-size: 50px;
             font-weight: 800;
             line-height: 130%; /* 65px */
             letter-spacing: 11px;
           }
           > img {
-            width: 60px;
             margin-bottom: 40px;
           }
         }
         .description {
           width: auto;
+          max-width: 640px;
           padding: 0 28px;
           .question {
             > h3 {
-              font-size: 18px;
               text-align: center;
-              margin-bottom: 11px;
             }
             > p {
               color: #584e4e;
-              font-size: 14px;
               line-height: 24px;
               text-align: center;
             }
