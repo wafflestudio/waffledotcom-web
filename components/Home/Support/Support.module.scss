@@ -32,7 +32,7 @@
     .contact {
       position: absolute;
       color: #fff1cf;
-      font-size: 24px;
+      font-size: responsive.responsive-px(12px, 24px, 12);
       line-height: 30px;
       left: 80px;
       bottom: 80px;
@@ -73,14 +73,14 @@
       .description {
         margin-bottom: 25px;
         text-align: center;
-        font-size: 24px;
+        font-size: responsive.responsive-px(14px, 24px, 10);
         font-weight: 400;
         letter-spacing: 0.96px;
         color: #737373;
       }
       .title {
         color: #323232;
-        font-size: 50px;
+        font-size: responsive.responsive-px(26px, 50px, 24);
         font-style: normal;
         font-weight: 700;
         margin-bottom: 53px;
@@ -94,7 +94,7 @@
         z-index: 10;
         .sponsor {
           color: #323232;
-          font-size: 32px;
+          font-size: responsive.responsive-px(14px, 32px, 18);
           font-weight: 600;
           line-height: 180%; /* 57.6px */
           letter-spacing: 1.28px;
@@ -161,13 +161,13 @@
   }
 }
 
-@include responsive.tabletAndMobile {
-  .chair {
+@include responsive.desktop {
+  .onlyMobile {
     display: none;
   }
 }
 
-@include responsive.mobile {
+@include responsive.tabletAndMobile {
   .container {
     .background {
       background-color: white;
@@ -177,28 +177,25 @@
         position: relative;
       }
       .description {
-        color: #f0745f !important;
-        font-size: 20px !important  ;
         font-weight: 500;
         line-height: 150%; /* 30px */
         margin-bottom: 37px;
       }
+      .supportMobile {
+        margin-top: 7px;
+      }
       .title {
         margin-bottom: 10px !important;
-        font-size: 20px !important;
       }
-      .sponsors {
-        .sponsor {
-          font-size: 16px !important;
-        }
-      }
+
       .contact {
         position: relative;
-        font-size: 16px !important;
-        color: black !important;
+        top: 0;
         left: 0;
+        color: black !important;
         .instagram,
         .mail {
+          gap: 10px;
           flex-direction: column;
           align-items: center;
           text-align: center;
@@ -208,22 +205,44 @@
           display: flex;
           flex-direction: column;
           align-items: center;
+          line-height: normal;
+          gap: 11px;
+          .address {
+            color: #737373;
+          }
           .row {
             display: flex;
             flex-direction: column;
             align-items: center;
+            line-height: 170%; /* 20.4px */
+            color: #737373;
           }
+        }
+        .mobileLabel {
+          font-size: responsive.responsive-px(16px, 24px, 8);
+          font-weight: 700;
+          letter-spacing: 0.8px;
         }
 
         .label {
-          display: block !important;
-          width: 100px !important;
-        }
-
-        img {
-          width: 36px;
+          text-align: center;
+          font-family: Pretendard;
+          font-weight: 400 !important;
+          line-height: normal;
+          letter-spacing: 0.6px;
+          color: #323232;
         }
       }
     }
+    .images {
+      img {
+        width: 50% !important;
+        max-width: 300px;
+      }
+    }
+  }
+
+  .onlyDesktop {
+    display: none !important;
   }
 }

@@ -26,6 +26,11 @@ export default function Support() {
           <div className={styles.description}>
             와플스튜디오는 소중한 후원과 함께 성장합니다.
           </div>
+          <img
+            className={cx("supportMobile", "onlyMobile")}
+            src="/static/images/support/support_mobile.svg"
+            alt="support icon"
+          />
           <div className={styles.title}>Thanks to</div>
           <div className={styles.sponsors}>
             <div className={styles.sponsor}>김진억</div>
@@ -37,16 +42,38 @@ export default function Support() {
         <div className={styles.bottom}>
           <div className={cx("contact")}>
             <div className={cx("instagram")}>
-              <img src="/static/images/support/instagram.svg" alt="instagram" />
+              <img
+                className={cx("onlyDesktop")}
+                src="/static/images/support/instagram.svg"
+                alt="instagram"
+              />
+              <img
+                className={cx("onlyMobile")}
+                src="/static/images/support/instagram_mobile.svg"
+                alt="instagram"
+              />
+              <div className={cx("mobileLabel", "onlyMobile")}>instagram</div>
               <div className={styles.column}>
                 <div>
-                  <span className={cx("label")}>와플스튜디오 인스타그램</span>
+                  <span className={cx("label", "onlyDesktop")}>
+                    와플스튜디오 인스타그램
+                  </span>
                 </div>
                 <div className={cx("address")}>@wafflestudio_official</div>
               </div>
             </div>
             <div className={cx("mail")}>
-              <img src="/static/images/support/gmail.svg" alt="gmail" />
+              <img
+                className={cx("onlyDesktop")}
+                src="/static/images/support/gmail.svg"
+                alt="gmail"
+              />
+              <img
+                className={cx("onlyMobile")}
+                src="/static/images/support/gmail_mobile.svg"
+                alt="gmail"
+              />
+              <div className={cx("mobileLabel", "onlyMobile")}>email</div>
               <div className={styles.column}>
                 <div className={styles.row}>
                   <span className={cx("label")}>총괄 및 문의</span>
@@ -71,17 +98,17 @@ export default function Support() {
             />
             <img
               alt=""
-              className={cx("mouse")}
+              className={cx("mouse", "onlyDesktop")}
               src="/static/images/support/mouse.svg"
             />
             <img
               alt=""
-              className={cx("chair")}
+              className={cx("chair", "onlyDesktop")}
               src="/static/images/support/chair.svg"
             />
             <img
               alt=""
-              className={cx("light")}
+              className={cx("light", "onlyDesktop")}
               src="/static/images/support/light_side.svg"
             />
           </div>
