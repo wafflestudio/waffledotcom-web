@@ -36,21 +36,6 @@
           color: #737373;
         }
       }
-      .imageArea {
-        .description {
-          width: 100%;
-          height: 100%;
-
-          .subTitle {
-            transition: all 0.15s ease-in-out;
-
-            .head {
-              font-weight: 700;
-              width: 100%;
-            }
-          }
-        }
-      }
     }
   }
 }
@@ -90,6 +75,8 @@
           }
 
           .description {
+            width: 100%;
+            height: 100%;
             flex: 4;
             padding: 5px 0px;
             display: flex;
@@ -97,6 +84,7 @@
             justify-content: space-between;
 
             .subTitle {
+              transition: all 0.15s ease-in-out;
               height: 50px;
               letter-spacing: 0.04em;
               color: #a4a4a4;
@@ -108,6 +96,8 @@
               }
 
               .head {
+                font-weight: 700;
+                width: 100%;
                 font-size: 32px;
                 margin-bottom: 10px;
               }
@@ -170,27 +160,30 @@
           .imageContainer {
             display: none;
           }
+          // .description {
+          //   @include position.flex-center;
+          //   margin-top: 40px;
+          //   .subTitle {
+          //     &.inactive {
+          //       display: none;
+          //     }
+          //     .head {
+          //       color: #323232;
+          //       font-size: 1.8em;
+          //       letter-spacing: 0.05em;
+          //     }
+          //     .detailDescription {
+          //       margin-top: 8px;
+          //       word-break: keep-all;
+          //       width: 60vw;
+          //       color: #737373;
+          //       font-size: 1.4em;
+          //       line-height: 170%;
+          //     }
+          //   }
+          // }
           .description {
-            @include position.flex-center;
-            margin-top: 40px;
-            .subTitle {
-              &.inactive {
-                display: none;
-              }
-              .head {
-                color: #323232;
-                font-size: 1.8em;
-                letter-spacing: 0.05em;
-              }
-              .detailDescription {
-                margin-top: 8px;
-                word-break: keep-all;
-                width: 60vw;
-                color: #737373;
-                font-size: 1.4em;
-                line-height: 170%;
-              }
-            }
+            display: none;
           }
         }
       }

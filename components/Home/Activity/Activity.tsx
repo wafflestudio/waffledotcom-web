@@ -102,19 +102,12 @@ export default function Activity() {
                 alt={activities[selectedId].altImg}
               />
             </div>
-
-            {/* mobile */}
-            <div className={cx("carouselContainer")}>
-              <Carousel activities={activities} selectedId={selectedId} />
-            </div>
-
             <div className={cx("description")}>
               {activities.map((activity) => (
                 <div
                   key={activity.id}
                   className={cx("subTitle", {
                     active: selectedId === activity.id,
-                    inactive: selectedId !== activity.id,
                   })}
                 >
                   <div
@@ -134,6 +127,11 @@ export default function Activity() {
                   </div>
                 </div>
               ))}
+            </div>
+
+            {/* mobile */}
+            <div className={cx("carouselContainer")}>
+              <Carousel activities={activities} selectedId={selectedId} />
             </div>
           </div>
         </div>
