@@ -17,31 +17,44 @@ export default function Carousel({ activities, selectedId }: CarouselProps) {
           <div
             className={cx("carousel-items-container", `state-${selectedId}`)}
           >
-            {activities.map((activity) => (
-              <div key={activity.id} className={cx("carousel-item")}>
-                <div className={cx("imageContainer")}>
-                  <img src={activity.image} alt={activity.altImg} />
-                </div>
-              </div>
+            {activities.map((activity, _) => (
+              <CarouselItem key={_} activity={activity} />
             ))}
           </div>
         </div>
       </div>
 
       <ul className={cx("dots")}>
-        {[0, 1, 2, 3, 4].map((id) => (
-          <li key={id} className={cx("dot")}>
-            <img
-              src={
-                id === selectedId
-                  ? "/static/images/activity/dot_orange.svg"
-                  : "/static/images/activity/dot_gray.svg"
-              }
-              alt=""
-            />
-          </li>
-        ))}
+        {[0, 1, 2, 3, 4].map((id) =>
+          id === selectedId ? (
+            <li key={id} className={cx("rectangle")}>
+              <img src="/static/images/activity/rectangle_orange.svg" alt="" />
+            </li>
+          ) : (
+            <li key={id} className={cx("dot")}>
+              <img src="/static/images/activity/dot_gray.svg" alt="" />
+            </li>
+          ),
+        )}
       </ul>
     </>
+  );
+}
+
+type CarouselItemProps = {
+  activity: Activity;
+};
+
+function CarouselItem({ activity }: CarouselItemProps) {
+  return (
+    <div className={cx("carousel-item")}>
+      <div className={cx("imageContainer")}>
+        <img src={activity.image} alt={activity.altImg} />
+      </div>
+      <div className={cx("textContainer")}>
+        <h1 className={cx("activityTitle")}>{activity.head}</h1>
+        <p className={cx("activityDetail")}>{activity.detailDescription}</p>
+      </div>
+    </div>
   );
 }

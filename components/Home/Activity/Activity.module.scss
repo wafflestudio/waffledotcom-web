@@ -66,7 +66,6 @@
 
           .imageContainer {
             flex: 6;
-            filter: drop-shadow(2px 4px 15px rgba(0, 0, 0, 0.15));
             border-radius: 10px;
           }
 
@@ -136,7 +135,7 @@
 @include responsive.tabletAndMobile {
   .container {
     .foreground {
-      margin-top: 20vh;
+      margin-top: 15vh;
       .wrapper {
         @include position.flex-center;
         width: 100%;
@@ -145,7 +144,7 @@
         .textArea {
           p {
             font-size: 2.6em;
-            margin-bottom: 8px;
+            margin-bottom: 0.8em;
           }
           span {
             font-size: 1.6em;
@@ -155,33 +154,12 @@
         .imageArea {
           width: 100%;
           @include position.flex-center;
-          margin-top: 40px;
+          margin-top: 3.2em;
 
           .imageContainer {
             display: none;
           }
-          // .description {
-          //   @include position.flex-center;
-          //   margin-top: 40px;
-          //   .subTitle {
-          //     &.inactive {
-          //       display: none;
-          //     }
-          //     .head {
-          //       color: #323232;
-          //       font-size: 1.8em;
-          //       letter-spacing: 0.05em;
-          //     }
-          //     .detailDescription {
-          //       margin-top: 8px;
-          //       word-break: keep-all;
-          //       width: 60vw;
-          //       color: #737373;
-          //       font-size: 1.4em;
-          //       line-height: 170%;
-          //     }
-          //   }
-          // }
+
           .description {
             display: none;
           }
