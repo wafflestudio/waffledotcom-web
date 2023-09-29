@@ -67,18 +67,7 @@
   opacity: 0;
   visibility: hidden;
 }
-
 @include responsive.tabletAndMobile {
-  .container {
-    .foreground {
-      .content-wrapper {
-        min-width: responsive.$breakpoint-mobile;
-      }
-    }
-  }
-}
-
-@include responsive.mobile {
   .container {
     .foreground {
       .texts {
@@ -90,6 +79,7 @@
         }
       }
       .content-wrapper {
+        min-width: responsive.$breakpoint-mobile;
         flex-direction: column;
         height: auto;
         gap: 25px;
