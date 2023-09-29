@@ -70,6 +70,9 @@
 @include responsive.tabletAndMobile {
   .container {
     .foreground {
+      justify-content: flex-start;
+      overflow-y: scroll;
+      align-items: flex-start;
       .texts {
         .title {
           font-size: 28px !important;
@@ -79,8 +82,10 @@
         }
       }
       .content-wrapper {
+        padding-top: 80px;
         min-width: responsive.$breakpoint-mobile;
         flex-direction: column;
+
         height: auto;
         gap: 25px;
       }
