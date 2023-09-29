@@ -27,6 +27,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
     .content {
       @include font.pretendard;
       display: flex;
@@ -92,6 +93,10 @@
 @include responsive.tabletAndMobile {
   .container {
     .foreground {
+      padding-top: 80px;
+      padding-bottom: 20px;
+      align-items: flex-start;
+      overflow-y: auto;
       .content {
         display: block;
         .name {
