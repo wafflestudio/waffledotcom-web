@@ -65,8 +65,13 @@
           gap: px2vw(70px);
 
           .imageContainer {
+            height: 422px;
             flex: 6;
             border-radius: 10px;
+            > img {
+              height: 100%;
+              width: 100%;
+            }
           }
 
           .carouselContainer {
