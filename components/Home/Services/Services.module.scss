@@ -45,9 +45,9 @@
         }
         > .more-button {
           display: inline-flex;
-          gap: px2vw(29px);
-          margin-top: px2vh(23px);
-          padding: px2vh(5px) px2vw(9px);
+          gap: lib.px2vw(29px);
+          margin-top: lib.px2vh(23px);
+          padding: lib.px2vh(5px) lib.px2vw(9px);
           border: 1px solid #a4a4a4;
           align-items: center;
           > p {
