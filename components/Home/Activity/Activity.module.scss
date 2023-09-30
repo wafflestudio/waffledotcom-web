@@ -1,4 +1,7 @@
-@use "./styles/font";
+@use "styles/font";
+@use "styles/position";
+@use "styles/responsive";
+@import "styles/lib";
 
 .container {
   width: 100vw;
@@ -6,129 +9,115 @@
   opacity: 1;
   transition: 0.5s ease;
   display: flex;
+  &.off {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  * {
+    @include font.pretendard;
+  }
 
   .background {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    bottom: 0;
-    left: 0;
-    background-color: #ffffff;
+    @include position.fixed-background;
+    background-color: #fff;
   }
 
   .foreground {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    bottom: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include position.fixed-foreground;
 
     .wrapper {
-      width: 1280px;
-      height: fit-content;
-
       .textArea {
-        height: calc(100vh / 1080 * 82);
-
         p {
-          font-family: "Pretendard";
-          font-style: normal;
           font-weight: 700;
-          font-size: 36px;
-          line-height: 43px;
           color: #323232;
         }
         span {
-          font-family: "Pretendard";
-          font-style: normal;
-          font-weight: 500;
-          font-size: 22px;
-          line-height: 160%;
-          letter-spacing: 0.04em;
           color: #737373;
         }
       }
-      .imageArea {
-        margin-top: 62px;
-        height: 422px;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 70px;
+    }
+  }
+}
 
-        div {
-          width: 100%;
-          height: 100%;
-        }
+@include responsive.desktop {
+  .container {
+    .foreground {
+      @include position.flex-center;
+      .wrapper {
+        width: 1280px;
+        height: fit-content;
 
-        .image {
-          flex: 6;
-          background-size: cover;
-          width: 100%;
-          height: 100%;
-          filter: drop-shadow(2px 4px 15px rgba(0, 0, 0, 0.15));
-          border-radius: 10px;
-          transition: all 0.5s ease-in-out;
-          overflow: hidden;
-          img {
-            width: 100%;
-            object-fit: cover;
+        .textArea {
+          p {
+            font-size: 50px;
+            margin-bottom: px2vh(22px);
+          }
+          span {
+            font-size: 24px;
+            letter-spacing: 0.04em;
           }
         }
+        .imageArea {
+          @include position.flex-center(row);
+          margin-top: px2vh(62px);
+          height: 422px;
+          gap: px2vw(70px);
 
-        .description {
-          flex: 4;
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-          padding: 5px 0px;
-          justify-content: space-between;
-
-          .subTitle {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: flex-start;
-            height: 50px;
-            font-family: "Pretendard";
-            font-style: normal;
-            font-weight: 700;
-            font-size: 32px;
-            line-height: 38px;
-            display: flex;
-            align-items: center;
-            letter-spacing: 0.04em;
-            color: #a4a4a4;
-            transition: all 0.15s ease-in-out;
-            overflow: hidden;
-            cursor: pointer;
-            .head {
-              height: 50px;
+          .imageContainer {
+            height: 422px;
+            flex: 6;
+            border-radius: 10px;
+            > img {
+              height: 100%;
+              width: 100%;
             }
           }
 
-          .active {
-            color: #000;
-            height: 140px;
+          .carouselContainer {
+            display: none;
           }
 
-          .detailDescription {
-            height: 0px;
-            overflow: hidden;
-            font-style: normal;
-            font-weight: 400;
-            font-size: 20px;
-            line-height: 160%;
-            letter-spacing: 0.04em;
-            color: #737373;
-          }
+          .description {
+            width: 100%;
+            height: 100%;
+            flex: 4;
+            padding: 5px 0px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
 
-          .visible {
-            height: 90px;
-            overflow: visible;
+            .subTitle {
+              transition: all 0.15s ease-in-out;
+              height: 50px;
+              letter-spacing: 0.04em;
+              color: #a4a4a4;
+              overflow: hidden;
+              cursor: pointer;
+              &.active {
+                color: #000;
+                height: 140px;
+              }
+
+              .head {
+                font-weight: 700;
+                width: 100%;
+                font-size: 32px;
+                margin-bottom: 10px;
+              }
+
+              .detailDescription {
+                height: 0px;
+                overflow: hidden;
+                font-size: 18px;
+                line-height: 160%;
+                color: #434343;
+                &.visible {
+                  height: 90px;
+                  overflow: visible;
+                }
+              }
+            }
           }
         }
       }
@@ -136,7 +125,51 @@
   }
 }
 
-.off {
-  opacity: 0;
-  visibility: hidden;
+@include responsive.tablet {
+  .container {
+    font-size: 15px;
+  }
+}
+
+@include responsive.mobile {
+  .container {
+    font-size: 10px;
+  }
+}
+
+@include responsive.tabletAndMobile {
+  .container {
+    .foreground {
+      margin-top: 15vh;
+      .wrapper {
+        @include position.flex-center;
+        width: 100%;
+        text-align: center;
+
+        .textArea {
+          p {
+            font-size: 2.6em;
+            margin-bottom: 0.8em;
+          }
+          span {
+            font-size: 1.6em;
+            line-height: 150%;
+          }
+        }
+        .imageArea {
+          width: 100%;
+          @include position.flex-center;
+          margin-top: 3.2em;
+
+          .imageContainer {
+            display: none;
+          }
+
+          .description {
+            display: none;
+          }
+        }
+      }
+    }
+  }
 }
