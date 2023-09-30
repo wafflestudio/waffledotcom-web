@@ -1,6 +1,7 @@
-@use "./styles/font";
 @use "../../../styles/position";
-@import "../../../styles/lib";
+@use "./styles/font";
+@use "./styles/lib";
+@use "./styles/responsive";
 
 .container {
   width: 100vw;
@@ -26,7 +27,7 @@
       width: 1300px;
       min-width: 1300px;
       display: flex;
-      gap: px2vw(230px);
+      gap: lib.px2vw(230px);
       align-items: center;
       height: 100%;
       > .texts {
@@ -44,9 +45,9 @@
         }
         > .more-button {
           display: inline-flex;
-          gap: px2vw(29px);
-          margin-top: px2vh(23px);
-          padding: px2vh(5px) px2vw(9px);
+          gap: lib.px2vw(29px);
+          margin-top: lib.px2vh(23px);
+          padding: lib.px2vh(5px) lib.px2vw(9px);
           border: 1px solid #a4a4a4;
           align-items: center;
           > p {
@@ -65,4 +66,29 @@
 .off {
   opacity: 0;
   visibility: hidden;
+}
+@include responsive.tabletAndMobile {
+  .container {
+    .foreground {
+      justify-content: flex-start;
+      overflow-y: scroll;
+      align-items: flex-start;
+      .texts {
+        .title {
+          font-size: 28px !important;
+        }
+        .description {
+          font-size: 18px !important;
+        }
+      }
+      .content-wrapper {
+        padding-top: 80px;
+        min-width: responsive.$breakpoint-mobile;
+        flex-direction: column;
+
+        height: auto;
+        gap: 25px;
+      }
+    }
+  }
 }

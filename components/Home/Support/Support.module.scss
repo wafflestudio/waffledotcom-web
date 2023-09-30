@@ -1,5 +1,6 @@
 @use "./styles/font";
 @use "./styles/color";
+@use "./styles/responsive";
 
 .container {
   position: relative;
@@ -29,12 +30,13 @@
     align-items: center;
 
     .contact {
+      @include responsive.fontSize(12px, 18px, 24px);
       position: absolute;
       color: #fff1cf;
-      font-size: 24px;
       line-height: 30px;
       left: 80px;
       bottom: 80px;
+      z-index: 10;
 
       .instagram {
         display: flex;
@@ -48,8 +50,6 @@
       .mail {
         display: flex;
         gap: 44px;
-        .column {
-        }
         .label {
           display: inline-block;
           width: 160px;
@@ -61,7 +61,7 @@
     .sponsorship {
       @include font.pretendard;
       width: 100%;
-      height: 560px;
+      height: 50%;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -71,28 +71,30 @@
       top: 0;
 
       .description {
+        @include responsive.fontSize(14px, 18px, 24px);
         margin-bottom: 25px;
         text-align: center;
-        font-size: 24px;
         font-weight: 400;
         letter-spacing: 0.96px;
         color: #737373;
       }
       .title {
+        @include responsive.fontSize(26px, 38px, 50px);
         color: #323232;
-        font-size: 50px;
         font-style: normal;
         font-weight: 700;
         margin-bottom: 53px;
       }
       .sponsors {
         @include font.pretendard;
+        position: relative;
         display: flex;
         width: 50%;
         justify-content: space-between;
+        z-index: 10;
         .sponsor {
+          @include responsive.fontSize(14px, 21px, 32px);
           color: #323232;
-          font-size: 32px;
           font-weight: 600;
           line-height: 180%; /* 57.6px */
           letter-spacing: 1.28px;
@@ -109,23 +111,23 @@
           position: absolute;
         }
         .chair {
-          right: 1150px;
+          right: 850px;
           bottom: 35px;
           transform: translateX(300px);
           transition: 1s ease;
         }
         .desk {
-          right: 300px;
+          right: 0px;
           bottom: 35px;
         }
         .mouse {
-          right: 465px;
+          right: 165px;
           bottom: 75px;
           transform-origin: 50% 0;
           animation: 3s ease-in-out infinite alternate hang;
         }
         .light {
-          right: 363px;
+          right: 63px;
           bottom: 291px;
           animation: 4s ease-in-out infinite alternate blink;
         }
@@ -156,5 +158,91 @@
   }
   100% {
     transform: rotate(10deg);
+  }
+}
+
+@include responsive.desktop {
+  .onlyMobile {
+    display: none;
+  }
+}
+
+@include responsive.tabletAndMobile {
+  .container {
+    .background {
+      background-color: white;
+    }
+    .foreground {
+      .sponsorship {
+        position: relative;
+      }
+      .description {
+        font-weight: 500;
+        line-height: 150%; /* 30px */
+        margin-bottom: 37px;
+      }
+      .supportMobile {
+        margin-top: 7px;
+      }
+      .title {
+        margin-bottom: 10px !important;
+      }
+
+      .contact {
+        position: relative;
+        top: 0;
+        left: 0;
+        color: black !important;
+        .instagram,
+        .mail {
+          gap: 10px;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+
+        .column {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          line-height: normal;
+          gap: 11px;
+          .address {
+            color: #737373;
+          }
+          .row {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 170%; /* 20.4px */
+            color: #737373;
+          }
+        }
+        .mobileLabel {
+          @include responsive.fontSize(16px, 20px, 24px);
+          font-weight: 700;
+          letter-spacing: 0.8px;
+        }
+
+        .label {
+          text-align: center;
+          font-family: Pretendard;
+          font-weight: 400 !important;
+          line-height: normal;
+          letter-spacing: 0.6px;
+          color: #323232;
+        }
+      }
+    }
+    .images {
+      img {
+        width: 50% !important;
+        max-width: 300px;
+      }
+    }
+  }
+
+  .onlyDesktop {
+    display: none !important;
   }
 }

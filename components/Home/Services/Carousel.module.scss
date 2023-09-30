@@ -1,4 +1,5 @@
-@import "../../../styles/lib";
+@use "./styles/lib";
+@use "./styles/responsive";
 
 $carousel-length: 3;
 
@@ -7,7 +8,7 @@ $carousel-length: 3;
   // margin-top: calc(75px + px2vh(130px));
   display: flex;
   align-items: center;
-  gap: px2vw(75px);
+  gap: lib.px2vw(75px);
 
   > .carousel-button {
     padding: 0;
@@ -31,7 +32,7 @@ $carousel-length: 3;
         width: 528px;
         height: 582px;
         align-items: center;
-        gap: px2vw(54px);
+        gap: lib.px2vw(54px);
         > .left {
           > .service-icon {
             display: block;
@@ -66,6 +67,42 @@ $carousel-length: 3;
     }
     > .carousel-items-container.state-1 {
       transition: 1s;
+    }
+  }
+}
+
+@include responsive.mobile {
+  .carousel {
+    > .carousel-frame {
+      width: lib.px2width(231px, responsive.$breakpoint-mobile);
+      height: lib.px2width(260px, responsive.$breakpoint-mobile);
+      > .carousel-items-container {
+        gap: 20px;
+        > .carousel-item {
+          width: lib.px2width(231px, responsive.$breakpoint-mobile);
+          height: lib.px2width(260px, responsive.$breakpoint-mobile);
+          img {
+            width: 100% !important;
+          }
+        }
+      }
+
+      @for $i from 1 through $carousel-length {
+        > .carousel-items-container.state-#{$i} {
+          transform: translateX(
+            calc(
+              (20px + lib.px2width(231px, responsive.$breakpoint-mobile)) *
+                (1 - $i)
+            )
+          );
+        }
+      }
+      > .carousel-items-container.state-1 {
+        transition: 1s;
+      }
+      img {
+        height: 100% !important;
+      }
     }
   }
 }

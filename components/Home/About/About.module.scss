@@ -1,4 +1,6 @@
 @use "./styles/font";
+@use "./styles/lib";
+@use "./styles/responsive";
 
 .container {
   width: 100vw;
@@ -18,13 +20,14 @@
   .foreground {
     position: fixed;
     width: 100%;
-    min-width: 1300px;
+    min-width: responsive.$breakpoint-mobile;
     height: 100%;
     bottom: 0;
     left: 0;
     display: flex;
     align-items: center;
     justify-content: center;
+
     .content {
       @include font.pretendard;
       display: flex;
@@ -33,13 +36,14 @@
       color: #000000;
       .name {
         > h1 {
-          font-size: 82px;
+          @include responsive.fontSize(50px, 64px, 82px);
           font-weight: 800;
           line-height: 135%;
           letter-spacing: 0.22em;
         }
         > img {
           margin-top: 20px;
+          width: 110px;
         }
       }
       .description {
@@ -49,15 +53,15 @@
         gap: 70px;
         .question {
           > h3 {
+            @include responsive.fontSize(18px, 24px, 30px);
             font-weight: 700;
-            font-size: 30px;
             line-height: 36px;
             letter-spacing: 0.05em;
             margin-bottom: 40px;
           }
           > p {
+            @include responsive.fontSize(14px, 16px, 18px);
             font-weight: 400;
-            font-size: 18px;
             line-height: 34px;
             letter-spacing: 0.04em;
 
@@ -83,5 +87,49 @@
   }
   .content {
     color: #ffffff;
+  }
+}
+
+@include responsive.tabletAndMobile {
+  .container {
+    .foreground {
+      padding-top: 80px;
+      padding-bottom: 20px;
+      align-items: flex-start;
+      overflow-y: auto;
+      .content {
+        display: block;
+        .name {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          > h1 {
+            text-align: center;
+            font-weight: 800;
+            line-height: 130%; /* 65px */
+            letter-spacing: 11px;
+          }
+          > img {
+            margin-bottom: 40px;
+            width: 60px !important;
+          }
+        }
+        .description {
+          width: auto;
+          max-width: 720px;
+          padding: 0 28px;
+          .question {
+            > h3 {
+              text-align: center;
+            }
+            > p {
+              color: #584e4e;
+              line-height: 24px;
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
   }
 }

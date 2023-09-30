@@ -1,3 +1,5 @@
+@use "./styles/responsive";
+
 .ScrollNavigator {
   position: fixed;
   top: 0;
@@ -84,4 +86,10 @@
     }
   }
    */
+}
+
+@include responsive.mobile {
+  .ScrollNavigator {
+    display: none !important;
+  }
 }

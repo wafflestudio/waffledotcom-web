@@ -27,3 +27,15 @@ $breakpoint-desktop: 1300px;
     @content;
   }
 }
+
+@mixin fontSize($mobile, $tablet, $desktop) {
+  @include mobile {
+    font-size: $mobile;
+  }
+  @include tablet {
+    font-size: $tablet;
+  }
+  @include desktop {
+    font-size: $desktop;
+  }
+}
