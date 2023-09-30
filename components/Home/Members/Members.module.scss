@@ -1,6 +1,8 @@
-@use "./styles/font";
-@use "../../../styles/position";
-@import "../../../styles/lib";
+@use "styles/font";
+@use "styles/position";
+@use "styles/responsive";
+@import "styles/lib";
+
 
 .container {
   width: 100vw;
@@ -14,74 +16,228 @@
     @include font.pretendard;
   }
 
-  > .background {
+  .background {
     @include position.fixed-background;
-    background-color: #fff;
   }
-  > .foreground {
+
+  .foreground {
     @include position.fixed-foreground;
-    > .content-wrapper {
-      width: 1300px;
-      min-width: 1300px;
-      margin: 0 auto;
-      .description {
-        color: #737373;
-        font-size: 20px;
-      }
+    @include position.flex-center;
+  }
+}
 
-      > .title-wrapper {
-        display: flex;
-        gap: px2vw(22px);
-        margin-top: calc(75px + px2vh(135px));
-        > .title {
-          color: #323232;
-          font-size: 50px;
-          font-weight: bold;
-        }
-        > .description {
-          height: 33px;
-          padding-top: 27px;
-          line-height: 29px;
-          font-size: 24px;
-          letter-spacing: 0.04em;
-        }
-      }
 
-      > .grade {
-        margin-top: px2vh(56px);
-        > .grade-name {
-          font-size: 32px;
-          font-weight: bold;
-        }
-        > .positions {
-          display: flex;
-          gap: px2vw(49px);
-          > .position {
-            margin-top: px2vh(32px);
-            padding: 0 px2vw(10px);
-            display: flex;
-            align-items: center;
-            gap: px2vw(40px);
-            > .texts {
-              > .position-name {
-                font-size: 30px;
-                font-weight: bold;
-                letter-spacing: 0.04em;
-              }
-              .description {
-                line-height: 160%;
-                letter-spacing: 0.04em;
-              }
+@include responsive.desktop {
+  .without.desktop {
+    display: none;
+  }
 
-              > .descriptions {
-                padding-left: 30px;
-                list-style-type: disc;
-              }
-            }
-          }
-        }
-      }
+  .content {
+    @include position.flex(column, start, start);
+    width: 1300px;
+    font-size: 0.625rem;
+    gap: 4.8em;
+    margin-top: 75px;
+  }
+
+  .titleBar {
+    @include position.flex(row, baseline, start);
+    gap: 2.2em;
+    margin-bottom: 0.8em;
+  }
+
+  .title {
+    color: #323232;
+    font-size: 5em;
+    font-weight: 700;
+  }
+
+  .subTitle {
+    color: #737373;
+    font-size: 2.4em;
+    font-weight: 400;
+    letter-spacing: 0.096em;
+  }
+
+  .section {
+    @include position.flex(column, start, start);
+    gap: 3.2em;
+    width: 100%;
+  }
+
+  .sectionTitleText {
+    color: #000;
+    font-size: 3.2em;
+    font-weight: 700;
+  }
+
+  .memberTypeSet {
+    @include position.flex(row, start, space-between);
+    width: 100%;
+  }
+
+  .memberTypeImage {
+    width: 15em;
+    height: 15em;
+  }
+
+  .memberType {
+    @include position.flex(row, center, start);
+    height: 15.6em;
+    gap: 4em;
+  }
+
+  .memberTypeName {
+    color: #323232;
+    font-size: 3em;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.04em;
+    margin-bottom: 4px;
+  }
+
+  .memberTypeDefinition {
+    color: #737373;
+    font-size: 1.8em;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 160%;
+    letter-spacing: 0.04em;
+  }
+
+  .memberTypeDescription {
+    color: #737373;
+    font-size: 1.8em;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 160%;
+    letter-spacing: 0.04em;
+    list-style-type: disc;
+    padding-left: 1.3em;
+  }
+}
+
+@include responsive.tablet {
+  .content {
+    font-size: calc(0.625rem * 1.5)
+  }
+
+  .without.tablet {
+    display: none;
+  }
+}
+
+@include responsive.mobile {
+  .content {
+    font-size: 0.625rem;
+  }
+
+  .without.mobile {
+    display: none;
+  }
+}
+
+@include responsive.tabletAndMobile {
+  .content {
+    @include position.flex(column, center, start);
+    gap: 5.5em;
+    width: 100%;
+    overflow-y: scroll;
+    margin-top: 75px;
+  }
+
+  .titleBar {
+    @include position.flex(column, center, start);
+    gap: 0.8em;
+  }
+
+  .title {
+    color: #323232;
+    font-size: 2.6em;
+    font-weight: 700;
+  }
+
+  .subTitle {
+    color: #737373;
+    font-size: 1.6em;
+    font-weight: 400;
+    letter-spacing: 0.096em;
+  }
+
+  .section {
+    @include position.flex(column, center, start);
+    gap: 1.4em;
+  }
+
+  .sectionTitle {
+    @include position.flex(row, center, center);
+    gap: 0.35em;
+  }
+
+  .simpleWaffleIcon {
+    width: 0.7em;
+    height: 0.7em;
+    transform: rotate(45deg);
+  }
+
+  .sectionTitleText {
+    color: #F0745F;
+    font-size: 1.4em;
+    font-weight: 600;
+  }
+
+  .memberTypeSet {
+    @include position.flex(column, center, space-between);
+    width: 100%;
+    gap: 3em;
+  }
+
+  .memberType {
+    @include position.flex(column, center, start);
+    gap: 0.6em;
+  }
+
+  .memberTypeImage {
+    width: 4.7em;
+    height: 4.7em;
+  }
+
+  .memberTypeName {
+    color: #323232;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5em;
+  }
+
+  .memberTypeDefinition {
+    text-align: center;
+    color: #434343;
+    font-size: 1.4em;
+    font-weight: 600;
+    line-height: 170%;
+  }
+
+  .memberTypeDescription {
+    color: #737373;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: 400;
+    line-height: 170%;
+
+    li {
+      width: 100%;
     }
+  }
+
+  .memberTypeDescription > li:last-child::before {
+    content: "- "
+  }
+
+  .memberTypeDescription > li:last-child::after {
+    content: " -"
   }
 }
 
