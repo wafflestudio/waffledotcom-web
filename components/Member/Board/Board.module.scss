@@ -99,18 +99,18 @@
       &.top {
         top: 0;
         background: linear-gradient(
-            180deg,
-            rgba(138, 138, 138, 0.09) 0%,
-            rgba(255, 255, 255, 0) 77%
+          180deg,
+          rgba(138, 138, 138, 0.09) 0%,
+          rgba(255, 255, 255, 0) 77%
         );
       }
 
       &.bottom {
         bottom: 0;
         background: linear-gradient(
-            180deg,
-            rgba(255, 255, 255, 0) 23%,
-            rgba(138, 138, 138, 0.09) 100%
+          180deg,
+          rgba(255, 255, 255, 0) 23%,
+          rgba(138, 138, 138, 0.09) 100%
         );
       }
     }
@@ -153,8 +153,11 @@
       display: none;
     }
   }
-}
 
+  .memberCardWrapper {
+    flex: 1 0 45vw;
+  }
+}
 
 @include responsive.mobile {
   .container {
@@ -175,5 +178,9 @@
         }
       }
     }
+  }
+
+  .memberCardWrapper {
+    flex: 1 0 80vw;
   }
 }
