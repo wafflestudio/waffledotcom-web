@@ -76,7 +76,7 @@ export default function Activity() {
       if (targetRef.current && targetRef.current.clientWidth < 1300) {
         setSelectedId((prev) => (prev + 1) % activities.length);
       }
-    }, 2000);
+    }, 4000);
     return () => {
       clearInterval(interval);
     };
