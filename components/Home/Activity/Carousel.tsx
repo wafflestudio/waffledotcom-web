@@ -1,4 +1,5 @@
 import classNames from "classnames/bind";
+import { useCallback, useMemo } from "react";
 import styles from "./Carousel.module.scss";
 import { ActivityData } from "./ActivityData";
 
@@ -7,14 +8,30 @@ const cx = classNames.bind(styles);
 type CarouselProps = {
   activities: ActivityData[];
   selectedId: number;
+  setSelectedId: (_: number | ((_: number) => number)) => void;
 };
 
-export default function Carousel({ activities, selectedId }: CarouselProps) {
+export default function Carousel({
+  activities,
+  selectedId,
+  setSelectedId,
+}: CarouselProps) {
+  const carouselScrollHandler = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      const stride = window.innerWidth * 0.85;
+      setSelectedId(Math.round(e.currentTarget.scrollLeft / stride));
+    },
+    [],
+  );
+
   return (
     <>
       <div className={cx("carousel")}>
         <div className={cx("carouselFrame")}>
-          <div className={cx("carouselItemsContainer", `state-${selectedId}`)}>
+          <div
+            className={cx("carouselItemsContainer")}
+            onScroll={carouselScrollHandler}
+          >
             {activities.map((activity, id) => (
               <CarouselItem key={id} activity={activity} />
             ))}

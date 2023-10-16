@@ -21,17 +21,6 @@ export default function Activity() {
 
   const [selectedId, setSelectedId] = useState(0);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (targetRef.current && targetRef.current.clientWidth < 1300) {
-        setSelectedId((prev) => (prev + 1) % activities.length);
-      }
-    }, 4000);
-    return () => {
-      clearInterval(interval);
-    };
-  }, [targetRef]);
-
   return (
     <section
       className={cx("container", { off: state.currentSection !== "activity" })}
@@ -81,7 +70,11 @@ export default function Activity() {
 
             {/* mobile */}
             <div className={cx("carouselContainer")}>
-              <Carousel activities={activities} selectedId={selectedId} />
+              <Carousel
+                activities={activities}
+                selectedId={selectedId}
+                setSelectedId={setSelectedId}
+              />
             </div>
           </div>
         </div>

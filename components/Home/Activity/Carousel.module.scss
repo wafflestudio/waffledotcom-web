@@ -9,34 +9,34 @@ $carousel-length: 5;
     @include position.flex-center;
 
     .carouselFrame {
-      width: 80vw;
-      height: 45vh;
+      width: 100%;
       display: flex;
-      height: auto;
+
+      .carouselItemsContainer::-webkit-scrollbar {
+        display: none;
+      }
 
       .carouselItemsContainer {
         display: flex;
         gap: 5vw;
-        transition: 0.5s;
-
-        @for $i from 0 through ($carousel-length - 1) {
-          &.state-#{$i} {
-            transform: translateX(calc(85vw) * -$i);
-          }
-        }
-
-        &.state-0 {
-          transition: 1s;
-        }
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
 
         .carouselItem {
           display: flex;
           flex-direction: column;
           border-radius: 10px;
           width: 80vw;
-          // height: 45vh;
-          // box-shadow: 0px 4px 15px rgba(223, 214, 214, 0.25);
           box-shadow: 0px 4px 15px rgba(223, 214, 214, 0.5);
+          margin-bottom: 2.4em;
+          scroll-snap-align: center;
+
+          &:first-child {
+            margin-left: 10vw;
+          }
+          &:last-child {
+            margin-right: 10vw;
+          }
 
           .imageContainer {
             width: 80vw;
@@ -76,7 +76,6 @@ $carousel-length: 5;
   }
 
   .dots {
-    margin-top: 2.4em;
     @include position.flex-center(row);
     gap: 1em;
 
