@@ -5,59 +5,9 @@ import { useEffect, useState } from "react";
 import { useNavigatorScroll } from "../../common/Scroll/scroll";
 import styles from "./Activity.module.scss";
 import Carousel from "./Carousel";
+import activities from "./ActivityData";
 
 const cx = classNames.bind(styles);
-
-export type Activity = {
-  id: number;
-  head: string;
-  detailDescription: string;
-  image: string;
-  altImg?: string;
-};
-
-const activities: Activity[] = [
-  {
-    id: 0,
-    head: "프로젝트",
-    detailDescription:
-      "와플스튜디오의 핵심 활동으로, 개발자와 디자이너가 팀을 이루고 프로젝트를 진행합니다.",
-    image: "/static/images/activity/activity_img_sample.svg",
-    altImg: "Someone is programming a website with laptop",
-  },
-  {
-    id: 1,
-    head: "세미나 및 토이프로젝트",
-    detailDescription:
-      "신입 루키 회원들을 대상으로 각 분야의 세미나가 진행됩니다. 학기 말에는 여러 분야가 팀을 이뤄 토이프로젝트에 참여합니다.",
-    image: "/static/images/activity/seminar.jpg",
-    altImg: "Someone is programming a website with laptop",
-  },
-  {
-    id: 2,
-    head: "굽기",
-    detailDescription:
-      "와플스튜디오의 핵심 활동으로, 개발자와 디자이너가 팀을 이루고 프로젝트를 진행합니다.",
-    image: "/static/images/activity/bake.webp",
-    altImg: "Someone is programming a website with laptop",
-  },
-  {
-    id: 3,
-    head: "와커톤",
-    detailDescription:
-      "와플스튜디오의 핵심 활동으로, 개발자와 디자이너가 팀을 이루고 프로젝트를 진행합니다.",
-    image: "/static/images/activity/wackathon.webp",
-    altImg: "Someone is programming a website with laptop",
-  },
-  {
-    id: 4,
-    head: "MT",
-    detailDescription:
-      "와플스튜디오의 핵심 활동으로, 개발자와 디자이너가 팀을 이루고 프로젝트를 진행합니다.",
-    image: "/static/images/activity/mt.webp",
-    altImg: "Someone is programming a website with laptop",
-  },
-];
 
 export default function Activity() {
   const { state, targetRef } = useNavigatorScroll({
@@ -99,28 +49,28 @@ export default function Activity() {
             <div className={cx("imageContainer")}>
               <img
                 src={activities[selectedId].image}
-                alt={activities[selectedId].altImg}
+                alt={activities[selectedId].altText}
               />
             </div>
             <div className={cx("description")}>
-              {activities.map((activity) => (
+              {activities.map((activity, id) => (
                 <div
-                  key={activity.id}
+                  key={id}
                   className={cx("subTitle", {
-                    active: selectedId === activity.id,
+                    active: selectedId === id,
                   })}
                 >
                   <div
                     className={cx("head")}
                     onClick={() => {
-                      setSelectedId(activity.id);
+                      setSelectedId(id);
                     }}
                   >
                     {activity.head}
                   </div>
                   <div
                     className={cx("detailDescription", {
-                      visible: selectedId === activity.id,
+                      visible: selectedId === id,
                     })}
                   >
                     {activity.detailDescription}

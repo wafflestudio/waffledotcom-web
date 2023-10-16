@@ -8,13 +8,13 @@ $carousel-length: 5;
     position: relative;
     @include position.flex-center;
 
-    .carousel-frame {
+    .carouselFrame {
       width: 80vw;
       height: 45vh;
       display: flex;
       height: auto;
 
-      .carousel-items-container {
+      .carouselItemsContainer {
         display: flex;
         gap: 5vw;
         transition: 0.5s;
@@ -24,11 +24,12 @@ $carousel-length: 5;
             transform: translateX(calc(85vw) * -$i);
           }
         }
+
         &.state-0 {
           transition: 1s;
         }
 
-        .carousel-item {
+        .carouselItem {
           display: flex;
           flex-direction: column;
           border-radius: 10px;
@@ -39,6 +40,7 @@ $carousel-length: 5;
 
           .imageContainer {
             width: 80vw;
+
             > img {
               border-top-left-radius: 10px;
               border-top-right-radius: 10px;
@@ -48,15 +50,18 @@ $carousel-length: 5;
               object-fit: cover;
             }
           }
+
           .textContainer {
             padding: 2em;
             text-align: initial;
+
             .activityTitle {
               font-size: 1.8em;
               font-weight: bold;
               color: #353030;
               letter-spacing: 0.05em;
             }
+
             .activityDetail {
               margin-top: 0.6em;
               font-size: 1.4em;
@@ -69,22 +74,27 @@ $carousel-length: 5;
       }
     }
   }
+
   .dots {
     margin-top: 2.4em;
     @include position.flex-center(row);
     gap: 1em;
+
     .dot {
       width: 0.8em;
       height: 0.8em;
+
       > img {
         display: block;
         width: 100%;
         height: 100%;
       }
     }
+
     .rectangle {
       width: 2.5em;
       height: 0.8em;
+
       > img {
         display: block;
         width: 100%;

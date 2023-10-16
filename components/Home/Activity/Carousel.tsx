@@ -1,11 +1,11 @@
 import classNames from "classnames/bind";
 import styles from "./Carousel.module.scss";
-import { Activity } from "./Activity";
+import { ActivityData } from "./ActivityData";
 
 const cx = classNames.bind(styles);
 
 type CarouselProps = {
-  activities: Activity[];
+  activities: ActivityData[];
   selectedId: number;
 };
 
@@ -13,12 +13,10 @@ export default function Carousel({ activities, selectedId }: CarouselProps) {
   return (
     <>
       <div className={cx("carousel")}>
-        <div className={cx("carousel-frame")}>
-          <div
-            className={cx("carousel-items-container", `state-${selectedId}`)}
-          >
-            {activities.map((activity, _) => (
-              <CarouselItem key={_} activity={activity} />
+        <div className={cx("carouselFrame")}>
+          <div className={cx("carouselItemsContainer", `state-${selectedId}`)}>
+            {activities.map((activity, id) => (
+              <CarouselItem key={id} activity={activity} />
             ))}
           </div>
         </div>
@@ -42,14 +40,14 @@ export default function Carousel({ activities, selectedId }: CarouselProps) {
 }
 
 type CarouselItemProps = {
-  activity: Activity;
+  activity: ActivityData;
 };
 
 function CarouselItem({ activity }: CarouselItemProps) {
   return (
-    <div className={cx("carousel-item")}>
+    <div className={cx("carouselItem")}>
       <div className={cx("imageContainer")}>
-        <img src={activity.image} alt={activity.altImg} />
+        <img src={activity.image} alt={activity.altText} />
       </div>
       <div className={cx("textContainer")}>
         <h1 className={cx("activityTitle")}>{activity.head}</h1>
