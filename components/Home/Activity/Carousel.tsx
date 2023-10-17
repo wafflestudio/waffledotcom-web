@@ -39,18 +39,13 @@ export default function Carousel({
         </div>
       </div>
 
-      <ul className={cx("dots")}>
-        {[0, 1, 2, 3, 4].map((id) =>
-          id === selectedId ? (
-            <li key={id} className={cx("rectangle")}>
-              <img src="/static/images/activity/rectangle_orange.svg" alt="" />
-            </li>
-          ) : (
-            <li key={id} className={cx("dot")}>
-              <img src="/static/images/activity/dot_gray.svg" alt="" />
-            </li>
-          ),
-        )}
+      <ul className={cx("carouselIndicator")}>
+        {[0, 1, 2, 3, 4].map((id) => (
+          <div
+            key={id}
+            className={cx("dot", id === selectedId ? "selected" : "")}
+          />
+        ))}
       </ul>
     </>
   );

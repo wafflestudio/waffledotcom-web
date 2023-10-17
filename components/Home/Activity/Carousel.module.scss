@@ -75,30 +75,23 @@ $carousel-length: 5;
     }
   }
 
-  .dots {
+  .carouselIndicator {
     @include position.flex-center(row);
     gap: 1em;
 
     .dot {
       width: 0.8em;
       height: 0.8em;
-
-      > img {
-        display: block;
-        width: 100%;
-        height: 100%;
-      }
+      border-radius: 100%;
+      background-color: #e7e7e7;
+      transition: 0.2s;
     }
 
-    .rectangle {
+    .dot.selected {
       width: 2.5em;
       height: 0.8em;
-
-      > img {
-        display: block;
-        width: 100%;
-        height: 100%;
-      }
+      border-radius: 0.4em;
+      background-color: #f0745f;
     }
   }
 }
