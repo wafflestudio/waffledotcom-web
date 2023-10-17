@@ -22,30 +22,42 @@ $carousel-length: 5;
         overflow-x: scroll;
         scroll-snap-type: x mandatory;
 
+        // 처음과 마지막 캐러셀 콘텐츠의 가운데 정렬을 맞추기 위한 가상요소
+        &::before {
+          content: "";
+          min-width: 5vw;
+        }
+
+        &::after {
+          content: "";
+          min-width: 5vw;
+        }
+
         .carouselItem {
           display: flex;
           flex-direction: column;
           border-radius: 10px;
-          width: 80vw;
+          min-width: 80vw;
           box-shadow: 0px 4px 15px rgba(223, 214, 214, 0.5);
           margin-bottom: 2.4em;
           scroll-snap-align: center;
 
-          &:first-child {
-            margin-left: 10vw;
-          }
-          &:last-child {
-            margin-right: 10vw;
-          }
+          // Safari 에서는 제대로 작동하지 않아 위에서와 같이 가상요소로 대체
+          // &:first-child {
+          //   margin-left: 10vw;
+          // }
+          // &:last-child {
+          //   margin-right: 10vw;
+          // }
 
           .imageContainer {
-            width: 80vw;
+            width: 100%;
 
             > img {
               border-top-left-radius: 10px;
               border-top-right-radius: 10px;
               display: block;
-              width: 80vw;
+              width: 100%;
               height: 30vh;
               object-fit: cover;
             }
