@@ -8,55 +8,72 @@ $carousel-length: 5;
     position: relative;
     @include position.flex-center;
 
-    .carousel-frame {
-      width: 80vw;
-      height: 45vh;
+    .carouselFrame {
+      width: 100%;
       display: flex;
-      height: auto;
 
-      .carousel-items-container {
+      .carouselItemsContainer::-webkit-scrollbar {
+        display: none;
+      }
+
+      .carouselItemsContainer {
         display: flex;
         gap: 5vw;
-        transition: 0.5s;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
 
-        @for $i from 0 through ($carousel-length - 1) {
-          &.state-#{$i} {
-            transform: translateX(calc(85vw) * -$i);
-          }
-        }
-        &.state-0 {
-          transition: 1s;
+        // 처음과 마지막 캐러셀 콘텐츠의 가운데 정렬을 맞추기 위한 가상요소
+        &::before {
+          content: "";
+          min-width: 5vw;
         }
 
-        .carousel-item {
+        &::after {
+          content: "";
+          min-width: 5vw;
+        }
+
+        .carouselItem {
           display: flex;
           flex-direction: column;
           border-radius: 10px;
-          width: 80vw;
-          // height: 45vh;
-          // box-shadow: 0px 4px 15px rgba(223, 214, 214, 0.25);
+          min-width: 80vw;
           box-shadow: 0px 4px 15px rgba(223, 214, 214, 0.5);
+          margin-bottom: 2.4em;
+          scroll-snap-align: center;
+
+          // Safari 에서는 제대로 작동하지 않아 위에서와 같이 가상요소로 대체
+          // &:first-child {
+          //   margin-left: 10vw;
+          // }
+          // &:last-child {
+          //   margin-right: 10vw;
+          // }
 
           .imageContainer {
-            width: 80vw;
+            width: 100%;
+
             > img {
               border-top-left-radius: 10px;
               border-top-right-radius: 10px;
               display: block;
-              width: 80vw;
+              width: 100%;
               height: 30vh;
               object-fit: cover;
             }
           }
+
           .textContainer {
             padding: 2em;
             text-align: initial;
+
             .activityTitle {
               font-size: 1.8em;
               font-weight: bold;
               color: #353030;
               letter-spacing: 0.05em;
             }
+
             .activityDetail {
               margin-top: 0.6em;
               font-size: 1.4em;
@@ -69,27 +86,24 @@ $carousel-length: 5;
       }
     }
   }
-  .dots {
-    margin-top: 2.4em;
+
+  .carouselIndicator {
     @include position.flex-center(row);
     gap: 1em;
+
     .dot {
       width: 0.8em;
       height: 0.8em;
-      > img {
-        display: block;
-        width: 100%;
-        height: 100%;
-      }
+      border-radius: 100%;
+      background-color: #e7e7e7;
+      transition: 0.2s;
     }
-    .rectangle {
+
+    .dot.selected {
       width: 2.5em;
       height: 0.8em;
-      > img {
-        display: block;
-        width: 100%;
-        height: 100%;
-      }
+      border-radius: 0.4em;
+      background-color: #f0745f;
     }
   }
 }

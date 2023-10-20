@@ -9,6 +9,7 @@
   opacity: 1;
   transition: 0.5s ease;
   display: flex;
+
   &.off {
     opacity: 0;
     visibility: hidden;
@@ -32,6 +33,7 @@
           font-weight: 700;
           color: #323232;
         }
+
         span {
           color: #737373;
         }
@@ -44,6 +46,7 @@
   .container {
     .foreground {
       @include position.flex-center;
+
       .wrapper {
         width: 1280px;
         height: fit-content;
@@ -53,11 +56,13 @@
             font-size: 50px;
             margin-bottom: px2vh(22px);
           }
+
           span {
             font-size: 24px;
             letter-spacing: 0.04em;
           }
         }
+
         .imageArea {
           @include position.flex-center(row);
           margin-top: px2vh(62px);
@@ -67,8 +72,11 @@
           .imageContainer {
             height: 422px;
             flex: 6;
+            overflow: hidden;
             border-radius: 10px;
-            > img {
+            box-shadow: 2px 4px 15px 0px rgba(0, 0, 0, 0.15);
+
+            img {
               height: 100%;
               width: 100%;
             }
@@ -94,6 +102,7 @@
               color: #a4a4a4;
               overflow: hidden;
               cursor: pointer;
+
               &.active {
                 color: #000;
                 height: 140px;
@@ -112,6 +121,7 @@
                 font-size: 18px;
                 line-height: 160%;
                 color: #434343;
+
                 &.visible {
                   height: 90px;
                   overflow: visible;
@@ -141,6 +151,7 @@
   .container {
     .foreground {
       margin-top: 15vh;
+
       .wrapper {
         @include position.flex-center;
         width: 100%;
@@ -151,11 +162,13 @@
             font-size: 2.6em;
             margin-bottom: 0.8em;
           }
+
           span {
             font-size: 1.6em;
             line-height: 150%;
           }
         }
+
         .imageArea {
           width: 100%;
           @include position.flex-center;
@@ -167,6 +180,10 @@
 
           .description {
             display: none;
+          }
+
+          .carouselContainer {
+            width: 100%;
           }
         }
       }
