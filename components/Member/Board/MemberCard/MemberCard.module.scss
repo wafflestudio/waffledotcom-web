@@ -3,8 +3,11 @@
 
 .helper {
   position: fixed;
+  top: 0;
+  left: 0;
+  transform: translate(0, 0);
   z-index: 100;
-  display: flex;
+  display: none;
   flex-direction: row;
   align-items: center;
   height: 25px;
@@ -19,6 +22,7 @@
   background: var(--background-color);
   color: var(--text-color);
   opacity: 0;
+  cursor: default;
 }
 
 .container {
@@ -26,7 +30,7 @@
   @include position.flex(row, center, stretch);
   width: 100%;
   aspect-ratio: 412 / 152 !important;
-  border: 1px solid #C4C4C4;
+  border: 1px solid #c4c4c4;
   border-radius: 10px;
   padding: 4.6%;
   gap: 6.8%;
@@ -56,6 +60,7 @@
     }
 
     &:hover .helper {
+      display: flex;
       transition: opacity 0.3s;
       opacity: 1;
     }
@@ -99,6 +104,7 @@
         height: 23px;
 
         &:hover .helper {
+          display: flex;
           transition: opacity 0.3s;
           opacity: 1;
           --background-color: rgba(224, 224, 224, 0.9);

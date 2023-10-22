@@ -33,6 +33,7 @@ function MemberCard({
     roles.filter((role) => role === "운영팀").length > 0 ? 2 : 1;
   const [hoverTags, setHoverTags] = useState(false);
   const helper = useRef<HTMLDivElement | null>(null);
+  const container = useRef<HTMLDivElement | null>(null);
 
   function handleMouseEnterTags() {
     if (roles.length > positionShownCount) setHoverTags(true);
@@ -43,15 +44,17 @@ function MemberCard({
   }
 
   function handleMouseMoveHelper(e: React.MouseEvent<HTMLElement>) {
-    if (e.currentTarget.lastChild) {
+    if (e.currentTarget.lastChild && container.current) {
+      const rect = container.current.getBoundingClientRect();
       const helper = e.currentTarget.lastChild as HTMLElement;
-      helper.style.left = `${e.clientX}px`;
-      helper.style.top = `${e.clientY - 25}px`;
+      helper.style.transform = `translate(${e.clientX - rect.x + 10}px, ${
+        e.clientY - rect.y - 30
+      }px)`;
     }
   }
 
   return (
-    <div className={cx("container")}>
+    <div className={cx("container")} ref={container}>
       <div
         className={cx("profileImageAndBadge", isActive ? "active" : "inactive")}
         onMouseMove={handleMouseMoveHelper}
