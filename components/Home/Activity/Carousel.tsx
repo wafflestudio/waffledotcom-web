@@ -1,5 +1,5 @@
 import classNames from "classnames/bind";
-import { useCallback, useMemo } from "react";
+import { useCallback, useRef } from "react";
 import styles from "./Carousel.module.scss";
 import { ActivityData } from "./ActivityData";
 
@@ -16,13 +16,22 @@ export default function Carousel({
   selectedId,
   setSelectedId,
 }: CarouselProps) {
+  const carouselRef = useRef<HTMLDivElement>(null);
+
   const carouselScrollHandler = useCallback(
     (e: React.MouseEvent<HTMLDivElement>) => {
       const stride = window.innerWidth * 0.85;
       setSelectedId(Math.round(e.currentTarget.scrollLeft / stride));
     },
-    [],
+    [setSelectedId],
   );
+
+  const indicatorClickHandler = (id: number) => () => {
+    carouselRef.current?.scrollTo({
+      left: (id * carouselRef.current.scrollWidth) / activities.length,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <>
@@ -31,6 +40,7 @@ export default function Carousel({
           <div
             className={cx("carouselItemsContainer")}
             onScroll={carouselScrollHandler}
+            ref={carouselRef}
           >
             {activities.map((activity, id) => (
               <CarouselItem key={id} activity={activity} />
@@ -40,10 +50,11 @@ export default function Carousel({
       </div>
 
       <ul className={cx("carouselIndicator")}>
-        {[0, 1, 2, 3, 4].map((id) => (
+        {activities.map((activity, id) => (
           <div
             key={id}
             className={cx("dot", id === selectedId ? "selected" : "")}
+            onClick={indicatorClickHandler(id)}
           />
         ))}
       </ul>
