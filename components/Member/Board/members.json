@@ -49,7 +49,6 @@
   {"name": "여건주", "introduction": "와플 내 최강 열혈 디자이너가 목표입니다", "instagram": "_yeo_yeo", "facebook": "", "web": "https://jemma0262.wixsite.com/design", "roles": ["디자이너"], "githubUrl": "https://github.com/jemma112", "generation": "19", "isActive": true},
   {"name": "오혜신", "introduction": "초보 디자이너 입니당", "instagram": "julieeeeoh", "facebook": "", "web": "", "roles": ["디자이너"], "githubUrl": "https://github.com/julieeeeoh", "generation": null, "isActive": false},
   {"name": "유남규", "introduction": "일로(와)(플)젝 가치하자", "instagram": "namq.r", "facebook": "", "web": "", "roles": ["백엔드"], "githubUrl": "https://github.com/noaarhk", "generation": "18.5", "isActive": false},
-  {"name": "유준열", "introduction": "PM 겸 CTO를 꿈꾸는 욕심쟁이", "instagram": "", "facebook": "", "web": "", "roles": ["프론트엔드", "안드로이드", "iOS"], "githubUrl": "https://github.com/gajagajago", "generation": "19", "isActive": false},
   {"name": "윤규석", "introduction": "안녕하세요. 컴공 16학번 윤규석입니다.", "instagram": "", "facebook": "", "web": "", "roles": ["프론트엔드"], "githubUrl": "https://github.com/yks1502", "generation": "15", "isActive": true},
   {"name": "이나경", "introduction": "", "instagram": "", "facebook": "", "web": "", "roles": ["디자이너"], "githubUrl": "https://github.com/linak0", "generation": "19", "isActive": true},
   {"name": "이동현", "introduction": "", "instagram": "", "facebook": "", "web": "", "roles": ["백엔드", "프론트엔드", "안드로이드", "iOS"], "githubUrl": "https://github.com/donghyunlee00", "generation": null, "isActive": true},
