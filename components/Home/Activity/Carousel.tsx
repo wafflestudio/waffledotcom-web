@@ -20,11 +20,36 @@ export default function Carousel({
 
   const carouselScrollHandler = useCallback(
     (e: React.MouseEvent<HTMLDivElement>) => {
+      console.log(e.type);
       const stride = window.innerWidth * 0.85;
       setSelectedId(Math.round(e.currentTarget.scrollLeft / stride));
     },
     [setSelectedId],
   );
+
+  const carouselMouseDownHandler = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.currentTarget.style.cursor = "grabbing";
+    e.currentTarget.style.scrollSnapType = "none";
+  };
+
+  const carouselMouseMoveHandler = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (e.currentTarget.style.cursor === "grabbing") {
+      e.currentTarget.scrollLeft -= e.movementX;
+    }
+  };
+
+  const carouselMouseUpHandler = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.currentTarget.style.cursor = "grab";
+    const stride = window.innerWidth * 0.85;
+    e.currentTarget.scrollTo({
+      left: selectedId * stride,
+      behavior: "smooth",
+    });
+    const target = e.currentTarget;
+    setTimeout(() => {
+      target.style.scrollSnapType = "x mandatory";
+    }, 400);
+  };
 
   const indicatorClickHandler = (id: number) => () => {
     carouselRef.current?.scrollTo({
@@ -40,7 +65,11 @@ export default function Carousel({
           <div
             className={cx("carouselItemsContainer")}
             onScroll={carouselScrollHandler}
+            onMouseDown={carouselMouseDownHandler}
+            onMouseMove={carouselMouseMoveHandler}
+            onMouseUp={carouselMouseUpHandler}
             ref={carouselRef}
+            draggable={false}
           >
             {activities.map((activity, id) => (
               <CarouselItem key={id} activity={activity} />
@@ -70,7 +99,7 @@ function CarouselItem({ activity }: CarouselItemProps) {
   return (
     <div className={cx("carouselItem")}>
       <div className={cx("imageContainer")}>
-        <img src={activity.image} alt={activity.altText} />
+        <img src={activity.image} alt={activity.altText} draggable={false} />
       </div>
       <div className={cx("textContainer")}>
         <h1 className={cx("activityTitle")}>{activity.head}</h1>
