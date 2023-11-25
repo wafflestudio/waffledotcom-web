@@ -17,6 +17,7 @@ export default function Carousel({
   setSelectedId,
 }: CarouselProps) {
   const carouselRef = useRef<HTMLDivElement>(null);
+  const scrollSnapTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const carouselScrollHandler = useCallback(
     (e: React.MouseEvent<HTMLDivElement>) => {
@@ -30,6 +31,9 @@ export default function Carousel({
   const carouselMouseDownHandler = (e: React.MouseEvent<HTMLDivElement>) => {
     e.currentTarget.style.cursor = "grabbing";
     e.currentTarget.style.scrollSnapType = "none";
+    if (scrollSnapTimeoutRef.current) {
+      clearTimeout(scrollSnapTimeoutRef.current);
+    }
   };
 
   const carouselMouseMoveHandler = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -46,7 +50,7 @@ export default function Carousel({
       behavior: "smooth",
     });
     const target = e.currentTarget;
-    setTimeout(() => {
+    scrollSnapTimeoutRef.current = setTimeout(() => {
       target.style.scrollSnapType = "x mandatory";
     }, 400);
   };
