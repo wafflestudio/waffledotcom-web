@@ -21,6 +21,7 @@ $carousel-length: 5;
         gap: 5vw;
         overflow-x: scroll;
         scroll-snap-type: x mandatory;
+        cursor: grab;
 
         // 처음과 마지막 캐러셀 콘텐츠의 가운데 정렬을 맞추기 위한 가상요소
         &::before {
@@ -94,7 +95,7 @@ $carousel-length: 5;
     .dot {
       width: 0.8em;
       height: 0.8em;
-      border-radius: 100%;
+      border-radius: 0.4em;
       background-color: #e7e7e7;
       transition: 0.2s;
     }
