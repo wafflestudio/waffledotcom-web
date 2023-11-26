@@ -34,7 +34,7 @@ export default function Main() {
       <div className={cx("buttonWrapper")}>
         <a
           onClick={() => useServiceScroll.scrollTo("snutt")}
-          className={cx("button")}
+          className={cx("button", "bounce")}
         >
           <img
             src={"/static/images/deprecated/home_main_button.png"}
