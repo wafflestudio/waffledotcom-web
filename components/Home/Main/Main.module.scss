@@ -87,3 +87,25 @@ $header-height: 75px;
   opacity: 0;
   visibility: hidden;
 }
+
+.bounce {
+  animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  15% {
+    transform: translateY(-10px);
+  }
+  30% {
+    transform: translateY(0);
+  }
+  45% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(0px);
+  }
+}

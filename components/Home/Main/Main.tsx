@@ -35,7 +35,7 @@ export default function Main() {
       <div className={cx("buttonWrapper")}>
         <a
           onClick={() => useNavigatorScroll.scrollTo("about")}
-          className={cx("button")}
+          className={cx("button", "bounce")}
         >
           <img
             src={"/static/images/deprecated/home_main_button.png"}
