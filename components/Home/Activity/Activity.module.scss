@@ -76,7 +76,8 @@
             border-radius: 10px;
             box-shadow: 2px 4px 15px 0px rgba(0, 0, 0, 0.15);
 
-            img {
+            img,
+            object {
               height: 100%;
               width: 100%;
               object-fit: contain;

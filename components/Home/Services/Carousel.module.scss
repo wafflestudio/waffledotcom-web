@@ -81,7 +81,8 @@ $carousel-length: 3;
         > .carousel-item {
           width: lib.px2width(231px, responsive.$breakpoint-mobile);
           height: lib.px2width(260px, responsive.$breakpoint-mobile);
-          img {
+          img,
+          object {
             width: 100% !important;
           }
         }
@@ -100,7 +101,8 @@ $carousel-length: 3;
       > .carousel-items-container.state-1 {
         transition: 1s;
       }
-      img {
+      img,
+      object {
         height: 100% !important;
       }
     }

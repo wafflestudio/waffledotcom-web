@@ -54,7 +54,8 @@ $carousel-length: 5;
           .imageContainer {
             width: 100%;
 
-            > img {
+            img,
+            object {
               border-top-left-radius: 10px;
               border-top-right-radius: 10px;
               display: block;

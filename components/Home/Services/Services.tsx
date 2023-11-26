@@ -2,7 +2,7 @@
 
 import classNames from "classnames/bind";
 import { useCallback, useEffect, useState } from "react";
-import Image from "next/image";
+import Image from "../../common/Image";
 import { useNavigatorScroll } from "../../common/Scroll/scroll";
 import WaffleLink from "../../common/WaffleLink";
 import Carousel from "./Carousel";
