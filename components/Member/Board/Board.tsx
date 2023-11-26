@@ -112,7 +112,7 @@ function Board() {
         <div className={cx("description")}>
           <span>현재까지</span>
           <span className={cx("numberOfMembers")}>
-            <CountingNumber targetNum={members.length} />
+            <CountingNumber targetNum={327} />
           </span>
           <span>명이 와플스튜디오에 함께했습니다.</span>
         </div>
