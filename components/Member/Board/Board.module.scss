@@ -126,7 +126,7 @@
 }
 
 .memberCardWrapper {
-  flex: 1 0 350px;
+  width: calc((100% - 40px) / 3);
 }
 
 @include responsive.tabletAndMobile {
@@ -144,7 +144,6 @@
 
         .cardContainer {
           width: 100%;
-          justify-content: center;
         }
       }
     }
@@ -155,7 +154,7 @@
   }
 
   .memberCardWrapper {
-    flex: 1 0 45vw;
+    width: calc((100% - 20px) / 2);
   }
 }
 
