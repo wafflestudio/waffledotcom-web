@@ -54,11 +54,7 @@ function Snutt() {
         <IntroductionHead
           logo={"/static/images/logo/snutt_logo.svg"}
           title={"SNUTT"}
-          des={[
-            "SNUTT는 서울대학교 시간표 어플입니다.",
-            "SNUTT는 서울대학교 대표 시간표 어플입니다.",
-            "SNUTT는 서울대학교 시간표 어플입니다.",
-          ]}
+          des={["SNUTT는 서울대학교 대표 시간표 어플입니다."]}
           textColor="black"
           links={[
             "https://apps.apple.com/kr/app/snutt-%EC%84%9C%EC%9A%B8%EB%8C%80%ED%95%99%EA%B5%90-%EC%8B%9C%EA%B0%84%ED%91%9C-%EC%95%B1/id1215668309",

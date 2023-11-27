@@ -22,7 +22,8 @@
     justify-content: space-between;
   }
   .logo {
-    > img {
+    img,
+    object {
       height: 1.5em;
     }
   }

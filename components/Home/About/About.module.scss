@@ -41,7 +41,8 @@
           line-height: 135%;
           letter-spacing: 0.22em;
         }
-        > img {
+        img,
+        object {
           margin-top: 20px;
           width: 110px;
         }
@@ -109,7 +110,8 @@
             line-height: 130%; /* 65px */
             letter-spacing: 11px;
           }
-          > img {
+          img,
+          object {
             margin-bottom: 40px;
             width: 60px !important;
           }

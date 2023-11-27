@@ -1,5 +1,5 @@
 import classNames from "classnames/bind";
-import Image from "next/image";
+import Image from "../../common/Image";
 import { TCarouselItemData } from "./Services";
 import styles from "./Carousel.module.scss";
 
