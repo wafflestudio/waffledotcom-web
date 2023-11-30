@@ -2,6 +2,9 @@ import NextImage, { ImageProps } from "next/image";
 import { ComponentProps } from "react";
 
 export default function Image(props: ImageProps) {
+  if (typeof props.src === "string" && !props.src.startsWith("/")) {
+    props.src = "/" + props.src;
+  }
   if (typeof props.src === "string" && props.src.endsWith(".svg")) {
     const objectProps: ComponentProps<"object"> = {
       className: props.className,
