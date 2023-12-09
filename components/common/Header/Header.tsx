@@ -24,7 +24,7 @@ export default function Header() {
     <header className={cx("header")}>
       <nav className={cx("content")}>
         {/*TODO: 개발/배포 주소 환경변수로 뺄까? */}
-        <a className={cx("logo")} href="https://dev.wafflestudio.com/">
+        <a className={cx("logo")} href="/">
           <img
             src="/static/images/logo/waffle_logo_title.png"
             alt="Wafflestudio logo image"
