@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     description: "맛있는 서비스가 탄생하는 곳 와플스튜디오",
     images: [
       {
-        url: `${baseUrl}/wafflestudio_text_logo.png`,
+        url: `${baseUrl}/opengraph_image.png`,
         alt: "WaffleStudio",
       },
     ],
