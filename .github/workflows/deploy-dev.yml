@@ -26,7 +26,7 @@ jobs:
         run: yarn
 
       - name: Build
-        run: yarn build
+        run: yarn build:dev
 
       - name: Upload to S3
         uses: jakejarvis/s3-sync-action@master

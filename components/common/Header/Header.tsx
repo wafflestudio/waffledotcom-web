@@ -23,7 +23,6 @@ export default function Header() {
   return (
     <header className={cx("header")}>
       <nav className={cx("content")}>
-        {/*TODO: 개발/배포 주소 환경변수로 뺄까? */}
         <a className={cx("logo")} href="/">
           <img
             src="/static/images/logo/waffle_logo_title.png"
@@ -31,7 +30,6 @@ export default function Header() {
           />
         </a>
         <ul className={cx("tabNavigator")}>
-          {/*TODO: 라우팅 확정되면 newHome 바꾸기 */}
           {tabs.map(({ name, pathname }) => (
             <li
               key={pathname}
