@@ -83,5 +83,10 @@
   {"name": "이선재", "introduction": "23-24 와장 / 컴공&생명과학 / 20학번 / SWING에 근무중인 앱등이 iOS 개발자입니다.", "roles": ["운영팀", "프론트엔드"], "githubUrl": "https://github.com/snjlee58", "generation": "20.5", "isActive": true},
   {"name": "양주현", "introduction": "스누티티 안드로이드 개발과 21.5기 루키 안드로이드 세미나장을 맡고 있습니다.", "roles": ["운영팀", "안드로이드"], "githubUrl": "https://github.com/JuTaK97", "generation": "19.5", "isActive": true},
   {"name": "임찬솔", "introduction": "컴퓨터공학부 홈페이지 리뉴얼 프로젝트인 시리얼에서 프론트엔드 개발과 pm을 맡고 있습니다.", "roles": ["운영팀", "프론트엔드"], "githubUrl": "https://github.com/Limchansol", "generation": "20.5", "isActive": true},
-  {"name": "강준서", "introduction": "농업 스타트업 새팜에서 PM과 개발을 맡고 있습니다 🪴 최강농부 🪴", "roles": ["운영팀", "백엔드"], "githubUrl": null, "generation": "21", "isActive": true}
+  {"name": "강준서", "introduction": "농업 스타트업 새팜에서 PM과 개발을 맡고 있습니다 🪴 최강농부 🪴", "roles": ["운영팀", "백엔드"], "githubUrl": null, "generation": "21", "isActive": true},
+  {"name": "송형석", "introduction": "", "roles": ["프론트엔드"], "githubUrl": "https://github.com/iihyungsuk", "generation": "20.5", "isActive": true},
+  {"name": "안중원", "introduction": "개발은 취미지만 왜인지 세미나를 하고 있습니다", "roles": ["프론트엔드"], "githubUrl": "https://github.com/joongwon", "generation": "19.5", "isActive": true},
+  {"name": "유채원", "introduction": "", "roles": ["디자이너"], "githubUrl": "https://github.com/coco-ball", "generation": "20.5", "isActive": true},
+  {"name": "김용재", "introduction": "", "roles": ["디자이너"], "generation": "21", "isActive": true},
+  {"name": "김승진", "introduction": "진화해서 돌아올게요", "githubUrl": "https://github.com/hitkoo", "roles": ["프론트엔드"], "generation": "20.5", "isActive": true}
 ]

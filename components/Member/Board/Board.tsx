@@ -1,7 +1,7 @@
 "use client";
 
 import classNames from "classnames/bind";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import styles from "./Board.module.scss";
 import { CheckBoxFilter, SelectFilter, ToggleFilter } from "./Filter/Filter";
 import MemberCard, { MemberType } from "./MemberCard/MemberCard";
@@ -18,17 +18,20 @@ function numberWithCommas(x: number): string {
 function CountingNumber({ targetNum }: { targetNum: number }) {
   // targetNum이 n자리 수면 10^n 부터 시작
   const [num, setNum] = useState(10 ** Math.floor(Math.log10(targetNum)));
-  if (num < targetNum) {
-    const incrementRate = 10; // 숫자 올라가는 속도 결정 (작을수록 빨리 올라감)
-    const interval = 20; // 숫자 올라가는 frequency 결정 (클수록 빨리 변함)
-    setTimeout(() => {
-      setNum((prev: number) => prev + (targetNum - prev) / incrementRate);
-    }, interval);
-  }
+  useEffect(() => {
+    if (num < targetNum) {
+      const incrementRate = 10; // 숫자 올라가는 속도 결정 (작을수록 빨리 올라감)
+      const interval = 20; // 숫자 올라가는 frequency 결정 (클수록 빨리 변함)
+      setTimeout(() => {
+        setNum((prev: number) => prev + (targetNum - prev) / incrementRate);
+      }, interval);
+    }
+  }, [targetNum, num]);
   return <span>{numberWithCommas(Math.ceil(num))}</span>;
 }
 
 function Board() {
+  console.log(members);
   const roles = [
     "운영팀",
     "디자이너",
