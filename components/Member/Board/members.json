@@ -1,7 +1,7 @@
 [
   {"name": "김지호", "introduction": "김지호입니다.", "instagram": "", "facebook": "", "web": "", "roles": ["iOS"], "githubUrl": "https://github.com/hanan-nana", "generation": "20", "isActive": true},
   {"name": "고영현", "introduction": "통계와 컴퓨터를 공부합니다. 데이터 사이언티스트와 개발자 사이를 방황하는 중입니다.", "instagram": "adv_English", "facebook": "yeong.hyeon.Ko95", "web": "https://yeonghyeonko.github.io", "roles": ["백엔드", "모바일"], "githubUrl": "https://github.com/yeonghyeonKO", "generation": "18.5", "isActive": true},
-  {"name": "박준영", "introduction": "", "instagram": "", "facebook": "", "web": "", "roles": ["프론트엔드"], "githubUrl": "https://github.com/designDefined", "generation": "19.5", "isActive": true},
+  {"name": "박준영", "introduction": "순수 재미를 추구하는 프론트엔드 개발자(가끔 디자인도 함)", "instagram": "design_defined.by", "facebook": "", "web": "", "roles": ["프론트엔드"], "githubUrl": "https://github.com/designDefined", "generation": "19.5", "isActive": true},
   {"name": "박신홍", "introduction": "", "instagram": "", "facebook": "", "web": "", "roles": ["iOS"], "githubUrl": "https://github.com/shp7724", "generation": "19.5", "isActive": true},
   {"name": "안민규", "introduction": "", "instagram": "", "facebook": "", "web": "", "roles": ["프론트엔드"], "githubUrl": "https://github.com/mgahn0706", "generation": "19.5", "isActive": true},
   {"name": "이민규", "introduction": "건설환경공학부 이민규입니다.", "instagram": "_min_kyu", "facebook": "", "web": "", "roles": ["백엔드", "프론트엔드"], "githubUrl": "https://github.com/minkyu97", "generation": "19.5", "isActive": true},
