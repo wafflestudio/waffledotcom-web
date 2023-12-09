@@ -21,7 +21,7 @@ export default function Members() {
   const waffleIcon = (
     <Image
       className={cx("simpleWaffleIcon", "without", "desktop")}
-      src="static/images/home/simple_waffle_icon.svg"
+      src="/static/images/home/simple_waffle_icon.svg"
       alt=""
       width={12}
       height={12}
