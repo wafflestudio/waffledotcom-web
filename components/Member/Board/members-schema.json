@@ -1,0 +1,44 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "멤버 데이터 스키마",
+    "description": "멤버 데이터를 정의하기 위한 임시 스키마",
+    "type": "array",
+    "items": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "introduction": {
+          "type": "string"
+        },
+        "instagram": {
+          "type": "string"
+        },
+        "facebook": {
+          "type": "string"
+        },
+        "web": {
+          "type": "string"
+        },
+        "roles": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["운영팀", "프론트엔드", "백엔드", "디자인", "안드로이드", "iOS"]
+          }
+        },
+        "githubUrl": {
+          "type": ["string", "null"]
+        },
+        "generation": {
+          "type": "string",
+          "pattern": "\\d{1,2}(\\.5)"
+        },
+        "isActive": {
+          "type": "boolean"
+        }
+      },
+      "required": ["name", "introduction", "roles", "isActive"]
+    }
+  }

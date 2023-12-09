@@ -1,0 +1,10 @@
+{
+    "json.schemas": [
+        {
+            "fileMatch": [
+                "components/Member/Board/members.json"
+            ],
+            "url": "components/Member/Board/members-schema.json"
+        }
+    ]
+}
