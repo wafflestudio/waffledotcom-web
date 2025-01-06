@@ -68,7 +68,7 @@
       align-items: center;
       background-color: white;
       position: absolute;
-      top: 0;
+      top: 16px; // 맥북 화면에서 상단 텍스트 잘림
 
       .description {
         @include responsive.fontSize(14px, 18px, 24px);
@@ -89,11 +89,12 @@
         @include font.pretendard;
         position: relative;
         display: flex;
-        width: 50%;
+        width: 80%;
         justify-content: space-between;
+        padding-bottom: 8px;
         z-index: 10;
         .sponsor {
-          @include responsive.fontSize(14px, 21px, 32px);
+          @include responsive.fontSize(14px, 21px, 28px);
           color: #323232;
           font-weight: 600;
           line-height: 180%; /* 57.6px */
@@ -176,6 +177,7 @@
     .foreground {
       .sponsorship {
         position: relative;
+        top: 0; // 맥북 화면에서 상단 텍스트 잘림
       }
       .description {
         font-weight: 500;
