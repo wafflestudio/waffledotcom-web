@@ -33,10 +33,20 @@ export default function Support() {
           />
           <div className={styles.title}>Thanks to</div>
           <div className={styles.sponsors}>
+            <div className={styles.sponsor}>한재화</div>
+            <div className={styles.sponsor}>김택민</div>
+            <div className={styles.sponsor}>김지환</div>
             <div className={styles.sponsor}>김진억</div>
             <div className={styles.sponsor}>박면규</div>
-            <div className={styles.sponsor}>한재화</div>
             <div className={styles.sponsor}>이승찬</div>
+          </div>
+
+          <div className={`${styles.sponsors} ${styles.around}`}>
+            <div className={styles.sponsor}>김지호</div>
+            <div className={styles.sponsor}>이인용</div>
+            <div className={styles.sponsor}>김정은</div>
+            <div className={styles.sponsor}>김광래</div>
+            <div className={styles.sponsor}>이종민</div>
           </div>
         </div>
         <div className={styles.bottom}>
@@ -85,7 +95,7 @@ export default function Support() {
                 </div>
                 <div className={styles.row}>
                   <span className={cx("label")}>와플 동아리장</span>
-                  snjlee58@snu.ac.kr
+                  eastshine@snu.ac.kr
                 </div>
               </div>
             </div>
