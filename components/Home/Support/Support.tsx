@@ -42,7 +42,7 @@ export default function Support() {
             <div className={styles.sponsor}>이승찬</div>
           </div>
 
-          <div className={`${styles.sponsors} ${styles.around}`}>
+          <div className={`${styles.sponsors}`}>
             <div className={styles.sponsor}>김지호</div>
             <div className={styles.sponsor}>이인용</div>
             <div className={styles.sponsor}>김정은</div>
