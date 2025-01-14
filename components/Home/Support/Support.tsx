@@ -36,6 +36,7 @@ export default function Support() {
             <div className={styles.sponsor}>한재화</div>
             <div className={styles.sponsor}>김택민</div>
             <div className={styles.sponsor}>김지환</div>
+            <div className={styles.sponsor}>이성원</div>
             <div className={styles.sponsor}>김진억</div>
             <div className={styles.sponsor}>박면규</div>
             <div className={styles.sponsor}>이승찬</div>
@@ -47,6 +48,8 @@ export default function Support() {
             <div className={styles.sponsor}>김정은</div>
             <div className={styles.sponsor}>김광래</div>
             <div className={styles.sponsor}>이종민</div>
+            <div className={styles.sponsor}>이익제</div>
+            <div className={styles.sponsor}>황호성</div>
           </div>
         </div>
         <div className={styles.bottom}>
