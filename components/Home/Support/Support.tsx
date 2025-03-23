@@ -38,18 +38,22 @@ export default function Support() {
             <div className={styles.sponsor}>김지환</div>
             <div className={styles.sponsor}>이성원</div>
             <div className={styles.sponsor}>김진억</div>
-            <div className={styles.sponsor}>박면규</div>
-            <div className={styles.sponsor}>이승찬</div>
           </div>
 
           <div className={`${styles.sponsors}`}>
+            <div className={styles.sponsor}>박면규</div>
+            <div className={styles.sponsor}>이승찬</div>
             <div className={styles.sponsor}>김지호</div>
             <div className={styles.sponsor}>이인용</div>
             <div className={styles.sponsor}>김정은</div>
+          </div>
+
+          <div className={`${styles.sponsors}`}>
             <div className={styles.sponsor}>김광래</div>
             <div className={styles.sponsor}>이종민</div>
             <div className={styles.sponsor}>이익제</div>
             <div className={styles.sponsor}>황호성</div>
+            <div className={styles.sponsor}>변다빈</div>
           </div>
         </div>
         <div className={styles.bottom}>
