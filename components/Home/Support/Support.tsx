@@ -100,10 +100,6 @@ export default function Support() {
                   <span className={cx("label")}>리크루팅 지원</span>
                   recruit@wafflestudio.com
                 </div>
-                <div className={styles.row}>
-                  <span className={cx("label")}>와플 동아리장</span>
-                  eastshine@snu.ac.kr
-                </div>
               </div>
             </div>
           </div>
