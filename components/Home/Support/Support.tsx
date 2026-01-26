@@ -55,6 +55,12 @@ export default function Support() {
             <div className={styles.sponsor}>황호성</div>
             <div className={styles.sponsor}>변다빈</div>
           </div>
+
+          <div className={`${styles.sponsors}`}>
+            <div className={styles.sponsor}>최한결</div>
+            <div className={styles.sponsor}>박신홍</div>
+            <div className={styles.sponsor}>박준영</div>
+          </div>
         </div>
         <div className={styles.bottom}>
           <div className={cx("contact")}>
